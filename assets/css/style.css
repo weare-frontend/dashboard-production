@@ -2528,7 +2528,7 @@ pre {
 .greenlight-theme body.sidemenu-open,
 .greenlight-theme .bg-template {
     /* border-radius: 50%; */
-    /* background: #259690; */
+    background: #259690;
     background: -moz-linear-gradient(top, #259690 0%, #259690 100%);
     background: -webkit-gradient(left top, left right, color-stop(0%, #259690), color-stop(100%, #259690));
     background: -webkit-linear-gradient(top, #259690 0%, #259690 100%);
@@ -2539,6 +2539,15 @@ pre {
     background-attachment: fixed;
     background-position: center top;
     background-size: 100% 100%;
+}
+
+.greenlight-theme-bg,
+.greenlight-theme body,
+.greenlight-theme body.sidemenu-open,
+.greenlight-theme .bg-template-gradaint {
+    /* border-radius: 50%; */
+    /* background: #259690; */
+    background: linear-gradient(to right, rgb(179 179 180 / 22%) 0%, rgb(0 0 0 / 67%) 100%);
 }
 
 .greenlight-theme .dot {

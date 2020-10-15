@@ -8,38 +8,51 @@
         centered
         content-class="rounded"
         header-class="shadow"
+        footer-class="shadow"
         no-close-on-backdrop
-        body-class="bg-infos"
-        hide-footer
+        body-class="bg-dark"
       >
         <template v-slot:modal-header="{ close }">
-          <p class="text-center w-100 text-template">โอนเครดิตฟรีเข้าเกม</p>
-          <i
-            class="f7-icons text-danger"
+          <h5 class="text-center w-100 text-dark">โอนเครดิตฟรีเข้าเกม</h5>
+          <i class="f7-icons text-danger"
             @click="$bvModal.hide('modal-exchange')"
             style="float:right;"
           >multiply</i>
         </template>
-        <template v-slot:modal-footer="{ cancel }"></template>
+        <template v-slot:modal-footer="{ cancel }">
+          <div class="row justify-content-center">
+          <div class="col-6">
+            <button
+              type="button"
+              @click="$refs['modal-download'].show()"
+              class="btn btn-block py-0 px-4 btn-outline-secondary bg-black text-template"
+            >ยืนยัน</button>
+          </div>
+          <div class="col-6">
+            <button
+              type="button"
+              class="btn text-white py-0 px-4 bg-template-gradaint"
+              @click="$bvModal.hide('modal-exchange')"
+            >ยกเลิก</button>
+          </div>
+        </div>
+        </template>
         <div class="row mt-3 justify-content-center" v-if="$route.name != 'dashboard-withdraw'">
           <div class="col-4 text-center mb-1">
-            <h6 class="m-0 w-100 text-template small mb-2">ยอดเงินในเกม</h6>
+            <h6 class="m-0 w-100 text-template mb-2">ยอดเงินในเกม</h6>
             <img
-              class="bg-template mb-0"
-              src="~/assets/icon-svg/Coin.svg"
-              style="width:83px; padding:1px; border-radius: 60%; "
-            />
-            <h6 class="text-template mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
+              class=" mb-1"
+              src="~/assets/img/coin.png"
+              style="height:80px; padding:1px;"/>
+            <h6 class="text-white mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
           </div>
           <div class="col-4 text-center mb-1">
-            <h6 class="m-0 w-100 text-template small mb-2">กระเป๋าเครดิตฟรี</h6>
+            <h6 class="m-0 w-100 text-template mb-2">กระเป๋าเครดิตฟรี</h6>
             <img
-              class="bg-template mb-0"
-              src="~/assets/icon-svg/Wallet2.svg"
-              style="width:83px; padding:1px; border-radius: 60%; "
-            />
-
-            <h5 class="text-template">{{ $auth.user.credit_bonus | toCurrencyString }} THB</h5>
+              class="mb-1"
+              src="~/assets/img/wallet.png"
+              style="height:80px; padding:1px; " />
+            <h6 class="text-white">{{ $auth.user.credit_bonus | toCurrencyString }} THB</h6>
           </div>
           <div class="position-absolute icon-exchange">
             <span class="text-muted"></span>
@@ -52,9 +65,9 @@
           centered
           content-class="rounded"
           header-class="shadow"
-          no-close-on-backdrop
-          body-class
-          hide-footer
+          body-class="bg-dark"
+          footer-class="shadow"
+          no-close-on-backdrop         
         >
           <template v-slot:modal-header="{ close }">
             <i
@@ -63,9 +76,27 @@
               @click="$bvModal.hide('modal-download')"
             >multiply</i>
             <p
-              class="text-center w-100 text-template"
+              class="text-center w-100 text-dark"
               style="font-weight:100; font-size:18px;"
-            >ยืนยันถอนเครดิต</p>
+            >ยืนยันถอนเครดิตฟรี</p>
+          </template>
+          <template v-slot:modal-footer="{ cancel }">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <button
+                  type="button"
+                  @click="exchangeCredit"
+                  class="btn btn-block btn-outline-secondary py-0 px-4 bg-black text-template"
+                >ยืนยัน</button>
+              </div>
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn text-white py-0 px-4 bg-template-gradaint"
+                  @click="$bvModal.hide('modal-download')"
+                >ยกเลิก</button>
+              </div>
+            </div>
           </template>
           <div
             class="row justify-content-center"
@@ -83,29 +114,17 @@
                 >หมายเหตุ : หากทำผิดเงื่อนไขเครดิตจะถูกตัดออกทั้งหมดทันที</small>
               </p>
             </div>
-            <div class="col-4">
-              <button
-                type="button"
-                @click="exchangeCredit"
-                class="btn btn-block btn-outline-secondary bg-black text-white"
-              >ยืนยัน</button>
-            </div>
-            <div class="col-4">
-              <button
-                type="button"
-                class="btn btn-block btn-light text-body"
-                @click="$bvModal.hide('modal-download')"
-              >ยกเลิก</button>
-            </div>
           </div>
+
+          
           <div class="row justify-content-center" v-else>
             <div class="col-12 text-center">
               <span class="material-icons fs-75 text-danger">error_outline</span>
             </div>
-            <div class="col-12 text-center mb-2" style="margin-bottom: -5px;">
+            <div class="col-12 text-center text-template mb-2" style="margin-bottom: -5px;">
               <label>คุณต้องการแลกเครดิตฟรีใช่หรือไม่ ?</label>
             </div>
-            <div class="col-4">
+            <!-- <div class="col-4">
               <button
                 type="button"
                 @click="exchangeCredit"
@@ -115,10 +134,10 @@
             <div class="col-4">
               <button
                 type="button"
-                class="btn btn-block btn-light text-body"
+                class="btn btn-block btn-light text-white"
                 @click="$bvModal.hide('modal-download')"
               >ยกเลิก</button>
-            </div>
+            </div> -->
           </div>
         </b-modal>
 
@@ -130,27 +149,12 @@
                 type="number"
                 ref="exchange"
                 placeholder="จำนวนเงิน"
-                class="text-center text-template form-control bg-dark rounded"
+                class="text-center text-template form-control rounded"
               />
             </div>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-4">
-            <button
-              type="button"
-              @click="$refs['modal-download'].show()"
-              class="btn btn-block btn-outline-secondary bg-black text-white"
-            >ยืนยัน</button>
-          </div>
-          <div class="col-4">
-            <button
-              type="button"
-              class="btn btn-block btn-light text-body"
-              @click="$bvModal.hide('modal-exchange')"
-            >ยกเลิก</button>
-          </div>
-        </div>
+        
       </b-modal>
       <div class="container" v-if="getSettingObject.show_announce">
         <div class="marquees-text">
@@ -195,11 +199,10 @@
                         src="~/assets/icon/Wallet-revert.png" class="w-100" style="filter: invert(1);"
                       />
                     </div>
-                      
                     <div class="text-center w-100" style="height:80px">
                       <h6 class="font-weight-100 my-2">กระเป๋าเครดิตฟรี </h6>
-                      <h4 class="text-template font-weight-100 size-22"  style="position:absolute; padding:1px;right:15%;">{{ $auth.user.credit_bonus | toCurrencyString }} 
-                        <button class="btn small material-icons text-template size-10 radius-20 py-0 px-1 " @click="modalExchange" >โอนเครดิต</button></h4>
+                      <h4 class="text-template font-weight-100 size-22"  style="    position: absolute; padding: 1px; right: 0%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }} 
+                        <button class="btn small material-icons text-template size-10 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange" >โอนเครดิต</button></h4>
                     </div>
                   </div>
                 </div>
@@ -529,6 +532,18 @@
     opacity: .5;
     transition: opacity .6s ease;
 }
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+}
+
 .size-9{
   font-size: 9px;
 }
