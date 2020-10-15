@@ -1,0 +1,1814 @@
+<template>
+  <div>
+    <!-- header -->
+    <div class="header">
+      <div class="row no-gutters mt-2">
+        <div class="text-left my-3">
+          <nuxt-link :to="{name:'dashboard'}">
+            <i class="material-icons text-white">chevron_left</i>
+          </nuxt-link>
+        </div>
+
+        <div class="col text-center">
+          <nuxt-link :to="{name : 'dashboard'}" class="text-center">
+            <b-img
+              style="min-width:80px; width:auto; height:100px;"
+              :src="getThemeObject[2].img|| ''"
+              fluid
+              alt="Responsive image"
+            ></b-img>
+          </nuxt-link>
+        </div>
+        <div class="col-auto"></div>
+      </div>
+    </div>
+    <!-- header ends -->
+    <div
+      class="row no-gutters login-row justify-content-center"
+      ref="formRegisterUser"
+      styl="display: unset; margin-right: 0px; margin-left: 0px"
+    >
+      <div class="col-12 col-md-6 align-self-center px-3 mt-5">
+        <br />
+        <div class="col-12 align-self-center text-center" style="overflow:hidden;"></div>
+        <div class="col-12 my-4 p-0 align-self-center text-center">
+          <div class="container p-0">
+            <ul class="progressbar">
+              <li :class="{'active' : step > 1}">เงื่อนไข</li>
+              <li :class="{'active' : step > 2}">รหัสของคุณ</li>
+              <li :class="{'active' : step > 3}">ข้อมูลส่วนตัว</li>
+              <li :class="{'active' : step >= 4}">เสร็จสิ้น</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ----------------START @STEP 1 ----------------  -->
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 1">
+          <div class="row">
+            <div class="col-12">
+              <p class="text-center text-dark">
+                <u>เงื่อนไขและข้อตกลงในการสมัคร</u>
+              </p>
+              <p class="font-weight-100 small">
+                1. หมายเลขโทรศัพท์ที่ใช้ ต้องสามารถรับ ข้อความได้ เพราะระบบจำเป็นต้องส่งรหัส
+                ยืนยันไปยังหมายเลขโทรศัพท์ของท่าน มิเช่นนั้นจะไม่สามารถทำรายการต่างๆได้
+              </p>
+              <p
+                class="font-weight-100 small"
+              >2. ชื่อ - นามสกุล จะต้องตรงกับข้อมูลบัญชี มิเช่นนั้นจะไม่สามารถถอนเงินได้</p>
+              <p class="font-weight-100 small">3. ต้องใช้บัญชีที่สมัครฝากเงินเข้ามาเท่านั้น</p>
+              <p class="font-weight-100 small">
+                4. ถ้าเกิดข้อผิดพลาดของระบบ ให้ทำการ แจ้งพนักงานทันที กรณีที่ไม่แจ้ง ทางเรา
+                ขอสงวนสิทธิ์การถอนเงิน ทุกกรณี
+              </p>
+              <p class="font-weight-100 small">
+                5. สมาชิก 1 คน ต่อ 1 ไอดีเท่านั้น กรณีตรวจพบว่ามีการสมัครหลายไอดี ทางเราจะสงวนสิทธิ์การถอน
+                ทุกกรณี
+              </p>
+            </div>
+          </div>
+          <div class="my-4 custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              class="custom-control-input"
+              @change="removeValidation('checkBoxCondition')"
+              :class="{'is-invalid' : formValidation('checkBoxCondition')}"
+              ref="checkBoxCondition"
+              id="checkBoxCondition"
+            />
+            <label
+              class="custom-control-label text-warning pt-1 font-weight-100"
+              for="checkBoxCondition"
+            >ยอมรับเงื่อนไขทั้งหมด</label>
+            <div class="invalid-feedback">{{ formValidation('checkBoxCondition') }}</div>
+          </div>
+          <div
+            class="row mx-2 bottom-button-container justify-content-center"
+            style="bottom: unset;"
+          >
+            <div class="col-12 col-md-10 font-weight-100">
+              <a
+                id="accept-condition"
+                class="btn btn-ocean shadow btn-block font-weight-100"
+                @click="nextStepCondition"
+                style="color: #000;"
+              >ขั้นตอนต่อไป</a>
+            </div>
+          </div>
+        </form>
+        <!-- ----------------END @STEP 1 ----------------  -->
+
+        <!-- ----------------START @STEP 2 ----------------  -->
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 2">
+          <div class="row">
+            <div class="col-12 mt-3">
+              <div class="form-group">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px; position: absolute;"
+                >เบอร์โทร</h6>
+                <input
+                  type="text"
+                  v-model="inputPhoneNumber"
+                  @keyup="removeValidation('inputPhoneNumber')"
+                  pattern="\d*"
+                  ref="inputPhoneNumber"
+                  :class="{'is-invalid' : formValidation('inputPhoneNumber')}"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="เบอร์โทร"
+                  required
+                  maxlength="10"
+                />
+                <div class="invalid-feedback">{{ formValidation('inputPhoneNumber') }}</div>
+                <!-- <div class="invalid-feedback">
+                  <p
+                    class="m-0"
+                    v-for="(item, index) in formValidation('inputPhoneNumber')"
+                    :key="index"
+                  >{{item}}</p>
+                </div>-->
+                <small class="text-danger" v-if="this.telerror">
+                  {{this.telerror}}!
+                  <span class>กรุณาลองใหม่</span>
+                </small>
+              </div>
+            </div>
+            <div class="col-12 mt-3">
+              <b-collapse id="collapse-otp" class="mt-2">
+                <div class="form-group">
+                  <h6 class="text-white" style="margin: -20px 0px;position: absolute;">OTP</h6>
+                  <input
+                    type="number"
+                    ref="inputOtpNumber"
+                    :class="{'is-invalid' : formValidation('inputOtpNumber')}"
+                    pattern="\d*"
+                    class="form-control form-control-lg text-center text-white"
+                    placeholder="OTP"
+                    required
+                  />
+                  <div class="invalid-feedback">{{formValidation('inputOtpNumber')}}</div>
+                </div>
+                <a
+                  class="text-white"
+                  v-if="this.coutDownOtp < 0"
+                  @click="getOtp_Again"
+                >ขอ (OTP) ใหม่อีกครั้ง</a>
+                <a
+                  class="text-danger"
+                  style="font-size: 14px"
+                  v-else
+                >จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.textContent}} นาที</a>
+              </b-collapse>
+            </div>
+            <div class="col-12 mt-3" id="send-otp">
+              <b-overlay
+                class="py-2"
+                :show="show"
+                rounded="sm"
+                :opacity="0.4"
+                :blur="'2px'"
+                :variant="'dark'"
+              >
+                <a
+                  id="step-1"
+                  class="btn btn-ocean shadow btn-block text-black font-weight-100"
+                  @click="nextStepPhoneNumber"
+                  style="color: #000;"
+                >ยืนยันข้อมูล</a>
+              </b-overlay>
+              <a
+                class="btn btn-ocean shadow btn-block text-black font-weight-100"
+                v-show="step != 1"
+                @click="step--"
+                style="color: #000;"
+              >กลับ</a>
+            </div>
+            <div class="col-12">
+              <b-collapse id="collapse-pin" class="mt-2">
+                <div class="form-group">
+                  <h6
+                    class="text-white font-weight-100"
+                  >กรุณายืนยัน PIN 4 หลักที่ท่านเคยลงทะเบียนไว้</h6>
+                  <input
+                    type="tel"
+                    ref="inputPinNumber"
+                    :class="{'is-invalid' : formValidation('inputPinNumber')}"
+                    v-model="inputPinNumber"
+                    @keyup="removeValidation('inputPinNumber')"
+                    class="form-control form-control-lg text-center text-white"
+                    placeholder="Pin"
+                    required
+                  />
+                  <div class="invalid-feedback">{{formValidation('inputPinNumber')}}</div>
+                </div>
+                <p id="verify"></p>
+                <!-- <a class="text-white" v-if="!this.coutDownPin" @click="getPin">ขอ (Pin) ใหม่อีกครั้ง</a>
+                <a class="text-danger" v-else>จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.coutDownPin}} วิ</a>-->
+              </b-collapse>
+            </div>
+            <div class="col-12">
+              <b-button
+                class="btn-block"
+                size="md"
+                id="accepted-pin"
+                variant="ocean"
+                @click="acceptPin"
+                style="display:none;"
+              >ยืนยัน PIN</b-button>
+            </div>
+            <div class="col-12">
+              <b-button
+                class="btn-block"
+                size="md"
+                id="chk-pin"
+                variant="ocean"
+                style="display:none;"
+              >
+                กำลังตรวจสอบ PIN..
+                <i class="fa fa-spinner fa-spin"></i>
+              </b-button>
+            </div>
+          </div>
+        </form>
+
+        <!-- ----------------END @STEP 2 ----------------  -->
+
+        <!-- ----------------START @STEP 3 ----------------  -->
+        <form class="form-signin mt-5 animated fadeIn" v-show="step == 3">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >ชื่อจริง</h6>
+                <input
+                  type="text"
+                  ref="inputFname"
+                  @keyup="removeValidation('inputFname')"
+                  :class="{'is-invalid' : formValidation('inputFname')}"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="ชื่อจริง"
+                  required
+                />
+                <div class="invalid-feedback">{{ formValidation('inputFname') }}</div>
+                <small class="text-danger" style="white-space: nowrap;" v-if="this.fnerror">
+                  {{this.fnerror}}!
+                  <span class>กรุณาลองใหม่</span>
+                </small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >นามสกุล</h6>
+                <input
+                  type="text"
+                  ref="inputLname"
+                  @keyup="removeValidation('inputLname')"
+                  :class="{'is-invalid' : formValidation('inputLname')}"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="นามสกุล"
+                  required
+                />
+                <div class="invalid-feedback">{{ formValidation('inputLname') }}</div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >เลือกธนาคารของลูกค้า</h6>
+                <select
+                  class="custom-select form-control form-control-lg text-center text-white"
+                  ref="selecBankAccounts"
+                  @change="removeValidation('selecBankAccounts')"
+                  :class="{'is-invalid' : formValidation('selecBankAccounts')}"
+                >
+                  <option value disabled selected>กรุณาเลือกธนาคารของลูกค้า</option>
+                  <option
+                    :value="item.id"
+                    v-for="(item, index) in bankArray"
+                    :key="index"
+                  >{{item.name}}</option>
+                </select>
+                <div class="invalid-feedback">{{formValidation('selecBankAccounts')}}</div>
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >เลขบัญชีธนาคาร</h6>
+                <input
+                  type="number"
+                  v-model="inputBankAccountNumber"
+                  @keyup="removeValidation('inputBankAccountNumber')"
+                  ref="inputBankAccountNumber"
+                  :class="{'is-invalid' : formValidation('inputBankAccountNumber')}"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="เลขบัญชีธนาคาร"
+                  pattern="\d*{10}"
+                  maxlength="13"
+                  required
+                />
+                <div class="invalid-feedback">
+                  <p
+                    class="m-0"
+                    v-for="(item, index) in formValidation('inputBankAccountNumber')"
+                    :key="index"
+                  >{{item}}</p>
+                </div>
+                <small class="text-danger" style="white-space: nowrap;" v-if="this.accerror">
+                  {{this.accerror}}!
+                  <span class>กรุณาลองใหม่</span>
+                </small>
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="form-group" v-if="this.$route.params.id">
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >
+                  ยูสเซอร์เพื่อนที่แนะนำ
+                  <span class="text-warning">(ไม่จำเป็นต้องกรอก)</span>
+                </h6>
+                <input
+                  type="text"
+                  ref="inputReferCode"
+                  id="inputReferCode"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="ยูสเซอร์เพื่อนที่แนะนำ"
+                  readonly
+                />
+              </div>
+              <div class="form-group" v-else>
+                <h6
+                  class="text-white font-weight-100"
+                  style="margin: -20px 0px;position: absolute;"
+                >
+                  ยูสเซอร์เพื่อนที่แนะนำ
+                  <span class="text-warning">(ไม่จำเป็นต้องกรอก)</span>
+                </h6>
+                <input
+                  type="text"
+                  ref="inputReferCode"
+                  id="inputReferCode"
+                  class="form-control form-control-lg text-center text-white"
+                  placeholder="ยูสเซอร์เพื่อนที่แนะนำ"
+                />
+              </div>
+            </div>
+            <div class="col-12 mt-4" v-if="Qrcode!=''">
+              <div class="form-group">
+                <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">
+                  รหัสจาก QR Code
+                </h6>
+                <input v-model="Qrcode" type="text" :class="{'is-invalid' : formValidation('inputQrcode')}" id="inputQrcode" ref="inputQrcode" class="form-control form-control-lg text-center text-white" placeholder="รหัสจาก QR Code" readonly/>
+                <div class="invalid-feedback">
+                  <p class="m-0" v-for="(item, index) in formValidation('inputQrcode')" :key="index">{{item}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12" v-show="(typeGame.bonus_status)">
+              <div class="form-group">
+                <h6 class="text-white font-weight-100" tabindex="0" id="yes-promotion">
+                  โปรโมชั่น
+                  <span class="material-icons">help</span>
+                </h6>
+                <div class="onoffswitch">
+                  <input
+                    type="checkbox"
+                    ref="checkBoxPromotion"
+                    class="onoffswitch-checkbox"
+                    id="myonoffswitch"
+                  />
+                  <label @click="acceptPromotion" class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+              <b-tooltip
+                target="yes-promotion"
+                style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(12px, 211px, 0px);"
+              >
+                <!-- game slot -->
+                <span v-if="typeGame.slot_status">
+                  <b-alert show variant="warning">
+                    <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                    <hr class="border-bottom" />
+                    <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                    <small
+                      class="text-left pl-2 d-block"
+                    >- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+                    <small class="text-left pl-2 d-block">
+                      - หากมีการวางเดิมพัน
+                      <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
+                    </small>
+                  </b-alert>
+                  <b-alert show variant="warning">
+                    <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                    <hr class="border-bottom" />
+                    <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                    <small
+                      class="text-left pl-2 d-block"
+                    >- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+                  </b-alert>
+                </span>
+                <!-- game luca -->
+                <span v-if="typeGame.casino_status">
+                  <b-alert show variant="warning">
+                    <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                    <hr class="border-bottom" />
+                    <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                  </b-alert>
+                  <b-alert show variant="warning">
+                    <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                    <hr class="border-bottom" />
+                    <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                  </b-alert>
+                </span>
+              </b-tooltip>
+            </div>
+          </div>
+          <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
+            <div class="col">
+              <a
+                id="step-2"
+                class="btn btn-ocean shadow btn-block"
+                @click="nextStepInfo"
+                style="color: #000;"
+              >ขั้นตอนต่อไป</a>
+              <a
+                class="btn btn-ocean shadow btn-block"
+                v-show="step != 1"
+                @click="step--"
+                style="color: #000;"
+              >กลับ</a>
+            </div>
+          </div>
+        </form>
+        <!-- END @STEP 3   -->
+
+        <!-- START @STEP 4  -->
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 4">
+          <div class="row">
+            <div class="col-12">
+              <h6 class="text-white">ตั้งรหัส PIN เข้าสู่ระบบ</h6>
+              <div class="input-wrappe">
+                <client-only placeholder="Loading...">
+                  <pincode-input
+                    v-model="inputPincode"
+                    class="text-white"
+                    placeholder="."
+                    :autofocus="true"
+                  ></pincode-input>
+                </client-only>
+                <!-- <input type="text" v-model="inputPincode" ref="inputPincode" :class="{'is-invalid' : formValidation('inputPincode')}"
+                      @keyup="removeValidation('inputPincode')" class="form-control form-control-lg text-center"
+                placeholder="ตั้งรหัสเข้าสู่ระบบ" required>-->
+                <small class="text-danger text-left">{{formValidation('inputPincode')}}</small>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
+            <div class="col">
+              <a
+                id="step-3"
+                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
+                @click="nextStepPincode"
+                style="color:#000;"
+              >ยืนยันการสมัคร</a>
+              <a
+                id="btnPinpush"
+                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
+                style="color:#000; display:none;"
+              >กำลังบันทึกข้อมูล..</a>
+              <a
+                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
+                v-show="step != 1"
+                @click="step--"
+                style="color:#000;"
+              >กลับ</a>
+            </div>
+          </div>
+        </form>
+        <!-- ----------------END @STEP 4 ----------------  -->
+
+        <!-- ----------------START @STEP 5 ----------------  -->
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 5">
+          <div class="row">
+            <div class="col-12">
+              <b-alert show variant="warning" class="bg-black">
+                <p class="text-white text-center">ข้อมูลการสมัครสมาชิก</p>
+                <small
+                  class="d-block text-danger"
+                >* กรุณาบันทึก USERNAME และ PASSWORD ของท่าน หรือ บันทึกภาพหน้าจอไว้</small>
+                <small class="d-block text-danger">* ท่านสามารถล็อกอินโดยใส่ PIN หรือ PASSWORD ก็ได้</small>
+              </b-alert>
+            </div>
+            <div class="col-12">
+              <div class="form-group float-label active">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control text-white"
+                    ref="inputUsername"
+                    @click="copyAffiliate('inputUsername')"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-white"
+                      type="button"
+                      @click="copyAffiliate('inputUsername')"
+                      style="color:#fff;"
+                    >คัดลอก</button>
+                  </div>
+                </div>
+                <label
+                  class="form-control-label"
+                  style="margin-top: -24px;margin-left: -15px;"
+                >Username</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group float-label active">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control text-white"
+                    ref="inputPassword"
+                    @click="copyAffiliate('inputPassword')"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-white"
+                      type="button"
+                      @click="copyAffiliate('inputPassword')"
+                      style="color:#ffff;"
+                    >คัดลอก</button>
+                  </div>
+                </div>
+                <label
+                  class="form-control-label"
+                  style="margin-top: -24px;margin-left: -15px;"
+                >Password</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group float-label active">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control text-white"
+                    ref="inputPincode"
+                    v-model="inputPincode"
+                    @click="copyAffiliate('inputPincode')"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-white"
+                      type="button"
+                      @click="copyAffiliate('inputPincode')"
+                      style="color:#ffff;"
+                    >คัดลอก</button>
+                  </div>
+                </div>
+                <label class="form-control-label" style="margin-top: -24px;margin-left: -15px;">PIN</label>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
+            <div class="col">
+              <a
+                id="step-4"
+                class="btn btn-ocean shadow btn-block text-body font-weight-100 mb-2"
+                @click="nextStepLogin"
+              >เข้าสู่ระบบ</a>
+              <nuxt-link
+                class="btn btn-ocean shadow btn-block text-body"
+                :to="{name : 'dashboard-login'}"
+              >หน้าแรก</nuxt-link>
+            </div>
+          </div>
+        </form>
+        <!-- ----------------END @STEP 6 ----------------  -->
+        <!-- login buttons -->
+        <form class="mt-3 animated fadeIn" v-show="step == 6">
+          <div class="row">
+            <div class="col-12">
+              <div class="col align-self-center">
+                <div class="row">
+                  <!-- <b-alert show variant="warning"> -->
+                  <div
+                    class="col-12 mb-3 bg-black"
+                    style="line-height: 1.2em;color: rgb(214, 188, 119) !important;border:solid 1px #444; border-radius: 5px;"
+                  >
+                    <h6 class="text-center text-pink mt-1">กฏกติกา การฝาก-ถอน</h6>
+                    <small
+                      class="text-white"
+                    >1. ชื่อ-นามสกุล กรุณาใช้ข้อมูลของบัญชีธนาคารเท่านั้น มิเช่นนั้นท่านจะไม่สามารถถอนเงินออกได้</small>
+                    <br />
+                    <small
+                      class="text-white"
+                    >2.ต้องใช้เบอร์โทรศัพท์ของท่านเท่านั้นเพื่อยืนยันรหัส OTP</small>
+                    <br />
+                    <br />
+                  </div>
+                </div>
+                <div style="overflow: hidden;">
+                  <div id="stars"></div>
+                  <div id="stars2"></div>
+                  <div id="stars3"></div>
+                  <div class="row">
+                    <div class="col-6 pr-0 pl-4">
+                      <h6 class="text-white font-weight-100">เพศ</h6>
+                      <div class="form-group">
+                        <div class="custom-control custom-radio custom-control-inline text-center">
+                          <input
+                            type="radio"
+                            class="custom-control-input"
+                            :class="{'is-invalid' : formValidation('selectSex')}"
+                            @change="removeValidation('selectSex')"
+                            ref="selectSexMan"
+                            id="selectSexMan"
+                            name="radio-stacked"
+                            required
+                          />
+                          <label class="custom-control-label" for="selectSexMan">ชาย</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                          <input
+                            type="radio"
+                            class="custom-control-input form-controls"
+                            :class="{'is-invalid' : formValidation('selectSex')}"
+                            @change="removeValidation('selectSex')"
+                            id="selectSexWoman"
+                            ref="selectSexWoman"
+                            name="radio-stacked"
+                            required
+                          />
+                          <label class="custom-control-label" for="selectSexWoman">หญิง</label>
+                        </div>
+                      </div>
+                      <small class="is-invalid-color">{{ formValidation('selectSex') }}</small>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <h6 class="text-white font-weight-100" style="margin-top:0">อายุ</h6>
+                        <select
+                          class="custom-select form-controls form-control-lg text-white text-center"
+                          ref="selectAge"
+                          @change="removeValidation('selectAge')"
+                          :class="{'is-invalid' : formValidation('selectAge')}"
+                          required
+                        >
+                          <option value disabled selected>เลือกช่วงอายุ</option>
+                          <option value="1">18 - 24 ปี</option>
+                          <option value="2">25 - 30 ปี</option>
+                          <option value="3">31 - 40 ปี</option>
+                          <option value="4">41 - 50 ปี</option>
+                          <option value="5">50 ปีขึ้นไป</option>
+                        </select>
+                        <div class="invalid-feedback">{{formValidation('selectAge')}}</div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="form-group">
+                        <h6 class="text-white font-weight-100">คุณรู้จักเรา จากช่องทางใด</h6>
+                        <select
+                          class="custom-select form-controls form-control-lg text-white text-center"
+                          ref="selectWay"
+                          @change="removeValidation('selectWay')"
+                          :class="{'is-invalid' : formValidation('selectWay')}"
+                          required
+                        >
+                          <option value disabled selected>กรุณาเลือกช่องทางของท่าน</option>
+                          <option value="1">- Facebook</option>
+                          <option value="2">- Line</option>
+                          <option value="3">- Youtube</option>
+                          <option value="4">- Google</option>
+                          <option value="5">- SMS</option>
+                          <option value="6">- ชวนเพื่อน</option>
+                          <option value="7">- อื่นๆ</option>
+                        </select>
+                        <div class="invalid-feedback">{{formValidation('selectWay')}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <h6 class="text-white" style="font-weight:100;">ชื่อจริง</h6>
+                        <input
+                          type="text"
+                          ref="inputFirstName"
+                          v-model="inputFirstName"
+                          :class="{'is-invalid' : formValidation('inputFirstName')}"
+                          @keyup="removeValidation('inputFirstName')"
+                          class="form-control form-control-lg text-center text-white"
+                          placeholder="ชื่อจริง"
+                          required
+                        />
+                        <div class="invalid-feedback">{{ formValidation('inputFirstName') }}</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <h6 class="text-white" style="font-weight:100;">นามสกุล</h6>
+                        <input
+                          type="text"
+                          ref="inputLastName"
+                          v-model="inputLastName"
+                          :class="{'is-invalid' : formValidation('inputLastName')}"
+                          @keyup="removeValidation('inputLastName')"
+                          class="form-control form-control-lg text-center text-white"
+                          placeholder="นามสกุล"
+                          required
+                        />
+                        <div class="invalid-feedback">{{ formValidation('inputLastName') }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- {{bankArray.data}} -->
+                  <div class="row mt-3">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <h6 class="text-white" style="font-weight:100;">เลือกธนาคารของลูกค้า</h6>
+                        <select
+                          class="custom-select form-controls form-control-lg"
+                          ref="selecBankAccount"
+                          @change="removeValidation('selecBankAccount')"
+                          :class="{'is-invalid' : formValidation('selecBankAccount')}"
+                        >
+                          <option
+                            value
+                            disabled
+                            selected
+                            class="text-white"
+                            style="font-weight:100;"
+                          >กรุณาเลือกธนาคารของลูกค้า</option>
+                          <option
+                            :value="item.id"
+                            v-for="(item, index) in bankArray"
+                            :key="index"
+                          >{{item.name}}</option>
+                        </select>
+                        <div class="invalid-feedback">{{formValidation('selecBankAccount')}}</div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <div class="form-group">
+                        <h6 class="text-white" style="font-weight:100;">เลขบัญชีธนาคาร</h6>
+                        <input
+                          type="text"
+                          pattern="\d*"
+                          maxlength="13"
+                          v-model="inputBankAccountNumbers"
+                          ref="inputBankAccountNumbers"
+                          :class="{'is-invalid' : formValidation('inputBankAccountNumbers')}"
+                          @keyup="removeValidation('inputBankAccountNumbers')"
+                          class="form-control form-control-lg text-center text-white"
+                          placeholder="เลขบัญชีธนาคาร"
+                          required
+                        />
+                        <div class="invalid-feedback">{{formValidation('inputBankAccountNumbers')}}</div>
+                      </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <a
+                        class="btn btn-ocean shadow text-pink"
+                        style="font-weight:100; color: #000;"
+                        @click="sendLineRegister"
+                      >ยืนยันข้อมูล</a>
+                      <!-- <p @click="skipto" class="mt-3 text-right text-white">ยืนยันภายหลัง >></p> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div style="overflow: hidden; display: none;" id="verified-sucess">
+                  <div id="stars"></div>
+                  <div id="stars2"></div>
+                  <div id="stars3"></div>
+                  <!-- ----------------START @STEP 2 ---------------- -->
+                  <div class="row">
+                    <div class="col-12">
+                      <b-alert show variant="warning">
+                        <p class="text-template text-center">ยืนยันข้อมูลสำเร็จ</p>
+                        <small
+                          class="d-block"
+                        >* กรุณาใช้บัญชีธนาคารที่ท่านลงทะเบียนไว้ในระบบเราเท่านั้น ในการโอนเงิน เครดิตจะเข้าเกมโดยอัตโนมัติ</small>
+                        <!-- <small
+                      class="d-block"
+                        >* ยอดเติมที่มีการรับโปรโมช้่น จะสามารถเข้าร่วมกิจกรรม ที่สามารถแลกรับรางวัลได้มากมาย</small>-->
+                      </b-alert>
+                    </div>
+
+                    <div class="col-12 mt-2">
+                      <button
+                        class="w-100 btn btn-ocean shadow btn-block"
+                        @click="nextStepLogin"
+                        style="color: #000;"
+                      >ตกลง</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- login buttons -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+.form-group h6 {
+  margin-top: -10px;
+}
+
+.vue-pincode-input-wrapper {
+  display: flex !important;
+  justify-content: center;
+}
+
+li.active {
+  color: #fff;
+}
+
+.btn-ocean {
+  width: 100%;
+  background-image: linear-gradient(
+    rgb(191, 191, 191),
+    rgb(255, 255, 255),
+    rgb(220, 220, 220)
+  );
+}
+
+.border-bottom {
+  margin: 5px;
+  margin-left: 0;
+  right: 0;
+  width: 100%;
+  height: 0px;
+  background-color: #ff1100;
+}
+
+input.vue-pincode-input {
+  color: #ffffff;
+  background: #222222;
+  max-width: 77px;
+  height: 45px;
+}
+
+button.form-controls,
+input.form-controls,
+select.form-controls {
+  color: #ccc;
+  border: 1px solid #555;
+  background-color: #000;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.custom-control-label::after {
+  position: absolute;
+  top: 4px;
+  left: -1.8rem;
+  display: block;
+  width: 25px;
+  height: 25px;
+  content: "";
+  background: no-repeat 50%/50% 50%;
+}
+
+.custom-control-label::before {
+  position: absolute;
+  /* top: 0.9rem; */
+  left: -1.8rem;
+  display: block;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #adb5bd solid 1px;
+}
+
+.tooltip-inner {
+  max-width: 350px;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  border-radius: 0.25rem;
+}
+</style>
+
+<script>
+import configTheme from "~/config/theme";
+import { mapGetters } from "vuex";
+export default {
+  layout: "login",
+  auth: "guest",
+  head() {
+    return {
+      title: "Register",
+      htmlAttrs: {
+        class: configTheme.color + " " + configTheme.background + " bg-black",
+      },
+    };
+  },
+  data: () => ({
+    showText: false,
+    telerror: "",
+    accerror: "",
+    fnerror: "",
+    step: 1,
+    inputPincode: "",
+    formError: [],
+    inputFirstName: "",
+    inputLastName: "",
+    inputBirthday: null,
+    inputBankAccountNumber: null,
+    inputBankAccountNumbers: null,
+    inputPhoneNumber: "",
+    inputPinNumber: "",
+    statusOtp: false,
+    textContent: "",
+    coutDownOtp: 0,
+    typeGame: {},
+    show: false,
+    Qrcode:''
+  }),
+
+  asyncData: async function ({ $axios }) {
+    const { data } = await $axios.$get("/api/type-bank", {
+      progress: true,
+    });
+    const dataGame = await $axios
+      .request({
+        method: "GET",
+        url: "/api/get-promotion-game",
+      })
+      .then((response) => response.data)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        return {
+          bonus_status: true,
+          slot_status: null,
+          casino_status: null,
+        };
+      });
+    return {
+      bankArray: data,
+      typeGame: dataGame || {},
+    };
+  },
+  computed: {
+    inputDateClass: function () {
+      return this.formValidation("inputBirthday") ? "is-invalid" : "";
+    },
+    ...mapGetters(["getThemeObject", "getSettingObject"]),
+  },
+  mounted() {
+    $(".datepicker").datepicker({
+      defaultViewDate: {
+        year: "2540",
+        month: "01",
+        day: "01",
+      },
+      format: "dd/mm/yyyy",
+      startView: 2,
+      language: "th-th",
+      autoclose: true,
+    });
+    $("#inputReferCode").val(this.$route.params.id);
+    this.Qrcode = this.$route.query.code||''
+  },
+  methods: {
+    skipto: async function () {
+      const loader = this.$loading.show({ "is-full-page": true });
+      const respones = await this.$axios.$post(
+        "/api/line/login-verlfeid-affter",
+        { tel: this.inputPhoneNumber }
+      );
+      if (respones.success) {
+        window.location = respones.redirect;
+      } else {
+        loader.hide();
+        this.$toast.global.error({ message: respones.msg });
+      }
+    },
+    getOtp_Again: async function () {
+      this.startTimer();
+      const { data, success } = await this.$axios.$post("/api/send-otp", {
+        tel: this.inputPhoneNumber,
+      });
+      // console.log(data[0].error);
+      if (data[0].status == "duplicate") {
+        this.telerror = data[0].error;
+        this.$toast.global.error({
+          message: data[0].error,
+        });
+        return false;
+      } else if (success) {
+        this.$toast.global.success({
+          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+        });
+      } else {
+        this.$toast.global.error({
+          message: data,
+        });
+      }
+      this.statusOtp = true;
+    },
+    getOtp: async function () {
+      this.startTimer();
+      const { data, success } = await this.$axios.$post("/api/send-otp", {
+        tel: this.inputPhoneNumber,
+      });
+      // console.log(data[0].error);
+      if (data[0].status == "duplicate") {
+        this.telerror = data[0].error;
+        this.$toast.global.error({
+          message: data[0].error,
+        });
+        return false;
+      } else if (success) {
+        this.$root.$emit("bv::toggle::collapse", "collapse-otp");
+        this.$toast.global.success({
+          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+        });
+      } else {
+        this.$root.$emit("bv::toggle::collapse", "collapse-otp");
+        this.$toast.global.error({
+          message: data,
+        });
+      }
+      this.statusOtp = true;
+    },
+    copyAffiliate: function (target) {
+      this.$refs[target].select();
+      document.execCommand("copy");
+      this.$toast.global.success({
+        message: "คัดลอกลงคลิปบอร์ดแล้ว",
+      });
+    },
+    checkFromRegister: async function () {
+      if (!this.inputBankAccountNumber.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputBankAccountNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputBankAccountNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น"
+        );
+      } else {
+        const { success, data } = await this.$axios.$post(
+          "/api/check-from-regis",
+          {
+            fname: this.$refs.inputFname.value,
+            lname: this.$refs.inputLname.value,
+            // age: this.$refs.selectAge.value,
+            // birthday: this.calculateAge(this.$refs.inputBirthday.value),
+            // gender: this.$refs.selectSexMan.checked ? '1' : '2',
+            // acquaint:  this.$refs.selectWay.value ,
+            refer_code: this.$refs.inputReferCode.value,
+            type_bank_id: this.$refs.selecBankAccounts.value,
+            bank_account: this.inputBankAccountNumber,
+            tel: this.inputPhoneNumber,
+            code:this.Qrcode||null
+          }
+        );
+        return {
+          success,
+          data,
+        };
+      }
+    },
+    acceptPromotion: function () {
+      this.showText = true;
+      this.$root.$emit("bv::toggle::collapse", "collapse-noPromotion");
+      this.$root.$emit("bv::toggle::collapse", "collapse-yesPromotion");
+    },
+    sendLineRegister: async function () {
+      // alert(this.$refs.selectWay.value) ;
+      if (
+        !this.$refs.selectSexMan.checked &&
+        !this.$refs.selectSexWoman.checked
+      ) {
+        this.formError.push({
+          step: 6,
+          ref: "selectSex",
+          message: "กรุณาเลือกเพศ",
+        });
+      } else if (!this.$refs.selectAge.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selectAge",
+          message: "กรุณาเลือกช่วงอายุ",
+        });
+
+        return false;
+      } else if (!this.$refs.selectWay.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selectWay",
+          message: "กรุณาเลือกช่องทางที่รู้จัก",
+        });
+
+        return false;
+      } else if (!this.inputFirstName) {
+        this.formError.push({
+          step: 6,
+          ref: "inputFirstName",
+          message: "กรุณากรอกชื่อด้วยค่ะ",
+        });
+        return false;
+      } else if (!this.inputLastName) {
+        this.formError.push({
+          step: 6,
+          ref: "inputLastName",
+          message: "กรุณากรอกนามสกุลด้วยค่ะ",
+        });
+
+        return false;
+      } else if (!this.$refs.selecBankAccount.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selecBankAccount",
+          message: "กรุณาเลือกธนาคาร",
+        });
+
+        return false;
+      } else if (!this.inputBankAccountNumbers) {
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "กรุณากรอกเลขบัญชี",
+        });
+
+        return false;
+      } else if (this.inputBankAccountNumbers.length < 10) {
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "กรุณากรอกเลขบัญชีให้ครบถ้วน",
+        });
+
+        return false;
+      } else if (!this.inputBankAccountNumbers.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputBankAccountNumbers"
+        );
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น",
+        });
+        return false;
+      } else {
+        const chkregister = await this.$axios.$post("/api/line/line-register", {
+          fname: this.$refs.inputFirstName.value,
+          lname: this.$refs.inputLastName.value,
+          age: this.$refs.selectAge.value,
+          // birthday: this.calculateAge(this.$refs.inputBirthday.value),
+          gender: this.$refs.selectSexMan.checked ? "1" : "2",
+          acquaint: this.$refs.selectWay.value,
+          refer_code: this.$refs.inputReferCode.value,
+          type_bank_id: this.$refs.selecBankAccount.value,
+          bank_account: this.inputBankAccountNumbers,
+          tel: this.inputPhoneNumber,
+          pincode: this.inputPinNumber,
+          player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
+        });
+        if (chkregister.success) {
+          window.location =
+            "/dashboard/login?username=" +
+            this.inputPhoneNumber +
+            "&password=" +
+            this.inputPinNumber;
+        } else {
+          this.$toast.global.success({
+            message: success + " " + data.filed + " " + data.error,
+          });
+        }
+      }
+    },
+    sendRegister: async function () {
+      const { success, data } = await this.$axios.$post("/api/register", {
+        fname: this.$refs.inputFname.value,
+        lname: this.$refs.inputLname.value,
+        // age: this.$refs.selectAge.value,
+        // birthday: this.calculateAge(this.$refs.inputBirthday.value),
+        // gender: this.$refs.selectSexMan.checked ? '1' : '2',
+        // acquaint:  this.$refs.selectWay.value ,
+        refer_code: this.$refs.inputReferCode.value,
+        type_bank_id: this.$refs.selecBankAccounts.value,
+        bank_account: this.inputBankAccountNumber,
+        tel: this.inputPhoneNumber,
+        pincode: this.inputPincode,
+        player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
+        code:this.Qrcode||null
+      });
+
+      return {
+        success,
+        data,
+      };
+    },
+    startTimer() {
+      this.coutDownOtp = 120;
+      var minutes, seconds;
+      var downloadTimer = setInterval(() => {
+        minutes = parseInt(this.coutDownOtp / 60, 10);
+        seconds = parseInt(this.coutDownOtp % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        this.textContent = minutes + ":" + seconds;
+
+        if (--this.coutDownOtp < 0) {
+          clearInterval(downloadTimer);
+        }
+      }, 1000);
+    },
+    calculateAge: function (birthday) {
+      var str = this.$refs.inputBirthday.value.split("/");
+      var date = new Date(str[2] + "-" + str[1] + "-" + str[0]);
+      return str[2] - 543 + "-" + str[1] + "-" + str[0];
+    },
+    formValidation: function (ref) {
+      let error = this.formError.find((item) => item.ref == ref);
+      return error ? error.message : "";
+    },
+    isFormValidation: function (ref) {
+      let error = this.formError.find((item) => item.ref == ref);
+      return error ? true : null;
+    },
+    removeValidation: function (ref) {
+      this.formError = this.formError.filter((item) => item.ref != ref);
+    },
+    nextStepCondition: async function () {
+      if (!this.$refs.checkBoxCondition.checked)
+        this.formError.push({
+          step: 1,
+          ref: "checkBoxCondition",
+          message: "ท่านต้องยอมรับเงือนไข",
+        });
+      const formErrorStep = await this.formError.find((item) => item.step == 1);
+      if (!formErrorStep) this.step++;
+    },
+    nextStepInfo: async function (res) {
+      var letters = /^[ก-๙]+$/gi;
+      if (
+        (!this.$refs.inputFname.value || !this.$refs.inputFname.value) &&
+        !this.isFormValidation("inputFname")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "inputFname",
+          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+        });
+      if (
+        (!this.$refs.inputLname.value || !this.$refs.inputLname.value) &&
+        !this.isFormValidation("inputLname")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "inputLname",
+          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+        });
+      // if(!this.$refs.selectWay.value && !this.isFormValidation('selectWay'))  this.formError.push({step : 2,ref : "selectWay" , message : "กรุณาเลือกช่องทางของท่าน"});
+      // if(!this.$refs.selectAge.value && !this.isFormValidation('selectAge'))  this.formError.push({step : 2,ref : "selectAge" , message : "กรุณาเลือกช่วงอายุของท่าน"});
+      // if(!this.$refs.selectSexMan.checked && !this.$refs.selectSexWoman.checked && !this.isFormValidation('selectSex'))  this.formError.push({step : 2,ref : "selectSex" , message : "กรุณาเลือกเพศของท่าน"});
+      // if(!this.$refs.inputBirthday.value && !this.isFormValidation('inputBirthday'))  this.formError.push({step : 2,ref : "inputBirthday" , message : "กรุณาเลือกวันเกิดของท่าน"});
+      if (
+        !this.$refs.selecBankAccounts.value &&
+        !this.isFormValidation("selecBankAccounts")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "selecBankAccounts",
+          message: "กรุณาเลือกบัญชีธนาคารของท่าน",
+        });
+      if (!this.isFormValidation("inputBankAccountNumber")) {
+        if (!this.inputBankAccountNumber) {
+          var indexFormError = this.formError.findIndex(
+            (item) => item.ref == "inputBankAccountNumber"
+          );
+          indexFormError =
+            indexFormError < 0
+              ? (await this.formError.push({
+                  step: 2,
+                  ref: "inputBankAccountNumber",
+                  message: [],
+                })) - 1
+              : indexFormError;
+          this.formError[indexFormError].message.push("ห้ามว่าง");
+        }
+        if (
+          !this.inputBankAccountNumber ||
+          !this.inputBankAccountNumber.match(/^[0-9]+$/)
+        ) {
+          var indexFormError = this.formError.findIndex(
+            (item) => item.ref == "inputBankAccountNumber"
+          );
+          indexFormError =
+            indexFormError < 0
+              ? (await this.formError.push({
+                  step: 2,
+                  ref: "inputBankAccountNumber",
+                  message: [],
+                })) - 1
+              : indexFormError;
+          this.formError[indexFormError].message.push(
+            "เลขบัญชีธนาคารต้องเป็นตัวเลขเท่านั้น"
+          );
+        }
+      }
+
+      const loader = this.$loading.show({
+        "is-full-page": true,
+      });
+      const checkName = await this.$axios.$post("/api/check-from-regis/name", {
+        fname: this.$refs.inputFname.value,
+        lname: this.$refs.inputLname.value,
+      });
+      const checkAccount = await this.$axios.$post(
+        "/api/check-from-regis/account",
+        {
+          bank_account: this.inputBankAccountNumber,
+        }
+      );
+      loader.hide();
+      this.fnerror = "";
+      this.accerror = "";
+      // console.log(checkName);
+      if (!checkName.success) {
+        this.fnerror = checkName.message;
+        this.$toast.global.error({
+          message: checkName.message,
+        });
+        return false;
+      }
+      if (!checkAccount.success) {
+        this.accerror = checkAccount.message;
+        this.$toast.global.error({
+          message: checkAccount.message,
+        });
+        return false;
+      } else {
+        this.step = 4;
+        // const formErrorStep = await this.formError.find(item => item.step == 2);
+        // if (!formErrorStep) this.step = 4;
+      }
+    },
+
+    nextStepPhoneNumber: async function () {
+      //if (!this.isFormValidation("inputPhoneNumber")) {
+      if (!this.inputPhoneNumber) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: "ห้ามว่าง",
+              })) - 1
+            : indexFormError;
+        return false;
+      } else if (this.inputPhoneNumber.length != 10) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรเท่ากับ 10 ตัวอักษร"
+        );
+      } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
+        );
+        //}
+      } else {
+        this.show = true;
+        const respone = await this.$axios.$post("/api/line/chk-phone", {
+          tel: this.inputPhoneNumber,
+        });
+        if (respone.success) {
+          this.otp();
+        } else {
+          this.getPin();
+          this.formError.push({
+            step: 1,
+            ref: "inputPhoneNumber",
+            message: "",
+          });
+        }
+        this.show = false;
+      }
+    },
+    otp: async function () {
+      const formErrorStep = await this.formError.find(
+        (item) => item.step == 3 && item.ref != "inputOtpNumber"
+      );
+
+      if (!formErrorStep) {
+        this.$refs.inputOtpNumber.focus();
+        if (this.statusOtp) {
+          if (
+            !this.$refs.inputOtpNumber.value &&
+            !this.isFormValidation("inputOtpNumber")
+          )
+            return this.formError.push({
+              step: 3,
+              ref: "inputOtpNumber",
+              message: "กรุณาใส่กรอก OTP ที่ได้รับให้ถูกต้อง",
+            });
+          const checkOtp = await this.$axios.$post("/api/check-otp", {
+            tel: this.$refs.inputPhoneNumber.value,
+            otp: this.$refs.inputOtpNumber.value,
+          });
+          if (checkOtp.success) {
+            this.step++;
+          } else {
+            this.$toast.global.error({
+              message: "กรุณากรอก OTP ให้ถูกต้อง",
+            });
+          }
+        } else {
+          this.getOtp();
+          if (
+            !this.$refs.inputOtpNumber.value &&
+            !this.isFormValidation("inputOtpNumber")
+          )
+            return this.formError.push({
+              step: 3,
+              ref: "inputOtpNumber",
+              message: "กรุณาใส่กรอก OTP ที่ได้รับให้ถูกต้อง",
+            });
+        }
+      }
+    },
+    getPin: function () {
+      this.$root.$emit("bv::toggle::collapse", "collapse-pin");
+      document.getElementById("send-otp").style.display = "none";
+      document.getElementById("accepted-pin").style.display = "block";
+    },
+    acceptPin: async function () {
+      document.getElementById("accepted-pin").style.display = "none";
+      document.getElementById("chk-pin").style.display = "block";
+      const chkpin = await this.$axios.$post("/api/line/chk-merge-line", {
+        tel: this.inputPhoneNumber,
+        pin: this.inputPinNumber,
+      });
+      if (!chkpin.success) {
+        document.getElementById("accepted-pin").style.display = "block";
+        document.getElementById("chk-pin").style.display = "none";
+        return this.formError.push({
+          step: 3,
+          ref: "inputPinNumber",
+          message: chkpin.message,
+        });
+      } else {
+        document.getElementById("accepted-pin").style.display = "block";
+        document.getElementById("chk-pin").style.display = "none";
+        document.getElementById("accepted-pin").innerHTML =
+          "<span><i class='fa fa-close' style='font-size:1rem;margin:0px auto;color:#000;'></i> " +
+          chkpin.message +
+          "</span>";
+        document.getElementById("verify").innerHTML =
+          "<span class='text-success'><i class='fa fa-close' style='font-size:1rem;margin:0px auto;'></i> " +
+          chkpin.message +
+          "</span>";
+
+        if (chkpin.code == 22) {
+          this.step = 6;
+        } else {
+          const loader = this.$loading.show({ "is-full-page": true });
+          window.location = chkpin.redirect;
+        }
+      }
+    },
+    nextStepPincode: async function () {
+      // if (!(!!this.inputPincode.match(/[a-z]/g) && !!this.inputPincode.match(/[A-Z]/g) && !!this.inputPincode.match(/[0-9]/g) && (this.inputPincode.length >= 6  && this.inputPincode.length <= 12)))  return this.formError.push({step : 4,ref : "inputPincode" , message : "รหัสผ่านต้องมีตั้งแต่ 6-12 ตัว มีภาษาอังกฤษพิมพ์เล็กกับใหญ่และตัวเลข เช่น Abc123"});
+      if (this.inputPincode.length != 4)
+        return this.formError.push({
+          step: 4,
+          ref: "inputPincode",
+          message: "กรุณาใส่กรอก PINCODE",
+        });
+      const loaderOne = this.$loading.show({
+        container: this.$refs.formRegisterUser,
+      });
+      const dataCheckFromRegister = await this.checkFromRegister();
+      loaderOne.hide();
+      if (dataCheckFromRegister.success) {
+        document.getElementById("step-3").style.display = "none";
+        document.getElementById("btnPinpush").style.display = "block";
+        document.getElementById("btnPinpush").style.filter = "brightness(0.5)";
+        const loaderTwo = this.$loading.show({
+          container: this.$refs.formRegisterUser,
+        });
+        const dataSendRegister = await this.sendRegister();
+        loaderTwo.hide();
+        if (dataSendRegister.success) {
+          this.$refs.inputUsername.value = dataSendRegister.data.username;
+          this.$refs.inputPassword.value = dataSendRegister.data.password;
+          this.$toast.global.success({
+            message: "สมัครสมาชิกสำเร็จแล้ว",
+          });
+          this.step++;
+        } else {
+          document.getElementById("step-3").style.display = "block";
+          document.getElementById("btnPinpush").style.display = "none";
+          this.$toast.global.error({
+            message: dataSendRegister.data,
+          });
+        }
+      } else {
+        let errorFirstname = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "fname"
+        );
+        let errorLastname = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "lname"
+        );
+        let errorBankAccount = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "bank_account"
+        );
+        let errorTel = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "tel"
+        );
+        let errorCode = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "code"
+        );
+
+        if (errorFirstname)
+          this.formError.push({
+            step: 2,
+            ref: "inputFname",
+            message: errorFirstname.error,
+          });
+        if (errorLastname)
+          this.formError.push({
+            step: 2,
+            ref: "inputLname",
+            message: errorLastname.error,
+          });
+        if (errorBankAccount)
+          this.formError.push({
+            step: 2,
+            ref: "inputBankAccountNumber",
+            message: [errorBankAccount.error],
+          });
+        if (errorTel)
+          this.formError.push({
+            step: 3,
+            ref: "inputPhoneNumber",
+            message: [errorTel.error],
+          });
+
+        this.$toast.global.error({
+          message: "กรุณาข้อมูลให้ถูกต้อง",
+        });
+        if (errorCode){
+            this.step=3
+            this.formError.push({
+                step: 3,
+                ref: "inputQrcode",
+                message: [errorCode.error]
+            });
+        }
+
+        if (errorFirstname || errorLastname) return (this.step = 3);
+        if (errorBankAccount) return (this.step = 3);
+        if (errorTel) return (this.step = 2);
+      }
+    },
+    nextStepLogin: async function (event) {
+      const loader = this.$loading.show({
+        "is-full-page": true,
+      });
+      await this.$auth
+        .loginWith("local", {
+          data: {
+            username: this.inputPhoneNumber,
+            password: this.inputPincode,
+          },
+        })
+        .then(() => {
+          this.$toast.global.success({
+            message: "เข้าสู่ระบบเรียบร้อยแล้ว",
+          });
+          loader.hide();
+        })
+        .catch(() => {
+          this.password = "";
+          this.$toast.global.error({
+            message: "เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบข้อมูล",
+          });
+          loader.hide();
+        });
+    },
+  },
+};
+</script>
+
+<style scoped>
+body,
+html {
+  background-color: #000000 !important;
+}
+
+.progressbar {
+  padding: 0px;
+  counter-reset: step;
+  height: 60px;
+}
+.progressbar li {
+  list-style-type: none;
+  width: 25%;
+  float: left;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+.progressbar li:before {
+  width: 30px;
+  height: 30px;
+  content: counter(step);
+  counter-increment: step;
+  line-height: 25px;
+  font-size: 18px;
+  border: 2px solid #fff;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #2d3050 !important;
+}
+.progressbar li:after {
+  width: 100%;
+  height: 1px;
+  content: "";
+  position: absolute;
+  background-color: #7d7d7d;
+  top: 13px;
+  left: -50%;
+  z-index: -1;
+}
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.active {
+  color: #fff;
+}
+.progressbar li.active:before {
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 50%;
+  background-color: #fff !important;
+  -webkit-animation-duration: 1.4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: fade-img 1.4s infinite;
+  animation: fade-img 1.4s infinite;
+  animation-duration: 1.4s;
+}
+.progressbar li.active + li:before {
+  background-color: #fff;
+}
+
+@keyframes fade-img {
+  0% {
+    box-shadow: 0 0 1pt 0pt #fff;
+  }
+  100% {
+    box-shadow: 0 0 4pt 1pt #ddd;
+  }
+}
+.text-validation {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+.onoffswitch {
+  position: relative;
+  width: 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #34c251;
+  color: #ffffff;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #eeeeee;
+  color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 15px;
+  margin: 7.5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 56px;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+.custom-select.is-invalid,
+.was-validated .custom-select:invalid {
+  border-color: #dc3545;
+  padding-right: calc(0.75em + 2.3125rem);
+  background-color: #dc3545;
+}
+</style>
