@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-        <a href="dashboard" class="text-info">
+        <a href="dashboard" class="text-dark">
           <i class="fa fa-arrow-circle-left"></i> กลับ
         </a>
-        <small class="m-2 text-muted">
+        <small class="m-2 text-white">
           <u>หมวดเกม/</u>
         </small>
       </div>

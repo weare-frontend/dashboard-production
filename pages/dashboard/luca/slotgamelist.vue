@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-        <a href="../luca/slot" class="text-info" style="opacity:0.8"> <i class="fa fa-arrow-circle-left"></i> กลับ</a>
-        <small class="m-2 text-muted" id="navi">
+        <a href="../luca/slot" class="text-dark" style="opacity:0.8"> <i class="fa fa-arrow-circle-left"></i> กลับ</a>
+        <small class="m-2 text-white" id="navi">
         </small>
       </div>
     </div>

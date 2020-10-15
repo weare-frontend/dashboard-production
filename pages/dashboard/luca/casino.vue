@@ -2,12 +2,12 @@
   <div class="container">
     <div class="container">
       <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-0">
           <div class="col-2" style="white-space: nowrap">
-            <a href="../luca" class="text-info">
+            <a href="../luca" class="text-dark">
               <i class="fa fa-arrow-circle-left"></i> กลับ
             </a>
-            <small class="m-2 text-muted"><a href="../luca" class="text-muted">หมวดเกม</a> / <u>คาสิโน</u></small>
+            <small class="m-2 text-white"><a href="../luca" class="text-muted">หมวดเกม</a> / <u>คาสิโน</u></small>
             <p id="io"></p>
           </div>
         </div>
