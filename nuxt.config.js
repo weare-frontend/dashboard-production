@@ -274,7 +274,7 @@ module.exports = {
     server: {
         // port: process.env.PORT || 3000, // default: 3000
         // host: process.env.HOST || "localhost", // default: localhost
-        port: process.env.PORT || 7001, // default: 3000
+        port: process.env.PORT || 7004, // default: 3000
         host: process.env.HOST || "localhost", // default: localhost
     },
     telemetry: false,
