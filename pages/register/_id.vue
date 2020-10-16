@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- header -->
-    <div class="header">
+    <div class="header bg-white">
       <div class="row no-gutters mt-2">
         <div class="text-left my-3">
           <nuxt-link :to="{name:'dashboard'}">
@@ -9,10 +9,10 @@
           </nuxt-link>
         </div>
 
-        <div class="col text-center">
+        <div class="col text-center my-4">
           <nuxt-link :to="{name : 'dashboard'}" class="text-center">
             <b-img
-              style="min-width:80px; width:auto; height:100px;"
+              style=" width:auto;height: 60px;filter: drop-shadow(0px 1px 1px black);"
               :src="getThemeObject[2].img|| ''"
               fluid
               alt="Responsive image"
@@ -24,14 +24,14 @@
     </div>
     <!-- header ends -->
     <div
-      class="row no-gutters login-row justify-content-center"
+      class="row no-gutters login-row justify-content-center bg-template pb-5"
       ref="formRegisterUser"
-      styl="display: unset; margin-right: 0px; margin-left: 0px"
-    >
-      <div class="col-12 col-md-6 align-self-center px-3 mt-5">
-        <br />
-        <div class="col-12 align-self-center text-center" style="overflow:hidden;"></div>
-        <div class="col-12 my-4 p-0 align-self-center text-center">
+      style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -100px;border-top-left-radius:70px;border-top-right-radius: 70px;">
+      <div class="col-12 col-md-6 px-3 pt-2">
+        <div class="col-12 align-self-center text-center" style="overflow:hidden;">
+          
+        </div>
+        <!-- <div class="col-12 my-4 p-0 align-self-center text-center">
           <div class="container p-0">
             <ul class="progressbar">
               <li :class="{'active' : step > 1}">เงื่อนไข</li>
@@ -40,29 +40,29 @@
               <li :class="{'active' : step >= 4}">เสร็จสิ้น</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <!-- ----------------START @STEP 1 ----------------  -->
-        <form class="form-signin mt-3 animated fadeIn" v-show="step == 1">
-          <div class="row">
-            <div class="col-12">
-              <p class="text-center text-dark">
-                <u>เงื่อนไขและข้อตกลงในการสมัคร</u>
-              </p>
-              <p class="font-weight-100 small">
-                1. หมายเลขโทรศัพท์ที่ใช้ ต้องสามารถรับ ข้อความได้ เพราะระบบจำเป็นต้องส่งรหัส
+        <form class="form-signin mt-1 animated fadeIn" v-show="step == 1">
+          <h4 class="text-center text-white font-weight-100">
+            เงื่อนไขและข้อตกลงในการสมัคร
+          </h4>
+          <div class="row card bg-white px-2 py-4">
+            <div class="col-12 text-template">
+              <p class="font-weight-100 size-16">
+                1). หมายเลขโทรศัพท์ที่ใช้ ต้องสามารถรับ ข้อความได้ เพราะระบบจำเป็นต้องส่งรหัส
                 ยืนยันไปยังหมายเลขโทรศัพท์ของท่าน มิเช่นนั้นจะไม่สามารถทำรายการต่างๆได้
               </p>
               <p
-                class="font-weight-100 small"
-              >2. ชื่อ - นามสกุล จะต้องตรงกับข้อมูลบัญชี มิเช่นนั้นจะไม่สามารถถอนเงินได้</p>
-              <p class="font-weight-100 small">3. ต้องใช้บัญชีที่สมัครฝากเงินเข้ามาเท่านั้น</p>
-              <p class="font-weight-100 small">
-                4. ถ้าเกิดข้อผิดพลาดของระบบ ให้ทำการ แจ้งพนักงานทันที กรณีที่ไม่แจ้ง ทางเรา
+                class="font-weight-100 size-16"
+              >2). ชื่อ - นามสกุล จะต้องตรงกับข้อมูลบัญชี มิเช่นนั้นจะไม่สามารถถอนเงินได้</p>
+              <p class="font-weight-100 size-16">3). ต้องใช้บัญชีที่สมัครฝากเงินเข้ามาเท่านั้น</p>
+              <p class="font-weight-100 size-16">
+                4). ถ้าเกิดข้อผิดพลาดของระบบ ให้ทำการ แจ้งพนักงานทันที กรณีที่ไม่แจ้ง ทางเรา
                 ขอสงวนสิทธิ์การถอนเงิน ทุกกรณี
               </p>
-              <p class="font-weight-100 small">
-                5. สมาชิก 1 คน ต่อ 1 ไอดีเท่านั้น กรณีตรวจพบว่ามีการสมัครหลายไอดี ทางเราจะสงวนสิทธิ์การถอน
+              <p class="font-weight-100 size-16">
+                5). สมาชิก 1 คน ต่อ 1 ไอดีเท่านั้น กรณีตรวจพบว่ามีการสมัครหลายไอดี ทางเราจะสงวนสิทธิ์การถอน
                 ทุกกรณี
               </p>
             </div>
@@ -77,9 +77,9 @@
               id="checkBoxCondition"
             />
             <label
-              class="custom-control-label text-warning pt-1 font-weight-100"
+              class="custom-control-label text-white pt-1 font-weight-100"
               for="checkBoxCondition"
-            >ยอมรับเงื่อนไขทั้งหมด</label>
+            >ยอมรับเงื่อนไขและข้อตกลงทั้งหมด</label>
             <div class="invalid-feedback">{{ formValidation('checkBoxCondition') }}</div>
           </div>
           <div
@@ -89,17 +89,20 @@
             <div class="col-12 col-md-10 font-weight-100">
               <a
                 id="accept-condition"
-                class="btn btn-ocean shadow btn-block font-weight-100"
+                class="btn btn-md btn-success shadow btn-block"
                 @click="nextStepCondition"
-                style="color: #000;"
-              >ขั้นตอนต่อไป</a>
+                style="color: #fff; font-size:26px; border-radius: 30px;font-weight:100;"
+              >ถัดไป</a>
             </div>
           </div>
         </form>
         <!-- ----------------END @STEP 1 ----------------  -->
-
+                    <!-- class="btn px-4 py-3 white-space-no bg-gradaint shadow btn-block text-dark font-weight-100" -->
         <!-- ----------------START @STEP 2 ----------------  -->
-        <form class="form-signin mt-3 animated fadeIn" v-show="step == 2">
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 3">
+          <h4 class="text-center text-white font-weight-100">
+            สมัครสมาชิก
+          </h4>
           <div class="row">
             <div class="col-12 mt-3">
               <div class="form-group">
@@ -114,7 +117,7 @@
                   pattern="\d*"
                   ref="inputPhoneNumber"
                   :class="{'is-invalid' : formValidation('inputPhoneNumber')}"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="เบอร์โทร"
                   required
                   maxlength="10"
@@ -142,7 +145,7 @@
                     ref="inputOtpNumber"
                     :class="{'is-invalid' : formValidation('inputOtpNumber')}"
                     pattern="\d*"
-                    class="form-control form-control-lg text-center text-white"
+                    class="form-control form-control-lg px-4 text-dark"
                     placeholder="OTP"
                     required
                   />
@@ -155,7 +158,7 @@
                 >ขอ (OTP) ใหม่อีกครั้ง</a>
                 <a
                   class="text-danger"
-                  style="font-size: 14px"
+                  style="font-size: 16px"
                   v-else
                 >จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.textContent}} นาที</a>
               </b-collapse>
@@ -171,17 +174,11 @@
               >
                 <a
                   id="step-1"
-                  class="btn btn-ocean shadow btn-block text-black font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
                   @click="nextStepPhoneNumber"
-                  style="color: #000;"
-                >ยืนยันข้อมูล</a>
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
+                >รับ OTP</a>
               </b-overlay>
-              <a
-                class="btn btn-ocean shadow btn-block text-black font-weight-100"
-                v-show="step != 1"
-                @click="step--"
-                style="color: #000;"
-              >กลับ</a>
             </div>
             <div class="col-12">
               <b-collapse id="collapse-pin" class="mt-2">
@@ -195,7 +192,7 @@
                     :class="{'is-invalid' : formValidation('inputPinNumber')}"
                     v-model="inputPinNumber"
                     @keyup="removeValidation('inputPinNumber')"
-                    class="form-control form-control-lg text-center text-white"
+                    class="form-control form-control-lg px-4 text-dark"
                     placeholder="Pin"
                     required
                   />
@@ -207,35 +204,60 @@
               </b-collapse>
             </div>
             <div class="col-12">
-              <b-button
+              <b-overlay
+                class="py-2"
+                :show="show"
+                rounded="sm"
+                :opacity="0.4"
+                :blur="'2px'"
+                :variant="'dark'"
+                style="display:none;"
+                id="accepted-pin"
+              >
+                <a
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  @click="acceptPin"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
+                >ยืนยัน PIN</a>
+              </b-overlay>
+              <!-- <b-button
                 class="btn-block"
                 size="md"
                 id="accepted-pin"
                 variant="ocean"
                 @click="acceptPin"
                 style="display:none;"
-              >ยืนยัน PIN</b-button>
+              >ยืนยัน PIN</b-button> -->
             </div>
             <div class="col-12">
               <b-button
-                class="btn-block"
+                class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                style="font-size:26px; border-radius: 30px;font-weight:100;display:none;"
                 size="md"
                 id="chk-pin"
                 variant="ocean"
-                style="display:none;"
               >
                 กำลังตรวจสอบ PIN..
                 <i class="fa fa-spinner fa-spin"></i>
               </b-button>
             </div>
+            <a
+                class="btn btn-md bg-gradaint mx-3 shadow btn-block text-white font-weight-100"
+                v-show="step != 1"
+                @click="step--"
+                style=" font-size:26px; border-radius: 30px;font-weight:100;"
+              >กลับ</a>
           </div>
         </form>
 
         <!-- ----------------END @STEP 2 ----------------  -->
 
         <!-- ----------------START @STEP 3 ----------------  -->
-        <form class="form-signin mt-5 animated fadeIn" v-show="step == 3">
-          <div class="row">
+        <form class="form-signin animated fadeIn" v-show="step == 2">
+          <h4 class="text-center text-white font-weight-100">
+            สมัครสมาชิก
+          </h4>
+          <div class="row mt-5">
             <div class="col-6">
               <div class="form-group">
                 <h6
@@ -247,7 +269,7 @@
                   ref="inputFname"
                   @keyup="removeValidation('inputFname')"
                   :class="{'is-invalid' : formValidation('inputFname')}"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="ชื่อจริง"
                   required
                 />
@@ -269,7 +291,7 @@
                   ref="inputLname"
                   @keyup="removeValidation('inputLname')"
                   :class="{'is-invalid' : formValidation('inputLname')}"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="นามสกุล"
                   required
                 />
@@ -284,8 +306,9 @@
                   style="margin: -20px 0px;position: absolute;"
                 >เลือกธนาคารของลูกค้า</h6>
                 <select
-                  class="custom-select form-control form-control-lg text-center text-white"
+                  class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center"
                   ref="selecBankAccounts"
+                  style="border-radius: 25px;height:50px;"
                   @change="removeValidation('selecBankAccounts')"
                   :class="{'is-invalid' : formValidation('selecBankAccounts')}"
                 >
@@ -311,7 +334,7 @@
                   @keyup="removeValidation('inputBankAccountNumber')"
                   ref="inputBankAccountNumber"
                   :class="{'is-invalid' : formValidation('inputBankAccountNumber')}"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="เลขบัญชีธนาคาร"
                   pattern="\d*{10}"
                   maxlength="13"
@@ -337,13 +360,13 @@
                   style="margin: -20px 0px;position: absolute;"
                 >
                   ยูสเซอร์เพื่อนที่แนะนำ
-                  <span class="text-warning">(ไม่จำเป็นต้องกรอก)</span>
+                  <span class="text-white">(ถ้ามี)</span>
                 </h6>
                 <input
                   type="text"
                   ref="inputReferCode"
                   id="inputReferCode"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="ยูสเซอร์เพื่อนที่แนะนำ"
                   readonly
                 />
@@ -354,13 +377,13 @@
                   style="margin: -20px 0px;position: absolute;"
                 >
                   ยูสเซอร์เพื่อนที่แนะนำ
-                  <span class="text-warning">(ไม่จำเป็นต้องกรอก)</span>
+                  <span class="text-white">(ถ้ามี)</span>
                 </h6>
                 <input
                   type="text"
                   ref="inputReferCode"
                   id="inputReferCode"
-                  class="form-control form-control-lg text-center text-white"
+                  class="form-control form-control-lg px-4 text-dark"
                   placeholder="ยูสเซอร์เพื่อนที่แนะนำ"
                 />
               </div>
@@ -370,7 +393,7 @@
                 <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">
                   รหัสจาก QR Code
                 </h6>
-                <input v-model="Qrcode" type="text" :class="{'is-invalid' : formValidation('inputQrcode')}" id="inputQrcode" ref="inputQrcode" class="form-control form-control-lg text-center text-white" placeholder="รหัสจาก QR Code" readonly/>
+                <input v-model="Qrcode" type="text" :class="{'is-invalid' : formValidation('inputQrcode')}" id="inputQrcode" ref="inputQrcode" class="form-control form-control-lg px-4 text-dark" placeholder="รหัสจาก QR Code" readonly/>
                 <div class="invalid-feedback">
                   <p class="m-0" v-for="(item, index) in formValidation('inputQrcode')" :key="index">{{item}}</p>
                 </div>
@@ -378,9 +401,9 @@
             </div>
             <div class="col-12" v-show="(typeGame.bonus_status)">
               <div class="form-group">
-                <h6 class="text-white font-weight-100" tabindex="0" id="yes-promotion">
+                <h6 class="text-white my-3 font-weight-100" tabindex="0" id="yes-promotion">
                   โปรโมชั่น
-                  <span class="material-icons">help</span>
+                  <span class="material-icons shadow" style="border-radius:50%;position: absolute;margin: -3px 0px 0px 5px;">help</span>
                 </h6>
                 <div class="onoffswitch">
                   <input
@@ -438,20 +461,39 @@
               </b-tooltip>
             </div>
           </div>
-          <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
+          <div class="row mt-4 mx-4 bottom-button-container" style="bottom: unset;">
             <div class="col">
-              <a
-                id="step-2"
-                class="btn btn-ocean shadow btn-block"
-                @click="nextStepInfo"
-                style="color: #000;"
-              >ขั้นตอนต่อไป</a>
-              <a
-                class="btn btn-ocean shadow btn-block"
-                v-show="step != 1"
-                @click="step--"
-                style="color: #000;"
-              >กลับ</a>
+              <b-overlay
+                class="py-2"
+                :show="show"
+                rounded="sm"
+                :opacity="0.4"
+                :blur="'2px'"
+                :variant="'dark'"
+              >
+                <a
+                  id="step-2"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  @click="nextStepInfo"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
+                >ขั้นตอนต่อไป</a>
+              </b-overlay>
+              <b-overlay
+                class="py-2"
+                :show="show"
+                rounded="sm"
+                :opacity="0.4"
+                :blur="'2px'"
+                :variant="'dark'"
+              >
+                <a
+                  id="step-2"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
+                  v-show="step != 1"
+                  @click="step--"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
+                >กลับ</a>
+              </b-overlay>
             </div>
           </div>
         </form>
@@ -459,9 +501,9 @@
 
         <!-- START @STEP 4  -->
         <form class="form-signin mt-3 animated fadeIn" v-show="step == 4">
+          <h4 class="text-white font-weight-100 text-center">ตั้งรหัส PIN เข้าสู่ระบบ</h4>
           <div class="row">
             <div class="col-12">
-              <h6 class="text-white">ตั้งรหัส PIN เข้าสู่ระบบ</h6>
               <div class="input-wrappe">
                 <client-only placeholder="Loading...">
                   <pincode-input
@@ -479,23 +521,32 @@
             </div>
           </div>
           <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
-            <div class="col">
-              <a
+            <div class="col-12">
+              
+              <!-- <a
                 id="step-3"
                 class="btn btn-ocean shadow btn-block text-danger font-weight-100"
                 @click="nextStepPincode"
                 style="color:#000;"
-              >ยืนยันการสมัคร</a>
+              >ยืนยันการสมัคร</a> -->
+
               <a
-                id="btnPinpush"
-                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
-                style="color:#000; display:none;"
-              >กำลังบันทึกข้อมูล..</a>
+                  id="step-3"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  @click="nextStepPincode"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
+                >ยืนยันการสมัคร</a>
+                <a
+                  iid="btnPinpush"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;color:#000; display:none;"
+                >กำลังบันทึกข้อมูล</a>
+        
               <a
-                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
+                 class="btn btn-md bg-gradaint shadow btn-block font-weight-100"
                 v-show="step != 1"
                 @click="step--"
-                style="color:#000;"
+                style="color:#fff;font-size:26px; border-radius: 30px;font-weight:100;"
               >กลับ</a>
             </div>
           </div>
@@ -503,30 +554,31 @@
         <!-- ----------------END @STEP 4 ----------------  -->
 
         <!-- ----------------START @STEP 5 ----------------  -->
-        <form class="form-signin mt-3 animated fadeIn" v-show="step == 5">
+        <form class="form-signin mt-3 animated fadeIn" v-show="step == 6">
+          <h4 class="font-weight-100 text-white text-center">ข้อมูลการสมัครสมาชิก</h4>
           <div class="row">
             <div class="col-12">
-              <b-alert show variant="warning" class="bg-black">
-                <p class="text-white text-center">ข้อมูลการสมัครสมาชิก</p>
-                <small
-                  class="d-block text-danger"
-                >* กรุณาบันทึก USERNAME และ PASSWORD ของท่าน หรือ บันทึกภาพหน้าจอไว้</small>
-                <small class="d-block text-danger">* ท่านสามารถล็อกอินโดยใส่ PIN หรือ PASSWORD ก็ได้</small>
+              <b-alert show variant="warning" class="card bg-white text-dark text-left" style="border-radius:25px;">
+                <p
+                  class="d-block text-dark"
+                >* กรุณาบันทึก USERNAME และ PASSWORD ของท่าน หรือ บันทึกภาพหน้าจอไว้</p>
+                <p class="d-block text-dark">* ท่านสามารถล็อกอินโดยใส่ PIN หรือ PASSWORD ก็ได้</p>
               </b-alert>
             </div>
             <div class="col-12">
               <div class="form-group float-label active">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="border-radius: 25px; ">
                   <input
                     type="text"
-                    class="form-control text-white"
+                    class="form-controls text-dark px-3 bg-white"
+                    style="border-radius: 25px; height:50px;"
                     ref="inputUsername"
                     @click="copyAffiliate('inputUsername')"
                     readonly
                   />
-                  <div class="input-group-append">
+                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
-                      class="btn btn-white"
+                      class="btn text-dark"
                       type="button"
                       @click="copyAffiliate('inputUsername')"
                       style="color:#fff;"
@@ -541,7 +593,25 @@
             </div>
             <div class="col-12">
               <div class="form-group float-label active">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="border-radius: 25px; ">
+                  <input
+                    type="text"
+                    class="form-controls text-dark px-3 bg-white"
+                    style="border-radius: 25px; height:50px;"
+                    ref="inputPassword"
+                    @click="copyAffiliate('inputPassword')"
+                    readonly
+                  />
+                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                    <button
+                      class="btn text-dark"
+                      type="button"
+                      @click="copyAffiliate('inputPassword')"
+                      style="color:#fff;"
+                    >คัดลอก</button>
+                  </div>
+                </div>
+                <!-- <div class="input-group mb-3">
                   <input
                     type="text"
                     class="form-control text-white"
@@ -557,7 +627,7 @@
                       style="color:#ffff;"
                     >คัดลอก</button>
                   </div>
-                </div>
+                </div> -->
                 <label
                   class="form-control-label"
                   style="margin-top: -24px;margin-left: -15px;"
@@ -566,7 +636,26 @@
             </div>
             <div class="col-12">
               <div class="form-group float-label active">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" style="border-radius: 25px; ">
+                  <input
+                    type="text"
+                    class="form-controls text-dark px-3 bg-white"
+                    style="border-radius: 25px; height:50px;"
+                    ref="inputPincode"
+                    v-model="inputPincode"
+                    @click="copyAffiliate('inputPincode')"
+                    readonly
+                  />
+                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                    <button
+                      class="btn text-dark"
+                      type="button"
+                      @click="copyAffiliate('inputPincode')"
+                      style="color:#fff;"
+                    >คัดลอก</button>
+                  </div>
+                </div>
+                <!-- <div class="input-group mb-3">
                   <input
                     type="text"
                     class="form-control text-white"
@@ -583,20 +672,22 @@
                       style="color:#ffff;"
                     >คัดลอก</button>
                   </div>
-                </div>
+                </div> -->
                 <label class="form-control-label" style="margin-top: -24px;margin-left: -15px;">PIN</label>
               </div>
             </div>
           </div>
-          <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
-            <div class="col">
+          <div class="row mt-4 justify-content-center mx-2 bottom-button-container" style="bottom: unset;">
+            <div class="col-11 ">
               <a
                 id="step-4"
-                class="btn btn-ocean shadow btn-block text-body font-weight-100 mb-2"
+                class="btn btn-md bg-gradaint shadow mb-2 btn-block text-dark font-weight-100"
+                style="font-size:22px; border-radius: 30px;font-weight:100;"
                 @click="nextStepLogin"
               >เข้าสู่ระบบ</a>
               <nuxt-link
-                class="btn btn-ocean shadow btn-block text-body"
+                class="btn btn-md bg-gradaint shadow mb-2 btn-block text-white font-weight-100"
+                style="font-size:22px; border-radius: 30px;font-weight:100;"
                 :to="{name : 'dashboard-login'}"
               >หน้าแรก</nuxt-link>
             </div>
@@ -604,26 +695,26 @@
         </form>
         <!-- ----------------END @STEP 6 ----------------  -->
         <!-- login buttons -->
-        <form class="mt-3 animated fadeIn" v-show="step == 6">
+        <form class="mt-3 animated fadeIn" v-show="step == 5">
+          <h4 class="font-weight-100 text-center text-white">ยืนยันข้อมูล</h4>
           <div class="row">
             <div class="col-12">
               <div class="col align-self-center">
-                <div class="row">
+                <div class="row justify-content-center">
                   <!-- <b-alert show variant="warning"> -->
                   <div
-                    class="col-12 mb-3 bg-black"
-                    style="line-height: 1.2em;color: rgb(214, 188, 119) !important;border:solid 1px #444; border-radius: 5px;"
+                    class="col-11 mb-3 bg-white" 
+                    style="line-height: 1.2em;color: rgb(214, 188, 119) !important;border:solid 1px #444; border-radius: 25px;"
                   >
-                    <h6 class="text-center text-pink mt-1">กฏกติกา การฝาก-ถอน</h6>
-                    <small
-                      class="text-white"
-                    >1. ชื่อ-นามสกุล กรุณาใช้ข้อมูลของบัญชีธนาคารเท่านั้น มิเช่นนั้นท่านจะไม่สามารถถอนเงินออกได้</small>
-                    <br />
-                    <small
-                      class="text-white"
-                    >2.ต้องใช้เบอร์โทรศัพท์ของท่านเท่านั้นเพื่อยืนยันรหัส OTP</small>
-                    <br />
-                    <br />
+                    <h6 class="text-center text-dark mt-3 font-weight-100">กฏกติกา การฝาก-ถอน</h6>
+                    <hr>
+                    <p
+                      class="text-dark my-2 font-weight-100"
+                    >1. ชื่อ-นามสกุล กรุณาใช้ข้อมูลของบัญชีธนาคารเท่านั้น มิเช่นนั้นท่านจะไม่สามารถถอนเงินออกได้</p>
+                    
+                    <p
+                      class="text-dark my-4 font-weight-100"
+                    >2.ต้องใช้เบอร์โทรศัพท์ของท่านเท่านั้นเพื่อยืนยันรหัส OTP</p>
                   </div>
                 </div>
                 <div style="overflow: hidden;">
@@ -667,10 +758,11 @@
                       <div class="form-group">
                         <h6 class="text-white font-weight-100" style="margin-top:0">อายุ</h6>
                         <select
-                          class="custom-select form-controls form-control-lg text-white text-center"
+                          class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center"
                           ref="selectAge"
                           @change="removeValidation('selectAge')"
                           :class="{'is-invalid' : formValidation('selectAge')}"
+                          style="border-radius: 25px;height:50px;"
                           required
                         >
                           <option value disabled selected>เลือกช่วงอายุ</option>
@@ -687,10 +779,11 @@
                       <div class="form-group">
                         <h6 class="text-white font-weight-100">คุณรู้จักเรา จากช่องทางใด</h6>
                         <select
-                          class="custom-select form-controls form-control-lg text-white text-center"
+                          class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center"
                           ref="selectWay"
                           @change="removeValidation('selectWay')"
                           :class="{'is-invalid' : formValidation('selectWay')}"
+                          style="border-radius: 25px;height:50px;"
                           required
                         >
                           <option value disabled selected>กรุณาเลือกช่องทางของท่าน</option>
@@ -713,10 +806,10 @@
                         <input
                           type="text"
                           ref="inputFirstName"
-                          v-model="inputFirstName"
+                          v-model="Fname"
                           :class="{'is-invalid' : formValidation('inputFirstName')}"
                           @keyup="removeValidation('inputFirstName')"
-                          class="form-control form-control-lg text-center text-white"
+                          class="form-control form-control-lg px-4 text-dark"
                           placeholder="ชื่อจริง"
                           required
                         />
@@ -732,7 +825,7 @@
                           v-model="inputLastName"
                           :class="{'is-invalid' : formValidation('inputLastName')}"
                           @keyup="removeValidation('inputLastName')"
-                          class="form-control form-control-lg text-center text-white"
+                          class="form-control form-control-lg px-4 text-dark"
                           placeholder="นามสกุล"
                           required
                         />
@@ -744,12 +837,13 @@
                   <div class="row mt-3">
                     <div class="col-12">
                       <div class="form-group">
-                        <h6 class="text-white" style="font-weight:100;">เลือกธนาคารของลูกค้า</h6>
+                        <h6 class="text-white" style="font-weight:100;">เลือกธนาคาร</h6>
                         <select
-                          class="custom-select form-controls form-control-lg"
+                          class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center"
                           ref="selecBankAccount"
                           @change="removeValidation('selecBankAccount')"
                           :class="{'is-invalid' : formValidation('selecBankAccount')}"
+                          style="border-radius: 25px;"
                         >
                           <option
                             value
@@ -757,7 +851,7 @@
                             selected
                             class="text-white"
                             style="font-weight:100;"
-                          >กรุณาเลือกธนาคารของลูกค้า</option>
+                          >กรุณาเลือกธนาคาร</option>
                           <option
                             :value="item.id"
                             v-for="(item, index) in bankArray"
@@ -769,7 +863,7 @@
                     </div>
                     <div class="col-12 mt-3">
                       <div class="form-group">
-                        <h6 class="text-white" style="font-weight:100;">เลขบัญชีธนาคาร</h6>
+                        <h6 class="text-white" style="font-weight:100;">เลขบัญชีธนาคาร <small style="letter-spacing:1px;">(ชื่อบัญต้องตรงกับชื่อที่สมัคร)</small></h6>
                         <input
                           type="text"
                           pattern="\d*"
@@ -778,7 +872,7 @@
                           ref="inputBankAccountNumbers"
                           :class="{'is-invalid' : formValidation('inputBankAccountNumbers')}"
                           @keyup="removeValidation('inputBankAccountNumbers')"
-                          class="form-control form-control-lg text-center text-white"
+                          class="form-control form-control-lg px-4 text-dark"
                           placeholder="เลขบัญชีธนาคาร"
                           required
                         />
@@ -787,8 +881,8 @@
                     </div>
                     <div class="col-12 mt-3">
                       <a
-                        class="btn btn-ocean shadow text-pink"
-                        style="font-weight:100; color: #000;"
+                        class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                        style="font-size:26px; border-radius: 30px;font-weight:100;"
                         @click="sendLineRegister"
                       >ยืนยันข้อมูล</a>
                       <!-- <p @click="skipto" class="mt-3 text-right text-white">ยืนยันภายหลัง >></p> -->
@@ -833,16 +927,27 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .form-group h6 {
   margin-top: -10px;
 }
-
+.form-control {
+    font-size: 15px;
+    height: 38px;
+    color: #d7d4d4;
+    border-radius: 25px;
+    padding: 25px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
 .vue-pincode-input-wrapper {
   display: flex !important;
   justify-content: center;
 }
-
+ .bg-gradaint {
+    /* border-radius: 50%; */
+    /* background: #259690; */
+    background: linear-gradient(to right, rgb(204 204 204) 0%, rgb(140 140 140 / 22%) 100%);
+}
 li.active {
   color: #fff;
 }
@@ -1381,7 +1486,7 @@ export default {
         });
         return false;
       } else {
-        this.step = 4;
+        this.step = 3;
         // const formErrorStep = await this.formError.find(item => item.step == 2);
         // if (!formErrorStep) this.step = 4;
       }
@@ -1526,7 +1631,7 @@ export default {
           "</span>";
 
         if (chkpin.code == 22) {
-          this.step = 6;
+          this.step = 5;
         } else {
           const loader = this.$loading.show({ "is-full-page": true });
           window.location = chkpin.redirect;
@@ -1547,12 +1652,13 @@ export default {
       const dataCheckFromRegister = await this.checkFromRegister();
       loaderOne.hide();
       if (dataCheckFromRegister.success) {
-        document.getElementById("step-3").style.display = "none";
-        document.getElementById("btnPinpush").style.display = "block";
-        document.getElementById("btnPinpush").style.filter = "brightness(0.5)";
+        // document.getElementById("step-3").style.display = "none";
+        // document.getElementById("btnPinpush").style.display = "block";
+        // document.getElementById("btnPinpush").style.filter = "brightness(0.5)";
         const loaderTwo = this.$loading.show({
           container: this.$refs.formRegisterUser,
         });
+        //  sennd-regis
         const dataSendRegister = await this.sendRegister();
         loaderTwo.hide();
         if (dataSendRegister.success) {
@@ -1561,10 +1667,10 @@ export default {
           this.$toast.global.success({
             message: "สมัครสมาชิกสำเร็จแล้ว",
           });
-          this.step++;
+         this.step = 6;
         } else {
-          document.getElementById("step-3").style.display = "block";
-          document.getElementById("btnPinpush").style.display = "none";
+          // document.getElementById("step-3").style.display = "block";
+          // document.getElementById("btnPinpush").style.display = "none";
           this.$toast.global.error({
             message: dataSendRegister.data,
           });
@@ -1623,9 +1729,9 @@ export default {
             });
         }
 
-        if (errorFirstname || errorLastname) return (this.step = 3);
-        if (errorBankAccount) return (this.step = 3);
-        if (errorTel) return (this.step = 2);
+        if (errorFirstname || errorLastname) return (this.step = 2);
+        if (errorBankAccount) return (this.step = 2);
+        if (errorTel) return (this.step = 3);
       }
     },
     nextStepLogin: async function (event) {

@@ -291,7 +291,7 @@ select.form-controls {
   color: #000;
 }
 input.vue-pincode-input {
-  color: #495057;
+  color: #fff;
   background: #222222;
   max-width: 77px;
   height: 45px;

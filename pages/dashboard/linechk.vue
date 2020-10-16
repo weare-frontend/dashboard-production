@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div class="text-center" style="padding-top: 5px; padding-bottom: 10px;">
+    <div class="text-center" style="padding-top: 15px; padding-bottom: 10px;">
       <nuxt-link :to="{name : 'dashboard'}" class="text-center">
         <b-img
-          style="max-height:80px;"
-          :src="getThemeObject[2].img|| ''"
-          fluid
-          alt="Responsive image"
-        ></b-img>
+              style=" width:auto;height: 60px;filter: drop-shadow(0px 1px 1px black);"
+              :src="getThemeObject[2].img|| ''"
+              fluid
+              alt="Responsive image"
+            ></b-img>
       </nuxt-link>
     </div>
     <div class="row">
-      <div class="container pt-5 mt-5">
+      <div class="container pt-5">
         <div class="row" id="successTel">
-          <div class="col-12">
-            <h6 class="subtitle pt-5 mb-0">ยืนยันข้อมูลการสมัคร</h6>
-            <small class="text-danger">ท่านต้องยืนยันข้อมูลการสมัครก่อนจะเข้าสู่ระบบ</small>
+          <div class="col-12 mb-3">
+            <h4 class="font-weight-100 text-white pt-5 mb-0">ยืนยันข้อมูลการสมัคร</h4>
+            <p class="text-dark">ท่านต้องยืนยันข้อมูลการสมัครก่อนจะเข้าสู่ระบบ</p>
           </div>
         </div>
         <div class="row">
@@ -30,12 +30,12 @@
                 pattern="\d*"
                 ref="inputPhoneNumber"
                 :class="{'is-invalid' : formValidation('inputPhoneNumber')}"
-                class="form-controls form-control-lg text-center text-white"
+                class="form-controls form-control-lg bg-white px-4 text-template"
                 placeholder="เบอร์โทร"
+                style="border-radius: 25px; "
                 required
                 maxlength="10"
               />
-
               <div class="invalid-feedback">{{ formValidation('inputPhoneNumber') }}</div>
 
               <small id="thisPhone">เพื่อยืนยัน OTP จากระบบ</small>
@@ -70,17 +70,17 @@
             <b-overlay :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
               <div class="form-group mt-2">
                 <b-button
-                  class="btn-block"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
                   size="md"
                   id="send-otp"
-                  variant="ocean"
                   @click="acceptResearch"
                 >ยืนยันข้อมูล</b-button>
                 <b-button
-                  class="btn-block"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  style="font-size:26px; border-radius: 30px;font-weight:100;"
                   size="md"
                   id="accepted-otp"
-                  variant="ocean"
                   @click="acceptOtp"
                 >ยืนยัน OTP</b-button>
               </div>
@@ -120,7 +120,8 @@
           <div class="col-12" id="settingpinBtn">
             <div class="form-group mt-4">
               <b-button
-                class="btn-block display-none"
+                 class="btn btn-md display-none bg-gradaint shadow btn-block text-white font-weight-100"
+                style="font-size:26px; border-radius: 30px;font-weight:100;"
                 size="md"
                 id="setting-pin"
                 variant="ocean"
@@ -234,9 +235,10 @@
                   ref="inputPincode"
                   :class="{'is-invalid' : formValidation('inputPincode')}"
                   v-model="inputPincode"
-                  class="form-controls form-control-lg text-center"
+                  class="form-controls form-control-lg"
                   placeholder="Pin"
                   maxlength="4"
+                  style="border-radius: 25px;"
                   required
                 />
                 <div class="invalid-feedback">{{formValidation('inputPincode')}}</div>
@@ -246,12 +248,12 @@
           </div>
           <div class="col-12">
             <b-button
-              class="btn-block mt-2"
+              class="btn btn-md mt-2 display-none bg-gradaint shadow btn-block text-white font-weight-100"
+              style="font-size:26px; border-radius: 30px;font-weight:100;"
               size="md"
               id="accepted-pin"
               variant="ocean"
               @click="acceptPin"
-              style="display:none;"
             >ยืนยัน PIN</b-button>
           </div>
         </div>
@@ -721,7 +723,11 @@ small {
   margin-right: 0px;
   margin-left: 0px;
 }
-
+.bg-gradaint {
+    /* border-radius: 50%; */
+    /* background: #259690; */
+    background: linear-gradient(to right, rgb(179 179 180 / 22%) 0%, rgb(0 0 0 / 67%) 100%);
+}
 .btn-aff {
   filter: invert(1);
   width: 35px;
