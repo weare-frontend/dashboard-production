@@ -10,7 +10,7 @@
         header-class="shadow"
         footer-class="shadow"
         no-close-on-backdrop
-        body-class="bg-body-modal"
+        body-class="bg-template"
       >
         <template v-slot:modal-header="{ close }">
           <h5 class="text-center w-100" style="color: #0f4845;">โอนเครดิตฟรีเข้าเกม</h5>
@@ -25,13 +25,13 @@
             <button
               type="button"
               @click="$refs['modal-download'].show()"
-              class="btn btn-block py-0 px-4 btn-outline-secondary bg-button-cf"
+              class="btn btn-block py-0 px-4 btn-outline-secondary bg-black text-template"
             >ยืนยัน</button>
           </div>
           <div class="col-6">
             <button
               type="button"
-              class="btn text-white py-0 px-4 bg-button-cc"
+              class="btn text-white py-0 px-4 bg-template-gradaint"
               @click="$bvModal.hide('modal-exchange')"
             >ยกเลิก</button>
           </div>
@@ -513,9 +513,9 @@
 
 <style>
 .bg-button-cc{
-  background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
-    background-color: #259690;
-    color: white;
+  background: linear-gradient(to right, rgb(255 255 255 / 74%) 0%, rgb(0 0 0 / 0%) 100%);
+    background-color: #689673;
+    color: #fff;
 }
 .bg-button-cf{
   background-color: #0f4845;
