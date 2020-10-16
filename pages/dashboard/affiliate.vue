@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 col-xs-12" v-if="getPromotionObjects[101].status">
-        <h6 class="subtitle mt-5" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
+        <h6 class="subtitle text-white" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
         <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt />
       </div>
 
