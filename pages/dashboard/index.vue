@@ -10,10 +10,10 @@
         header-class="shadow"
         footer-class="shadow"
         no-close-on-backdrop
-        body-class="bg-dark"
+        body-class="bg-body-modal"
       >
         <template v-slot:modal-header="{ close }">
-          <h5 class="text-center w-100 text-dark">โอนเครดิตฟรีเข้าเกม</h5>
+          <h5 class="text-center w-100" style="color: #0f4845;">โอนเครดิตฟรีเข้าเกม</h5>
           <i class="f7-icons text-danger"
             @click="$bvModal.hide('modal-exchange')"
             style="float:right;"
@@ -25,13 +25,13 @@
             <button
               type="button"
               @click="$refs['modal-download'].show()"
-              class="btn btn-block py-0 px-4 btn-outline-secondary bg-black text-template"
+              class="btn btn-block py-0 px-4 btn-outline-secondary bg-button-cf"
             >ยืนยัน</button>
           </div>
           <div class="col-6">
             <button
               type="button"
-              class="btn text-white py-0 px-4 bg-template-gradaint"
+              class="btn text-white py-0 px-4 bg-button-cc"
               @click="$bvModal.hide('modal-exchange')"
             >ยกเลิก</button>
           </div>
@@ -39,15 +39,15 @@
         </template>
         <div class="row mt-3 justify-content-center" v-if="$route.name != 'dashboard-withdraw'">
           <div class="col-4 text-center mb-1">
-            <h6 class="m-0 w-100 text-template mb-2">ยอดเงินในเกม</h6>
+            <h6 class="m-0 w-100 mb-2" style="color: #CBF594;">ยอดเงินในเกม</h6>
             <img
-              class=" mb-1"
+              class="mb-1"
               src="~/assets/img/coin.png"
               style="height:80px; padding:1px;"/>
             <h6 class="text-white mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
           </div>
           <div class="col-4 text-center mb-1">
-            <h6 class="m-0 w-100 text-template mb-2">กระเป๋าเครดิตฟรี</h6>
+            <h6 class="m-0 w-100 mb-2" style="white-space: nowrap;color: #CBF594;">กระเป๋าเครดิตฟรี</h6>
             <img
               class="mb-1"
               src="~/assets/img/wallet.png"
@@ -201,7 +201,7 @@
                     </div>
                     <div class="text-center w-100" style="height:80px">
                       <h6 class="font-weight-100 my-2">กระเป๋าเครดิตฟรี </h6>
-                      <h4 class="text-template font-weight-100 size-22"  style="    position: absolute; padding: 1px; right: 0%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }} 
+                      <h4 class="text-template font-weight-100 size-22"  style="    position: absolute; padding: 1px; right: 6%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }} 
                         <button class="btn small material-icons text-template size-10 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange" >โอนเครดิต</button></h4>
                     </div>
                   </div>
@@ -512,6 +512,18 @@
 </template>
 
 <style>
+.bg-button-cc{
+  background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+    background-color: #259690;
+    color: white;
+}
+.bg-button-cf{
+  background-color: #0f4845;
+  color: #c4ee91;
+}
+.bg-body-modal{
+  background: #0F4845;
+}
 .w-50{
   width:50%;
 }

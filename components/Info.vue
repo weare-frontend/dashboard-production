@@ -31,7 +31,7 @@
             <h6 class="text-template mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
           </div>
           <div class="col-4 text-center mb-1">
-            <h6 class="m-0 w-100 text-template small mb-2">กระเป๋าเครดิตฟรี</h6>
+            <h6 class="m-0 w-100 text-template small mb-2" style=" white-space: nowrap;">กระเป๋าเครดิตฟรี</h6>
             <img
               class="bg-template mb-2"
               src="~/assets/icon-svg/Wallet2.svg"
