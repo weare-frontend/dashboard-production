@@ -1,7 +1,10 @@
 
 <template>
-  <div style="padding-bottom: 20px; margin-top:-100px;">
-    <h5 class="text-center font-weight-100 text-white mb-4"> <i class="text fas fa-gift"></i> กิจกรรม</h5>
+  <div style="padding-bottom: 20px;">
+    <div class="col-12">
+        <h5 class="text-center text-white font-weight-100" style="border-radius: 15px;"><i class="text fas fa-gift"></i> กิจกรรม</h5>
+    </div>
+    
     
     <div class="panel-center">
       <div class="container">

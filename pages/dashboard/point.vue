@@ -1,5 +1,5 @@
 <template>
-<div class="container mb-5">
+<div class="container mb-4">
     <div class="col-12">
         <h5 class="text-center text-white font-weight-100" style="border-radius: 15px;">สะสมแต้ม</h5>
     </div>
@@ -72,7 +72,7 @@
                         <img class="img-fluid pointer" :src="showAPI + item.img" :alt="item.detail" />
                     </div>
                 </div>
-                <div class="overflow-auto col-12 mt-3" v-if="searchArray.length">
+                <div class="text-template overflow-auto col-12 mt-2 mb-3" v-if="searchArray.length">
                     <b-pagination  pills align="center" v-model="currentPage" @change="searchDetaiItemArray" :per-page="perPage" :total-rows="rows" size="md"></b-pagination>
                 </div>
 

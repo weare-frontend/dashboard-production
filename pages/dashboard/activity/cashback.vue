@@ -6,7 +6,7 @@
         <div class="col-md-6 col-xs-12 mt-3">
           <nav class="nav nav-pills nav-justified w-100 m-auto">
             <h4 class="nav-item nav-link">
-              <span style="color:#ffc107;">คืนยอดเสีย (cashback)</span>
+              <span class="text-template">คืนยอดเสีย (cashback)</span>
             </h4>
           </nav>
           <img class="w-100 mb-2" :src="getPromotionObjects[126].img_banner" alt />
