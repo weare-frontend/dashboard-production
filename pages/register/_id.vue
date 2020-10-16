@@ -685,11 +685,11 @@
                 style="font-size:22px; border-radius: 30px;font-weight:100;"
                 @click="nextStepLogin"
               >เข้าสู่ระบบ</a>
-              <nuxt-link
+              <!-- <nuxt-link
                 class="btn btn-md bg-gradaint shadow mb-2 btn-block text-white font-weight-100"
                 style="font-size:22px; border-radius: 30px;font-weight:100;"
                 :to="{name : 'dashboard-login'}"
-              >หน้าแรก</nuxt-link>
+              >หน้าแรก</nuxt-link> -->
             </div>
           </div>
         </form>
