@@ -1,30 +1,33 @@
 <template>
 <div>
+    
     <div class="container pt-3" style="margin-top:-70px;">
-        <div class="text-left f7-demo-icon">
-           <i class="f7-icons">arrow_left_circle</i>
-       </div>
+        <div class="col-4 text-left">
+        <div class="text-white mr-4">
+            <i class="f7-icons text-white">arrow_left_circle</i>
+        </div>
+    </div>
         <div class="row">
-            
+
             <div class="col-12">
                 <h5 class="text-center text-white font-weight-100">ช่องทางการเติมเงิน</h5>
-                 
+
             </div>
             <div class="tab_container px-3">
-                    <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
-                    <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
-                    <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
-                    <input class="checkbox-tap" id="tab2" type="radio" name="tabs" />
-                    <label for="tab2" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'">พร้อมเพย์</label>
-                    <label for="tab2" style="width:43%; margin:0 0 0 2%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">พร้อมเพย์</label>
-          
+                <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
+                <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
+                <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
+                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" />
+                <label for="tab2" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'">พร้อมเพย์</label>
+                <label for="tab2" style="width:43%; margin:0 0 0 2%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">พร้อมเพย์</label>
+
                 <section id="content1" class="bg-rgba tab-content" v-if="$auth.user.lname != 'Not verified'">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 text-center" v-if="promptPayArray.length > 0 && bankArray.length == 0">
                             <div class="card shadow border-0 my-3 text-center bg-template">
                                 <div class="card-body">
                                     <div class="avatar avatar-60 no-shadow border-0 bg-white" style="border-radius: 50%;">
-                                  
+
                                         <i class="material-icons vm md-36 text-template">report</i>
                                     </div>
                                     <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการบัญชีธนาคาร</h4>
@@ -86,12 +89,12 @@
                             </div>
                         </div>
                     </div>
-                 
+
                 </section>
                 <section id="content1" class="tab-content bg-rgba" v-if="$auth.user.lname == 'Not verified'">
                     <!-- <h5 class="text-center font-weight-100">PromptPay</h5> -->
                     <div class="row">
-                        
+
                         <div class="col-12 px-3">
                             <!-- toggle.dragon -->
                             <b-collapse id="dragon" accordion="my-bank" role="tabpanel" v-if="drgxObject && drgxObject.status == '1'">
@@ -153,7 +156,7 @@
                                 </div>
                             </b-collapse>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-12 px-3 ">
@@ -502,11 +505,10 @@ label {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    background:#fff;
+    background: #fff;
     /* background-image: linear-gradient(rgb(0 0 0), rgb(56 56 56), rgb(0, 0, 0)); */
     list-style-type: circle;
 
-   
     font-weight: 400;
     border-radius: 10px;
     filter: drop-shadow(0px 2px 2px black);
@@ -551,11 +553,13 @@ label .fa {
     font-size: 1.3em;
     margin: 0 0.4em 0 0;
 }
-.btn-clipboard{
+
+.btn-clipboard {
     background: linear-gradient(to right, rgb(255 255 255 / 74%) 0%, rgb(0 0 0 / 0%) 100%);
     background-color: #689673;
-    color:#fff;
+    color: #fff;
 }
+
 /*Media query*/
 @media only screen and (max-width: 930px) {
     label span {
@@ -634,7 +638,9 @@ export default {
     components: {
         "page-info": Info,
     },
-    asyncData: async function ({ $axios }) {
+    asyncData: async function ({
+        $axios
+    }) {
         const topupDrgx = await $axios.$get("/api/drgx-topup");
         const topupBank = await $axios.$get("/api/bank-topup");
         return {
@@ -655,12 +661,16 @@ export default {
             });
         },
         fetchUser: function () {
-            const loader = this.$loading.show({ "is-full-page": true });
+            const loader = this.$loading.show({
+                "is-full-page": true
+            });
             this.isSpin = true;
             this.$auth
                 .fetchUser()
                 .then((res) => {
-                    this.$toast.global.success({ message: "อัพเดทข้อมูลเรียบร้อย" });
+                    this.$toast.global.success({
+                        message: "อัพเดทข้อมูลเรียบร้อย"
+                    });
                     this.getPromptpay();
                     this.getHistory();
                     this.isSpin = false;

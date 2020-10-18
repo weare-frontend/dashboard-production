@@ -48,12 +48,12 @@
             >
               <i class="material-icons icons-raised">language</i>เข้าสู่เว็บไซต์
             </a>
-            <a
+            <!-- <a
               v-b-modal.modalColor
               class="list-group-item list-group-item-action close-menu text-template"
             >
               <i class="material-icons icons-raised">invert_colors</i>เปลี่ยนสีธีม
-            </a>
+            </a> -->
             <a @click="userLogout" class="list-group-item list-group-item-action close-menu">
               <i class="material-icons icons-raised bg-danger">power_settings_new</i>ออกจากระบบ
             </a>

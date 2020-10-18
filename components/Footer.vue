@@ -76,13 +76,12 @@
     >
       <template v-slot:modal-header="{ close }">
         <i
-          class="f7-icons"
-          style="position:absolute;right:10px;color:#ec1415;"
+          class="f7-icons multiply-circle2 text-white"
           @click="$bvModal.hide('modal-download')"
-        >multiply</i>
+        >multiply_circle</i>
         <p
           class="text-center w-100"
-          style="font-weight:100; font-size:18px;"
+          style="font-weight:100; font-size:18px; color:#0F4845"
         >ทางเข้าสู่เกม</p>
       </template>
 
@@ -93,12 +92,12 @@
             :href="$device.isDesktop ? lunchGameUrlWeb : lunchGameUrlMoblie"
           >
             <div class="bg-background card">
-              <div class="card-body text-center bg-white">
+              <div class="card-body text-center" style="background-color:#0F4845;">
                 <img
-                  src="~/assets/icon-svg/casino.svg"
+                  src="~/assets/img/casino.png"
                   style="margin:auto; padding:5px;width:75px;"
                 />
-                <h5 class="text-body font-weight-100">เข้าสู่เว็บไซต์เดิมพัน</h5>
+                <h5 class="text-white font-weight-100" >เข้าสู่เว็บไซต์เดิมพัน</h5>
               </div>
             </div>
           </a>
@@ -123,12 +122,12 @@
             <input type="hidden" name="Password" v-model="this.$auth.user.password" value />
             <a @click="submitSlotxo">
               <div class="bg-background card">
-                <div class="card-body text-center bg-white">
+                <div class="card-body text-center"  style="background-color:#0F4845;">
                   <img
-                    src="~/assets/icon-svg/casino.svg"
+                    src="~/assets/img/casino.png"
                     style="margin:auto; padding:5px;width:75px;"
                   />
-                  <h5 class="text-body">เข้าสู่เว็บไซต์เดิมพัน</h5>
+                  <h5 class="text-white text-body">เข้าสู่เว็บไซต์เดิมพัน</h5>
                 </div>
               </div>
             </a>
@@ -149,80 +148,82 @@
             <input type="hidden" name="Password" v-model="this.$auth.user.password" value />
             <a @click="submitJoker">
               <div class="bg-background card">
-                <div class="card-body text-center bg-white">
+                <div class="card-body text-center" style="background-color:#0F4845;">
                   <img
-                    src="~/assets/icon-svg/casino.svg"
+                    src="~/assets/img/casino.png"
                     style="margin:auto; padding:5px;width:75px;"
                   />
-                  <h5 class="text-body">เข้าสู่เว็บไซต์เดิมพัน</h5>
+                  <h5 class="text-white text-body">เข้าสู่เว็บไซต์เดิมพัน</h5>
                 </div>
               </div>
             </a>
           </form>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == 'pussy888'">
-          <div class="card-body text-center">
-            <span class="material-icons" style="font-size: 62px;">android</span>
-            <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <span class="material-icons" style="font-size: 62px; color: #D3F39E;">android</span>
+            <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download"
-              class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
             >ดาวน์โหลด</a>
           </div>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == 'pussy888'">
-          <div class="card-body text-center">
-            <i class="f7-icons" style="font-size: 67px;">logo_apple</i>
-            <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ IOS</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <i class="f7-icons" style="font-size: 67px; color: #D3F39E;">logo_apple</i>
+            <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ IOS</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download_ios"
-              class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
             >ดาวน์โหลด</a>
           </div>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == '918kiss'">
-          <div class="card-body text-center">
-            <span class="material-icons" style="font-size: 62px;">android</span>
-            <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <span class="material-icons" style="font-size: 62px; color: #D3F39E;">android</span>
+            <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download"
-              class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
             >ดาวน์โหลด</a>
           </div>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == '918kiss'">
-          <div class="card-body text-center">
-            <i class="f7-icons" style="font-size: 67px;">logo_apple</i>
-            <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ IOS</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <i class="f7-icons" style="font-size: 67px; color: #D3F39E;">logo_apple</i>
+            <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ IOS</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download_ios"
-              class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
             >ดาวน์โหลด</a>
           </div>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == 'lavagame'">
-          <div class="card-body text-center bg-white">
-            <span class="text-body material-icons" style="font-size: 62px;">android</span>
-            <h6 class="text-body font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <span class="material-icons" style="font-size: 62px; color: #D3F39E;">android</span>
+            <h6 class="font-weight-100 text-white" style="font-size: 12px;">สำหรับระบบ Android</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download"
-              class="btn btn-md btn-secondary bg-dark btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              style="border-radius: 10px;"
             >ดาวน์โหลด</a>
           </div>
         </div>
         <div class="col-md-6 mb-3" v-if="this.$auth.user.game.toLowerCase() == 'lavagame'">
-          <div class="card-body text-center bg-white">
-            <i class="text-body f7-icons" style="font-size: 67px;">logo_apple</i>
-            <h6 class="text-body font-weight-100" style="font-size: 12px;">สำหรับระบบ IOS</h6>
+          <div class="card-body text-center" style="background-color: #0F4845;">
+            <i class="f7-icons" style="font-size: 67px; color: #D3F39E;">logo_apple</i>
+            <h6 class="font-weight-100 text-white" style="font-size: 12px;">สำหรับระบบ IOS</h6>
             <a
               target="_blank"
               :href="getSettingObject.link_download_ios"
-              class="btn btn-md btn-secondary bg-dark btn-rounded btn-block shadow small font-weight-100"
+              class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+              style="border-radius: 10px;"
             >ดาวน์โหลด</a>
           </div>
         </div>
@@ -231,13 +232,13 @@
           v-if="this.$auth.user.game.toLowerCase()!= 'csroyale' & 'pgslot'"
         >
           <div class="bg-transparent card border">
-            <div class="card-body text-center">
-              <span class="material-icons" style="font-size: 62px;">android</span>
-              <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
+            <div class="card-body text-center" style="background-color: #0F4845;">
+              <span class="material-icons" style="font-size: 62px; color: #D3F39E;">android</span>
+              <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ Android</h6>
               <a
                 target="_blank"
                 :href="getSettingObject.link_download"
-                class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+                class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
               >ดาวน์โหลด</a>
             </div>
           </div>
@@ -247,14 +248,14 @@
           v-if="this.$auth.user.game.toLowerCase()!= 'csroyale' & 'lavagame' & 'pgslot'"
         >
           <div class="bg-transparent card border">
-            <div class="card-body text-center">
+            <div class="card-body text-center" style="background-color: #0F4845;">
               <!-- <span class="material-icons" > stay_current_portrait </span> -->
-              <i class="f7-icons" style="font-size: 67px;">logo_apple</i>
-              <h6 class="text-template font-weight-100" style="font-size: 12px;">สำหรับระบบ ios</h6>
+              <i class="f7-icons" style="font-size: 67px; color: #D3F39E;">logo_apple</i>
+              <h6 class="text-white font-weight-100" style="font-size: 12px;">สำหรับระบบ ios</h6>
               <a
                 target="_blank"
                 :href="getSettingObject.link_download_ios"
-                class="btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
+                class="bg-button-cc btn btn-md btn-secondary btn-rounded btn-block shadow small font-weight-100"
               >ดาวน์โหลด</a>
             </div>
           </div>

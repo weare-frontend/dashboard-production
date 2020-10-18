@@ -101,7 +101,7 @@
                 <p v-html="getSettingObject.text_announce"></p>
             </div>
         </div>
-        <div class="container">
+      <div class="container-sm" style=" max-width: 500px;">
             <div class="mt-0 mt-md-4 fetch-main" v-if="$route.name != 'dashboard-withdraw'">
                 <!-- <div class="fetch justify-content-center">
             <button class="btn btn-default btn-rounded-54 shadow bg-template" @click="fetchUser">
@@ -880,7 +880,8 @@ export default {
                     img: "Slide-mobile-03.png",
                 },
             ],
-            dataImg: []
+            dataImg: [],
+            isSpin:false
         }
     },
     asyncData: async function ({
