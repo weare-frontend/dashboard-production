@@ -120,7 +120,7 @@
 
 }
 .item-text {
-      font-size: 1.5vw;
+      font-size: 16px;
   }
   
 .box:hover {

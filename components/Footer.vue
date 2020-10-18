@@ -5,24 +5,24 @@
         <div
           class="row justify-content-center align-footer"
         >
-          <div class="col-2">
+          <div class="col-2 px-0">
             <nuxt-link :to="{ name : 'dashboard'}" class="btn btn-link-default">
               <i class="fas fa-home text-template" style="margin:6px auto;margin:10px;"></i>
               <br />
               <span class=" text-template">หน้าแรก</span>
             </nuxt-link>
           </div>
-          <div class="col-2">
+          <div class="col-2 px-0">
             <nuxt-link :to="{ name : 'dashboard-profile'}" class="btn btn-link-default">
               <i class="fas fa-user text-template" style="margin:6px auto;margin:10px;"></i>
               <br />
               <span class=" text-template">ข้อมูลส่วนตัว</span>
             </nuxt-link>
           </div>
-          <div class="col-3" style="margin-top: -10px; filter: drop-shadow(0px 0px 2px white);" v-if="this.$auth.user.game.toLowerCase() == 'csroyale' ">
+          <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" v-if="this.$auth.user.game.toLowerCase() == 'csroyale' ">
             <nuxt-link :to="{ name : 'dashboard-luca'}" 
               class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center"
-              style="width: 90px;height: 90px;margin: -23px auto 0 auto;"
+              style="width: 97px;height: 97px;margin: -30px auto 0 auto;"
             >
               <div class="module bg-white mt-1">
                 <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
@@ -30,11 +30,11 @@
               </div>
             </nuxt-link>
           </div>
-          <div class="col-3" style="margin-top: -10px;filter: drop-shadow(0px 0px 2px white);" v-else>
+          <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" style="margin-top: -10px; filter: drop-shadow(0px 0px 2px white);" v-else>
             <a
               @click="$refs['modal-download'].show()"
               class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center"
-              style="width: 80px;height: 80px;margin: -23px auto 0 auto;"
+              style="width: 97px;height: 97px;margin: -30px auto 0 auto;"
             >
               <div class="module bg-white">
                 <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
@@ -496,13 +496,19 @@ i.f7-icons {
 
 @media (min-width:480px) {
   .align-footer{
-    max-width: 600px; margin: 0 auto;width: 100%;
+    max-width: 600px; margin: 0 auto;width: 500px;
+  }
+  .ft{
+    margin-top: -10px; filter: drop-shadow(0px 0px 2px white); text-align: center;
   }
 }
 
 @media (max-width:480px) {
   .align-footer{
-    max-width: 600px; width: 100%;
+    max-width: 600px; width: 100%;margin: auto;
+  }
+  .ft{
+    margin-top: -10px; filter: drop-shadow(0px 0px 2px white);
   }
 }
 </style>
