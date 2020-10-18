@@ -3,8 +3,7 @@
     <div class="no-gutters">
       <div class="col-auto mx-auto">
         <div
-          style="max-width: 600px; width: 100%;"
-          class="row justify-content-center"
+          class="row justify-content-center align-footer"
         >
           <div class="col-2">
             <nuxt-link :to="{ name : 'dashboard'}" class="btn btn-link-default">
@@ -492,6 +491,18 @@ i.f7-icons {
   }
   100% {
     background: linear-gradient(to right, red, purple);
+  }
+}
+
+@media (min-width:480px) {
+  .align-footer{
+    max-width: 600px; margin: 0 auto;width: 100%;
+  }
+}
+
+@media (max-width:480px) {
+  .align-footer{
+    max-width: 600px; width: 100%;
   }
 }
 </style>
