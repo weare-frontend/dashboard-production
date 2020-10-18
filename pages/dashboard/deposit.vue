@@ -7,13 +7,13 @@
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </a>
     </div>
-        <div class="row">
+        <div class="row mb-5">
 
             <div class="col-12">
                 <h5 class="text-center text-white font-weight-100 mt-3">ช่องทางการเติมเงิน</h5>
 
             </div>
-            <div class="tab_container px-3">
+            <div class="tab_container px-3 mb-5">
                 <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
                 <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
                 <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                 </section>
                 <section id="content1" class="tab-content bg-rgba" v-if="$auth.user.lname == 'Not verified'">
                     <!-- <h5 class="text-center font-weight-100">PromptPay</h5> -->
@@ -223,10 +223,7 @@
                                             </b-button>
                                         </div>
                                     </div>
-                                    <div class="container mt-2">
-                                        <span class="text-white">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</span>
-                                        <b-table style="white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive></b-table>
-                                    </div>
+                                    
                                 </a>
                             </div>
                         </div>
@@ -389,9 +386,13 @@
                         </div>
                     </div>
                 </section>
+                <div class="container mt-2 mb-4">
+                    <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
+                    <b-table class="card px-2" style="color:#000;white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
+                </div>
             </div>
         </div>
-
+        
         <!-- toggle bank -->
 
         <!-- Notbank -->
@@ -405,6 +406,7 @@
                 <p class="text-secondary text-mute small">กรุณาติดต่อพนักงาน</p>
             </div>
         </div>
+
     </div>
     <!-- page content ends -->
     <b-modal id="modal-warning" ref="modal-warning" centered content-class="rounded" header-class="shadow" body-class hide-footer no-close-on-backdrop>
@@ -617,19 +619,19 @@ export default {
             fields: [{
                     key: 'create_at',
                     label: 'วัน/เวลา',
-                    class: 'text-left fontSizeTable text-white'
+                    class: 'text-left fontSizeTable text-dark small'
                 },
                 {
                     key: 'money',
                     label: 'จำนวนเงิน',
                     sortable: false,
-                    class: 'text-right fontSizeTable text-white'
+                    class: 'text-right fontSizeTable text-dark small'
                 },
                 {
                     key: 'status_accept',
                     label: 'สถานะ',
                     sortable: false,
-                    class: 'text-right fontSizeTable text-white'
+                    class: 'text-right fontSizeTable text-dark small'
                 }
             ],
             items: [],
