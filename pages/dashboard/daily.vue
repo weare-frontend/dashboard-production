@@ -138,7 +138,7 @@ export default {
         h("h5", { class: ["text-center"] }, [
           `รับโปรโมชั่นของวันที่ ${item.day}`,
         ]),
-        h("p", { class: ["text-center text-white"] }, [
+        h("p", { class: ["text-center text-template"] }, [
           `ได้รับรางวัล  ${item.credit} บาท`,
         ]),
       ]);

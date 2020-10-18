@@ -55,8 +55,8 @@
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">ธนาคาร :</div>
                                         <div class="text-left" style="width:70%;float:right;font-size:11px;color:#d8ff00;padding-left:2px;">{{ item.name }}</div>
                                     </div>
-                                    <div class="col-3 px-3">
-                                        <p style="line-height: .8em; padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color: #d8ff00;">
+                                    <div class="col-3 px-0 pr-2">
+                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color: #d8ff00;">
                                             คัดลอก
                                             <br />
                                             <small>เลขบัญชี</small>
@@ -334,7 +334,7 @@
                                             <p class="w-100 d-flex" style="margin-top:-10px;">
                                                 <span class="btn-money"><button @click="saveLog(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
                                                 <span class="btn-money"><button @click="saveLog(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,1000)" class="btn w-100 text-template bg-white">10,000</button></span>
+                                                <span class="btn-money"><button @click="saveLog(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
                                             </p>
                                             <small class="text-template">ระบุจำนวน</small>
                                             <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template" style="display:block;background-color: #fff;"></b-form-input>

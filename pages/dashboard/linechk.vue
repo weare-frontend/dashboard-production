@@ -647,7 +647,7 @@ div >>> header.text-center {
 select.form-controls,
 button.form-controls,
 input.form-controls {
-  color: #ccc;
+  color: #555;
   border: 1px solid #555;
   background-color: #000;
   width: 100%;

@@ -411,6 +411,7 @@ export default {
         this.$toast.global.success({
           message: "อัพเดทรหัสเข้าเกมผ่านสำเร็จ",
         });
+        this.$root.$emit('bv::toggle::collapse', 'collapse-password');
         this.$refs.password.value = "";
         this.$auth.fetchUser();
         loader.hide();
@@ -474,6 +475,7 @@ export default {
         this.$toast.global.success({
           message: "อัพเดท Pincode สำเร็จเรียบร้อย",
         });
+        this.$root.$emit('bv::toggle::collapse', 'collapse-pin');
       } else {
         this.$toast.global.error({
           message: "กรุณาตรวจสอบข้อมูล",

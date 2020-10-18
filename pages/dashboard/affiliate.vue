@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container mb-5" style="margin-top:-120px;">
     <div class="row justify-content-center">
       <div class="col-md-6 col-xs-12" v-if="getPromotionObjects[101].status">
         <h6 class="subtitle text-white" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
-        <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt />
+        <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt style="border-radius:20px;">
       </div>
 
       <!-- <div class="row px-4 ">
@@ -112,7 +112,7 @@
         </social-sharing>
       </div>-->
 
-      <div class="col-md-12 col-xs-12 justify-content-center">
+      <div class="col-md-12 col-xs-12 justify-content-center my-2">
         <div class="form-group float-label active">
           <div class="input-group mb-3">
             <input
@@ -131,10 +131,10 @@
               >คัดลอก</button>
             </div>
           </div>
-          <label class="form-control-label">ลิงค์ชวนเพื่อน</label>
+          <label class="form-control-label text-dark">ลิงค์ชวนเพื่อน</label>
         </div>
       </div>
-      <div class="col-md-12 col-xs-12 text-center mb-3">
+      <div class="col-md-12 col-xs-12 text-center">
         <a
           class="btn btn-secondary text-white"
           v-if="getPromotionObjects[121].status=='1'"
@@ -184,7 +184,7 @@
     </div>
 
     <!-- page content here -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
       <div class="col-md-6 col-xs-12">
         <h6 class="subtitle">เพื่อนทั้งหมด {{ dataTotal }} คน</h6>
         <ul class="list-group list-group-flush border-top border-bottom" v-if="affiliateArray">

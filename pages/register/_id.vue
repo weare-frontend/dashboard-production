@@ -2,7 +2,7 @@
   <div>
     <!-- header -->
     <div class="header bg-white">
-      <div class="row no-gutters mt-2">
+      <div class="row no-gutters pt-2">
         <div class="text-left my-3">
           <nuxt-link :to="{name:'dashboard'}">
             <i class="material-icons text-white">chevron_left</i>
@@ -424,7 +424,7 @@
               >
                 <!-- game slot -->
                 <span v-if="typeGame.slot_status">
-                  <b-alert show variant="warning">
+                  <b-alert show variant="warning" style="font-size: 18px;">
                     <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
                     <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
@@ -436,7 +436,7 @@
                       <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
                     </small>
                   </b-alert>
-                  <b-alert show variant="warning">
+                  <b-alert show variant="warning" style="font-size: 18px;">
                     <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
                     <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -447,12 +447,12 @@
                 </span>
                 <!-- game luca -->
                 <span v-if="typeGame.casino_status">
-                  <b-alert show variant="warning">
+                  <b-alert show variant="warning" style="font-size: 18px;">
                     <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
                     <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
                   </b-alert>
-                  <b-alert show variant="warning">
+                  <b-alert show variant="warning" style="font-size: 18px;">
                     <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
                     <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -476,7 +476,7 @@
                   class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
                   @click="nextStepInfo"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
-                >ขั้นตอนต่อไป</a>
+                >ถัดไป</a>
               </b-overlay>
               <b-overlay
                 class="py-2"
@@ -839,7 +839,7 @@
                       <div class="form-group">
                         <h6 class="text-white" style="font-weight:100;">เลือกธนาคาร</h6>
                         <select
-                          class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center"
+                          class="custom-select form-controls form-control-lg text-dark font-weight-100 bg-white text-center"
                           ref="selecBankAccount"
                           @change="removeValidation('selecBankAccount')"
                           :class="{'is-invalid' : formValidation('selecBankAccount')}"
@@ -849,10 +849,11 @@
                             value
                             disabled
                             selected
-                            class="text-white"
+                            class="text-dark"
                             style="font-weight:100;"
                           >กรุณาเลือกธนาคาร</option>
                           <option
+                          class="text-dark"
                             :value="item.id"
                             v-for="(item, index) in bankArray"
                             :key="index"
@@ -980,7 +981,7 @@ input.vue-pincode-input {
 button.form-controls,
 input.form-controls,
 select.form-controls {
-  color: #ccc;
+  color: #555;
   border: 1px solid #555;
   background-color: #000;
   width: 100%;
@@ -1545,8 +1546,10 @@ export default {
         });
         if (respone.success) {
           this.otp();
+          document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
         } else {
           this.getPin();
+          document.getElementById("step-1").innerHTML = "ยืนยัน Pin";
           this.formError.push({
             step: 1,
             ref: "inputPhoneNumber",

@@ -6,8 +6,6 @@
           <img :src="getThemeObject[2].img" alt="logo" class="logo-small mt-3" style="cursor: pointer;" @click="webFront"/>
         </div>
       </div>
-     
-
       <div class="row" id="userLogin">
         <div class="col align-self-center px-3 text-center">
           <form

@@ -1255,7 +1255,8 @@ h5 {
     z-index: 0;
     border: 0;
     margin-bottom: 11px;
-    padding-left: 154px;
+    justify-content: right;
+    /* padding-left: 154px; */
 }
 
 .nav-tabs .nav-link {
@@ -1263,7 +1264,6 @@ h5 {
     background: white;
     padding: -1px 15px 25px 15px;
     border: 0;
-   
     /* border-radius: 15px 15px 0 0; */
 }
 
@@ -1273,10 +1273,9 @@ h5 {
     -webkit-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -moz-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -ms-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);   
+    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
     background-color: #259690;
     color: white;
-    
 }
 
 .tab-content {

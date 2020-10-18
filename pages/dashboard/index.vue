@@ -390,7 +390,9 @@
     background-color: #259690;
     border-radius: 20px;
 }
-
+.carousel-3d-slide{
+    border-radius: 20px;
+}
 .multiply-circle {
     float: right;
     background-color: #259690;

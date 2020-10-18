@@ -38,10 +38,10 @@
         </div>
       </div>
     </div>
-    <div class="card shadow border-0 mb-3 bg-template text-center" v-if="!historyArray.length">
+    <div class="card shadow border-0 mb-3 text-center" v-if="!historyArray.length">
       <div class="card-body">
         <div class="avatar avatar-60 shadow border-0" style="border-radius:50%;">
-          <div class=" bg-template"></div>
+          <div class=""></div>
           <i class="material-icons vm md-36 text-template">card_giftcard</i>
         </div>
         <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการรับรางวัล </h4>

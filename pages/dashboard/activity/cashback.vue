@@ -33,11 +33,12 @@
             :items="getTableReturnBalance"
             :fields="tableCashback.fields"
             head-variant="dark"
+            class="text-template"
           >
             <template v-slot:empty>
-              <div class="text-light">ไม่พบข้อมูล</div>
+              <div class="text-template text-center">ไม่พบข้อมูล</div>
             </template>
-            <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(index)="data" class="text-template">{{ data.index + 1 }}</template>
           </b-table>
           <hr />
         </div>

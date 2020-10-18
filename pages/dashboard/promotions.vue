@@ -1,11 +1,12 @@
 <template>
-  <div class="container" style="max-width: 540px; margin-top: -10px;position: absolute;">
-    <page-promotions :slides="promotionArray" />
+  <div class="container" style=" margin-top: -10px; position: absolute; left:0; right:0;">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <page-promotions :slides="promotionArray" />
+      </div>
+    </div>
   </div>
 </template>
-
-
-
 <script>
 import Promotions from "~/components/Promotions.vue";
 export default {

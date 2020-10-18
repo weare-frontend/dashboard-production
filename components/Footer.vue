@@ -3,7 +3,7 @@
     <div class="no-gutters">
       <div class="col-auto mx-auto">
         <div
-          style="max-width: 600px; margin: 0 auto;width: 100%;"
+          style="max-width: 600px; width: 100%;"
           class="row justify-content-center"
         >
           <div class="col-2">
