@@ -1,9 +1,14 @@
 <template>
 <div>
     <div class="container pt-3" style="margin-top:-70px;">
+        <div class="text-left f7-demo-icon">
+           <i class="f7-icons">arrow_left_circle</i>
+       </div>
         <div class="row">
+            
             <div class="col-12">
                 <h5 class="text-center text-white font-weight-100">ช่องทางการเติมเงิน</h5>
+                 
             </div>
             <div class="tab_container px-3">
                     <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />

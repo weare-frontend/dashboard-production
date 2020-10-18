@@ -108,7 +108,7 @@
           </a>
           <b-collapse id="collapse-password" class="my-2" @shown="$refs.password.focus()">
             <b-card ref="formResetPassword">
-              <p class="card-text text-light">เปลี่ยนรหัสผ่านเข้าเกม</p>
+              <p class="card-text text-template">เปลี่ยนรหัสผ่านเข้าเกม</p>
               <div class="text-center"></div>
               <div class="row">
                 <div class="col-12">
@@ -146,7 +146,7 @@
           </a>
           <b-collapse id="collapse-pin" class="my-2" @shown="$refs.pincodeOne.focus()">
             <b-card ref="formChangePincode">
-              <p class="card-text text-light">PIN เข้าสู่ระบบ</p>
+              <p class="card-text text-template">PIN เข้าสู่ระบบ</p>
               <div class="text-center"></div>
               <div class="row">
                 <div class="col-12">

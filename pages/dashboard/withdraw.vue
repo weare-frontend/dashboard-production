@@ -62,16 +62,16 @@
       centered
       content-class="rounded"
       header-class="text-dark shadow"
-      body-class="bg-template"
+      body-class="bg-body-modal"
       no-close-on-backdrop
     >
       <template v-slot:modal-header="{ close }">
         <i
-          class="f7-icons"
-          style="position:absolute;right:10px;color:#ec1415;"
+          class="f7-icons text-white multiply-circle2"
+          
           @click="$bvModal.hide('modal-withdraw')"
-        >multiply</i>
-        <h6 class="text-center m-0 w-100" style="color: #0F4845;">ยืนยันการถอนเงิน</h6>
+        >multiply_circle</i>
+        <h6 class="text-center m-0 w-100" style="color: #204744;">ยืนยันการถอนเงิน</h6>
       </template>
       <div class="row">
         <div class="col-12 text-center">
@@ -83,13 +83,7 @@
       </div>
       <template v-slot:modal-footer="{ cancel }">
         <div class="row justify-content-center">
-          <div class="col-6">
-            <button
-              type="button"
-              class="btn btn-block btn-outline-secondary py-0 px-4 bg-black text-template"   
-              @click="acceptWithdraw"
-            >ยืนยัน</button>
-          </div>
+         
           <div class="col-6">
             <b-overlay
               :show="busy"
@@ -102,9 +96,16 @@
               <button
                 type="button"
                 @click="$bvModal.hide('modal-withdraw')"
-                class="btn text-white py-0 px-4 bg-template-gradaint"
+                class="btn text-white py-0 px-4 bg-button-cc"
               >ยกเลิก</button>
             </b-overlay>
+          </div>
+           <div class="col-6">
+            <button
+              type="button"
+              class="btn btn-block btn-outline-secondary py-0 px-4 bg-button-cf"   
+              @click="acceptWithdraw"
+            >ยืนยัน</button>
           </div>
         </div>
       </template>
