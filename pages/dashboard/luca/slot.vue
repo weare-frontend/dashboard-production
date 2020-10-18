@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" style="z-index: 999;position: absolute;">
     <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
         <a href="../luca" class="text-dark" style="opacity:0.8"><i class="fa fa-arrow-circle-left"></i> กลับ</a>
