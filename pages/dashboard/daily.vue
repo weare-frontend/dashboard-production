@@ -1,5 +1,10 @@
 <template>
   <div class="container mb-5" style="margin-top:-80px;">
+     <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
     <div class="row justify-content-center" v-if="getPromotionObjects[106].status">
       <div class="col-12 col-md-8 px-5">
         <h5 class="text-center font-weight-100 text-white mb-4">ฝากประจำ</h5>

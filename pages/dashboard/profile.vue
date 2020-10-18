@@ -1,8 +1,10 @@
 <template>
-  <div class="container" ref="formProfileUser" style="margin-top:-168px;">
-    <br />
-    <br />
-    <br />
+  <div class="container" ref="formProfileUser" style="margin-top:-95px;">
+   <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
     <div class="row mt-4 mb-3" style="overflow: hidden;">
       <div class="col-2 text-left">
         <nuxt-link :to="{name:'dashboard'}" class="mt-4">

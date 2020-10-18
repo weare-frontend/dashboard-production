@@ -1,16 +1,16 @@
 <template>
 <div>
     
-    <div class="container pt-3" style="margin-top:-70px;">
+    <div class="container pt-3" style="margin-top:-100px;">
         <div class="col-4 text-left">
-        <div class="text-white mr-4">
-            <i class="f7-icons text-white">arrow_left_circle</i>
-        </div>
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
     </div>
         <div class="row">
 
             <div class="col-12">
-                <h5 class="text-center text-white font-weight-100">ช่องทางการเติมเงิน</h5>
+                <h5 class="text-center text-white font-weight-100 mt-3">ช่องทางการเติมเงิน</h5>
 
             </div>
             <div class="tab_container px-3">

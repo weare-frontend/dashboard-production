@@ -1,7 +1,12 @@
 
 <template>
-  <div style="padding-bottom: 20px;">
-    <div class="col-12">
+  <div style="margin-top: -95px;">
+    <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
+    <div class="mt-4 col-12">
         <h5 class="text-center text-white font-weight-100" style="border-radius: 15px;"><i class="text fas fa-gift"></i> กิจกรรม</h5>
     </div>
     

@@ -157,6 +157,11 @@
         </div>
       </div>
       <div class="container">
+         <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
         <div class="mt-0 mt-md-4 fetch-main" v-if="$route.name != 'dashboard-withdraw'">
           <!-- <div class="fetch justify-content-center">
             <button class="btn btn-default btn-rounded-54 shadow bg-template" @click="fetchUser">
@@ -193,10 +198,12 @@
             </div>
           </div>
         </div>
+         
         <div
-          class="row text-center justify-content-center mt-4"
+          class="row text-center justify-content-center mt-2"
           v-else-if="$route.name == 'dashboard-withdraw'"
-        >
+        > 
+        
           <div class="row">
             <div class="col-12 mb-2">
               <h5 class="text-center text-white mb-2 font-weight-100">ถอนเครดิต</h5>

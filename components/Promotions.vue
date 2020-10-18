@@ -1,7 +1,14 @@
 <template>
 <div>
+    <div>
+    <div class="col-4 text-left" style="margin-top: -70px;">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
+    </div>
     <div class="col-12">
-        <h5 class="text-center text-white font-weight-100" style="margin-top: -30px;">โปรโมชั่นทั้งหมด</h5>
+        <h5 class="text-center text-white font-weight-100" style="margin-top: 20px;">โปรโมชั่นทั้งหมด</h5>
     </div>
     <br>
     <br>

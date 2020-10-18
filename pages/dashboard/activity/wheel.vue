@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div class="container" style="margin-top:-130px;">
-      <br />
+    <div class="container" style="margin-top:-100px;">
+ <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
       <div class="row mt-2 mb-3 justify-content-center">
         <!-- <div class="col-2 text-left">
         <nuxt-link :to="{name:'dashboard-activity'}" class="mt-4 ">

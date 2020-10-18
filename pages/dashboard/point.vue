@@ -1,7 +1,12 @@
 <template>
 <div class="container mb-4">
+    <div class="col-4 text-left" style="margin-top: -90px;">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
     <div class="col-12">
-        <h5 class="text-center text-white font-weight-100" style="border-radius: 15px;">สะสมแต้ม</h5>
+        <h5 class="text-center text-white font-weight-100 mt-3" style="border-radius: 15px;">สะสมแต้ม</h5>
     </div>
     <div class="row mb-3" v-if="getPromotionObjects[102].status">
         <div class="col-12 col-md-12">
