@@ -24,7 +24,7 @@
                 <div data-v-f9119b72 class="form-group float-label active">
                   <p
                     class="form-control-label"
-                    style="margin-top: -30px;margin-left: -10px;"
+                    style="margin-top: -30px;margin-left: -10px;color:#fff;"
                   >เบอร์โทร/Username</p>
                   <input
                     data-v-f9119b72
@@ -45,7 +45,7 @@
                   <p
                     data-v-f9119b72
                     class="form-control-label"
-                    style="margin-top: -30px;margin-left: -10px;"
+                    style="margin-top: -30px;margin-left: -10px;color:#fff;"
                   >PIN/Password</p>
                   <input
                     data-v-f9119b72

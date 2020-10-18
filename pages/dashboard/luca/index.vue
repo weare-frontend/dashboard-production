@@ -27,7 +27,7 @@
             <div class="text-center text-white ovrly py-4">เข้าสู่เว็บเดิมพัน</div>
         </div>
       </div>
-      <!-- <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
         <div
           class="btn25 aos-init aos-animate"
           data-aos="fade-up "
@@ -43,7 +43,7 @@
             <div class="text-center text-white ovrly py-4">เข้าสู่เว็บเดิมพัน</div>
          
         </div>
-      </div> -->
+      </div>
       <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
         <div
           class="btn25 aos-init aos-animate"
@@ -218,22 +218,22 @@ export default {
     getSport: async function (gameName) {
     const loader = this.$loading.show({ "is-full-page": true });
     const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'sport'});
-    this.$toast.global.error({ message: "Coming soon!" });
+    // this.$toast.global.error({ message: "Coming soon!" });
     setTimeout(function(){
        this.isSpin = false;
         loader.hide();
     },1200)
-      // if(lunchLuca.data.success){
-      //   if(this.$device.isDesktop){
-      //     window.location = lunchLuca.data.urld;
-      //   }else{
-      //     window.location = lunchLuca.data.urlm;
-      //   }
-      // }else{
-      //   this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
-      //   this.isSpin = false;
-      //   loader.hide();
-      // }
+      if(lunchLuca.data.success){
+        if(this.$device.isDesktop){
+          window.location = lunchLuca.data.urld;
+        }else{
+          window.location = lunchLuca.data.urlm;
+        }
+      }else{
+        this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
+        this.isSpin = false;
+        loader.hide();
+      }
     }
   }
 };
