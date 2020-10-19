@@ -18,7 +18,7 @@
             <p class="text-dark">ท่านต้องยืนยันข้อมูลการสมัครก่อนจะเข้าสู่ระบบ</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-12 mt-1" id="tel">
             <div class="form-group">
               <h6 class="text-white font-weight-100">เบอร์โทร</h6>
@@ -30,7 +30,7 @@
                 pattern="\d*"
                 ref="inputPhoneNumber"
                 :class="{'is-invalid' : formValidation('inputPhoneNumber')}"
-                class="form-controls form-control-lg bg-white px-4 text-template"
+                class="form-controls form-control-lg bg-white px-4 text-dark"
                 placeholder="เบอร์โทร"
                 style="border-radius: 25px; "
                 required
@@ -52,7 +52,8 @@
                   v-model="inputOtpNumber"
                   :class="{'is-invalid' : formValidation('inputOtpNumber')}"
                   @keyup="removeValidation('inputOtpNumber')"
-                  class="form-controls form-control-lg text-center"
+                  class="form-controls form-control-lg bg-white px-4 text-dark"
+                  style="border-radius: 25px; "
                   placeholder="OTP"
                   required
                 />
@@ -77,7 +78,7 @@
                   @click="acceptResearch"
                 >ยืนยันข้อมูล</b-button>
                 <b-button
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                   size="md"
                   id="accepted-otp"
@@ -124,7 +125,6 @@
                 style="font-size:26px; border-radius: 30px;font-weight:100;"
                 size="md"
                 id="setting-pin"
-                variant="ocean"
                 @click="acceptSettingPin"
               >ยืนยัน PIN</b-button>
             </div>
@@ -133,9 +133,9 @@
           <div class="col-12 justify-content-center" id="successPin">
             <b-collapse id="collapse-success-pin">
               <div class="row justify-content-center">
-                <div class="col-12 col-md-6">
-                  <b-alert show variant="warning" class="bg-black">
-                    <p class="text-white text-center">ยืนยันข้อมูลสำเร็จ</p>
+                <div class="col-12 col-md-6 card">
+                  <b-alert show variant="warning" class="bg-white border-0">
+                    <p class="text-dark text-center">ยืนยันข้อมูลสำเร็จ</p>
                     <small class="d-block text-danger">* ท่านสามารถใช้ข้อมูลนี้ ล็อคอินเข้าระบบได้</small>
                     <small class="d-block text-danger">* กรุณาบันทึกรหัส Pin หรือบันทึกภาพหน้าจอไว้</small>
                   </b-alert>
@@ -144,10 +144,37 @@
               <div class="row justify-content-center">
                 <div class="col-12">
                   <div class="form-group float-label active">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="border-radius: 25px; ">
                       <input
                         type="text"
-                        class="form-control text-white"
+                        class="form-controls text-dark px-3 bg-white"
+                        style="border-radius: 25px; height:50px;"
+                        ref="inputPhoneNumber"
+                        @click="copyClipboard('inputPhoneNumber')"
+                        :value="inputPhoneNumber"
+                        readonly
+                      />
+                      <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                        <button
+                        id="cbctel1"
+                          class="btn text-dark"
+                          type="button"
+                          @click="copyClipboard('inputPhoneNumber')"
+                          style="color:#fff;"
+                        >คัดลอก</button>
+                        <button
+                        id="cbctel2"
+                          class="btn text-success display-none"
+                          type="button"
+                          style="color:#fff;"
+                        >คัดลอกแล้ว</button>
+                      </div>
+                    </div>
+                    <!-- <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-controls form-control-lg bg-white px-4 text-dark"
+                        style="border-radius: 25px;"
                         ref="inputPhoneNumber"
                         :value="inputPhoneNumber"
                         readonly
@@ -169,7 +196,7 @@
                           <i class="fa fa-check">คัดลอก</i>
                         </button>
                       </div>
-                    </div>
+                    </div> -->
                     <label
                       class="form-control-label"
                       style="margin-top: -24px;margin-left: -15px; background: rgb(42 42 42 / 0%);"
@@ -178,10 +205,37 @@
                 </div>
                 <div class="col-12">
                   <div class="form-group float-label active">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="border-radius: 25px; ">
                       <input
                         type="text"
-                        class="form-control text-white"
+                        class="form-controls text-dark px-3 bg-white"
+                        style="border-radius: 25px; height:50px;"
+                        ref="inputPincodeA"
+                        :value="inputPincode"
+                        @click="copyPin('inputPincodeA')"
+                        readonly
+                      />
+                      <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                        <button
+                          class="btn text-dark"
+                          type="button"
+                          @click="copyPin('inputPincodeA')"
+                          style="color:#fff;"
+                          id="cbc1"
+                        >คัดลอก</button>
+                        <button
+                          class="btn text-success display-none"
+                          type="button"
+                          id="cbc2"
+                          style="color:#fff;"
+                        >คัดลอกแล้ว</button>
+                      </div>
+                    </div>
+                    <!-- <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-controls form-control-lg bg-white px-4 text-dark"
+                        style="border-radius: 25px;"
                         ref="inputPincodeA"
                         :value="inputPincode"
                         readonly
@@ -203,7 +257,7 @@
                           <i class="fa fa-check">คัดลอก</i>
                         </button>
                       </div>
-                    </div>
+                    </div> -->
                     <label
                       class="form-control-label"
                       style="margin-top: -24px;margin-left: -15px; background: rgb(42 42 42 / 0%);"
@@ -213,15 +267,17 @@
               </div>
             </b-collapse>
           </div>
-          <div class="col-12" id="successPinBtn">
+          <div class="col-11" id="successPinBtn">
             <div class="form-group mt-2">
               <b-button
-                class="btn-block display-none"
+                class="btn btn-md bg-gradaint shadow mb-2 btn-block display-none text-white font-weight-100"
+                style="font-size:22px; border-radius: 30px;font-weight:100;"
                 size="md"
                 id="success-pin"
                 variant="ocean"
                 @click="letItGo"
               >เข้าสู่ระบบ</b-button>
+              
             </div>
           </div>
 
@@ -235,7 +291,7 @@
                   ref="inputPincode"
                   :class="{'is-invalid' : formValidation('inputPincode')}"
                   v-model="inputPincode"
-                  class="form-controls form-control-lg"
+                  class="form-controls form-control-lg bg-white text-dark"
                   placeholder="Pin"
                   maxlength="4"
                   style="border-radius: 25px;"
