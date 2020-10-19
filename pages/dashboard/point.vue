@@ -10,7 +10,7 @@
     </div>
     <div class="row mb-3" v-if="getPromotionObjects[102].status">
         <div class="col-12 col-md-12">
-            <img class="img-fluid" :src="getPromotionObjects[102].img_banner" alt />
+            <img class="img-fluid" :src="getPromotionObjects[102].img_banner" style="border-radius: 10px;" alt />
         </div>
     </div>
     <div class="row">
@@ -56,15 +56,7 @@
                     <label class="form-control-label text-dark" style="color:#000;">เลือกช่วงคะแนน</label>
                 </div>
 
-                <div class="form-group float-label active">
-                    <select @change="searchDetaiItemArray" class="custom-select form-control form-control-lg" ref="searchSortItemArray" style="background-color: white;padding: 0px 15px;color: #009688;">
-                        <option disabled="disabled" value>-- เรียงลำดับคะแนน --</option>
-                        <option value="0">น้อยไปมาก</option>
-                        <option value="1">มากไปน้อย</option>
-                    </select>
-                    <label class="form-control-label" style="color:#000;">เรียงลำดับคะแนน</label>
-                </div>
-                <div class="form-group float-label active">
+                        <div class="form-group float-label active">
                     <select @change="searchDetaiItemArray" class="custom-select form-control form-control-lg" ref="searchSortItemArray" style="background-color: white;padding: 0px 15px;color: #009688;">
                         <option disabled="disabled" value>-- เรียงลำดับคะแนน --</option>
                         <option value="0">น้อยไปมาก</option>

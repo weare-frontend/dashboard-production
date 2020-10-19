@@ -1,6 +1,12 @@
 <template>
 <div>
-  <div class="container" style="margin-top: -10px;position: absolute;">
+  
+  <div class="container" style="margin-top: -30px;position: absolute;">
+    <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
     <h5 class=" text-center text-white font-weight-100">เปิดกล่อง</h5>
    <h4 class="text-center text-danger">{{this.boxSetting.message}}</h4>
       <div
@@ -20,7 +26,7 @@
     </div>
 
     <!-- page content here -->
-    <h4 class="subtitle">ประวัติการรับรางวัล</h4>
+    <h4 class="text-template subtitle">ประวัติการรับรางวัล</h4>
     <div class="card shadow border-0 mb-3" v-for="(item,index) in historyArray" :key="index">
       <div class="card-body">
         <div class="row">

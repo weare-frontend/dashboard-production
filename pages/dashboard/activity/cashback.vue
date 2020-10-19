@@ -1,7 +1,12 @@
 <template>
   <div>
-    <div class="container">
-      <div class="card px-3">
+    <div class="container" style="margin-top: -30px;position: absolute;">
+    <div class="col-4 text-left">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
+      <div class="card px-3 mt-4">
       <div class="row justify-content-center">
         <div class="col-md-6 col-xs-12 mt-3">
           <nav class="nav nav-pills nav-justified w-100 m-auto">
@@ -9,7 +14,7 @@
               <span class="text-template">คืนยอดเสีย (cashback)</span>
             </h4>
           </nav>
-          <img class="w-100 mb-2" :src="getPromotionObjects[126].img_banner" alt />
+          <img class="w-100 mb-2" :src="getPromotionObjects[126].img_banner" style="border-radius: 10px;" alt />
         </div>
         <div class="pt-3 col-12 text-center">
           <h5>จำนวนเงินที่ได้รับ</h5>

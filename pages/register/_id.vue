@@ -2,14 +2,15 @@
   <div>
     <!-- header -->
     <div class="header bg-white">
-      <div class="row no-gutters pt-2">
-        <div class="text-left my-3">
-          <nuxt-link :to="{name:'dashboard'}">
-            <i class="material-icons text-white">chevron_left</i>
-          </nuxt-link>
-        </div>
-
-        <div class="col text-center my-4">
+      
+      <div class="row no-gutters">
+       
+      <div class="col-py-4 text-left" style=" margin-top: 75px;">
+        <a href="/dashboard" class="text-white mr-4">
+            <i  class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
+        </a>
+    </div>
+        <div class="col-9 text-center my-4">
           <nuxt-link :to="{name : 'dashboard'}" class="text-center">
             <b-img
               style=" width:auto;height: 60px;filter: drop-shadow(0px 1px 1px black);"
@@ -1382,7 +1383,7 @@ export default {
         this.formError.push({
           step: 1,
           ref: "checkBoxCondition",
-          message: "ท่านต้องยอมรับเงือนไข",
+          message: "ท่านต้องยอมรับเงื่อนไข",
         });
       const formErrorStep = await this.formError.find((item) => item.step == 1);
       if (!formErrorStep) this.step++;
