@@ -218,8 +218,8 @@
               class="btn btn-block text-white bg-button-withdraw"
               @click="showModalWithdraw"
             >
-              <i class="material-icons text-dark">local_atm</i>
-              <span class="text-dark">แจ้งถอนเครดิต</span>
+              <i class="material-icons text-white">local_atm</i>
+              <span class="text-white">แจ้งถอนเครดิต</span>
             </button>
           </div>
         </div>
@@ -229,10 +229,11 @@
 </template>
 
 <style scoped>
+
 .bg-button-withdraw{
   border-radius: 25px;height: 50px;
- background: linear-gradient(to right, #87c5c2 0%, #319c96 100%);
-  filter: drop-shadow(2px 4px 4px black);
+  background: linear-gradient(to right,#6FCAC5 0%, #169F98 100%);
+    filter: drop-shadow(3px 3px 1px black);
 }
 .black-theme img.bg-template {
   border-radius: 50%;

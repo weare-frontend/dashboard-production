@@ -99,8 +99,8 @@
         </div>
         <div class="col-6"></div>
       </div>
-      <div class="row">
-        <div class="col-10">
+      <div>
+        <div class="text-center">
           <a
             class="btn btn-md btn-light text-template btn-block shadow mt-3"
             v-b-toggle.collapse-password
@@ -140,9 +140,9 @@
           <div class="mb-3"></div>
         </div>
       </div>
-      <div class="row mt-0">
-        <div class="col-2"></div>
-        <div class="col-10 ">
+      <div class=" mt-0">
+       
+        <div class="text-center ">
           <a class="btn btn-md btn-light text-template btn-block shadow" v-b-toggle.collapse-pin>
             เปลี่ยน PIN เข้าสู่ระบบ
           </a>
@@ -220,34 +220,35 @@
         >
           <!-- game slot -->
           <span v-if="typeGame.slot_status">
-            <b-alert show variant="warning">
-              <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+          
+            <b-alert show variant="dark">
+              <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
-              <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
-              <small class="text-left pl-2 d-block">- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
-              <small class="text-left pl-2 d-block">
+              <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+              <small class="text-left pl-2 d-block text-template">- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+              <small class="text-left pl-2 d-block text-template">
                 - หากมีการวางเดิมพัน
                 <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
               </small>
             </b-alert>
-            <b-alert show variant="warning">
-              <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+            <b-alert show variant="dark">
+              <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
-              <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
-              <small class="text-left pl-2 d-block">- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+              <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+              <small class="text-left pl-2 d-block text-template">- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
             </b-alert>
           </span>
           <!-- game luca -->
           <span v-if="typeGame.casino_status">
-            <b-alert show variant="warning">
-              <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+            <b-alert show variant="dark">
+              <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
-              <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+              <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
             </b-alert>
-            <b-alert show variant="warning">
-              <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+            <b-alert show variant="dark">
+              <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
-              <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+              <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
             </b-alert>
           </span>
         </b-tooltip>
@@ -562,7 +563,7 @@ input.form-controles {
   padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
-  background-color: #000;
+  background-color: #259690;
   border-radius: 0.25rem;
 }
 
@@ -609,8 +610,9 @@ input.form-controles {
   box-sizing: border-box;
 }
 .input-prepend{
-  background: linear-gradient(to right, rgb(255 255 255 / 74%) 0%, rgb(0 0 0 / 0%) 100%);
-  background-color: #689673;
+  background: linear-gradient(to right, rgba(255,255,255,0.50196) 0%, rgba(0,0,0,0.38039) 100%);
+    background-color: #259690;
+    color: #ffffff;
   margin:2px;
   font-size: 12px;
   border-radius: 4px;
@@ -618,7 +620,7 @@ input.form-controles {
   font-weight: 100;;
 }
 .onoffswitch-inner:before {
-  content: "รับโปร";
+  content: "NO";
   padding-left: 0px;
   background: linear-gradient(to right, #ffffff80 0%, #00000061 100%);
   background-color: #259690;
@@ -627,7 +629,7 @@ input.form-controles {
 }
 
 .onoffswitch-inner:after {
-  content: "ไม่รับโปร";
+  content: "OFF";
   padding-right: 15px;
   background-color: #eeeeee;
   color: #ec1415;

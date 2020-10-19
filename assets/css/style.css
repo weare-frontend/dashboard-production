@@ -2618,11 +2618,11 @@ pre {
 
 .greenlight-theme .fetch button {
     position: absolute;
-    top: 5px;
+    top: 4px;
     right: 0;
     left: 0;
-    width: 19px;
-    height: 19px;
+    width: 25px;
+    height: 25px;
     display: flex;
     align-items: center;
     justify-content: center;

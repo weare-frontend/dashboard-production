@@ -87,8 +87,8 @@
                 >สมัครสมาชิก</nuxt-link>
                 <a
                   @click="submit"
-                  class="btn bg-template border-1"
-                  style="background: linear-gradient(to right, #ffffff80 0%, #00000000 100%); border: 1px solid #ccc; width:48%; float: right; padding:10px 8px;border-radius: 8px; color:#051c1d"
+                  class="btn-login btn bg-template border-1"
+               
                   id="btn-login"
                 >เข้าสู่ระบบ</a>
                 <a
@@ -113,7 +113,7 @@
               </div>
               <div
                 class="col-12 justify-content-center"
-                v-if="getSettingObject.status_line_login=='1'"
+                v-if="getSettingObject.status_facebook==1"
               >
                 <a
                   class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
@@ -270,6 +270,15 @@ export default {
 </script>
 
 <style scoped>
+.btn-login{
+  background: linear-gradient(to right, #ffffff80 0%, #00000000 100%);
+   border: 1px solid #ccc; 
+   width:48%; 
+   float: right;
+    padding:10px 8px;
+    border-radius: 8px; 
+    color:#051c1d
+}
 .wrapper {
     background: #1e7773;
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #1e7773), color-stop(100%, #1e7773));

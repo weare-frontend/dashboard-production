@@ -6487,7 +6487,7 @@ a.close.disabled {
 .bs-tooltip-auto[x-placement^="top"] .arrow::before {
     top: 0;
     border-width: 0.4rem 0.4rem 0;
-    border-top-color: #000;
+    border-top-color: #259690;
 }
 
 .bs-tooltip-right,
@@ -6550,7 +6550,7 @@ a.close.disabled {
     padding: 0.25rem 0.5rem;
     color: #fff;
     text-align: center;
-    background-color: #000;
+    background-color: #23a59f;
     border-radius: 0.25rem;
 }
 

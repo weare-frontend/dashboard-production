@@ -10,7 +10,7 @@
             <i  class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-        <div class="col-9 text-center my-4">
+        <div class="col-9 text-center my-4" style="right: -20px">
           <nuxt-link :to="{name : 'dashboard'}" class="text-center">
             <b-img
               style=" width:auto;height: 60px;filter: drop-shadow(0px 1px 1px black);"
@@ -90,7 +90,7 @@
             <div class="col-12 col-md-10 font-weight-100">
               <a
                 id="accept-condition"
-                class="btn btn-md btn-success shadow btn-block"
+                class="bg-gradaint btn btn-md shadow btn-block "
                 @click="nextStepCondition"
                 style="color: #fff; font-size:26px; border-radius: 30px;font-weight:100;"
               >ถัดไป</a>
@@ -243,7 +243,7 @@
               </b-button>
             </div>
             <a
-                class="btn btn-md bg-gradaint mx-3 shadow btn-block text-white font-weight-100"
+                class="btn btn-md bg-gradaint mx-3 shadow btn-block text-dark font-weight-100"
                 v-show="step != 1"
                 @click="step--"
                 style=" font-size:26px; border-radius: 30px;font-weight:100;"
@@ -425,38 +425,38 @@
               >
                 <!-- game slot -->
                 <span v-if="typeGame.slot_status">
-                  <b-alert show variant="warning" style="font-size: 18px;">
-                    <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                  <b-alert show variant="dark" style="font-size: 18px;">
+                    <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
-                    <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                    <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
                     <small
-                      class="text-left pl-2 d-block"
+                      class="text-left pl-2 d-block text-template"
                     >- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
-                    <small class="text-left pl-2 d-block">
+                    <small class="text-left pl-2 d-block text-template">
                       - หากมีการวางเดิมพัน
                       <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
                     </small>
                   </b-alert>
-                  <b-alert show variant="warning" style="font-size: 18px;">
-                    <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                  <b-alert show variant="dark" style="font-size: 18px;">
+                    <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
-                    <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                    <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
                     <small
-                      class="text-left pl-2 d-block"
+                      class="text-left pl-2 d-block text-template"
                     >- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
                   </b-alert>
                 </span>
                 <!-- game luca -->
                 <span v-if="typeGame.casino_status">
-                  <b-alert show variant="warning" style="font-size: 18px;">
-                    <small class="d-block">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                  <b-alert show variant="dark" style="font-size: 18px;">
+                    <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
-                    <small class="text-left pl-2 d-block">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                    <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
                   </b-alert>
-                  <b-alert show variant="warning" style="font-size: 18px;">
-                    <small class="d-block">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                  <b-alert show variant="dark" style="font-size: 18px;">
+                    <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                     <hr class="border-bottom" />
-                    <small class="text-left pl-2 d-block">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                    <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
                   </b-alert>
                 </span>
               </b-tooltip>
@@ -489,7 +489,7 @@
               >
                 <a
                   id="step-2"
-                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
                   v-show="step != 1"
                   @click="step--"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
@@ -544,10 +544,10 @@
                 >กำลังบันทึกข้อมูล</a>
         
               <a
-                 class="btn btn-md bg-gradaint shadow btn-block font-weight-100"
+                 class="btn btn-md bg-gradaint shadow btn-block font-weight-100 text-dark"
                 v-show="step != 1"
                 @click="step--"
-                style="color:#fff;font-size:26px; border-radius: 30px;font-weight:100;"
+                style="font-size:26px; border-radius: 30px;font-weight:100;"
               >กลับ</a>
             </div>
           </div>
@@ -577,7 +577,7 @@
                     @click="copyAffiliate('inputUsername')"
                     readonly
                   />
-                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                  <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
                       class="btn text-dark"
                       type="button"
@@ -588,7 +588,7 @@
                 </div>
                 <label
                   class="form-control-label"
-                  style="margin-top: -24px;margin-left: -15px;"
+                  style="color: #fff; margin-top: -24px;margin-left: -15px;"
                 >Username</label>
               </div>
             </div>
@@ -603,7 +603,7 @@
                     @click="copyAffiliate('inputPassword')"
                     readonly
                   />
-                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                  <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
                       class="btn text-dark"
                       type="button"
@@ -631,7 +631,7 @@
                 </div> -->
                 <label
                   class="form-control-label"
-                  style="margin-top: -24px;margin-left: -15px;"
+                  style="color: #fff; margin-top: -24px;margin-left: -15px;"
                 >Password</label>
               </div>
             </div>
@@ -647,7 +647,7 @@
                     @click="copyAffiliate('inputPincode')"
                     readonly
                   />
-                  <div class="input-group-append bg-gradaint px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                  <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
                       class="btn text-dark"
                       type="button"
@@ -674,7 +674,7 @@
                     >คัดลอก</button>
                   </div>
                 </div> -->
-                <label class="form-control-label" style="margin-top: -24px;margin-left: -15px;">PIN</label>
+                <label class="form-control-label" style="color: #fff; margin-top: -24px;margin-left: -15px;">PIN</label>
               </div>
             </div>
           </div>
@@ -930,6 +930,10 @@
 </template>
 
 <style scoped>
+.bg-copy {
+  background: linear-gradient(to top,#2ED2B0 0%, #C3F4E8 100%);
+    filter: drop-shadow(2px 2px 4px black);
+}
 .form-group h6 {
   margin-top: -10px;
 }
@@ -948,7 +952,8 @@
  .bg-gradaint {
     /* border-radius: 50%; */
     /* background: #259690; */
-    background: linear-gradient(to right, rgb(204 204 204) 0%, rgb(140 140 140 / 22%) 100%);
+    background: linear-gradient(to right,#6FCAC5 0%, #169F98 100%);
+    filter: drop-shadow(3px 3px 1px black);
 }
 li.active {
   color: #fff;
@@ -982,7 +987,7 @@ input.vue-pincode-input {
 button.form-controls,
 input.form-controls,
 select.form-controls {
-  color: #555;
+  color: #000;
   border: 1px solid #555;
   background-color: #000;
   width: 100%;
@@ -1018,7 +1023,7 @@ select.form-controls {
   padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
-  background-color: #000;
+  background-color: #1aa19b;
   border-radius: 0.25rem;
 }
 </style>
@@ -1886,8 +1891,8 @@ html {
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 10px;
-  background-color: #34c251;
-  color: #ffffff;
+  background: linear-gradient(90deg,hsla(0,0%,100%,.50196) 0,rgba(0,0,0,.38039));
+    background-color: #259690;
 }
 .onoffswitch-inner:after {
   content: "OFF";

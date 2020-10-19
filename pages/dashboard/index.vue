@@ -117,7 +117,7 @@
                         <div class="row justify-content-center">
                             <div class="fetch justify-content-center">
                                 <button class="btn btn-default border-1 btn-rounded-54 p-1 shadow" @click="fetchUser">
-                                    <i class="material-icons text-template size-16 bg-white" :class="{'spin' : isSpin}" style="border-radius: 50%;filter: opacity(0.6);">refresh</i>
+                                    <i class="material-icons text-template size-20 bg-white" :class="{'spin' : isSpin}" style="border-radius: 50%;filter: opacity(0.6);">refresh</i>
                                 </button>
                             </div>
                             <div class="col-12 mb-0 mt-2 text-center">
@@ -134,8 +134,8 @@
                                     </div>
                                     <div class="text-center w-100" style="height:80px">
                                         <h6 class="font-weight-100 my-2">กระเป๋าเครดิตฟรี </h6>
-                                        <h4 class="text-template font-weight-100 size-22" style="    position: absolute; padding: 1px; right: 6%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }}
-                                            <button class="btn small material-icons text-template size-10 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange">โอนเครดิต</button></h4>
+                                        <h4 class="text-template font-weight-100 size-22" style="    position: absolute; padding: 1px; right: 3%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }}
+                                            <button class="btn small material-icons text-template size-13 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange">โอนเครดิต</button></h4>
                                     </div>
                                 </div>
                             </div>
