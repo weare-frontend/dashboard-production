@@ -1,13 +1,13 @@
 <template>
 <div>
   
-  <div class="container" style="margin-top: -30px;position: absolute;">
+  <div class="container" style="margin-top: -110px;position: absolute;">
     <div class="col-4 text-left">
-        <a href="/dashboard" class="text-white mr-4">
+       <nuxt-link :to="{name:'dashboard-activity'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
-    <h5 class=" text-center text-white font-weight-100">เปิดกล่อง</h5>
+    <h5 class=" text-center text-white font-weight-100" style="margin-top: 75px;">เปิดกล่อง</h5>
    <h4 class="text-center text-danger">{{this.boxSetting.message}}</h4>
       <div
         class="row position-relative"
@@ -46,9 +46,9 @@
     </div>
     <div class="card shadow border-0 mb-3 text-center" v-if="!historyArray.length">
       <div class="card-body">
-        <div class="avatar avatar-60 shadow border-0" style="border-radius:50%;">
-          <div class=""></div>
-          <i class="material-icons vm md-36 text-template">card_giftcard</i>
+        <div class="avatar avatar-60 shadow border-0 bg-template" style="border-radius:50%;">
+  
+          <i class="material-icons vm md-36 text-white">card_giftcard</i>
         </div>
         <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการรับรางวัล </h4>
         <p class="text-secondary text-mute small">จะแสดงรายการรางวัลที่ได้รับทั้งหมด</p>

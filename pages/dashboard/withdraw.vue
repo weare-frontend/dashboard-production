@@ -1,8 +1,8 @@
 <template>
-  <div style="margin-top:-100px;" class="mx-3">
+  <div style="margin-top:-170px;" class="mx-3">
     <page-info :showModalWithdraw="showModalWithdraw" />
     <div class="container mb-5" ref="formWithdraw" style="overflow: hidden; ">
-      <div class="text-center my-2">ประวัติรายการถอน</div>
+      <h6 class="text-left my-2 mt-3 text-template">ประวัติรายการถอน</h6>
       <div
         class="row pb-2"
         :class="[{'bg-unfinish' :  withdrawArray[index].accept_status == 0,'bg-sky' :  withdrawArray[index].accept_status == 2 ,'bg-finish' :  withdrawArray[index].accept_status == 1 }]"
@@ -45,10 +45,10 @@
           <p class="text-center text-body">ดูข้อมูลเพิ่มเติม</p>
         </div>
       </div>
-      <div class="card shadow border-0 mb-3 text-center bg-template" v-if="!withdrawArray.length">
+      <div class="card shadow border-0 mb-3 text-center " v-if="!withdrawArray.length">
         <div class="card-body">
-          <div class="avatar avatar-60 shadow border-0" style="border-radius: 50%;">
-            <i class="material-icons vm md-36 text-template">local_atm</i>
+          <div class="avatar avatar-60 shadow border-0 bg-template" style="border-radius: 50%;">
+            <i class="material-icons vm md-36 text-white">local_atm</i>
           </div>
           <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการถอนเงิน</h4>
           <p class="text-secondary text-mute small">จะแสดงรายการถอนทั้งหมด</p>

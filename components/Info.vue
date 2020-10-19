@@ -158,9 +158,9 @@
       </div>
       <div class="container">
          <div class="col-4 text-left">
-        <a href="/dashboard" class="text-white mr-4">
+         <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
         <div class="mt-0 mt-md-4 fetch-main" v-if="$route.name != 'dashboard-withdraw'">
           <!-- <div class="fetch justify-content-center">
@@ -200,7 +200,8 @@
         </div>
          
         <div
-          class="row text-center justify-content-center mt-2"
+          class="row text-center justify-content-center" 
+          style="margin-top: 75px;"
           v-else-if="$route.name == 'dashboard-withdraw'"
         > 
         
@@ -208,17 +209,17 @@
             <div class="col-12 mb-2">
               <h5 class="text-center text-white mb-2 font-weight-100">ถอนเครดิต</h5>
               <span class="text-white">ยอดเงินในเกม</span>
-              <span class="text-dark size-20 mx-2" style="border-radius: 5px;padding:0px 4px;background-color: #d8ff00">{{ $auth.user.money | toCurrencyString }}</span>
+              <span class="text-dark size-20 mx-2" style="border-radius: 5px;padding:0px 4px;background-color: #CBF494">{{ $auth.user.money | toCurrencyString }}</span>
             </div>
           </div>
 
-          <div class="col-11 btn-money">
+          <div class="col-11">
             <button
-              class="btn btn-block btn-outline-secondary bg-white text-white"
+              class="btn btn-block text-white bg-button-withdraw"
               @click="showModalWithdraw"
             >
               <i class="material-icons text-dark">local_atm</i>
-              <span class="text-template">แจ้งถอนเครดิต</span>
+              <span class="text-dark">แจ้งถอนเครดิต</span>
             </button>
           </div>
         </div>
@@ -228,6 +229,11 @@
 </template>
 
 <style scoped>
+.bg-button-withdraw{
+  border-radius: 25px;height: 50px;
+ background: linear-gradient(to right, #87c5c2 0%, #319c96 100%);
+  filter: drop-shadow(2px 4px 4px black);
+}
 .black-theme img.bg-template {
   border-radius: 50%;
   background: #000;

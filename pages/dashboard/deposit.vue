@@ -1,13 +1,13 @@
 <template>
 <div>
     
-    <div class="container pt-3" style="margin-top:-100px;">
+    <div class="container pt-3" style="margin-top:-180px;">
         <div class="col-4 text-left">
-        <a href="/dashboard" class="text-white mr-4">
+         <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
-        <div class="row mb-5">
+        <div class="row mb-5" style="margin-top: 65px;">
 
             <div class="col-12">
                 <h5 class="text-center text-white font-weight-100 mt-3">ช่องทางการเติมเงิน</h5>
@@ -49,14 +49,14 @@
                                     </div>
                                     <div class="col-7 text-left" style="line-height: .8em; font-weight:100;">
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">เลขบัญชี :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#d8ff00;padding-left:2px;">{{item.bank_account}}</div>
+                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{item.bank_account}}</div>
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;margin:10px 0px;">ชื่อบัญชี :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#d8ff00;padding-left:2px;">{{ item.bank_fullname }}</div>
+                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{ item.bank_fullname }}</div>
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">ธนาคาร :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#d8ff00;padding-left:2px;">{{ item.name }}</div>
+                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{ item.name }}</div>
                                     </div>
                                     <div class="col-3 px-0 pr-2">
-                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color: #d8ff00;">
+                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color: #CBF494;">
                                             คัดลอก
                                             <br />
                                             <small>เลขบัญชี</small>
@@ -377,19 +377,23 @@
                                             </b-button>
                                         </div>
                                     </div>
+                                    
                                     <!-- <div class="container mt-2">
                                         <small class="text-white">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</small>
                                         <b-table style="white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive></b-table>
                                     </div> -->
                                 </a>
+                                
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <div class="container mt-2 mb-4">
+                            <div class="mt-2 mb-4">
                     <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
                     <b-table class="card px-2" style="color:#000;white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
                 </div>
+                        </div>
+                    </div>
+                    
+                </section>
+                
             </div>
         </div>
         
@@ -539,9 +543,9 @@ label {
 }
 
 .tab_container [id^="tab"]:checked+label {
-    background: linear-gradient(to right, rgb(255 255 255 / 74%) 0%, rgb(0 0 0 / 0%) 100%);
-    background-color: #689673;
-    color: #fff;
+    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+    background-color: #259690;
+    color: white;
     font-weight: 400;
     border-radius: 10px;
     filter: drop-shadow(0px 2px 2px black);
@@ -557,9 +561,9 @@ label .fa {
 }
 
 .btn-clipboard {
-    background: linear-gradient(to right, rgb(255 255 255 / 74%) 0%, rgb(0 0 0 / 0%) 100%);
-    background-color: #689673;
-    color: #fff;
+   background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+    background-color: #259690;
+    color: white;
 }
 
 /*Media query*/

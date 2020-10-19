@@ -1,9 +1,9 @@
 <template>
-  <div class="container" ref="formProfileUser" style="margin-top:-95px;">
+  <div class="container" ref="formProfileUser" style="margin-top:-170px;">
    <div class="col-4 text-left">
-        <a href="/dashboard" class="text-white mr-4">
+       <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
     <div class="row mt-4 mb-3" style="overflow: hidden;">
       <div class="col-2 text-left">
@@ -12,7 +12,7 @@
         </nuxt-link>
       </div>
       <div class="col-8">
-        <h6 class="text-center font-weight-100 text-white mb-0">ข้อมูลส่วนตัว</h6>
+        <h6 class="text-center font-weight-100 text-white mb-0" style="margin-top: 85px;">ข้อมูลส่วนตัว</h6>
       </div>
     </div>
     <div class="container">

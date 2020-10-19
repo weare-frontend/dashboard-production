@@ -1,6 +1,11 @@
 <template>
-  <div class="container mb-5" style="margin-top:-120px;">
-    <div class="row justify-content-center">
+  <div class="container mb-5" style="margin-top:-170px;">
+     <div class="col-4 text-left">
+       <nuxt-link :to="{name:'dashboard'}">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </nuxt-link>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 65px;">
       <div class="col-md-6 col-xs-12" v-if="getPromotionObjects[101].status">
         <h6 class="subtitle text-white" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
         <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt style="border-radius:20px;">
@@ -123,15 +128,14 @@
               readonly
               :value="baseUrl"
             />
-            <div class="input-group-append">
-              <button
-                class="btn btn-dark text-white"
-                type="button"
-                @click="copyAffiliate('linkAffiliate')"
-              >คัดลอก</button>
-            </div>
+            <div class="input-append" style="background-color: #d8ff00;">
+                <span class="input-group-text" style="height:49px" @click="copyAffiliate('linkAffiliate')">
+                  <i class="f7-icons size-24">doc_on_doc</i>
+                </span>
+              </div>
+            
           </div>
-          <label class="form-control-label text-dark">ลิงค์ชวนเพื่อน</label>
+          <label class="form-control-label text-template">ลิงค์ชวนเพื่อน</label>
         </div>
       </div>
       <div class="col-md-12 col-xs-12 text-center">
@@ -186,7 +190,7 @@
     <!-- page content here -->
     <div class="row justify-content-center mb-5">
       <div class="col-md-6 col-xs-12">
-        <h6 class="subtitle">เพื่อนทั้งหมด {{ dataTotal }} คน</h6>
+        <h6 class="subtitle text-template">เพื่อนทั้งหมด {{ dataTotal }} คน</h6>
         <ul class="list-group list-group-flush border-top border-bottom" v-if="affiliateArray">
           <li class="list-group-item" v-for="(item, index) in affiliateArray" :key="index">
             <div class="row align-items-center">
@@ -223,9 +227,9 @@
 
         <div class="card shadow border-0 mb-3 text-center" v-if="!affiliateArray.length">
           <div class="card-body">
-            <div class="avatar avatar-60 no-shadow border-0">
-              <div class="overlay bg-template"></div>
-              <i class="material-icons vm md-36 text-template">people</i>
+            <div class="avatar avatar-60 no-shadow border-0 bg-template">
+              
+              <i class="material-icons vm md-36 text-white">people</i>
             </div>
             <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการชวนเพื่อน</h4>
             <p class="text-secondary text-mute small">จะแสดงรายการชวนเพื่อนทั้งหมด</p>

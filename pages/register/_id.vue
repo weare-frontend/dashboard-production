@@ -5,10 +5,10 @@
       
       <div class="row no-gutters">
        
-      <div class="col-py-4 text-left" style=" margin-top: 75px;">
-        <a href="/dashboard" class="text-white mr-4">
+      <div class="col-py-4 text-left" style=" margin-top: 40px;">
+        <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
         <div class="col-9 text-center my-4">
           <nuxt-link :to="{name : 'dashboard'}" class="text-center">

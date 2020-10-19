@@ -1,12 +1,12 @@
 <template>
 <div class="container mb-4">
-    <div class="col-4 text-left" style="margin-top: -90px;">
-        <a href="/dashboard" class="text-white mr-4">
+    <div class="col-4 text-left" style="margin-top: -165px;">
+        <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
     <div class="col-12">
-        <h5 class="text-center text-white font-weight-100 mt-3" style="border-radius: 15px;">สะสมแต้ม</h5>
+        <h5 class="text-center text-white font-weight-100" style="border-radius: 15px; margin-top: 85px;">สะสมแต้ม</h5>
     </div>
     <div class="row mb-3" v-if="getPromotionObjects[102].status">
         <div class="col-12 col-md-12">
@@ -28,9 +28,9 @@
                 <button class="buttom-point">ประวัติการแลก</button>
             </div> -->
 
-            <b-tab no-body title="ของรางวัล">
+            <b-tab no-body title="ของรางวัล" >
                 <div>
-                    <div class="form-group float-label active">
+                    <div class="form-group float-label active" > 
 
                         <input @keyup="searchDetaiItemArray" ref="searchArray" type="text" class="form-control text-template" placeholder="ค้นหา.." style="background-color: white;padding: 0px 15px;color: #009688;" />
                         <label class="form-control-label" style="color:#000;">ค้นหา</label>
@@ -101,10 +101,10 @@
 
                 <div class="card shadow border-0 mb-3 text-center" v-if="!historyArray.length">
                     <div class="card-body text-center">
-                        <div class="avatar avatar-60 no-shadow border-0">
-                            <div class="overlay bg-template"></div>
-                            <i class="material-icons vm md-36 text">redeem</i>
-                        </div>
+                         <div class="avatar avatar-60 shadow border-0 bg-template" style="border-radius: 50%;">
+            <i class="material-icons vm md-36 text-white">redeem</i>
+          </div>
+                        
                         <h4 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการแลกของรางวัล</h4>
                         <p class="text-secondary text-mute small">จะแสดงรายการแลกของรางวัลทั้งหมด</p>
                     </div>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="container" style="margin-top:-100px;">
+    <div class="container" style="margin-top:-170px;">
  <div class="col-4 text-left">
-        <a href="/dashboard" class="text-white mr-4">
+       <nuxt-link :to="{name:'dashboard-activity'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </a>
+        </nuxt-link>
     </div>
       <div class="row mt-2 mb-3 justify-content-center">
         <!-- <div class="col-2 text-left">
@@ -13,7 +13,7 @@
         </nuxt-link>
         </div>-->
         <div class="col-8 pt-4">
-          <h5 class="text-center text-white font-weight-100">กิจกรรมหมุนวงล้อ</h5>
+          <h5 class="text-center text-white font-weight-100" style="margin-top: 70px;">กิจกรรมหมุนวงล้อ</h5>
         </div>
       </div>
       <div class="row">
@@ -107,9 +107,10 @@
       </div>
       <div class="card shadow border-0 mb-5 text-center" v-if="!historyArray.length">
         <div class="card-body">
-          <div class="avatar avatar-60 no-shadow border-0">
-            <div class="overlay bg-template"></div>
-            <i class="material-icons vm md-36 text-template">card_giftcard</i>
+          <div class="avatar avatar-60 shadow border-0 bg-template" style="border-radius: 50%;">
+            <i class="material-icons vm md-36 text-white">card_giftcard</i>
+          </div>
+          
           </div>
           <h5 class="mt-3 mb-0 font-weight-normal text-dark">ไม่มีรายการรับรางวัล</h5>
           <p class="text-secondary text-mute small">จะแสดงรายการรางวัลที่ได้รับทั้งหมด</p>
