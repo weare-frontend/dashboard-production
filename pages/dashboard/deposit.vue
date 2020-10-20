@@ -17,9 +17,9 @@
                 <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
                 <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
                 <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
-                <input class="checkbox-tap" id="tab2" type="radio" name="tabs"  />
-                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" checked v-if="$auth.user.lname == 'Not verified'"/>
+                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" checked v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'"/>
                 <label for="tab2" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'">พร้อมเพย์</label>
+                <input class="checkbox-tap" id="tab2" type="radio" name="tabs"  />
                 <label for="tab2" style="width:43%; margin:0 0 0 2%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">พร้อมเพย์</label>
 
                 <section id="content1" class="bg-rgba tab-content" v-if="$auth.user.lname != 'Not verified'">
