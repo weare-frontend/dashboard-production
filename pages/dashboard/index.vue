@@ -135,7 +135,7 @@
                                     <div class="text-center w-100" style="height:80px">
                                         <h6 class="font-weight-100 my-2">กระเป๋าเครดิตฟรี </h6>
                                         <h4 class="text-template font-weight-100 size-22" style="    position: absolute; padding: 1px; right: 3%; width: 70%;">{{ $auth.user.credit_bonus | toCurrencyString }}
-                                            <button class="btn small material-icons text-template size-13 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange">โอนเครดิต</button></h4>
+                                            <button class="btn small font-weight-100 text-template size-13 radius-20 py-0 px-1 " style="margin-left: 5%;" @click="modalExchange">โอนเครดิต</button></h4>
                                     </div>
                                 </div>
                             </div>

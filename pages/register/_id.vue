@@ -27,7 +27,7 @@
     <div
       class="row no-gutters login-row justify-content-center bg-template pb-5"
       ref="formRegisterUser"
-      style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;">
+      style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;height:110vh;overflow: overlay;">
       <div class="col-12 col-md-6 px-3 pt-2">
         <div class="col-12 align-self-center text-center" style="overflow:hidden;">
           

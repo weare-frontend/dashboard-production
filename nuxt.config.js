@@ -18,7 +18,7 @@ module.exports = {
             },
             {
                 name: "viewport",
-                content: "width=device-width, initial-scale=0.9,maximum-scale=1.0,user-scalable=no,viewport-fit=cover,shrink-to-fit=no",
+                content: "width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover,shrink-to-fit=no",
             },
             { name: "language", content: "TH" },
             { name: "apple-mobile-web-app-capable", content: "no" },
