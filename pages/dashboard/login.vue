@@ -117,7 +117,7 @@
               >
                 <a
                   class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
-                  @click="checkLoginState"
+                  @click="''"
                 >
                   <img src="https://image.flaticon.com/icons/png/512/23/23730.png" alt style="width:20px; filter:invert(1);" class="mx-3">
                   เข้าสู่ระบบด้วยเฟสบุ๊ค 
