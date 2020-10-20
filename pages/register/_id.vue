@@ -1125,54 +1125,50 @@ export default {
         this.$toast.global.error({ message: respones.msg });
       }
     },
-    getOtp_Again: async function () {
-      this.startTimer();
-      const { data, success } = await this.$axios.$post("/api/send-otp", {
-        tel: this.inputPhoneNumber,
-      });
-      // console.log(data[0].error);
-      if (data[0].status == "duplicate") {
-        this.telerror = data[0].error;
-        this.$toast.global.error({
-          message: data[0].error,
-        });
-        return false;
-      } else if (success) {
-        this.$toast.global.success({
-          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-        });
-      } else {
-        this.$toast.global.error({
-          message: data,
-        });
-      }
-      this.statusOtp = true;
-    },
-    getOtp: async function () {
-      this.startTimer();
-      const { data, success } = await this.$axios.$post("/api/send-otp", {
-        tel: this.inputPhoneNumber,
-      });
-      // console.log(data[0].error);
-      if (data[0].status == "duplicate") {
-        this.telerror = data[0].error;
-        this.$toast.global.error({
-          message: data[0].error,
-        });
-        return false;
-      } else if (success) {
-        this.$root.$emit("bv::toggle::collapse", "collapse-otp");
-        this.$toast.global.success({
-          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-        });
-      } else {
-        this.$root.$emit("bv::toggle::collapse", "collapse-otp");
-        this.$toast.global.error({
-          message: data,
-        });
-      }
-      this.statusOtp = true;
-    },
+    getOtp_Again: async function() {
+            this.startTimer();
+            const { data, success } = await this.$axios.$post("/api/send-otp", {
+                tel: this.inputPhoneNumber,
+            });
+            // console.log(data[0].error);
+            if (data[0].status == "duplicate") {
+                this.telerror = data[0].error;
+                this.$toast.global.error({
+                    message: data[0].error,
+                });
+                return false;
+            } else if (success) {
+                this.$toast.global.success({
+                    message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+                });
+            } else {
+                this.$toast.global.error({
+                    message: data,
+                });
+            }
+            this.statusOtp = true;
+        },
+    getOtp: async function() {
+            const { data, success } = await this.$axios.$post("/api/send-otp", {
+                tel: this.inputPhoneNumber,
+            });
+            if (success) {
+                this.startTimer()
+                this.$toast.global.success({ message: 'ส่ง OTP ไปแล้ว กรุณารอซักครู่' });
+                this.statusOtp = true;
+                this.$root.$emit('bv::toggle::collapse', 'collapse-otp');
+            } else {
+                if (data[0].status == 'duplicate') {
+                    var indexFormError = this.formError.findIndex(item => item.ref == 'inputPhoneNumber');
+                    indexFormError = indexFormError < 0 ? (await this.formError.push({ step: 3, ref: "inputPhoneNumber", message: [] })) - 1 : indexFormError;
+                    return this.formError[indexFormError].message.push(data[0].error);
+                }
+                this.$toast.global.error({ message: data[0].error});
+                this.statusOtp = false;
+                return false;
+            };
+            this.statusOtp = true;
+        },
     copyAffiliate: function (target) {
       this.$refs[target].select();
       document.execCommand("copy");
@@ -1499,72 +1495,72 @@ export default {
       }
     },
 
-    nextStepPhoneNumber: async function () {
-      //if (!this.isFormValidation("inputPhoneNumber")) {
-      if (!this.inputPhoneNumber) {
-        var indexFormError = this.formError.findIndex(
-          (item) => item.ref == "inputPhoneNumber"
-        );
-        indexFormError =
-          indexFormError < 0
-            ? (await this.formError.push({
-                step: 3,
-                ref: "inputPhoneNumber",
-                message: "ห้ามว่าง",
-              })) - 1
-            : indexFormError;
-        return false;
-      } else if (this.inputPhoneNumber.length != 10) {
-        var indexFormError = this.formError.findIndex(
-          (item) => item.ref == "inputPhoneNumber"
-        );
-        indexFormError =
-          indexFormError < 0
-            ? (await this.formError.push({
-                step: 3,
-                ref: "inputPhoneNumber",
-                message: [],
-              })) - 1
-            : indexFormError;
-        this.formError[indexFormError].message.push(
-          "เบอร์โทรเท่ากับ 10 ตัวอักษร"
-        );
-      } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
-        var indexFormError = this.formError.findIndex(
-          (item) => item.ref == "inputPhoneNumber"
-        );
-        indexFormError =
-          indexFormError < 0
-            ? (await this.formError.push({
-                step: 3,
-                ref: "inputPhoneNumber",
-                message: [],
-              })) - 1
-            : indexFormError;
-        this.formError[indexFormError].message.push(
-          "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
-        );
-        //}
-      } else {
-        this.show = true;
-        const respone = await this.$axios.$post("/api/line/chk-phone", {
-          tel: this.inputPhoneNumber,
-        });
-        if (respone.success) {
-          this.otp();
-          document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
-        } else {
-          this.getPin();
-          document.getElementById("step-1").innerHTML = "ยืนยัน Pin";
-          this.formError.push({
-            step: 1,
-            ref: "inputPhoneNumber",
-            message: "",
-          });
-        }
-        this.show = false;
-      }
-    },
+    nextStepPhoneNumber: async function() {
+            //if (!this.isFormValidation("inputPhoneNumber")) {
+            if (!this.inputPhoneNumber) {
+                var indexFormError = this.formError.findIndex(
+                    (item) => item.ref == "inputPhoneNumber"
+                );
+                indexFormError =
+                    indexFormError < 0 ?
+                    (await this.formError.push({
+                        step: 3,
+                        ref: "inputPhoneNumber",
+                        message: "ห้ามว่าง",
+                    })) - 1 :
+                    indexFormError;
+                return false;
+            } else if (this.inputPhoneNumber.length != 10) {
+                var indexFormError = this.formError.findIndex(
+                    (item) => item.ref == "inputPhoneNumber"
+                );
+                indexFormError =
+                    indexFormError < 0 ?
+                    (await this.formError.push({
+                        step: 3,
+                        ref: "inputPhoneNumber",
+                        message: [],
+                    })) - 1 :
+                    indexFormError;
+                this.formError[indexFormError].message.push(
+                    "เบอร์โทรเท่ากับ 10 ตัวอักษร"
+                );
+                return false;
+            } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
+                var indexFormError = this.formError.findIndex(
+                    (item) => item.ref == "inputPhoneNumber"
+                );
+                indexFormError =
+                    indexFormError < 0 ?
+                    (await this.formError.push({
+                        step: 3,
+                        ref: "inputPhoneNumber",
+                        message: [],
+                    })) - 1 :
+                    indexFormError;
+                this.formError[indexFormError].message.push(
+                    "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
+                );
+                //}
+                return false;
+            } else {
+                this.show = true;
+                const respone = await this.$axios.$post("/api/line/chk-phone", {
+                    tel: this.inputPhoneNumber,
+                });
+                if (respone.success) {
+                    this.otp();
+                } else {
+                    this.getPin();
+                    this.formError.push({
+                        step: 1,
+                        ref: "inputPhoneNumber",
+                        message: "",
+                    });
+                }
+                this.show = false;
+            }
+        },
     otp: async function () {
       const formErrorStep = await this.formError.find(
         (item) => item.step == 3 && item.ref != "inputOtpNumber"
