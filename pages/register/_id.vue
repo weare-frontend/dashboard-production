@@ -200,8 +200,6 @@
                   <div class="invalid-feedback">{{formValidation('inputPinNumber')}}</div>
                 </div>
                 <p id="verify"></p>
-                <!-- <a class="text-white" v-if="!this.coutDownPin" @click="getPin">ขอ (Pin) ใหม่อีกครั้ง</a>
-                <a class="text-danger" v-else>จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.coutDownPin}} วิ</a>-->
               </b-collapse>
             </div>
             <div class="col-12">
@@ -221,14 +219,6 @@
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                 >ยืนยัน PIN</a>
               </b-overlay>
-              <!-- <b-button
-                class="btn-block"
-                size="md"
-                id="accepted-pin"
-                variant="ocean"
-                @click="acceptPin"
-                style="display:none;"
-              >ยืนยัน PIN</b-button> -->
             </div>
             <div class="col-12">
               <b-button
@@ -523,14 +513,6 @@
           </div>
           <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
             <div class="col-12">
-              
-              <!-- <a
-                id="step-3"
-                class="btn btn-ocean shadow btn-block text-danger font-weight-100"
-                @click="nextStepPincode"
-                style="color:#000;"
-              >ยืนยันการสมัคร</a> -->
-
               <a
                   id="step-3"
                   class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
@@ -612,23 +594,6 @@
                     >คัดลอก</button>
                   </div>
                 </div>
-                <!-- <div class="input-group mb-3">
-                  <input
-                    type="text"
-                    class="form-control text-white"
-                    ref="inputPassword"
-                    @click="copyAffiliate('inputPassword')"
-                    readonly
-                  />
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-white"
-                      type="button"
-                      @click="copyAffiliate('inputPassword')"
-                      style="color:#ffff;"
-                    >คัดลอก</button>
-                  </div>
-                </div> -->
                 <label
                   class="form-control-label"
                   style="color: #fff; margin-top: -24px;margin-left: -15px;"
@@ -656,24 +621,6 @@
                     >คัดลอก</button>
                   </div>
                 </div>
-                <!-- <div class="input-group mb-3">
-                  <input
-                    type="text"
-                    class="form-control text-white"
-                    ref="inputPincode"
-                    v-model="inputPincode"
-                    @click="copyAffiliate('inputPincode')"
-                    readonly
-                  />
-                  <div class="input-group-append">
-                    <button
-                      class="btn btn-white"
-                      type="button"
-                      @click="copyAffiliate('inputPincode')"
-                      style="color:#ffff;"
-                    >คัดลอก</button>
-                  </div>
-                </div> -->
                 <label class="form-control-label" style="color: #fff; margin-top: -24px;margin-left: -15px;">PIN</label>
               </div>
             </div>
@@ -686,11 +633,6 @@
                 style="font-size:22px; border-radius: 30px;font-weight:100;"
                 @click="nextStepLogin"
               >เข้าสู่ระบบ</a>
-              <!-- <nuxt-link
-                class="btn btn-md bg-gradaint shadow mb-2 btn-block text-white font-weight-100"
-                style="font-size:22px; border-radius: 30px;font-weight:100;"
-                :to="{name : 'dashboard-login'}"
-              >หน้าแรก</nuxt-link> -->
             </div>
           </div>
         </form>
@@ -1062,7 +1004,8 @@ export default {
     coutDownOtp: 0,
     typeGame: {},
     show: false,
-    Qrcode:''
+    Qrcode:'',
+    Fname:''
   }),
 
   asyncData: async function ({ $axios }) {
@@ -1125,29 +1068,29 @@ export default {
         this.$toast.global.error({ message: respones.msg });
       }
     },
-    getOtp_Again: async function() {
-            this.startTimer();
-            const { data, success } = await this.$axios.$post("/api/send-otp", {
-                tel: this.inputPhoneNumber,
-            });
-            // console.log(data[0].error);
-            if (data[0].status == "duplicate") {
-                this.telerror = data[0].error;
-                this.$toast.global.error({
-                    message: data[0].error,
-                });
-                return false;
-            } else if (success) {
-                this.$toast.global.success({
-                    message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-                });
-            } else {
-                this.$toast.global.error({
-                    message: data,
-                });
-            }
-            this.statusOtp = true;
-        },
+    getOtp_Again: async function () {
+      this.startTimer();
+      const { data, success } = await this.$axios.$post("/api/send-otp", {
+        tel: this.inputPhoneNumber,
+      });
+      // console.log(data[0].error);
+      if (data[0].status == "duplicate") {
+        this.telerror = data[0].error;
+        this.$toast.global.error({
+          message: data[0].error,
+        });
+        return false;
+      } else if (success) {
+        this.$toast.global.success({
+          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+        });
+      } else {
+        this.$toast.global.error({
+          message: data,
+        });
+      }
+      this.statusOtp = true;
+    },
     getOtp: async function() {
             const { data, success } = await this.$axios.$post("/api/send-otp", {
                 tel: this.inputPhoneNumber,
@@ -1157,6 +1100,7 @@ export default {
                 this.$toast.global.success({ message: 'ส่ง OTP ไปแล้ว กรุณารอซักครู่' });
                 this.statusOtp = true;
                 this.$root.$emit('bv::toggle::collapse', 'collapse-otp');
+                document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
             } else {
                 if (data[0].status == 'duplicate') {
                     var indexFormError = this.formError.findIndex(item => item.ref == 'inputPhoneNumber');
@@ -1495,72 +1439,71 @@ export default {
       }
     },
 
-    nextStepPhoneNumber: async function() {
-            //if (!this.isFormValidation("inputPhoneNumber")) {
-            if (!this.inputPhoneNumber) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: "ห้ามว่าง",
-                    })) - 1 :
-                    indexFormError;
-                return false;
-            } else if (this.inputPhoneNumber.length != 10) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: [],
-                    })) - 1 :
-                    indexFormError;
-                this.formError[indexFormError].message.push(
-                    "เบอร์โทรเท่ากับ 10 ตัวอักษร"
-                );
-                return false;
-            } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: [],
-                    })) - 1 :
-                    indexFormError;
-                this.formError[indexFormError].message.push(
-                    "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
-                );
-                //}
-                return false;
-            } else {
-                this.show = true;
-                const respone = await this.$axios.$post("/api/line/chk-phone", {
-                    tel: this.inputPhoneNumber,
-                });
-                if (respone.success) {
-                    this.otp();
-                } else {
-                    this.getPin();
-                    this.formError.push({
-                        step: 1,
-                        ref: "inputPhoneNumber",
-                        message: "",
-                    });
-                }
-                this.show = false;
-            }
-        },
+    nextStepPhoneNumber: async function () {
+      //if (!this.isFormValidation("inputPhoneNumber")) {
+      if (!this.inputPhoneNumber) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: "ห้ามว่าง",
+              })) - 1
+            : indexFormError;
+        return false;
+      } else if (this.inputPhoneNumber.length != 10) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรเท่ากับ 10 ตัวอักษร"
+        );
+      } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
+        );
+        //}
+      } else {
+        this.show = true;
+        const respone = await this.$axios.$post("/api/line/chk-phone", {
+          tel: this.inputPhoneNumber,
+        });
+        if (respone.success) {
+          this.otp();
+        } else {
+          this.getPin();
+          document.getElementById("step-1").innerHTML = "ยืนยัน Pin";
+          this.formError.push({
+            step: 1,
+            ref: "inputPhoneNumber",
+            message: "",
+          });
+        }
+        this.show = false;
+      }
+    },
     otp: async function () {
       const formErrorStep = await this.formError.find(
         (item) => item.step == 3 && item.ref != "inputOtpNumber"
