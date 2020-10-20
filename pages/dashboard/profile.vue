@@ -89,7 +89,7 @@
           <small class="text-right text-template font-weight-100">{{$auth.user.fullname}}</small>
         </div>
         <div class="col-4">
-          <nuxt-link :to="{name:'dashboard-verified'}" class="btn bg-dark w-100 text-white px-0">
+          <nuxt-link :to="{name:'dashboard-verified'}" class="btn w-100 text-white px-0" style="border-radius: 20px; background: linear-gradient(90deg,#6fcac5 0,#169f98);">
             <small>ยืนยันข้อมูล</small>
           </nuxt-link>
         </div>
@@ -526,12 +526,9 @@ export default {
 
 .btn-ocean {
   width: 100%;
-  border: solid 1px #ec1415;
-  background-image: linear-gradient(
-    rgb(191, 191, 191),
-    rgb(255, 255, 255),
-    rgb(220, 220, 220)
-  );
+
+  background: linear-gradient(90deg,#6fcac5 0,#169f98);
+    filter: drop-shadow(3px 3px 1px black);
 }
 
 button.form-controles,

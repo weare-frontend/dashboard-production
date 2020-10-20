@@ -20,7 +20,7 @@
             </template>
             <div class="row mt-3 justify-content-center" v-if="$route.name != 'dashboard-withdraw'">
                 <div class="col-4 text-center mb-1">
-                    <h6 class="m-0 w-100 mb-2" style="color: #fff;">ยอดเงินในเกม</h6>
+                    <h6 class="m-0 w-100 mb-2" style="white-space: nowrap; color: #fff;">ยอดเงินในเกม</h6>
                     <img class="mb-1" src="~/assets/img/coinnew.png" style="height:80px; padding:1px;" />
                     <h6 class="text-white mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
                 </div>

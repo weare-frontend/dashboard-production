@@ -90,9 +90,9 @@
             <div class="col-12 col-md-10 font-weight-100">
               <a
                 id="accept-condition"
-                class="bg-gradaint btn btn-md shadow btn-block "
+                class="bg-gradaint btn btn-md shadow btn-block text-white"
                 @click="nextStepCondition"
-                style="color: #fff; font-size:26px; border-radius: 30px;font-weight:100;"
+                style="font-size:26px; border-radius: 30px;font-weight:100;"
               >ถัดไป</a>
             </div>
           </div>
@@ -175,7 +175,7 @@
               >
                 <a
                   id="step-1"
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   @click="nextStepPhoneNumber"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                 >รับ OTP</a>
@@ -216,7 +216,7 @@
                 id="accepted-pin"
               >
                 <a
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   @click="acceptPin"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                 >ยืนยัน PIN</a>
@@ -243,7 +243,7 @@
               </b-button>
             </div>
             <a
-                class="btn btn-md bg-gradaint mx-3 shadow btn-block text-dark font-weight-100"
+                class="btn btn-md bg-gradaint mx-3 shadow btn-block text-white font-weight-100"
                 v-show="step != 1"
                 @click="step--"
                 style=" font-size:26px; border-radius: 30px;font-weight:100;"
@@ -474,7 +474,7 @@
               >
                 <a
                   id="step-2"
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   @click="nextStepInfo"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                 >ถัดไป</a>
@@ -489,7 +489,7 @@
               >
                 <a
                   id="step-2"
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   v-show="step != 1"
                   @click="step--"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
@@ -533,7 +533,7 @@
 
               <a
                   id="step-3"
-                  class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100"
+                  class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100"
                   @click="nextStepPincode"
                   style="font-size:26px; border-radius: 30px;font-weight:100;"
                 >ยืนยันการสมัคร</a>
@@ -544,7 +544,7 @@
                 >กำลังบันทึกข้อมูล</a>
         
               <a
-                 class="btn btn-md bg-gradaint shadow btn-block font-weight-100 text-dark"
+                 class="btn btn-md bg-gradaint shadow btn-block font-weight-100 text-white"
                 v-show="step != 1"
                 @click="step--"
                 style="font-size:26px; border-radius: 30px;font-weight:100;"
@@ -579,7 +579,7 @@
                   />
                   <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
-                      class="btn text-dark"
+                      class="btn text-white"
                       type="button"
                       @click="copyAffiliate('inputUsername')"
                       style="color:#fff;"
@@ -605,7 +605,7 @@
                   />
                   <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
-                      class="btn text-dark"
+                      class="btn text-white"
                       type="button"
                       @click="copyAffiliate('inputPassword')"
                       style="color:#fff;"
@@ -649,7 +649,7 @@
                   />
                   <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                     <button
-                      class="btn text-dark"
+                      class="btn text-white"
                       type="button"
                       @click="copyAffiliate('inputPincode')"
                       style="color:#fff;"
@@ -682,7 +682,7 @@
             <div class="col-11 ">
               <a
                 id="step-4"
-                class="btn btn-md bg-gradaint shadow mb-2 btn-block text-dark font-weight-100"
+                class="btn btn-md bg-gradaint shadow mb-2 btn-block text-white font-weight-100"
                 style="font-size:22px; border-radius: 30px;font-weight:100;"
                 @click="nextStepLogin"
               >เข้าสู่ระบบ</a>
