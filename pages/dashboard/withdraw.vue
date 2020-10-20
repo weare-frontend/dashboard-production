@@ -13,7 +13,7 @@
       >
         <div class="col-7 pt-2">
           <p class="font-weight-100 mb-1">
-            <span class="text-white">ถอนเงิน</span>
+            <span class="text-dark">ถอนเงิน</span>
             <span
               :class="[{ 'text-danger' :  withdrawArray[index].accept_status == 0  ,'text-info' :  withdrawArray[index].accept_status ==2 ,'text-success' :  withdrawArray[index].accept_status == 1 }] "
               style="white-space: nowrap; font-size: 15px;"
@@ -25,14 +25,14 @@
             style="font-weight: 100;"
           >{{withdrawArray[index].create_at}}</p>
         </div>
-        <div v-if="withdrawArray[index].accept_status==1" class="col-5 text-white text-right pt-2">
+        <div v-if="withdrawArray[index].accept_status==1" class="col-5 text-dark text-right pt-2">
           {{ withdrawArray[index].money | toCurrencyString }}
           <br />
           <small
             style="font-weight: 100;"
           >หักโบนัส {{ withdrawArray[index].deductions | toCurrencyString }}</small>
         </div>
-        <div v-else class="col-5 text-white text-right pt-2">
+        <div v-else class="col-5 text-dark text-right pt-2">
           {{ Math.abs(withdrawArray[index].withdraw) | toCurrencyString }}
           <br />
           <small
@@ -236,15 +236,18 @@
 }
 
 .bg-finish {
-  background: #0286259e;
+  background: #FFF;
+  /* background: #0286259e; */
 }
 
 .bg-unfinish {
-  background: #bb000069;
+  background: #FFF;
+  /* background: #bb000069; */
 }
 
 .bg-sky {
-  background: #00b5bb69;
+  background: #FFF;
+  /* background: #00b5bb69; */
 }
 
 #title {
@@ -358,6 +361,9 @@ export default {
     //            if (value) this.acceptWithdraw();
     //          });
     // },
+    test: function (){
+this.$auth.fetchUser();
+    },
     showModalWithdraw: function (params) {
       this.$bvModal.show("modal-withdraw");
     },
@@ -372,6 +378,7 @@ export default {
             msg: "ไม่สามารถเชื่อมต่อเซิฟเวอร์ได้ (500) / กรุณาติดต่อพนักงาน",
           };
         });
+        this.test();
 
       if (checkWithdraw.success) {
         const withdraw = await this.$axios.$post("/api/withdraw", {
@@ -392,6 +399,7 @@ export default {
         }
         this.getWithdraw();
         this.$auth.fetchUser();
+        this.fetchUser();
         // loader.hide();
       } else {
         this.$toast.global.error({
@@ -405,6 +413,25 @@ export default {
       const { data } = await this.$axios.$get("/api/data-withdraw");
       return (this.withdrawArray = data);
     },
+       fetchUser: function () {
+            const loader = this.$loading.show({
+                "is-full-page": true
+            });
+            this.isSpin = true;
+            this.$auth
+                .fetchUser()
+                .then((res) => {
+                    this.$toast.global.success({
+                        message: "อัพเดทข้อมูลเรียบร้อย"
+                    });
+                    this.isSpin = false;
+                    loader.hide();
+                })
+                .catch((e) => {
+                    this.isSpin = false;
+                    loader.hide();
+                });
+        },
   },
 };
 </script>
