@@ -223,6 +223,7 @@ export default {
             inputPincode: "",
             statusOtp: false,
             coutDownOtp: 0,
+            textContent: "",
             token: 0,
             displayname: "",
             lineredirect: "",
