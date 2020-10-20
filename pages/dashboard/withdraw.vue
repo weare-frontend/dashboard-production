@@ -361,9 +361,6 @@ export default {
     //            if (value) this.acceptWithdraw();
     //          });
     // },
-    test: function (){
-this.$auth.fetchUser();
-    },
     showModalWithdraw: function (params) {
       this.$bvModal.show("modal-withdraw");
     },
@@ -378,8 +375,6 @@ this.$auth.fetchUser();
             msg: "ไม่สามารถเชื่อมต่อเซิฟเวอร์ได้ (500) / กรุณาติดต่อพนักงาน",
           };
         });
-        this.test();
-
       if (checkWithdraw.success) {
         const withdraw = await this.$axios.$post("/api/withdraw", {
           turn_status: checkWithdraw.data.chkTurn,
@@ -399,7 +394,6 @@ this.$auth.fetchUser();
         }
         this.getWithdraw();
         this.$auth.fetchUser();
-        this.fetchUser();
         // loader.hide();
       } else {
         this.$toast.global.error({
@@ -413,25 +407,6 @@ this.$auth.fetchUser();
       const { data } = await this.$axios.$get("/api/data-withdraw");
       return (this.withdrawArray = data);
     },
-       fetchUser: function () {
-            const loader = this.$loading.show({
-                "is-full-page": true
-            });
-            this.isSpin = true;
-            this.$auth
-                .fetchUser()
-                .then((res) => {
-                    this.$toast.global.success({
-                        message: "อัพเดทข้อมูลเรียบร้อย"
-                    });
-                    this.isSpin = false;
-                    loader.hide();
-                })
-                .catch((e) => {
-                    this.isSpin = false;
-                    loader.hide();
-                });
-        },
   },
 };
 </script>
