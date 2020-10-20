@@ -912,7 +912,7 @@
 
                     <div class="col-12 mt-2">
                       <button
-                        class="w-100 btn btn-ocean shadow btn-block"
+                        class="w-100 btn shadow btn-block"
                         @click="nextStepLogin"
                         style="color: #000;"
                       >ตกลง</button>
