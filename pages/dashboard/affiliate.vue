@@ -1,5 +1,5 @@
 <template>
-  <div class="container mb-5" style="margin-top:-170px;">
+  <div class="container mb-4" style="margin-top:-170px;">
      <div class="col-4 text-left">
        <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>

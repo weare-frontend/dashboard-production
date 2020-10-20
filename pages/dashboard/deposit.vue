@@ -185,7 +185,7 @@
                                             <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;" v-if="item.qrcode_log.length!=0">
                                                 พร้อมเพย์:
                                                 <span class="text-center text-template">{{item.prompt_pay}}</span>
-                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
                                             </h6>
                                         </div>
 
@@ -348,7 +348,7 @@
                                             <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;" v-if="item.qrcode_log.length!=0">
                                                 พร้อมเพย์:
                                                 <span class="text-center text-template">{{item.prompt_pay}}</span>
-                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
                                             </h6>
                                         </div>
 
