@@ -137,7 +137,7 @@
             <!-- &copy; 2020 Supported by
             EXPGaming.com
             <br> -->
-            Version 0.1.9 Beta
+            Version 0.1.10 Beta
           </div>
         </div>
       </div>
