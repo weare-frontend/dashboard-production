@@ -7,7 +7,7 @@
             </nuxt-link>
         </div>
     </div>
-     <div
+    <div
       class="row no-gutters login-row justify-content-center bg-template pb-5"
       ref="formRegisterUser"
       style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;height:110vh;overflow: overlay;">
@@ -16,9 +16,7 @@
                <h4 class="text-center text-white font-weight-100">
             ยืนยันข้อมูลการสมัคร
           </h4>
-               
-                    <p class="text-center text-danger">ท่านต้องยืนยันข้อมูลการสมัครก่อนจะเข้าสู่ระบบ</p>
-                
+            <p class="text-center text-danger">ท่านต้องยืนยันข้อมูลการสมัครก่อนจะเข้าสู่ระบบ</p>     
             </div>
             <br />
             <div class="row justify-content-center">
