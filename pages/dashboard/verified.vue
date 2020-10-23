@@ -161,7 +161,7 @@ button.form-controls,
 input.form-controls,
 select.form-controls {
     color: #000;
-    border: 1px solid #269791;
+    border: 1px solid #550202 ;
     background-color: #fff;
     width: 100%;
     border-radius: 20px;
@@ -169,7 +169,7 @@ select.form-controls {
 
 .btn-ocean {
     width: 100%;
-    background: linear-gradient(90deg, #6fcac5 0, #169f98);
+    background: linear-gradient(0deg,#410c0c 0,#991515);
     filter: drop-shadow(3px 3px 1px black);
 }
 

@@ -558,7 +558,7 @@
                 class="text-template mb-0 font-weight-100 size-14"
                 >วงล้อลุ้นโชค</small
               >
-              <!-- <p class="text-secondary text-mute small">กดแชร์ facebook รับครดิตทันที</p> -->
+              
             </div>
           </div>
         </div>

@@ -304,10 +304,10 @@ body.sidemenu-open .wrapper:after {
     left: -100%;
     padding: 0 15%;
     top: 0;
-    transition: all ease 0.5s;
+    /* transition: all ease 0.5s;
     -webkit-transition: all ease 0.5s;
     -moz-transition: all ease 0.5s;
-    -ms-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s; */
     overflow-y: auto;
 }
 
@@ -2528,7 +2528,7 @@ pre {
 .greenlight-theme .float-label .form-control,
 .float-label .chosen-container .chosen-choices,
 .float-label .chosen-container .chosen-single {
-    background-color: #A31D03;
+    background-color: #390d05;
     color: #fff;
     border-radius: 10px;
     z-index: 1;

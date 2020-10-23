@@ -89,7 +89,7 @@
           <small class="text-right text-template font-weight-100">{{$auth.user.fullname}}</small>
         </div>
         <div class="col-4">
-          <nuxt-link :to="{name:'dashboard-verified'}" class="btn w-100 text-white px-0" style="border-radius: 20px; background: linear-gradient(90deg,#6fcac5 0,#169f98);">
+          <nuxt-link :to="{name:'dashboard-verified'}" class="btn-ocean btn w-100 text-white px-0" style="border-radius: 20px;">
             <small>ยืนยันข้อมูล</small>
           </nuxt-link>
         </div>
@@ -558,9 +558,9 @@ input.form-controles {
 .tooltip-inner {
   max-width: 350px;
   padding: 0.25rem 0.5rem;
-  color: #fff;
+  color: #550202 ;
   text-align: center;
-  background-color: #259690;
+  background-color: #fff;
   border-radius: 0.25rem;
 }
 

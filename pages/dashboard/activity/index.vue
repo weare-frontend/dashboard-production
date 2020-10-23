@@ -82,7 +82,7 @@ export default {
   },
   data: () => ({
     rotues: {
-      111: "dashboard-activity-wheel",
+      // 111: "dashboard-activity-wheel",
       103: "share",
       116: "dashboard-activity-giftbox",
       127: "dashboard-activity-question",
@@ -171,7 +171,7 @@ export default {
   },
   mounted: function () {
     if (
-      !this.getPromotionObjects[111].status &&
+      // !this.getPromotionObjects[111].status &&
       !this.getPromotionObjects[103].status &&
       !this.getPromotionObjects[116].status &&
       !this.getPromotionObjects[126].status 

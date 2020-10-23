@@ -439,8 +439,7 @@ label .fa {
 }
 
 .btn-clipboard {
-    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
-    background-color: #259690;
+    background:linear-gradient(to top,#F44336 0%, #a31d03 100%);
     color: white;
 }
 
