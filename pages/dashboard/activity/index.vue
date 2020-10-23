@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </nuxt-link>
-                            <div v-else class="text-center px-2">
+                            <div v-else class="text-center px-2" style="cursor: pointer;">
                                 <!-- share facebook (id 103)-->
                                 <div v-if="item.id==103" @click="facebookShare()" class="d-flex align-items-center" style="height: 95px;">
                                     <div class="avatar avatar-60 border-0 bg-dark text-white" :class="[{'font-size-vh' : !rotues[item.id]}]" :style="' background-size:100%;'">

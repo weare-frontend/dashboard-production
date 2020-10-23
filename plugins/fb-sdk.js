@@ -24,7 +24,7 @@ export default ({store}) => {
     }
     
     Vue.use(vue_fb, {
-        appId: '',
+        appId: 'your-app-id',
         autoLogAppEvents: true,
         xfbml: true,
         version: 'v6.0'
