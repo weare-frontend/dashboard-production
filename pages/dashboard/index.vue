@@ -14,7 +14,7 @@
       >
         <template v-slot:modal-header="{ close }">
           <h5 class="text-center w-100" style="color: #550202">
-            โอนเครดิตฟรีเข้าเกม
+            แลกเครดิตฟรีเข้าเกม
           </h5>
           <i
             class="f7-icons text-white multiply-circle"
@@ -107,7 +107,7 @@
               class="text-center w-100"
               style="font-weight: 100; font-size: 18px; color: #550202"
             >
-              ยืนยันถอนเครดิตฟรี
+              ยืนยันแลกเครดิตฟรี
             </p>
           </template>
           <template v-slot:modal-footer="{ cancel }">
@@ -142,6 +142,7 @@
               >
             </div>
             <div class="col-12 text-center mb-2 text-white" style="margin-bottom: -5px">
+              <h5>คุณต้องการแลกเครดิตฟรีใช่หรือไม่ ?</h5>
               <label>เครดิตฟรีไม่สามารถนำไปเล่นเกมประเภทออนไลน์ได้</label>
               <p>
                 <small class="text-danger" font-size="10px"
@@ -383,7 +384,7 @@
             </div>
           </div>
         </div>
-        <div class="col-3" v-else>
+        <div class="col-3" v-else-if="getPromotionObjects[101].status">
           <nuxt-link :to="{ name: 'dashboard-affiliate' }">
             <div class="border-0 mb-0">
               <div class="text-center">
@@ -405,6 +406,30 @@
             </div>
           </nuxt-link>
         </div>
+    <div class="col-3" id="btn-referral" v-else>
+          <div class="caadow border-0 mb-0">
+            <div class="text-center">
+              <div class="border-0">
+                <div
+                  class="overlay bg-template mb-0"
+                  style="filter: brightness(0.4)"
+                >
+                  <img
+                      src="~/assets/icon/Affilate-revert.png"
+                    class="icon-template"
+                  />
+                </div>
+              </div>
+              <small
+                style="white-space: nowrap"
+                class="text-template mb-0 font-weight-100 size-14"
+                >ชวนเพื่อน</small
+              >
+              <!-- <p class="text-secondary text-mute small">กดแชร์ facebook รับครดิตทันที</p> -->
+            </div>
+          </div>
+        </div>
+
       </div>
       <div
         class="bg-white row text-center justify-content-center mt-3 pt-2"
