@@ -651,9 +651,8 @@ input.vue-pincode-input {
 
 .btn-ocean {
     width: 100%;
-    background-image: linear-gradient(rgb(191, 191, 191),
-            rgb(255, 255, 255),
-            rgb(220, 220, 220));
+     background: linear-gradient(0deg,#410c0c 0,#991515);
+    filter: drop-shadow(3px 3px 1px black);
 }
 
 #page-2 {
