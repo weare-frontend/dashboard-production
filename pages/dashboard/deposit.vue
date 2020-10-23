@@ -1,27 +1,23 @@
 <template>
 <div>
-    
     <div class="container pt-3" style="margin-top:-180px;">
         <div class="col-4 text-left">
-         <nuxt-link :to="{name:'dashboard'}">
-            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
-        </nuxt-link>
-    </div>
+            <nuxt-link :to="{name:'dashboard'}">
+                <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+            </nuxt-link>
+        </div>
         <div class="row mb-5" style="margin-top: 65px;">
-
             <div class="col-12">
                 <h5 class="text-center text-white font-weight-100 mt-3">ช่องทางการเติมเงิน</h5>
-
             </div>
             <div class="tab_container px-3 mb-5">
                 <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
                 <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
                 <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
-                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" checked v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'"/>
+                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" checked v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'" />
                 <label for="tab2" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname == 'Not verified'">พร้อมเพย์</label>
-                <input class="checkbox-tap" id="tab2" type="radio" name="tabs"  />
+                <input class="checkbox-tap" id="tab2" type="radio" name="tabs" />
                 <label for="tab2" style="width:43%; margin:0 0 0 2%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">พร้อมเพย์</label>
-
                 <section id="content1" class="bg-rgba tab-content" v-if="$auth.user.lname != 'Not verified'">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 text-center" v-if="promptPayArray.length > 0 && bankArray.length == 0">
@@ -50,14 +46,14 @@
                                     </div>
                                     <div class="col-7 text-left" style="line-height: .8em; font-weight:100;">
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">เลขบัญชี :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{item.bank_account}}</div>
+                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{item.bank_account}}</div>
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;margin:10px 0px;">ชื่อบัญชี :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{ item.bank_fullname }}</div>
+                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{ item.bank_fullname }}</div>
                                         <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">ธนาคาร :</div>
-                                        <div class="text-left" style="width:70%;float:right;font-size:11px;color:#CBF494;padding-left:2px;">{{ item.name }}</div>
+                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{ item.name }}</div>
                                     </div>
                                     <div class="col-3 px-0 pr-2">
-                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color: #CBF494;">
+                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color:#F44336;">
                                             คัดลอก
                                             <br />
                                             <small>เลขบัญชี</small>
@@ -90,177 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                </section>
-                <section id="content1" class="tab-content bg-rgba" v-if="$auth.user.lname == 'Not verified'">
-                    <!-- <h5 class="text-center font-weight-100">PromptPay</h5> -->
-                    <div class="row">
 
-                        <div class="col-12 px-3">
-                            <!-- toggle.dragon -->
-                            <b-collapse id="dragon" accordion="my-bank" role="tabpanel" v-if="drgxObject && drgxObject.status == '1'">
-                                <h6 class="my-2 subtitle">Dragon Social Wallet</h6>
-                                <div class="alert alert-warning" role="alert">
-                                    <small class="d-block">
-                                        <b>คำเตือน</b> : QR Code สามารถใช้ได้เพียงครั้งเดียวเท่านั้น !! ไม่สามารถใช้ซ้ำได้ กรณีหากลูกค้าใช้ QR Code ซ้ำ ทางทีมงานจะไม่คืนเงินทุกกรณี ขอบคุณค่ะ
-                                    </small>
-                                    <small class="d-block">
-                                        <b>วิธีการใช้งาน</b> :
-                                        <a href="https://expgaming.com/dragon-coin/" target="_blank">คลิกที่นี่ Dragon Social Wallet</a>
-                                    </small>
-                                </div>
-                                <div class="row animated fadeIn" v-show="!invoiceTopupDrgxShow" ref="formTopupDrgx">
-                                    <div class="col-12 col-md-12 text-center">
-                                        <!-- <img class="m-auto" style="width : 300px" src="~/assets/img/drgx.png" alt /> -->
-                                    </div>
-                                    <div class="col-12 col-md-12">
-                                        <div class="form-group float-label active">
-                                            <input type="tel" class="form-controls text-white" readonly :value="$auth.user.tel" />
-                                            <label class="form-control-label">เบอร์โทรมือถือ</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-12">
-                                        <div class="form-group float-label active">
-                                            <input type="number" ref="topupDrgxAmount" class="form-controls text-white" placeholder="จำนวนเงิน" />
-                                            <label class="form-control-label">จำนวนเงิน</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-12">
-                                        <a class="btn btn-md btn-default text-white btn-block shadow mb-2" @click="acceptTopupDrgx">
-                                            <span>เติมเงิน</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="row animated fadeIn" v-show="invoiceTopupDrgxShow">
-                                    <div class="col-12 col-md-12">
-                                        <div class="alert alert-success" role="alert">
-                                            <p>
-                                                ID :
-                                                <span class="text-template">{{ invoiceTopupDrgx ? invoiceTopupDrgx.id : ''}}</span>
-                                            </p>
-                                            <p>
-                                                ORDER ID :
-                                                <span class="text-template">{{ invoiceTopupDrgx ? invoiceTopupDrgx.order : ''}}</span>
-                                            </p>
-                                            <p>
-                                                SERVICE :
-                                                <span class="text-template">{{ invoiceTopupDrgx ? invoiceTopupDrgx.service.name : ''}}</span>
-                                            </p>
-                                            <p>
-                                                จำนวนเงิน :
-                                                <span class="text-template">{{ invoiceTopupDrgx ? invoiceTopupDrgx.amount : ''}} บาท</span>
-                                            </p>
-                                            <a class="btn btn-md btn-default text-white btn-block shadow mb-2" :href="invoiceTopupDrgx ? invoiceTopupDrgx.value : ''" target="_blank">เข้าแอพพลิเคชั่น</a>
-                                            <a class="btn btn-md btn-dark text-white btn-block shadow mb-2" @click="invoiceTopupDrgxShow = !invoiceTopupDrgxShow">กลับ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </b-collapse>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-12 px-3 ">
-                            <div class="alert note-info justify-content-center ml-5 pl-4 mt-2" role="alert" ref="formContainer">
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> กรุณาแคปภาพ QRCode เพื่อใช้โอนเงิน</div>
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> ท่านมีเวลา 5 นาทีในการโอนเงิน</div>
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> เงินจะเข้าสู่ระบบอัตโนมัติภายใน 1-2 นาที</div>
-                            </div>
-                            <div class=" bg-white" style="margin:15px 0;border-radius: 10px;border: solid 1px #666;">
-                                <!-- <div class="text-right">
-                                    <h6 class="text-template mb-1" @click="fetchUser">{{ $auth.user.money | toCurrencyString }} THB
-                                        <i class="material-icons overlay bg-template text-template" :class="{'spin' : isSpin}" style="transform: rotate(45deg); cursor : pointer;">autorenew</i>
-                                    </h6>
-                                </div> -->
-                                <a class="text-dark py-3" v-for="(item, index) in promptPayArray" :key="index">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-12 col-sm-12">
-                                            <!-- <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;">
-                                                สแกน QR Code เติมเงิน
-                                            </h6> -->
-                                            <h6 class="text-template text-center pt-3" style="font-weight: 100;white-space: nowrap;">
-                                                ชื่อบัญชี:
-                                                <span class="text-template text-center">{{ item.bank_fullname }}</span>
-                                            </h6>
-                                            <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;" v-if="item.qrcode_log.length!=0">
-                                                พร้อมเพย์:
-                                                <span class="text-center text-template">{{item.prompt_pay}}</span>
-                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
-                                            </h6>
-                                        </div>
-
-                                        <!-- step กรอกเงิน -->
-                                        <!-- <div v-if="item.qrcode_log.length==0" class="col-md-1"></div> -->
-                                        <div v-if="item.qrcode_log.length==0" class="col-md-4 col-sm-12 mx-2" style="margin-top: 5px;margin-bottom: 0px;">
-                                            <small class="text-template">เลือกจำนวนเงิน</small>
-                                            <p class="w-100 d-flex">
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,300)" class="btn w-100 text-template bg-white">300</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,500)" class="btn w-100 text-template bg-white">500</button></span>
-                                            </p>
-                                            <p class="w-100 d-flex" style="margin-top:-10px;">
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
-                                            </p>
-                                            <small class="text-template">ระบุจำนวน</small>
-                                            <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template" style="display:block;background-color: #fff;"></b-form-input>
-                                        </div>
-                                        <div v-else>
-                                            <h5 class="text-template text-center my-2 font-weight-100">จำนวน {{item.qrcode_log.money}}</h5>
-                                        </div>
-
-                                        <div v-if="item.qrcode_log.length==0" class="col-md-4 col-sm-12" style="margin-top: 15px;">
-                                            <b-button block @click="saveLog('amount'+item.id,item.id)" variant="secondary" style="color: #ccc; background-color: #259690; width: 100%; border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                                <i class="material-icons vm md-36" style="color:#d8ff00;">check_circle</i>
-                                                เติมเงิน
-                                            </b-button>
-                                        </div>
-                                    </div>
-                                    <!-- step แสดง qr code -->
-                                    <div class="row justify-content-center">
-                                        <div id="app" v-if="item.qrcode_log.length!=0" class="col-8 text-center">
-                                            <b-card no-body class="text-center">
-                                                <div class="bg-light">
-
-                                                    <b-img :src="require('@/assets/img/thaibanks/pp.png')" style="max-width: 230px;width: 100%; margin-bottom: -10px;"></b-img>
-                                                    <promptpay-qr :id="item.prompt_pay" :amount=" parseFloat(item.qrcode_log.money)"></promptpay-qr>
-                                                </div>
-                                            </b-card>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div v-if="item.qrcode_log.length!=0" class="col-12">
-                                            <h6 class="text-template text-center">เหลือเวลาโอนเงิน</h6>
-                                            <h4 class="text-template text-center">
-                                                <countdown :time="genTime(item.qrcode_log.create_at,item.qrcode_log.create_end)" @end="getPromptpay()">
-                                                    <template slot-scope="props">{{ setDigit(props.minutes) }} : {{ setDigit(props.seconds) }} น.</template>
-                                                </countdown>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div v-if="item.qrcode_log.length!=0" class="col-12 text-center" style="margin:auto">
-                                            <b-button @click="showMsgBox(item.qrcode_log.player_qrcode_log)" class="text-center" block variant="danger" style="border-bottom-radius: 5px; border-top-radius: 0px;">
-                                                <i class="text-white material-icons vm md-36 text-template">cancel</i>
-                                                ยกเลิก
-                                            </b-button>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- <div class="container mt-2">
-                                        <small class="text-white">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</small>
-                                        <b-table style="white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive></b-table>
-                                    </div> -->
-                                </a>
-                                
-                            </div>
-                             <div class="mt-2 mb-4">
-                    <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
-                    <b-table class="card px-2" style="color:#000;white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
-                </div>
-                        </div>
-                    </div>
                 </section>
                 <section id="content2" class="tab-content bg-rgba">
                     <div class="row">
@@ -324,32 +150,39 @@
                                     </div>
                                 </div>
                             </b-collapse>
-                            <div class="alert note-info justify-content-center ml-5 pl-4 mt-2" role="alert" ref="formContainer">
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> กรุณาแคปภาพ QRCode เพื่อใช้โอนเงิน</div>
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> ท่านมีเวลา 5 นาทีในการโอนเงิน</div>
-                                <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> เงินจะเข้าสู่ระบบอัตโนมัติภายใน 1-2 นาที</div>
-                            </div>
-                            <div class=" bg-white" style="margin:15px 0;border-radius: 10px;border: solid 1px #666;">
-                                <!-- <div class="text-right">
-                                    <h6 class="text-template mb-1" @click="fetchUser">{{ $auth.user.money | toCurrencyString }} THB
-                                        <i class="material-icons overlay bg-template text-template" :class="{'spin' : isSpin}" style="transform: rotate(45deg); cursor : pointer;">autorenew</i>
-                                    </h6>
+                            <!-- <div class="alert note-info justify-content-center ml-5 pl-4 mt-2" role="alert" ref="formContainer">
+                                    <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> กรุณาแคปภาพ QRCode เพื่อใช้โอนเงิน</div>
+                                    <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> ท่านมีเวลา 5 นาทีในการโอนเงิน</div>
+                                    <div class="d-block small text-dark text-left"><b style="font-size:22px;">&bull;</b> เงินจะเข้าสู่ระบบอัตโนมัติภายใน 1-2 นาที</div>
                                 </div> -->
+                            <div class="border bg-white" style="margin:15px 0;border-radius: 10px;">
+                                <!-- <div class="text-right">
+                                        <h6 class="text-template mb-1" @click="fetchUser">{{ $auth.user.money | toCurrencyString }} THB
+                                            <i class="material-icons overlay bg-template text-template" :class="{'spin' : isSpin}" style="transform: rotate(45deg); cursor : pointer;">autorenew</i>
+                                        </h6>
+                                    </div> -->
                                 <a class="text-dark py-3" v-for="(item, index) in promptPayArray" :key="index">
-                                    <div class="row justify-content-center">
+                                    <div class="row justify-content-center pb-lg-4">
                                         <div class="col-md-12 col-sm-12">
-                                            <!-- <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;">
-                                                สแกน QR Code เติมเงิน
-                                            </h6> -->
-                                            <h6 class="text-template text-center pt-3" style="font-weight: 100;white-space: nowrap;">
-                                                ชื่อบัญชี:
-                                                <span class="text-template text-center">{{ item.bank_fullname }}</span>
-                                            </h6>
-                                            <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;" v-if="item.qrcode_log.length!=0">
-                                                พร้อมเพย์:
-                                                <span class="text-center text-template">{{item.prompt_pay}}</span>
-                                                <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
-                                            </h6>
+
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-12 text-center">
+                                                    <h6 class="text-template text-center pt-3" style="font-weight: 100;white-space: nowrap;">
+                                                        ชื่อบัญชี:
+                                                        <span class="text-template text-center">{{ item.bank_fullname }}</span>
+                                                    </h6>
+                                                </div>
+                                                <div v-if="item.qrcode_log.length!=0">
+                                                    <div class="col-lg-6">
+                                                        <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;">
+                                                            พร้อมเพย์: <span class="text-center text-template">{{item.prompt_pay}}</span>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-lg-6 text-center">
+                                                        <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <!-- step กรอกเงิน -->
@@ -370,12 +203,12 @@
                                             <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template" style="display:block;background-color: #fff;"></b-form-input>
                                         </div>
                                         <div v-else>
-                                            <h5 class="text-template text-center my-2 font-weight-100">จำนวน {{item.qrcode_log.money}}</h5>
+                                            <h5 class="text-template text-center my-2 font-weight-100">ยอดโอน {{item.qrcode_log.money}}</h5>
                                         </div>
 
                                         <div v-if="item.qrcode_log.length==0" class="col-md-4 col-sm-12" style="margin-top: 15px;">
-                                            <b-button block @click="saveLog('amount'+item.id,item.id)" variant="secondary" style="color: #ccc; background-color: #259690; width: 100%; border-top-left-radius: 0px;border-top-right-radius: 0px;">
-                                                <i class="material-icons vm md-36" style="color:#d8ff00;">check_circle</i>
+                                            <b-button class="btn-topup" block @click="saveLog('amount'+item.id,item.id)" variant="secondary">
+                                                <i class="material-icons vm md-36" style="color:#F44336;">check_circle</i>
                                                 เติมเงิน
                                             </b-button>
                                         </div>
@@ -410,26 +243,25 @@
                                             </b-button>
                                         </div>
                                     </div>
-                                    
-                                    <!-- <div class="container mt-2">
-                                        <small class="text-white">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</small>
-                                        <b-table style="white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive></b-table>
-                                    </div> -->
                                 </a>
-                                
+                            </div>
+                            <div class="container bg-white rounded-lg border">
+                                <div class="row p-3">
+                                <small class="d-block mt-1 text-dark">&bull; กรุณาคัดลอกเลชบัญชีหรือแคปภาพหน้าจอ</small>
+                                <small class="d-block mt-1 text-dark">&bull; โอนเงินให้ตรงกับยอดโอนเท่านั้น ห้ามปัดเศษ เพราะระบบอ้างอิงยอดจาก ทศนิยม</small>
+                                <small class="d-block mt-1 text-dark">&bull; เงินจะเข้าสู่ระบบอัตโนมัติภานใน 1-2 นาที</small>
+                                </div>
                             </div>
                             <div class="mt-2 mb-4">
-                    <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
-                    <b-table class="card px-2" style="color:#000;white-space: nowrap; font-size: 18px;" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
-                </div>
+                                <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
+                                <b-table class="border card px-2 text-sm rounded-lg text-white white-space" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
+                            </div>
                         </div>
                     </div>
-                    
+
                 </section>
-                
             </div>
         </div>
-        
         <!-- toggle bank -->
 
         <!-- Notbank -->
@@ -443,8 +275,8 @@
                 <p class="text-secondary text-mute small">กรุณาติดต่อพนักงาน</p>
             </div>
         </div>
-
     </div>
+
     <!-- page content ends -->
     <b-modal id="modal-warning" ref="modal-warning" centered content-class="rounded" header-class="shadow" body-class hide-footer no-close-on-backdrop>
         <template v-slot:modal-header="{ close }">
@@ -466,6 +298,19 @@
 </template>
 
 <style scoped>
+.border .border-green{
+   border-color: #259690
+}
+.btn-topup {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    color: #ccc;
+    background-color: #550202 ;
+    width: 100%;
+}
+
 .text-yellow {
     color: #ffc107;
 }
@@ -576,7 +421,7 @@ label {
 }
 
 .tab_container [id^="tab"]:checked+label {
-    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+background: linear-gradient(to top, #400404 0%, #A91B1B 100%);
     background-color: #259690;
     color: white;
     font-weight: 400;
@@ -594,7 +439,7 @@ label .fa {
 }
 
 .btn-clipboard {
-   background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
     background-color: #259690;
     color: white;
 }
@@ -1004,7 +849,7 @@ input.form-controls {
     margin:2px 4px;
     border-radius: 5px;
     background: linear-gradient(to bottom, #ffffff80 0%, #00000061 100%);
-    background-color: #259690;
+    background-color: #550202 ;
     padding: 2px;
 }
 /* .btn-money button { background: #fff; } */

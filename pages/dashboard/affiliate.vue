@@ -128,7 +128,7 @@
               readonly
               :value="baseUrl"
             />
-            <div class="input-append" style="background-color: #d8ff00;">
+            <div class="input-append bg-white">
                 <span class="input-group-text" style="height:49px" @click="copyAffiliate('linkAffiliate')">
                   <i class="f7-icons size-24">doc_on_doc</i>
                 </span>

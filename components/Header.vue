@@ -48,7 +48,7 @@
 }
 .input-group-text {
     padding: .375rem .2rem;
-    background-color: #ccf595;
+    background-color: #ffff;
 }
 .dot{
   width: 15px;height: 15px; border-radius: 50%;

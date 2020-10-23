@@ -15,7 +15,7 @@
           <p class="font-weight-100 mb-1">
             <span class="text-dark">ถอนเงิน</span>
             <span
-              :class="[{ 'text-danger' :  withdrawArray[index].accept_status == 0  ,'text-info' :  withdrawArray[index].accept_status ==2 ,'text-success' :  withdrawArray[index].accept_status == 1 }] "
+              :class="[{ 'text-brown' :  withdrawArray[index].accept_status == 0  ,'text-blue' :  withdrawArray[index].accept_status ==2 ,'text-success' :  withdrawArray[index].accept_status == 1 }] "
               style="white-space: nowrap; font-size: 15px;"
             >{{ toStatusString(withdrawArray[index].accept_status) }}</span>
           </p>
@@ -113,6 +113,13 @@
 </template>
 
 <style scoped>
+.text-brown{
+  color: #DA7C57;
+
+}
+.text-blue{
+  color: #2C267C;
+}
 .spin {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;

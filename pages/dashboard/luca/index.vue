@@ -1149,8 +1149,6 @@ form button.btn-primary:hover {
 
 */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-
 .btn01 {
   width: 100%;
   overflow: hidden;

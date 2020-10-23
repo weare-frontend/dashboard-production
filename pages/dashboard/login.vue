@@ -80,9 +80,9 @@
               </div>-->
               <div class="col-12 mt-2 justify-content-center">
                 <nuxt-link
-                  class="btn btn-md mb-2 shadow btn-block"
+                  class="text-white btn btn-md mb-2 shadow btn-block"
                   :to="{name : 'register-id' }"
-                  style="background:#d2e4e4;width:48%; float:left;color:#000;padding:10px 8px;border-radius: 8px;"
+                  style="background:#ee735c;width:48%; float:left;padding:10px 8px;border-radius: 8px;"
                   id="btn-register"
                 >สมัครสมาชิก</nuxt-link>
                 <a
@@ -137,7 +137,7 @@
             <!-- &copy; 2020 Supported by
             EXPGaming.com
             <br> -->
-            Version 0.1.10 Beta
+            Version {{$store.state.appVersion}}
           </div>
         </div>
       </div>
@@ -271,13 +271,13 @@ export default {
 
 <style scoped>
 .btn-login{
-  background: linear-gradient(to right, #ffffff80 0%, #00000000 100%);
+  background: linear-gradient(to top, #400404  0%, #A91B1B 100%);
    border: 1px solid #ccc; 
    width:48%; 
    float: right;
     padding:10px 8px;
     border-radius: 8px; 
-    color:#051c1d
+    color:#fff
 }
 .wrapper {
     background: #1e7773;

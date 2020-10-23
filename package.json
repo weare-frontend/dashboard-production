@@ -1,8 +1,8 @@
 {
-  "name": "new.nuxt",
-  "version": "1.0.0",
-  "description": "My riveting Nuxt.js project",
-  "author": "l3ever",
+  "name": "front-lv1",
+  "version": "1.0.1",
+  "description": "frontend profestional",
+  "author": "lava",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",

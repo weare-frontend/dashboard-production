@@ -32,12 +32,12 @@
                 <div>
                     <div class="form-group float-label active" > 
 
-                        <input @keyup="searchDetaiItemArray" ref="searchArray" type="text" class="form-control text-template" placeholder="ค้นหา.." style="background-color: white;padding: 0px 15px;color: #009688;" />
+                        <input @keyup="searchDetaiItemArray" ref="searchArray" type="text" class="form-control text-template" placeholder="ค้นหา.." style="background-color: white;padding: 0px 15px;color: #550202;" />
                         <label class="form-control-label" style="color:#000;">ค้นหา</label>
                     </div>
                 </div>
                 <div class="form-group float-label active">
-                    <select @change="searchDetaiItemArray" class="custom-select form-control text-template form-control-lg" ref="searchTypeItemArray" style="background-color: white;padding: 0px 15px;color: #009688;">
+                    <select @change="searchDetaiItemArray" class="custom-select form-control text-template form-control-lg" ref="searchTypeItemArray" style="background-color: white;padding: 0px 15px;color: #550202;">
                         <option disabled="disabled" value>-- เลือกประเภท --</option>
                         <option value>ประเภท (ทั้งหมด)</option>
                         <option value="0">Liftstyle</option>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group float-label active">
-                    <select @change="searchDetaiItemArray" class="custom-select form-control  form-control-lg" ref="searchPointItemArray" style="background-color: white;padding: 0px 15px;color: #009688;">
+                    <select @change="searchDetaiItemArray" class="custom-select form-control  form-control-lg" ref="searchPointItemArray" style="background-color: white;padding: 0px 15px;color: #550202;">
                         <option disabled="disabled" value>-- เลือกช่วงคะแนน --</option>
                         <option value>ช่วงคะแนน (ทั้งหมด)</option>
                         <option :value="item.id" v-for="(item, index) in typeOptions" :key="index">{{ item.over ? `มากกว่า ${item.over} คะแนน` : `${item.between.start} - ${item.between.end} คะแนน`}}</option>
@@ -57,7 +57,7 @@
                 </div>
 
                         <div class="form-group float-label active">
-                    <select @change="searchDetaiItemArray" class="custom-select form-control form-control-lg" ref="searchSortItemArray" style="background-color: white;padding: 0px 15px;color: #009688;">
+                    <select @change="searchDetaiItemArray" class="custom-select form-control form-control-lg" ref="searchSortItemArray" style="background-color: white;padding: 0px 15px;color: #550202;">
                         <option disabled="disabled" value>-- เรียงลำดับคะแนน --</option>
                         <option value="0">น้อยไปมาก</option>
                         <option value="1">มากไปน้อย</option>
@@ -129,7 +129,7 @@
 .bg-input{
   background-color: white;
   padding: 0px 15px;
-  color: #009688;
+  color: #550202;
 }
 .nav-tabs .nav-link {
     margin-bottom: -1px;

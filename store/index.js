@@ -2,6 +2,7 @@ var _ = require('underscore');
 const configTheme = require('../config/theme.js')
 
 export const state = () => ({
+    appVersion: '1.0.0',
     theme: [],
     specialpromotions: [],
     setting: null,
@@ -12,6 +13,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+    SET_APP_VERSION(state, version) {
+        state.appVersion = version;
+    },
     SET_THEME(state, theme) {
         state.theme = theme;
     },
@@ -58,9 +62,12 @@ export const getters = {
 
 export const actions = {
     async nuxtServerInit({ dispatch, commit, state }, { req }) {
+        
         // Get session ID:
+        commit('SET_APP_VERSION', process.env.APP_VERSION );
         const { version } = await this.$axios.$get('/api/get-version');
         await dispatch('GET_SPECIAL');
+
 
         if (this.$cookies.get('theme-color')) {
             await dispatch('SET_THEME_COLOR', this.$cookies.get('theme-color'));

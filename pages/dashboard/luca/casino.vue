@@ -1053,7 +1053,7 @@ span {
 
 */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
 Body {
   /* font-family: "Open Sans", sans-serif; */
   /* background-image: url('https://yumise.com/wp-content/uploads/2020/07/winstar-game-casino-venues-lighting-link-lounge-03.jpg');

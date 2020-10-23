@@ -873,7 +873,7 @@
 
 <style scoped>
 .bg-copy {
-  background: linear-gradient(to top,#2ED2B0 0%, #C3F4E8 100%);
+  background:linear-gradient(to top,#F44336 0%, #a31d03 100%);
     filter: drop-shadow(2px 2px 4px black);
 }
 .form-group h6 {
@@ -894,8 +894,8 @@
  .bg-gradaint {
     /* border-radius: 50%; */
     /* background: #259690; */
-    background: linear-gradient(to right,#6FCAC5 0%, #169F98 100%);
-    filter: drop-shadow(3px 3px 1px black);
+    background: linear-gradient(to top,#410c0c 0%, #991515 100%);
+    filter: drop-shadow(1px 1px 1px white)
 }
 li.active {
   color: #fff;
@@ -1830,8 +1830,8 @@ html {
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 10px;
-  background: linear-gradient(90deg,hsla(0,0%,100%,.50196) 0,rgba(0,0,0,.38039));
-    background-color: #259690;
+  background: linear-gradient(90deg,hsl(0deg 49% 61% / 50%) 0,rgb(0 0 0 / 38%));
+  background-color: #4b0404;
 }
 .onoffswitch-inner:after {
   content: "OFF";

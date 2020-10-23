@@ -1,4 +1,5 @@
 require("dotenv").config();
+process.env.APP_VERSION = require('./package.json').version
 const configTheme = require("./config/theme.js");
 module.exports = {
     mode: "universal",

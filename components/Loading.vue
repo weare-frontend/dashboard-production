@@ -3,7 +3,7 @@
     <div class="row no-gutters vh-100 loader-screen" v-show="loading">
       <div class="col align-self-center text-white text-center top-75">
         <!-- <img src="~/assets/img/logo.png" alt="logo"> -->
-        <img class="logo-loading logoloader" :src="getThemeObject[2].img" alt="logo" />
+        <!-- <img class="logo-loading logoloader" :src="getThemeObject[2].img" alt="logo" /> -->
         <!-- <h1 class="mt-3"><span class="font-weight-light "></span>{{siteName}}</h1> -->
         <p
           class="text-mute text-uppercase small mt-4 text-white"

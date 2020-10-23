@@ -5,13 +5,13 @@
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-    <div class="row mt-4 mb-3" style="overflow: hidden;">
-      <div class="col-2 text-left">
+    <div class="mt-4 mb-3" style="overflow: hidden;">
+      <!-- <div class="col-2 text-left">
         <nuxt-link :to="{name:'dashboard'}" class="mt-4">
           <i class="f7-icons text-pink">chevron_left_circle_fill</i>
         </nuxt-link>
-      </div>
-      <div class="col-8">
+      </div> -->
+      <div class="col-12">
         <h6 class="text-center font-weight-100 text-white mb-0" style="margin-top: 85px;">ข้อมูลส่วนตัว</h6>
       </div>
     </div>
@@ -607,8 +607,8 @@ input.form-controles {
   box-sizing: border-box;
 }
 .input-prepend{
-  background: linear-gradient(to right, rgba(255,255,255,0.50196) 0%, rgba(0,0,0,0.38039) 100%);
-    background-color: #259690;
+  background: linear-gradient(90deg,hsl(0deg 49% 61% / 50%) 0,rgb(0 0 0 / 38%));
+  background-color: #4b0404;
     color: #ffffff;
   margin:2px;
   font-size: 12px;
@@ -619,8 +619,8 @@ input.form-controles {
 .onoffswitch-inner:before {
   content: "NO";
   padding-left: 0px;
-  background: linear-gradient(to right, #ffffff80 0%, #00000061 100%);
-  background-color: #259690;
+   background: linear-gradient(90deg,hsl(0deg 49% 61% / 50%) 0,rgb(0 0 0 / 38%));
+  background-color: #4b0404;
   color: #ffffff;
   font-weight:100;
 }

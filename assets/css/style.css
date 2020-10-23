@@ -16,7 +16,12 @@ body {
     vertical-align: middle;
     width: 80px;
 }
-
+.bg-modal{
+    background-color: #400404;
+}
+.bg-red{
+    background-color: #f30000;
+}
 .fs-25 {
     font-size: 25px;
 }
@@ -26,7 +31,7 @@ body {
 }
 
 .border {
-    border: 2px solid #292929!important;
+    border: 1px solid #550202 !important;
 }
 
 .font-weight-100 {
@@ -1273,7 +1278,7 @@ h5 {
     -webkit-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -moz-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -ms-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    background: linear-gradient(to bottom, rgb(142 188 185) 0%, #009688 100%);
+    background: linear-gradient(to top, #400404  0%, #A91B1B 100%);
     background-color: #259690;
     color: white;
 }
@@ -2505,7 +2510,7 @@ pre {
 }
 
 .greenlight-theme .wrapper {
-    background: #259690;
+    background: #550202 ;
 }
 
 .greenlight-theme .btn.btn-line {
@@ -2523,7 +2528,7 @@ pre {
 .greenlight-theme .float-label .form-control,
 .float-label .chosen-container .chosen-choices,
 .float-label .chosen-container .chosen-single {
-    background-color: #8ebcb9;
+    background-color: #A31D03;
     color: #fff;
     border-radius: 10px;
     z-index: 1;
@@ -2544,7 +2549,7 @@ pre {
     background: -webkit-linear-gradient(top, #259690 0%, #259690 100%);
     background: -o-linear-gradient(top, #259690 0%, #259690 100%);
     background: -ms-linear-gradient(top, #259690 0%, #259690 100%);
-    background: linear-gradient(to right, #259690 0%, #259690 100%);
+    background-image: linear-gradient(to top, #A31D03 80%, #550202 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#259690', endColorstr='#259690', GradientType=0);
     background-attachment: fixed;
     background-position: center top;
@@ -2580,7 +2585,7 @@ pre {
 } */
 
 .greenlight-theme i.f7-icons {
-    color: #259690;
+    color: #550202 ;
 }
 
 .greenlight-theme.theme-dark i.f7-icons {
@@ -2701,7 +2706,7 @@ pre {
 .greenlight-theme .btn-light:focus,
 .greenlight-theme .btn-light:not(:disabled):not(.disabled).active,
 .greenlight-theme .bg-template-light {
-    background-color: #c9f4e3
+    background-color: #f89466 
 }
 
 .greenlight-theme .text-template,
@@ -2715,7 +2720,7 @@ pre {
 .greenlight-theme .btn.btn-link-default:focus,
 .greenlight-theme .btn.btn-link-default.active {
     /* color: #00c177; */
-    color: #259690;
+    color: #550202 ;
 }
 
 .greenlight-theme .bg-warning,
@@ -10119,4 +10124,67 @@ theme-dark .modal-content .form-control,
 ::-webkit-scrollbar-track {
     border-radius: 5px;
     background: rgba(230, 230, 230, 0.4);
+}
+
+/* icon-animation */
+.icon-intab-ani {
+    animation: animMove 4s linear infinite;
+}
+
+@keyframes animMove {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.icon-intab-ani-ltr {
+    animation: animMoveltr 4s linear infinite;
+}
+
+@keyframes animMoveltr {
+    10% {
+        transform: translateX(0px);
+    }
+
+    60% {
+        transform: translateX(-10px);
+    }
+
+    110% {
+        transform: translateX(0px);
+    }
+}
+
+.icon-intab-ani3 {
+    animation: animMove3 4s linear infinite;
+}
+
+@keyframes animMove3 {
+    20% {
+        transform: translateY(0px);
+    }
+
+    70% {
+        transform: translateY(-10px);
+    }
+
+    120% {
+        transform: translateY(0px);
+    }
+}
+
+/* Custom class */
+.text-light-blue {
+    color: #0075f8;
+}
+.white-space {
+    white-space: nowrap;
 }

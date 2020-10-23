@@ -55,7 +55,7 @@
               <i class="material-icons icons-raised">invert_colors</i>เปลี่ยนสีธีม
             </a> -->
             <a @click="userLogout" class="list-group-item list-group-item-action close-menu">
-              <i class="material-icons icons-raised bg-danger">power_settings_new</i>ออกจากระบบ
+              <i class="material-icons icons-raised bg-red">power_settings_new</i>ออกจากระบบ
             </a>
           </div>
         </div>
@@ -63,7 +63,7 @@
     </div>
 
     <a href="javascript:void(0)" class="closesidemenu border-2" style="width: auto;">
-      <i class="material-icons icons-raised shadow text-danger">close</i>
+      <i class="material-icons icons-raised shadow text-white">close</i>
     </a>
     <b-modal
       id="modal-logout"
