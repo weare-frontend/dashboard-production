@@ -527,7 +527,7 @@ export default {
 .btn-ocean {
   width: 100%;
 
-  background: linear-gradient(90deg,#6fcac5 0,#169f98);
+ background: linear-gradient(0deg,#410c0c 0,#991515);
     filter: drop-shadow(3px 3px 1px black);
 }
 

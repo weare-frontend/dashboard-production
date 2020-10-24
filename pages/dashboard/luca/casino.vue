@@ -7,7 +7,7 @@
             <a href="../luca" class="text-dark">
               <i class="fa fa-arrow-circle-left"></i> กลับ
             </a>
-            <small class="m-2 text-white"><a href="../luca" class="text-muted">หมวดเกม</a> / <u>คาสิโน</u></small>
+            <small class="m-2 text-white"> <nuxt-link :to="{name:'luca'}">หมวดเกม</nuxt-link> / <u>คาสิโน</u></small>
             <p id="io"></p>
           </div>
         </div>

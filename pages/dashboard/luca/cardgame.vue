@@ -2,11 +2,13 @@
   <div class="container" style="margin-top:-80px;">
     <div class="row">
       <div class="col-2" style="white-space: nowrap">
-        <a href="../luca" class="text-dark">
+        <nuxt-link :to="{name:'luca'}">
+        
           <i class="fa fa-arrow-circle-left"></i> กลับ
-        </a>
+        </nuxt-link>
         <small class="m-2 text-white">
-          <a href="../luca" class="text-muted">หมวดเกม </a> / <u>เกมไพ่</u>
+           <nuxt-link :to="{name:'luca'}">
+          หมวดเกม </nuxt-link> / <u>เกมไพ่</u>
         </small>
       </div>
     </div>

@@ -9,7 +9,10 @@ body {
     border-radius: 0;
     background: #000;
 }
-
+.bg-gradaint {
+    background: linear-gradient(0deg,#410c0c 0,#991515);
+    filter: drop-shadow(1px 1px 1px white);
+}
 .avatargame {
     height: 80px;
     line-height: 79px;
