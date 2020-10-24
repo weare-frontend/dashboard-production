@@ -1,40 +1,23 @@
 <template>
 <div>
-    <!-- header -->
     <div class="header bg-white">
-
         <div class="row no-gutters">
-
-            <div class="col-py-4 text-left" style=" margin-top: 40px;">
+            <div class="text-left my-3">
                 <nuxt-link :to="{name:'dashboard'}">
                     <i class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
                 </nuxt-link>
             </div>
-            <div class="col-9 text-center my-4" style="right: -20px">
+            <div class="col text-center my-4">
                 <nuxt-link :to="{name : 'dashboard'}" class="text-center">
-                    <b-img style=" width:auto;height: 60px;filter: drop-shadow(0px 1px 1px black);" :src="getThemeObject[2].img|| ''" fluid alt="Responsive image"></b-img>
+                    <b-img class="img-logo" :src="getThemeObject[2].img|| ''" fluid alt="Responsive image"></b-img>
                 </nuxt-link>
             </div>
             <div class="col-auto"></div>
         </div>
     </div>
     <!-- header ends -->
-    <div class="row no-gutters login-row justify-content-center bg-template pb-5" ref="formRegisterUser" style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;height:110vh;overflow: overlay;">
+    <div class="row no-gutters login-row justify-content-center bg-template pb-5 bg-theme" ref="formRegisterUser">
         <div class="col-12 col-md-6 px-3 pt-2">
-            <div class="col-12 align-self-center text-center" style="overflow:hidden;">
-
-            </div>
-            <!-- <div class="col-12 my-4 p-0 align-self-center text-center">
-          <div class="container p-0">
-            <ul class="progressbar">
-              <li :class="{'active' : step > 1}">เงื่อนไข</li>
-              <li :class="{'active' : step > 2}">รหัสของคุณ</li>
-              <li :class="{'active' : step > 3}">ข้อมูลส่วนตัว</li>
-              <li :class="{'active' : step >= 4}">เสร็จสิ้น</li>
-            </ul>
-          </div>
-        </div> -->
-
             <!-- ----------------START @STEP 1 ----------------  -->
             <form class="form-signin mt-1 animated fadeIn" v-show="step == 1">
                 <h4 class="text-center text-white font-weight-100">
@@ -63,14 +46,14 @@
                     <label class="custom-control-label text-white pt-1 font-weight-100" for="checkBoxCondition">ยอมรับเงื่อนไขและข้อตกลงทั้งหมด</label>
                     <div class="invalid-feedback">{{ formValidation('checkBoxCondition') }}</div>
                 </div>
-                <div class="row mx-2 bottom-button-container justify-content-center" style="bottom: unset;">
-                    <div class="col-12 col-md-10 font-weight-100">
-                        <a id="accept-condition" class="bg-gradaint btn btn-md shadow btn-block text-white" @click="nextStepCondition" style="font-size:26px; border-radius: 30px;font-weight:100;">ถัดไป</a>
+                <div class="row mx-2 bottom-button-container justify-content-center btn-unset">
+                    <div class="col-lg-6 font-weight-100">
+                        <a id="accept-condition" class="bg-gradaint btn btn-md shadow btn-block text-white btn-theme" @click="nextStepCondition">ถัดไป</a>
                     </div>
                 </div>
             </form>
             <!-- ----------------END @STEP 1 ----------------  -->
-            <!-- class="btn px-4 py-3 white-space-no bg-gradaint shadow btn-block text-dark font-weight-100" -->
+            
             <!-- ----------------START @STEP 2 ----------------  -->
             <form class="form-signin mt-3 animated fadeIn" v-show="step == 2">
                 <h4 class="text-center text-white font-weight-100">
@@ -1368,6 +1351,32 @@ export default {
 </script>
 
 <style scoped>
+.btn-theme{
+    font-size:26px;
+    border-radius: 30px;
+    font-weight:100;
+}
+.bg-theme{
+    width: 100%;
+    position:absolute;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: -95px;
+    border-top-left-radius:70px;
+    border-top-right-radius: 70px;
+    height:110vh;overflow: overlay;
+}
+.overflow{
+  overflow: hidden;
+}
+.btn-unset{
+    bottom: unset;
+}
+.img-logo {
+  width: auto;
+  height: 60px;
+  filter: drop-shadow(0px 1px 1px black);
+}
 body,
 html {
   background-color: #000000 !important;
