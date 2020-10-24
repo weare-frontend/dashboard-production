@@ -1,9 +1,16 @@
 <template>
   <div>
-     <button type="button" class="boxFb btn container my-2 round3 text-white" @click="logInWithFacebook" >
+     <!-- <button type="button" class="boxFb btn container my-2 round3 text-white" @click="logInWithFacebook" >
       <img src="~/assets/img/f_logo_RGB-White_100.png" alt="login-facebook" class="w-100">
          เข้าสู่ระบบด้วย facebook
-    </button> 
+    </button>  -->
+    <a
+      class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
+      @click="logInWithFacebook"
+    >
+      <img src="https://image.flaticon.com/icons/png/512/23/23730.png" alt style="width:20px; filter:invert(1);" class="mx-3">
+      เข้าสู่ระบบด้วยเฟสบุ๊ค 
+    </a>
     <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" >
       <b-overlay
       id="overlay-background"

@@ -112,23 +112,8 @@
                 </a>
               </div>
               <!-- <p class="text-white">{{getSettingObject}}</p> -->
-              <div
-                class="col-12 justify-content-center"
-                v-if="getSettingObject.app_id_facebook!=''"
-              >
-               <!-- <div
-                class="col-12 justify-content-center"
-                v-if="getSettingObject.status_facebook=='1'"
-              > -->
-              <!-- คอมเม้นไว้ก่อนนะเดี๋ยวล็อคอิน เฟสบุ๊คได้ีค่อยมาเปลี่ยน -->
-
-                <a
-                  class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
-                  @click="''"
-                >
-                  <img src="https://image.flaticon.com/icons/png/512/23/23730.png" alt style="width:20px; filter:invert(1);" class="mx-3">
-                  เข้าสู่ระบบด้วยเฟสบุ๊ค 
-                </a>
+              <div class="col-12 justify-content-center" v-if="getSettingObject.status_facebook=='1'">
+                <FacebookAuthV2></FacebookAuthV2>
               </div>
             </div>
           </form>
@@ -154,6 +139,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import FacebookAuthV2 from "~/components/FacebookAuthV2.vue";
 export default {
   head() {
     return {
@@ -165,6 +151,9 @@ export default {
   },
   computed: {
     ...mapGetters(["getThemeObject", "getSettingObject"]),
+  },
+  components:{
+    FacebookAuthV2
   },
   layout: "login",
   auth: "guest",
