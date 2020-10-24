@@ -1,9 +1,5 @@
 <template>
   <div>
-     <!-- <button type="button" class="boxFb btn container my-2 round3 text-white" @click="logInWithFacebook" >
-      <img src="~/assets/img/f_logo_RGB-White_100.png" alt="login-facebook" class="w-100">
-         เข้าสู่ระบบด้วย facebook
-    </button>  -->
     <a
       class="my-2 btn btn-facebook btn-rounded  btn-block text-white broder-1 w-100"
       @click="logInWithFacebook"
@@ -191,6 +187,13 @@ export default {
     },
 
     facebookCheckOtp : async function(){
+      // validate otp
+      if(this.otp.length!=6){
+          this.$toast.global.error({
+            message: 'รหัส otp ไม่ถูกต้อง',
+          });
+        return false;
+      }
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -222,6 +225,14 @@ export default {
     },
 
     facebookCheckPin : async function(){
+      // validate pin 
+      if(this.pin.length!=4){
+        this.$toast.global.error({
+          message: "ยืนยันรหัส pin ไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง",
+        });
+        return false;
+      }
+      
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
