@@ -68,21 +68,11 @@ export default {
       return this.$store.getters.getSettingObject;
     },
   },
-
-  // async mounted() {
-  //     FB.init({
-  //       appId            : '792577984860239',
-  //       autoLogAppEvents : true,
-  //       xfbml            : true,
-  //       version          : 'v8.0'
-  //     });
-     
-  // },
   methods: {
     async logInWithFacebook() {
       let self = this
       FB.init({
-        appId: '792577984860239',
+        appId: this.getSettingObject.app_id_facebook,
         autoLogAppEvents: true,
         xfbml: true,
         version: "v6.0",
