@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 export default ({store}) => {
+    const vue_fb = {}
     if(store.state.setting.status_facebook) {
     vue_fb.install = function install(Vue, options) {
         (function(d, s, id){
@@ -21,8 +22,6 @@ export default ({store}) => {
         }
         Vue.FB = undefined
     }
-    
-  
     
     Vue.use(vue_fb, {
         appId: 'your-app-id',
