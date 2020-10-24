@@ -1,0 +1,291 @@
+<template>
+  <div>
+     <button type="button" class="boxFb btn container my-2 round3 text-white" @click="logInWithFacebook" >
+      <img src="~/assets/img/f_logo_RGB-White_100.png" alt="login-facebook" class="w-100">
+         เข้าสู่ระบบด้วย facebook
+    </button> 
+    <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" >
+      <b-overlay
+      id="overlay-background"
+      :variant="'light'"
+      :opacity="0.3"
+      :blur="'2px'"
+      rounded="sm"
+      >
+        <div class="row px-2 py-2">
+          <div class="col-12">
+            <small for="tel">เบอร์โทร</small>
+            <b-form-input minlength="10" maxlength="10" :disabled="showOtp||showPin" class="my-2" v-model="tel" placeholder="เบอร์โทร 10 หลัก"></b-form-input>
+          </div>
+          <div class="col-12 text-right" v-show="!showOtp&&!showPin">
+            <b-button @click="checkPhoneNumber">ยืนยันเบอร์โทร</b-button>
+          </div>
+          <div class="col-12" v-show="showOtp">
+            <small for="otp">ยืนยันรหัส OTP</small>
+            <b-form-input minlength="6" maxlength="6" class="my-2" v-model="otp" placeholder="รหัส OTP 6 หลัก"></b-form-input>
+          </div>
+          <div class="col-12 text-right" v-show="showOtp">
+            <b-button @click="facebookCheckOtp">ยืนยัน OTP</b-button>
+          </div>
+          <div class="col-12" v-show="showPin">
+            <small for="otp">รหัส PIN</small>
+            <b-form-input minlength="4" maxlength="4" class="my-2" v-model="pin" placeholder="PIN 4 หลัก"></b-form-input>
+          </div>
+          <div class="col-12 text-right" v-show="showPin">
+            <b-button @click="facebookCheckPin">ยืนยัน pin</b-button>
+          </div>
+        </div>
+      </b-overlay>
+    </b-modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      tel:'',
+      name:'',
+      email:'',
+      otp:'',
+      pin:'',
+      showOtp:false,
+      showPin:false,
+      show:false,
+      user:'',
+      fbIdFromBacknd:''
+    }
+  },
+  computed:{
+    getSettingObject: function () {
+      return this.$store.getters.getSettingObject;
+    },
+  },
+
+  async mounted() {
+      FB.init({
+        appId            : '792577984860239',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v8.0'
+      });
+     
+  },
+  methods: {
+    async logInWithFacebook() {
+      let self = this
+      window.FB.login(function(response) {
+        window.FB.api('/me?fields=name,email',(function(response){
+          console.log('response: ', response);
+          self.user = response
+          self.facebook_id = self.user.id
+          self.name = self.user.name
+          self.email = self.user.email
+          if(response.id){
+            console.log('have response.id response.id response.id');
+            self.apiFacebook(response.id)
+          }else{
+            console.log('error error error error');
+            self.$toast.global.error({
+              message: "ยกเลิกการเข้าสู่ระบบด้วย Facebook",
+            });
+          }
+        }))
+      }, );
+     
+      
+    },
+
+    apiFacebook : async function(facebook_id){
+      // this.show = true
+      this.$bvModal.show('modal-fb')
+      console.log('in apiFacebook');
+      await this.$axios.request({
+        method: 'POST',
+        url: '/api/line/check-facebook',
+        data:{
+          "facebook_id":facebook_id,
+        }
+      })
+      .then(response => response.data)
+      .then((response) => {
+        if (response.status == 200){
+          console.log('response.status == 200 ');
+          this.loginFromRedirect(response.redirect)
+        } else if (response.status == 404){
+          console.log('response.status == 404');
+          this.$root.$emit('bv::show::modal', 'modal-fb')
+        } else {
+           this.$toast.global.error({
+          message: response.message,
+        });
+        }
+      })
+      this.show = false
+    },
+
+    async loadFacebookSDK(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    },
+
+    checkPhoneNumber : async function(){
+      console.log('in checkPhoneNumber');
+      this.$bvModal.show('modal-fb')
+      await this.$axios.request({
+        method: 'POST',
+        url: '/api/line/check-phone-number',
+        data:{
+            "tel":this.tel,       
+        }
+      })
+      .then(response => response.data)
+      .then((response) => {
+        if (response.success){
+          this.sendOtp()
+          this.showPin = false
+          this.showOtp = true
+        } else {
+          this.showPin = true
+          this.showOtp = false
+        }
+      }).catch((error) => {
+        this.$toast.global.error({
+          message: "เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+        });
+      })
+      this.show = false
+    },
+
+    sendOtp : async function(){
+      console.log('sendOtp');
+      this.$bvModal.show('modal-fb')
+      await this.$axios.request({
+        method: 'POST',
+        url: '/api/send-otp',
+        data:{
+            "tel":this.tel,       
+        }
+      })
+      .then(response => response.data)
+      .then((response) => {
+        if (response.success){
+          this.$toast.global.success({
+              message: 'ส่งรหัส OTP ไปยังเบอร์ '+this.tel,
+          });
+        } else {
+          this.$toast.global.error({
+            message: 'เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง',
+          });
+        }
+      }).catch((error) => {
+        this.$toast.global.error({
+          message: "เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+        });
+      })
+      this.show = false
+    },
+
+    facebookCheckOtp : async function(){
+      console.log('in facebookCheckOtp');
+      this.$bvModal.show('modal-fb')
+      await this.$axios.request({
+        method: 'POST',
+        url: '/api/line/facebook-check-otp',
+        data:{
+          "facebook_id": this.facebook_id,
+          "email": this.email,
+          "name": this.name,
+          "tel": this.tel,
+          "otp": this.otp    
+        }
+      })
+      .then(response => response.data)
+      .then((response) => {
+        if (response.success){
+          location.replace(response.redirect);
+        } else {
+          this.$toast.global.error({
+            message: response.message,
+          });
+        }
+      }).catch((error) => {
+        this.$toast.global.error({
+          message: "เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+        });
+      })
+      this.show = false
+    },
+
+    facebookCheckPin : async function(){
+      // this.show = true
+      console.log('in facebookCheckPin');
+      this.$bvModal.show('modal-fb')
+      await this.$axios.request({
+        method: 'POST',
+        url: '/api/line/facebook-check-pin',
+        data:{
+          "facebook_id": this.facebook_id,
+          "email": this.email,
+          "name": this.name,
+          "tel": this.tel,
+          "pin": this.pin    
+        }
+      })
+      .then(response => response.data)
+      .then((response) => {
+        if (response.success){
+          location.replace(response.redirect);
+        } else {
+          this.$toast.global.error({
+            message: response.message,
+          });
+        }
+      }).catch((error) => {
+        this.$toast.global.error({
+          message: "เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+        });
+      })
+      this.show = false
+    },
+
+    loginFromRedirect(redirect){
+      let queryStr =  redirect.slice(redirect.indexOf('?')+1)
+      let userObj =   Object.fromEntries(new URLSearchParams(queryStr))
+        this.$auth
+        .loginWith("local", {
+          data: {
+            username: userObj.username,
+            password: userObj.password
+          },
+        })
+        .then(() => {
+          this.$router.push({
+            name: "dashboard",
+          });
+          this.$toast.global.success({
+            message: "เข้าสู่ระบบเรียบร้อยแล้ว",
+          });
+        }).catch(() => {
+            this.$toast.global.error({
+              message: "ยืนยันตัวตนไม่ถูกต้อง",
+            });
+        })
+    }
+  },
+};
+</script>
+
+<style>
+.boxFb {
+  color: white;
+  background: #1877F2;
+}
+</style>
