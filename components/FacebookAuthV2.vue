@@ -72,15 +72,16 @@ export default {
         appId: this.getSettingObject.app_id_facebook,
         autoLogAppEvents: true,
         xfbml: true,
-        version: "v6.0",
+        version: "v8.0",
       });
       window.FB.login(function(response) {
         window.FB.api('/me?fields=name,email,picture',(function(response){
           self.user = response
           self.facebook_id = self.user.id
           self.name = self.user.name
-          self.email = self.user.email
+          self.email = self.user.email || '-'
           self.picture = self.user.picture
+          console.log(self.user);
           if(response.id){
             self.apiFacebook(response.id)
           }else{
@@ -90,13 +91,9 @@ export default {
           }
         }))
       }, );
-     
-      
     },
 
     apiFacebook : async function(facebook_id){
-      // this.show = true
-      this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
         url: '/api/line/check-facebook',
@@ -132,6 +129,14 @@ export default {
     },
 
     checkPhoneNumber : async function(){
+      // validate phone number
+      if(this.tel.length!=10){
+        this.$toast.global.error({
+            message: 'เบอร์โทรไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง',
+          });
+        return false;
+      }
+
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -175,7 +180,7 @@ export default {
           });
         } else {
           this.$toast.global.error({
-            message: 'เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง',
+            message: response.data,
           });
         }
       }).catch((error) => {
@@ -232,7 +237,7 @@ export default {
         });
         return false;
       }
-      
+
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
