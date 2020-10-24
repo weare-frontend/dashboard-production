@@ -11,7 +11,7 @@
       <img src="https://image.flaticon.com/icons/png/512/23/23730.png" alt style="width:20px; filter:invert(1);" class="mx-3">
       เข้าสู่ระบบด้วยเฟสบุ๊ค 
     </a>
-    <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" hide-footer>
+    <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" hide-footer no-close-on-backdrop>
       <b-overlay
       id="overlay-background"
       :variant="'light'"
@@ -54,6 +54,7 @@ export default {
       tel:'',
       name:'',
       email:'',
+      picture:'',
       otp:'',
       pin:'',
       showOtp:false,
@@ -78,17 +79,15 @@ export default {
         version: "v6.0",
       });
       window.FB.login(function(response) {
-        window.FB.api('/me?fields=name,email',(function(response){
-          console.log('response: ', response);
+        window.FB.api('/me?fields=name,email,picture',(function(response){
           self.user = response
           self.facebook_id = self.user.id
           self.name = self.user.name
           self.email = self.user.email
+          self.picture = self.user.picture
           if(response.id){
-            console.log('have response.id response.id response.id');
             self.apiFacebook(response.id)
           }else{
-            console.log('error error error error');
             self.$toast.global.error({
               message: "ยกเลิกการเข้าสู่ระบบด้วย Facebook",
             });
@@ -102,7 +101,6 @@ export default {
     apiFacebook : async function(facebook_id){
       // this.show = true
       this.$bvModal.show('modal-fb')
-      console.log('in apiFacebook');
       await this.$axios.request({
         method: 'POST',
         url: '/api/line/check-facebook',
@@ -113,10 +111,8 @@ export default {
       .then(response => response.data)
       .then((response) => {
         if (response.status == 200){
-          console.log('response.status == 200 ');
           this.loginFromRedirect(response.redirect)
         } else if (response.status == 404){
-          console.log('response.status == 404');
           this.$root.$emit('bv::show::modal', 'modal-fb')
         } else {
            this.$toast.global.error({
@@ -140,7 +136,6 @@ export default {
     },
 
     checkPhoneNumber : async function(){
-      console.log('in checkPhoneNumber');
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -168,7 +163,6 @@ export default {
     },
 
     sendOtp : async function(){
-      console.log('sendOtp');
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -197,7 +191,6 @@ export default {
     },
 
     facebookCheckOtp : async function(){
-      console.log('in facebookCheckOtp');
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -206,6 +199,7 @@ export default {
           "facebook_id": this.facebook_id,
           "email": this.email,
           "name": this.name,
+          "img_pro": this.picture,
           "tel": this.tel,
           "otp": this.otp    
         }
@@ -228,8 +222,6 @@ export default {
     },
 
     facebookCheckPin : async function(){
-      // this.show = true
-      console.log('in facebookCheckPin');
       this.$bvModal.show('modal-fb')
       await this.$axios.request({
         method: 'POST',
@@ -238,6 +230,7 @@ export default {
           "facebook_id": this.facebook_id,
           "email": this.email,
           "name": this.name,
+          "img_pro": this.picture,
           "tel": this.tel,
           "pin": this.pin    
         }
