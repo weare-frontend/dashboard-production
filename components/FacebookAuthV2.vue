@@ -5,13 +5,13 @@
          เข้าสู่ระบบด้วย facebook
     </button>  -->
     <a
-      class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
+      class="my-2 btn btn-facebook btn-rounded  btn-block text-white broder-1 w-100"
       @click="logInWithFacebook"
     >
       <img src="https://image.flaticon.com/icons/png/512/23/23730.png" alt style="width:20px; filter:invert(1);" class="mx-3">
       เข้าสู่ระบบด้วยเฟสบุ๊ค 
     </a>
-    <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" >
+    <b-modal id="modal-fb" title="เข้าสู่ระบบด้วย Facebook" hide-footer>
       <b-overlay
       id="overlay-background"
       :variant="'light'"
@@ -69,18 +69,24 @@ export default {
     },
   },
 
-  async mounted() {
-      FB.init({
-        appId            : '792577984860239',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v8.0'
-      });
+  // async mounted() {
+  //     FB.init({
+  //       appId            : '792577984860239',
+  //       autoLogAppEvents : true,
+  //       xfbml            : true,
+  //       version          : 'v8.0'
+  //     });
      
-  },
+  // },
   methods: {
     async logInWithFacebook() {
       let self = this
+      FB.init({
+        appId: '792577984860239',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: "v6.0",
+      });
       window.FB.login(function(response) {
         window.FB.api('/me?fields=name,email',(function(response){
           console.log('response: ', response);
