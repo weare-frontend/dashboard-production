@@ -111,10 +111,17 @@
                   เข้าสู่ระบบด้วยไลน์ 
                 </a>
               </div>
+              <!-- <p class="text-white">{{getSettingObject}}</p> -->
               <div
                 class="col-12 justify-content-center"
-                v-if="getSettingObject.status_facebook==1"
+                v-if="getSettingObject.app_id_facebook!=''"
               >
+               <!-- <div
+                class="col-12 justify-content-center"
+                v-if="getSettingObject.status_facebook=='1'"
+              > -->
+              <!-- คอมเม้นไว้ก่อนนะเดี๋ยวล็อคอิน เฟสบุ๊คได้ีค่อยมาเปลี่ยน -->
+
                 <a
                   class="my-2 btn btn-facebook btn-rounded shadow btn-block text-white broder-1 w-100"
                   @click="''"

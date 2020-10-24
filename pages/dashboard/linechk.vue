@@ -440,14 +440,19 @@ export default {
                 document.getElementById("thisPhone").style.display = "none";
                 document.getElementById("accepted-otp").style.display = "block";
                 document.getElementById("tel1").disabled = "disabled";
+                this.$toast.global.success({ message: 'ส่ง OTP ไปแล้ว กรุณารอซักครู่' });
             } else {
-                this.$root.$emit("bv::toggle::collapse", "collapse-otp");
-                document.getElementById("send-otp").style.display = "none";
-                document.getElementById("accepted-otp").style.display = "block";
+                // this.$root.$emit("bv::toggle::collapse", "collapse-otp");
+                // document.getElementById("send-otp").style.display = "none";
+                // document.getElementById("accepted-otp").style.display = "block";
                 this.$toast.global.error({
                     message: data[0].error
                 });
+                this.statusOtp = false;
+                return false;
             }
+            this.statusOtp = true;
+
         },
         acceptOtp: async function () {
             if (!this.inputOtpNumber || this.inputOtpNumber == "") {
