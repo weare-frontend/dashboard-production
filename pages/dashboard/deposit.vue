@@ -34,10 +34,12 @@
                         </div>
                     </div>
                     <div class="row text-center justify-content-center" v-if="bankArray.length">
+                        <div class="col-12 col-md-12">
                         <h6 class="subtitle" style="margin-top: 15px; margin-bottom: 5px;">
                             <u style="color: #000;">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
                             <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมส์อัตโนมัติ ภายในเวลา 1-2 นาที</small>
                         </h6>
+                        </div>
                         <div class="list-group list-group-flush" v-if="bankArray.length" style="border-radius: 10px;border: solid 1px #fff;background: rgba(0,0,0,0.2);">
                             <a class="list-group-item border-top text-dark click-active" style="border-radius: 10px;background: rgba(0,0,0,0);" @click="copyBank(item.bank_account)" v-for="(item, index) in bankArray" :key="index">
                                 <div class="row align-items-center">
@@ -89,8 +91,8 @@
 
                 </section>
                 <section id="content2" class="tab-content bg-rgba">
-                    <div class="row">
-                        <div class="col-12 px-3">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12 col-md-6 px-3">
                             <!-- toggle.dragon -->
                             <b-collapse id="dragon" accordion="my-bank" role="tabpanel" v-if="drgxObject && drgxObject.status == '1'">
                                 <h6 class="my-2 subtitle">Dragon Social Wallet</h6>
@@ -178,8 +180,8 @@
                                                             พร้อมเพย์: <span class="text-center text-template">{{item.prompt_pay}}</span>
                                                         </h6>
                                                     </div>
-                                                    <div class="col-lg-6 text-center">
-                                                        <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                    <div class="col-lg-12 text-center">
+                                                        <button class="btn btn-md text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:16px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +189,8 @@
 
                                         <!-- step กรอกเงิน -->
                                         <!-- <div v-if="item.qrcode_log.length==0" class="col-md-1"></div> -->
-                                        <div v-if="item.qrcode_log.length==0" class="col-md-4 col-sm-12 mx-2" style="margin-top: 5px;margin-bottom: 0px;">
+                                        <div v-if="item.qrcode_log.length==0" class="col-12 col-md-4 col-sm-12" style="margin-top: 5px;margin-bottom: 0px;">
+                                        <div class="col-md-12">
                                             <small class="text-template">เลือกจำนวนเงิน</small>
                                             <p class="w-100 d-flex">
                                                 <span class="btn-money"><button @click="saveLog(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
@@ -200,25 +203,22 @@
                                                 <span class="btn-money"><button @click="saveLog(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
                                             </p>
                                             <small class="text-template">ระบุจำนวน</small>
-                                            <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template" style="display:block;background-color: #fff;"></b-form-input>
+                                            <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template mb-2" style="display:block;background-color: #fff;"></b-form-input>
                                         </div>
-                                        <div v-else>
-                                            <h5 class="text-template text-center my-2 font-weight-100">ยอดโอน {{item.qrcode_log.money}}</h5>
-                                        </div>
-
-                                        <div v-if="item.qrcode_log.length==0" class="col-md-4 col-sm-12" style="margin-top: 15px;">
-                                            <b-button class="btn-topup" block @click="saveLog('amount'+item.id,item.id)" variant="secondary">
+                                            <b-button class="btn-topup" @click="saveLog('amount'+item.id,item.id)" variant="secondary">
                                                 <i class="material-icons vm md-36" style="color:#F44336;">check_circle</i>
                                                 เติมเงิน
                                             </b-button>
                                         </div>
+                                        <div class="col-lg-3 col-11" style="background: #ff230024;" v-else>
+                                            <h4 class="text-template text-center my-2 font-weight-100">ยอดโอน {{item.qrcode_log.money}}</h4>
+                                        </div>
                                     </div>
                                     <!-- step แสดง qr code -->
                                     <div class="row justify-content-center">
-                                        <div id="app" v-if="item.qrcode_log.length!=0" class="col-8 text-center">
+                                        <div id="app" v-if="item.qrcode_log.length!=0" class="col-lg-4 col-md-6 text-center">
                                             <b-card no-body class="text-center">
                                                 <div class="bg-light">
-
                                                     <b-img :src="require('@/assets/img/thaibanks/pp.png')" style="max-width: 230px;width: 100%; margin-bottom: -10px;"></b-img>
                                                     <promptpay-qr :id="item.prompt_pay" :amount=" parseFloat(item.qrcode_log.money)"></promptpay-qr>
                                                 </div>
@@ -248,7 +248,7 @@
                             <div class="container bg-white rounded-lg border">
                                 <div class="row p-3">
                                 <small class="d-block mt-1 text-dark">&bull; กรุณาคัดลอกเลชบัญชีหรือแคปภาพหน้าจอ</small>
-                                <small class="d-block mt-1 text-dark">&bull; โอนเงินให้ตรงกับยอดโอนเท่านั้น ห้ามปัดเศษ เพราะระบบอ้างอิงยอดจาก ทศนิยม</small>
+                                <small class="d-block mt-1 text-dark">&bull; โอนเงินให้ตรงกับยอดโอนเท่านั้น <span class="text-danger"><u>ห้ามปัดเศษ</u></span> เพราะระบบอ้างอิงยอดจาก <span class="text-danger"><u>ทศนิยม</u></span></small>
                                 <small class="d-block mt-1 text-dark">&bull; เงินจะเข้าสู่ระบบอัตโนมัติภานใน 1-2 นาที</small>
                                 </div>
                             </div>
