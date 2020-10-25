@@ -2,17 +2,17 @@
 <div>
     <div class="header bg-white">
         <div class="row no-gutters">
-            <div class="text-left my-3">
+            <div class="col-4 text-left my-3">
                 <nuxt-link :to="{name:'dashboard'}">
                     <i class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
                 </nuxt-link>
             </div>
-            <div class="col text-center my-4">
+            <div class="col-4 text-center my-4">
                 <nuxt-link :to="{name : 'dashboard'}" class="text-center">
-                    <b-img class="img-logo" :src="getThemeObject[2].img|| ''" fluid alt="Responsive image"></b-img>
+                    <b-img class="img-logo logo-small" :src="getThemeObject[2].img|| ''" fluid alt="Responsive image"></b-img>
                 </nuxt-link>
             </div>
-            <div class="col-auto"></div>
+            <div class="col-4"></div>
         </div>
     </div>
     <!-- header ends -->
@@ -48,12 +48,12 @@
                 </div>
                 <div class="row mx-2 bottom-button-container justify-content-center btn-unset">
                     <div class="col-lg-6 font-weight-100">
-                        <a id="accept-condition" class="bg-gradaint btn btn-md shadow btn-block text-white btn-theme" @click="nextStepCondition">ถัดไป</a>
+                        <a id="accept-condition" class="btn btn-md shadow btn-block btn-theme" @click="nextStepCondition">ถัดไป</a>
                     </div>
                 </div>
             </form>
             <!-- ----------------END @STEP 1 ----------------  -->
-            
+
             <!-- ----------------START @STEP 2 ----------------  -->
             <form class="form-signin mt-3 animated fadeIn" v-show="step == 2">
                 <h4 class="text-center text-white font-weight-100">
@@ -61,61 +61,47 @@
                 </h4>
                 <div class="row">
                     <div class="col-12 mt-3">
-                        <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px; position: absolute;">เบอร์โทร</h6>
-                            <input type="text" v-model="inputPhoneNumber" @keyup="removeValidation('inputPhoneNumber')" pattern="\d*" ref="inputPhoneNumber" :class="{'is-invalid' : formValidation('inputPhoneNumber')}" class="form-control form-control-lg px-4 text-dark" placeholder="เบอร์โทร" required maxlength="10" />
-                            <div class="invalid-feedback">{{ formValidation('inputPhoneNumber') }}</div>
-                            <!-- <div class="invalid-feedback">
-                  <p
-                    class="m-0"
-                    v-for="(item, index) in formValidation('inputPhoneNumber')"
-                    :key="index"
-                  >{{item}}</p>
-                </div>-->
-                            <small class="text-danger" v-if="this.telerror">
-                                {{this.telerror}}!
-                                <span class>กรุณาลองใหม่</span>
-                            </small>
-                        </div>
+                        <h6 class="txt-label">เบอร์โทร</h6>
+                        <input type="text" v-model="inputPhoneNumber" id="tel1" @keyup="removeValidation('inputPhoneNumber')" pattern="\d*" ref="inputPhoneNumber" :class="{'is-invalid' : formValidation('inputPhoneNumber')}" class="form-control form-control-lg px-4 text-dark" placeholder="เบอร์โทร" required maxlength="10" />
+                        <div class="invalid-feedback">{{ formValidation('inputPhoneNumber') }}</div>
+                        <small class="text-warning" v-if="this.telerror">
+                            {{this.telerror}}!
+                            <span class>กรุณาลองใหม่</span>
+                        </small>
                     </div>
-                    <div class="col-12 mt-3">
-                        <b-collapse id="collapse-otp" class="mt-2">
-                            <div class="form-group">
-                                <h6 class="text-white" style="margin: -20px 0px;position: absolute;">OTP</h6>
-                                <input type="number" ref="inputOtpNumber" :class="{'is-invalid' : formValidation('inputOtpNumber')}" pattern="\d*" class="form-control form-control-lg px-4 text-dark" placeholder="OTP" required />
-                                <div class="invalid-feedback">{{formValidation('inputOtpNumber')}}</div>
-                            </div>
-                            <a class="text-white" v-if="this.coutDownOtp < 0" @click="getOtp_Again">ขอ (OTP) ใหม่อีกครั้ง</a>
-                            <a class="text-danger" style="font-size: 16px" v-else>จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.textContent}} นาที</a>
+                    <div class="col-12 mt-4">
+                        <b-collapse id="collapse-otp">
+                            <h6 class="txt-label">OTP</h6>
+                            <input type="number" ref="inputOtpNumber" :class="{'is-invalid' : formValidation('inputOtpNumber')}" pattern="\d*" class="form-control form-control-lg px-4 text-dark" placeholder="OTP" required />
+                            <a class="txt-size14" v-if="this.coutDownOtp < 0" @click="getOtp_Again">ขอ (OTP) ใหม่อีกครั้ง</a>
+                            <a class="txt-size14" v-else>จะสามารถลองใหม่อีกครั้งภายใน เวลา {{this.textContent}} นาที</a>
                         </b-collapse>
                     </div>
                     <div class="col-12 mt-3" id="send-otp">
                         <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
-                            <a id="step-1" class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" @click="nextStepPhoneNumber" style="font-size:26px; border-radius: 30px;font-weight:100;">รับ OTP</a>
+                            <a id="step-1" class="btn btn-md shadow btn-block btn-theme" @click="nextStepPhoneNumber">รับ OTP</a>
                         </b-overlay>
                     </div>
-                    <div class="col-12">
-                        <b-collapse id="collapse-pin" class="mt-2">
-                            <div class="form-group">
-                                <h6 class="text-white font-weight-100">กรุณายืนยัน PIN 4 หลักที่ท่านเคยลงทะเบียนไว้</h6>
-                                <input type="tel" ref="inputPinNumber" :class="{'is-invalid' : formValidation('inputPinNumber')}" v-model="inputPinNumber" @keyup="removeValidation('inputPinNumber')" class="form-control form-control-lg px-4 text-dark" placeholder="Pin" required />
-                                <div class="invalid-feedback">{{formValidation('inputPinNumber')}}</div>
-                            </div>
+                    <div class="col-12 mt-2">
+                        <b-collapse id="collapse-pin">
+                            <h6 class="txt-label">กรุณายืนยัน PIN 4 หลักที่ท่านเคยลงทะเบียนไว้</h6>
+                            <input type="tel" ref="inputPinNumber" :class="{'is-invalid' : formValidation('inputPinNumber')}" v-model="inputPinNumber" @keyup="removeValidation('inputPinNumber')" class="form-control form-control-lg px-4 text-dark" placeholder="Pin" required />
+                            <div class="invalid-feedback">{{formValidation('inputPinNumber')}}</div>
                             <p id="verify"></p>
                         </b-collapse>
                     </div>
                     <div class="col-12">
-                        <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'" style="display:none;" id="accepted-pin">
-                            <a class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" @click="acceptPin" style="font-size:26px; border-radius: 30px;font-weight:100;">ยืนยัน PIN</a>
+                        <b-overlay class="py-2" :show="show" :opacity="0.4" :blur="'2px'" :variant="'dark'" style="display:none;" id="accepted-pin">
+                            <b-button class="btn btn-md  shadow btn-block btn-theme" @click="acceptPin">ยืนยัน PIN</b-button>
                         </b-overlay>
                     </div>
-                    <div class="col-12">
-                        <b-button class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;display:none;" size="md" id="chk-pin" variant="ocean">
+                    <div class="col-12 mb-2">
+                        <b-button class="btn btn-md shadow btn-block btn-theme btn-hide" id="chk-pin">
                             กำลังตรวจสอบ PIN..
                             <i class="fa fa-spinner fa-spin"></i>
                         </b-button>
                     </div>
-                    <a class="btn btn-md bg-gradaint mx-3 shadow btn-block text-white font-weight-100" v-show="step != 1" @click="step--" style=" font-size:26px; border-radius: 30px;font-weight:100;">กลับ</a>
+                    <a class="btn btn-md mx-3 shadow btn-block btn-theme" v-show="step != 1" @click="step--">กลับ</a>
                 </div>
             </form>
 
@@ -128,57 +114,44 @@
                 </h4>
                 <div class="row mt-5">
                     <div class="col-6">
-                        <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">ชื่อจริง</h6>
-                            <input type="text" ref="inputFname" @keyup="removeValidation('inputFname')" :class="{'is-invalid' : formValidation('inputFname')}" class="form-control form-control-lg px-4 text-dark" placeholder="ชื่อจริง" required />
-                            <div class="invalid-feedback">{{ formValidation('inputFname') }}</div>
-                            <small class="text-danger" style="white-space: nowrap;" v-if="this.fnerror">
-                                {{this.fnerror}}!
-                                <span class>กรุณาลองใหม่</span>
-                            </small>
-                        </div>
+                        <h6 class="txt-label">ชื่อจริง</h6>
+                        <input type="text" ref="inputFname" @keyup="removeValidation('inputFname')" :class="{'is-invalid' : formValidation('inputFname')}" class="form-control form-control-lg px-4 text-dark" placeholder="ชื่อจริง" required />
+                        <div class="invalid-feedback">{{ formValidation('inputFname') }}</div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">นามสกุล</h6>
-                            <input type="text" ref="inputLname" @keyup="removeValidation('inputLname')" :class="{'is-invalid' : formValidation('inputLname')}" class="form-control form-control-lg px-4 text-dark" placeholder="นามสกุล" required />
-                            <div class="invalid-feedback">{{ formValidation('inputLname') }}</div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mt-4">
-                        <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">เลือกธนาคารของลูกค้า</h6>
-                            <select class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center" ref="selecBankAccounts" style="border-radius: 25px;height:50px;" @change="removeValidation('selecBankAccounts')" :class="{'is-invalid' : formValidation('selecBankAccounts')}">
-                                <option value disabled selected>กรุณาเลือกธนาคารของลูกค้า</option>
-                                <option :value="item.id" v-for="(item, index) in bankArray" :key="index">{{item.name}}</option>
-                            </select>
-                            <div class="invalid-feedback">{{formValidation('selecBankAccounts')}}</div>
-                        </div>
+                        <h6 class="txt-label">นามสกุล</h6>
+                        <input type="text" ref="inputLname" @keyup="removeValidation('inputLname')" :class="{'is-invalid' : formValidation('inputLname')}" class="form-control form-control-lg px-4 text-dark" placeholder="นามสกุล" required />
+                        <div class="invalid-feedback">{{ formValidation('inputLname') }}</div>
                     </div>
                     <div class="col-12 mt-4">
-                        <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">เลขบัญชีธนาคาร</h6>
-                            <input type="number" v-model="inputBankAccountNumber" @keyup="removeValidation('inputBankAccountNumber')" ref="inputBankAccountNumber" :class="{'is-invalid' : formValidation('inputBankAccountNumber')}" class="form-control form-control-lg px-4 text-dark" placeholder="เลขบัญชีธนาคาร" pattern="\d*{10}" maxlength="13" required />
-                            <div class="invalid-feedback">
-                                <p class="m-0" v-for="(item, index) in formValidation('inputBankAccountNumber')" :key="index">{{item}}</p>
-                            </div>
-                            <small class="text-danger" style="white-space: nowrap;" v-if="this.accerror">
-                                {{this.accerror}}!
-                                <span class>กรุณาลองใหม่</span>
-                            </small>
-                        </div>
+                        <h6 class="txt-label">เลือกธนาคารของลูกค้า</h6>
+                        <select class="custom-select form-controls form-control-lg text-template font-weight-100 bg-white text-center" ref="selecBankAccounts" style="border-radius: 25px;height:50px;" @change="removeValidation('selecBankAccounts')" :class="{'is-invalid' : formValidation('selecBankAccounts')}">
+                            <option value disabled selected>กรุณาเลือกธนาคารของลูกค้า</option>
+                            <option :value="item.id" v-for="(item, index) in bankArray" :key="index">{{item.name}}</option>
+                        </select>
+                        <div class="invalid-feedback">{{formValidation('selecBankAccounts')}}</div>
                     </div>
                     <div class="col-12 mt-4">
-                        <div class="form-group" v-if="this.$route.params.id">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">
+                        <h6 class="txt-label">เลขบัญชีธนาคาร</h6>
+                        <input type="number" v-model="inputBankAccountNumber" @keyup="removeValidation('inputBankAccountNumber')" ref="inputBankAccountNumber" :class="{'is-invalid' : formValidation('inputBankAccountNumber')}" class="form-control form-control-lg px-4 text-dark" placeholder="เลขบัญชีธนาคาร" pattern="\d*{10}" maxlength="13" required />
+                        <div class="invalid-feedback">
+                            <p class="m-0" v-for="(item, index) in formValidation('inputBankAccountNumber')" :key="index">{{item}}</p>
+                        </div>
+                        <small class="text-danger" style="white-space: nowrap;" v-if="this.accerror">
+                            {{this.accerror}}!
+                            <span class>กรุณาลองใหม่</span>
+                        </small>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <div v-if="this.$route.params.id">
+                            <h6 class="txt-label">
                                 ยูสเซอร์เพื่อนที่แนะนำ
                                 <span class="text-white">(ถ้ามี)</span>
                             </h6>
                             <input type="text" ref="inputReferCode" id="inputReferCode" class="form-control form-control-lg px-4 text-dark" placeholder="ยูสเซอร์เพื่อนที่แนะนำ" readonly />
                         </div>
-                        <div class="form-group" v-else>
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">
+                        <div v-else>
+                            <h6 class="txt-label">
                                 ยูสเซอร์เพื่อนที่แนะนำ
                                 <span class="text-white">(ถ้ามี)</span>
                             </h6>
@@ -187,7 +160,7 @@
                     </div>
                     <div class="col-12 mt-4" v-if="Qrcode!=''">
                         <div class="form-group">
-                            <h6 class="text-white font-weight-100" style="margin: -20px 0px;position: absolute;">
+                            <h6 class="txt-label">
                                 รหัสจาก QR Code
                             </h6>
                             <input v-model="Qrcode" type="text" :class="{'is-invalid' : formValidation('inputQrcode')}" id="inputQrcode" ref="inputQrcode" class="form-control form-control-lg px-4 text-dark" placeholder="รหัสจาก QR Code" readonly />
@@ -213,7 +186,7 @@
                         <b-tooltip target="yes-promotion" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(12px, 211px, 0px);">
                             <!-- game slot -->
                             <span v-if="typeGame.slot_status">
-                                <b-alert show variant="dark" style="font-size: 18px;">
+                                <b-alert show variant="dark" class="txt-size11">
                                     <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
                                     <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
@@ -223,7 +196,7 @@
                                         <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
                                     </small>
                                 </b-alert>
-                                <b-alert show variant="dark" style="font-size: 18px;">
+                                <b-alert show variant="dark" class="txt-size11">
                                     <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
                                     <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -232,12 +205,12 @@
                             </span>
                             <!-- game luca -->
                             <span v-if="typeGame.casino_status">
-                                <b-alert show variant="dark" style="font-size: 18px;">
+                                <b-alert show variant="dark" class="txt-size11">
                                     <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
                                     <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
                                 </b-alert>
-                                <b-alert show variant="dark" style="font-size: 18px;">
+                                <b-alert show variant="dark" sclass="txt-size11">
                                     <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
                                     <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -246,13 +219,13 @@
                         </b-tooltip>
                     </div>
                 </div>
-                <div class="row mt-4 mx-4 bottom-button-container" style="bottom: unset;">
-                    <div class="col">
+                <div class="row mt-4 mx-2 bottom-button-container justify-content-center btn-unset">
+                    <div class="col-lg-5">
                         <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
-                            <a id="step-2" class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" @click="nextStepInfo" style="font-size:26px; border-radius: 30px;font-weight:100;">ถัดไป</a>
+                            <a id="step-2" class="btn btn-md shadow btn-block btn-theme" @click="nextStepInfo">ถัดไป</a>
                         </b-overlay>
                         <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
-                            <a id="step-2" class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" v-show="step != 1" @click="step--" style="font-size:26px; border-radius: 30px;font-weight:100;">กลับ</a>
+                            <a id="step-2" class="btn btn-md shadow btn-block btn-theme" v-show="step != 1" @click="step--">กลับ</a>
                         </b-overlay>
                     </div>
                 </div>
@@ -268,19 +241,15 @@
                             <client-only placeholder="Loading...">
                                 <pincode-input v-model="inputPincode" class="text-white" placeholder="." :autofocus="true"></pincode-input>
                             </client-only>
-                            <!-- <input type="text" v-model="inputPincode" ref="inputPincode" :class="{'is-invalid' : formValidation('inputPincode')}"
-                      @keyup="removeValidation('inputPincode')" class="form-control form-control-lg text-center"
-                placeholder="ตั้งรหัสเข้าสู่ระบบ" required>-->
-                            <small class="text-danger text-left">{{formValidation('inputPincode')}}</small>
+                            <small class="text-white text-left">{{formValidation('inputPincode')}}</small>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4 mx-2 bottom-button-container" style="bottom: unset;">
-                    <div class="col-12">
-                        <a id="step-3" class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" @click="nextStepPincode" style="font-size:26px; border-radius: 30px;font-weight:100;">ยืนยันการสมัคร</a>
-                        <a iid="btnPinpush" class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;color:#000; display:none;">กำลังบันทึกข้อมูล</a>
-
-                        <a class="btn btn-md bg-gradaint shadow btn-block font-weight-100 text-white" v-show="step != 1" @click="step--" style="font-size:26px; border-radius: 30px;font-weight:100;">กลับ</a>
+                <div class="row mt-4 mx-2 justify-content-center bottom-button-container btn-unset">
+                    <div class="col-lg-5">
+                        <a id="step-3" class="btn btn-md shadow btn-block btn-theme" @click="nextStepPincode">ยืนยันการสมัคร</a>
+                        <a iid="btnPinpush" class="btn btn-md shadow btn-block btn-theme" style="display:none;">กำลังบันทึกข้อมูล <i class="fa fa-spinner fa-spin"></i></a>
+                        <a class="btn btn-md shadow btn-block btn-theme" v-show="step != 1" @click="step--">กลับ</a>
                     </div>
                 </div>
             </form>
@@ -292,8 +261,8 @@
                 <div class="row">
                     <div class="col-12">
                         <b-alert show variant="warning" class="card bg-white text-dark text-left" style="border-radius:25px;">
-                            <p class="d-block text-dark">* กรุณาบันทึก USERNAME และ PASSWORD ของท่าน หรือ บันทึกภาพหน้าจอไว้</p>
-                            <p class="d-block text-dark">* ท่านสามารถล็อกอินโดยใส่ PIN หรือ PASSWORD ก็ได้</p>
+                            <span class="d-block text-dark txt-size14">* กรุณาบันทึก USERNAME และ PASSWORD ของท่าน หรือ บันทึกภาพหน้าจอไว้</span>
+                            <span class="d-block text-dark txt-size14">* ท่านสามารถล็อกอินโดยใส่ PIN หรือ PASSWORD ก็ได้</span>
                         </b-alert>
                     </div>
                     <div class="col-12">
@@ -330,13 +299,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4 justify-content-center mx-2 bottom-button-container" style="bottom: unset;">
-                    <div class="col-11 ">
-                        <a id="step-4" class="btn btn-md bg-gradaint shadow mb-2 btn-block text-white font-weight-100" style="font-size:22px; border-radius: 30px;font-weight:100;" @click="nextStepLogin">เข้าสู่ระบบ</a>
+                <div class="row mt-4 justify-content-center mx-2 bottom-button-container btn-unset">
+                    <div class="col-lg-5 ">
+                        <a id="step-4" class="btn btn-md shadow mb-2 btn-block btn-theme" @click="nextStepLogin">เข้าสู่ระบบ</a>
                     </div>
                 </div>
             </form>
             <!-- ----------------END @STEP 6 ----------------  -->
+
             <!-- login buttons -->
             <form class="mt-3 animated fadeIn" v-show="step == 5">
                 <h4 class="font-weight-100 text-center text-white">ยืนยันข้อมูล</h4>
@@ -344,7 +314,6 @@
                     <div class="col-12">
                         <div class="col align-self-center">
                             <div class="row justify-content-center">
-                                <!-- <b-alert show variant="warning"> -->
                                 <div class="col-11 mb-3 bg-white" style="line-height: 1.2em;color: rgb(214, 188, 119) !important;border:solid 1px #444; border-radius: 25px;">
                                     <h6 class="text-center text-dark mt-3 font-weight-100">กฏกติกา การฝาก-ถอน</h6>
                                     <hr>
@@ -354,9 +323,6 @@
                                 </div>
                             </div>
                             <div style="overflow: hidden;">
-                                <div id="stars"></div>
-                                <div id="stars2"></div>
-                                <div id="stars3"></div>
                                 <div class="row">
                                     <div class="col-6 pr-0 pl-4">
                                         <h6 class="text-white font-weight-100">เพศ</h6>
@@ -419,7 +385,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- {{bankArray.data}} -->
                                 <div class="row mt-3">
                                     <div class="col-12">
                                         <div class="form-group">
@@ -439,30 +404,22 @@
                                         </div>
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <a class="btn btn-md bg-gradaint shadow btn-block text-dark font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;" @click="sendLineRegister">ยืนยันข้อมูล</a>
-                                        <!-- <p @click="skipto" class="mt-3 text-right text-white">ยืนยันภายหลัง >></p> -->
+                                        <a class="btn btn-md shadow btn-block btn-theme" @click="sendLineRegister">ยืนยันข้อมูล</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div style="overflow: hidden; display: none;" id="verified-sucess">
-                                <div id="stars"></div>
-                                <div id="stars2"></div>
-                                <div id="stars3"></div>
-                                <!-- ----------------START @STEP 2 ---------------- -->
                                 <div class="row">
                                     <div class="col-12">
                                         <b-alert show variant="warning">
                                             <p class="text-template text-center">ยืนยันข้อมูลสำเร็จ</p>
                                             <small class="d-block">* กรุณาใช้บัญชีธนาคารที่ท่านลงทะเบียนไว้ในระบบเราเท่านั้น ในการโอนเงิน เครดิตจะเข้าเกมโดยอัตโนมัติ</small>
-                                            <!-- <small
-                      class="d-block"
-                        >* ยอดเติมที่มีการรับโปรโมช้่น จะสามารถเข้าร่วมกิจกรรม ที่สามารถแลกรับรางวัลได้มากมาย</small>-->
                                         </b-alert>
                                     </div>
 
                                     <div class="col-12 mt-2">
-                                        <button class="w-100 btn shadow btn-block" @click="nextStepLogin" style="color: #000;">ตกลง</button>
+                                        <button class="w-100 btn shadow btn-block btn-theme" @click="nextStepLogin" style="color: #000;">ตกลง</button>
                                     </div>
                                 </div>
                             </div>
@@ -470,7 +427,6 @@
                     </div>
                 </div>
             </form>
-            <!-- login buttons -->
         </div>
     </div>
 </div>
@@ -498,13 +454,6 @@
 .vue-pincode-input-wrapper {
     display: flex !important;
     justify-content: center;
-}
-
-.bg-gradaint {
-    /* border-radius: 50%; */
-    /* background: #259690; */
-    background: linear-gradient(to top, #410c0c 0%, #991515 100%);
-    filter: drop-shadow(1px 1px 1px white)
 }
 
 li.active {
@@ -557,7 +506,6 @@ select.form-controls {
 
 .custom-control-label::before {
     position: absolute;
-    /* top: 0.9rem; */
     left: -1.8rem;
     display: block;
     width: 25px;
@@ -575,6 +523,243 @@ select.form-controls {
     text-align: center;
     background-color: #1aa19b;
     border-radius: 0.25rem;
+}
+
+.txt-size14 {
+    color: #FFF;
+    font-size: 14px
+}
+
+.txt-size12 {
+    font-weight: 100;
+    font-size: 12px
+}
+.txt-size11 {
+    font-weight: 100;
+    font-size: 11px
+}
+
+.txt-label {
+    font-weight: 100;
+    margin: -20px 0px;
+    position: absolute;
+}
+
+.btn-hide {
+    font-size: 26px;
+    border-radius: 30px;
+    font-weight: 100;
+    display: none;
+}
+
+.btn-theme {
+    color: #FFF;
+    font-size: 26px;
+    border-radius: 30px;
+    font-weight: 100;
+    background: linear-gradient(to top, #410c0c 0%, #991515 100%);
+    filter: drop-shadow(1px 1px 1px white)
+}
+
+.bg-theme {
+    width: 100%;
+    position: absolute;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: -95px;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    height: 110vh;
+    overflow: overlay;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.btn-unset {
+    bottom: unset;
+}
+
+.img-logo {
+    width: auto;
+    height: 100px;
+    filter: drop-shadow(0px 1px 1px black);
+}
+
+body,
+html {
+    background-color: #000000 !important;
+}
+
+.progressbar {
+    padding: 0px;
+    counter-reset: step;
+    height: 60px;
+}
+
+.progressbar li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.progressbar li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 25px;
+    font-size: 18px;
+    border: 2px solid #fff;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: #2d3050 !important;
+}
+
+.progressbar li:after {
+    width: 100%;
+    height: 1px;
+    content: "";
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 13px;
+    left: -50%;
+    z-index: -1;
+}
+
+.progressbar li:first-child:after {
+    content: none;
+}
+
+.progressbar li.active {
+    color: #fff;
+}
+
+.progressbar li.active:before {
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 50%;
+    background-color: #fff !important;
+    -webkit-animation-duration: 1.4s;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation: fade-img 1.4s infinite;
+    animation: fade-img 1.4s infinite;
+    animation-duration: 1.4s;
+}
+
+.progressbar li.active+li:before {
+    background-color: #fff;
+}
+
+@keyframes fade-img {
+    0% {
+        box-shadow: 0 0 1pt 0pt #fff;
+    }
+
+    100% {
+        box-shadow: 0 0 4pt 1pt #ddd;
+    }
+}
+
+.text-validation {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 90px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #d1d1d1;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background: linear-gradient(90deg, hsl(0deg 49% 61% / 50%) 0, rgb(0 0 0 / 38%));
+    background-color: #4b0404;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #eeeeee;
+    color: #999999;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 15px;
+    margin: 7.5px;
+    background: #ffffff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 56px;
+    border: 2px solid #d1d1d1;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+.custom-select.is-invalid,
+.was-validated .custom-select:invalid {
+    border-color: #dc3545;
+    padding-right: calc(0.75em + 2.3125rem);
+    background-color: #dc3545;
 }
 </style>
 
@@ -695,7 +880,6 @@ export default {
             } = await this.$axios.$post("/api/send-otp", {
                 tel: this.inputPhoneNumber,
             });
-            // console.log(data[0].error);
             if (data[0].status == "duplicate") {
                 this.telerror = data[0].error;
                 this.$toast.global.error({
@@ -727,6 +911,7 @@ export default {
                 });
                 this.statusOtp = true;
                 this.$root.$emit('bv::toggle::collapse', 'collapse-otp');
+                document.getElementById("tel1").disabled = "disabled";
                 document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
             } else {
                 if (data[0].status == 'duplicate') {
@@ -777,10 +962,6 @@ export default {
                     "/api/check-from-regis", {
                         fname: this.$refs.inputFname.value,
                         lname: this.$refs.inputLname.value,
-                        // age: this.$refs.selectAge.value,
-                        // birthday: this.calculateAge(this.$refs.inputBirthday.value),
-                        // gender: this.$refs.selectSexMan.checked ? '1' : '2',
-                        // acquaint:  this.$refs.selectWay.value ,
                         refer_code: this.$refs.inputReferCode.value,
                         type_bank_id: this.$refs.selecBankAccounts.value,
                         bank_account: this.inputBankAccountNumber,
@@ -800,7 +981,6 @@ export default {
             this.$root.$emit("bv::toggle::collapse", "collapse-yesPromotion");
         },
         sendLineRegister: async function () {
-            // alert(this.$refs.selectWay.value) ;
             if (
                 !this.$refs.selectSexMan.checked &&
                 !this.$refs.selectSexWoman.checked
@@ -880,7 +1060,6 @@ export default {
                     fname: this.$refs.inputFirstName.value,
                     lname: this.$refs.inputLastName.value,
                     age: this.$refs.selectAge.value,
-                    // birthday: this.calculateAge(this.$refs.inputBirthday.value),
                     gender: this.$refs.selectSexMan.checked ? "1" : "2",
                     acquaint: this.$refs.selectWay.value,
                     refer_code: this.$refs.inputReferCode.value,
@@ -910,10 +1089,6 @@ export default {
             } = await this.$axios.$post("/api/register", {
                 fname: this.$refs.inputFname.value,
                 lname: this.$refs.inputLname.value,
-                // age: this.$refs.selectAge.value,
-                // birthday: this.calculateAge(this.$refs.inputBirthday.value),
-                // gender: this.$refs.selectSexMan.checked ? '1' : '2',
-                // acquaint:  this.$refs.selectWay.value ,
                 refer_code: this.$refs.inputReferCode.value,
                 type_bank_id: this.$refs.selecBankAccounts.value,
                 bank_account: this.inputBankAccountNumber,
@@ -991,10 +1166,6 @@ export default {
                     ref: "inputLname",
                     message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
                 });
-            // if(!this.$refs.selectWay.value && !this.isFormValidation('selectWay'))  this.formError.push({step : 2,ref : "selectWay" , message : "กรุณาเลือกช่องทางของท่าน"});
-            // if(!this.$refs.selectAge.value && !this.isFormValidation('selectAge'))  this.formError.push({step : 2,ref : "selectAge" , message : "กรุณาเลือกช่วงอายุของท่าน"});
-            // if(!this.$refs.selectSexMan.checked && !this.$refs.selectSexWoman.checked && !this.isFormValidation('selectSex'))  this.formError.push({step : 2,ref : "selectSex" , message : "กรุณาเลือกเพศของท่าน"});
-            // if(!this.$refs.inputBirthday.value && !this.isFormValidation('inputBirthday'))  this.formError.push({step : 2,ref : "inputBirthday" , message : "กรุณาเลือกวันเกิดของท่าน"});
             if (
                 !this.$refs.selecBankAccounts.value &&
                 !this.isFormValidation("selecBankAccounts")
@@ -1055,7 +1226,6 @@ export default {
             loader.hide();
             this.fnerror = "";
             this.accerror = "";
-            // console.log(checkName);
             if (!checkName.success) {
                 this.fnerror = checkName.message;
                 this.$toast.global.error({
@@ -1156,7 +1326,7 @@ export default {
                         return this.formError.push({
                             step: 3,
                             ref: "inputOtpNumber",
-                            message: "กรุณาใส่กรอก OTP ที่ได้รับให้ถูกต้อง",
+                            message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
                         });
                     const checkOtp = await this.$axios.$post("/api/check-otp", {
                         tel: this.$refs.inputPhoneNumber.value,
@@ -1178,7 +1348,7 @@ export default {
                         return this.formError.push({
                             step: 3,
                             ref: "inputOtpNumber",
-                            message: "กรุณาใส่กรอก OTP ที่ได้รับให้ถูกต้อง",
+                            message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
                         });
                 }
             }
@@ -1231,7 +1401,7 @@ export default {
                 return this.formError.push({
                     step: 4,
                     ref: "inputPincode",
-                    message: "กรุณาใส่กรอก PINCODE",
+                    message: "กรุณากรอก PINCODE",
                 });
             const loaderOne = this.$loading.show({
                 container: this.$refs.formRegisterUser,
@@ -1239,9 +1409,6 @@ export default {
             const dataCheckFromRegister = await this.checkFromRegister();
             loaderOne.hide();
             if (dataCheckFromRegister.success) {
-                // document.getElementById("step-3").style.display = "none";
-                // document.getElementById("btnPinpush").style.display = "block";
-                // document.getElementById("btnPinpush").style.filter = "brightness(0.5)";
                 const loaderTwo = this.$loading.show({
                     container: this.$refs.formRegisterUser,
                 });
@@ -1256,8 +1423,6 @@ export default {
                     });
                     this.step = 6;
                 } else {
-                    // document.getElementById("step-3").style.display = "block";
-                    // document.getElementById("btnPinpush").style.display = "none";
                     this.$toast.global.error({
                         message: dataSendRegister.data,
                     });
@@ -1349,185 +1514,3 @@ export default {
     },
 };
 </script>
-
-<style scoped>
-.btn-theme{
-    font-size:26px;
-    border-radius: 30px;
-    font-weight:100;
-}
-.bg-theme{
-    width: 100%;
-    position:absolute;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-top: -95px;
-    border-top-left-radius:70px;
-    border-top-right-radius: 70px;
-    height:110vh;overflow: overlay;
-}
-.overflow{
-  overflow: hidden;
-}
-.btn-unset{
-    bottom: unset;
-}
-.img-logo {
-  width: auto;
-  height: 60px;
-  filter: drop-shadow(0px 1px 1px black);
-}
-body,
-html {
-  background-color: #000000 !important;
-}
-
-.progressbar {
-  padding: 0px;
-  counter-reset: step;
-  height: 60px;
-}
-.progressbar li {
-  list-style-type: none;
-  width: 25%;
-  float: left;
-  font-size: 12px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-}
-.progressbar li:before {
-  width: 30px;
-  height: 30px;
-  content: counter(step);
-  counter-increment: step;
-  line-height: 25px;
-  font-size: 18px;
-  border: 2px solid #fff;
-  display: block;
-  text-align: center;
-  margin: 0 auto 10px auto;
-  border-radius: 50%;
-  background-color: #2d3050 !important;
-}
-.progressbar li:after {
-  width: 100%;
-  height: 1px;
-  content: "";
-  position: absolute;
-  background-color: #7d7d7d;
-  top: 13px;
-  left: -50%;
-  z-index: -1;
-}
-.progressbar li:first-child:after {
-  content: none;
-}
-.progressbar li.active {
-  color: #fff;
-}
-.progressbar li.active:before {
-  color: #000;
-  border: 3px solid #000;
-  border-radius: 50%;
-  background-color: #fff !important;
-  -webkit-animation-duration: 1.4s; /* Safari 4.0 - 8.0 */
-  -webkit-animation: fade-img 1.4s infinite;
-  animation: fade-img 1.4s infinite;
-  animation-duration: 1.4s;
-}
-.progressbar li.active + li:before {
-  background-color: #fff;
-}
-
-@keyframes fade-img {
-  0% {
-    box-shadow: 0 0 1pt 0pt #fff;
-  }
-  100% {
-    box-shadow: 0 0 4pt 1pt #ddd;
-  }
-}
-.text-validation {
-  width: 100%;
-  margin-top: 0.25rem;
-  font-size: 80%;
-  color: #dc3545;
-}
-.onoffswitch {
-  position: relative;
-  width: 90px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-  display: none;
-}
-.onoffswitch-label {
-  display: block;
-  overflow: hidden;
-  cursor: pointer;
-  border: 2px solid #d1d1d1;
-  border-radius: 20px;
-}
-.onoffswitch-inner {
-  display: block;
-  width: 200%;
-  margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before,
-.onoffswitch-inner:after {
-  display: block;
-  float: left;
-  width: 50%;
-  height: 30px;
-  padding: 0;
-  line-height: 30px;
-  font-size: 14px;
-  color: white;
-  font-family: Trebuchet, Arial, sans-serif;
-  font-weight: bold;
-  box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-  content: "ON";
-  padding-left: 10px;
-  background: linear-gradient(90deg,hsl(0deg 49% 61% / 50%) 0,rgb(0 0 0 / 38%));
-  background-color: #4b0404;
-}
-.onoffswitch-inner:after {
-  content: "OFF";
-  padding-right: 10px;
-  background-color: #eeeeee;
-  color: #999999;
-  text-align: right;
-}
-.onoffswitch-switch {
-  display: block;
-  width: 15px;
-  margin: 7.5px;
-  background: #ffffff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 56px;
-  border: 2px solid #d1d1d1;
-  border-radius: 20px;
-  transition: all 0.3s ease-in 0s;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  right: 0px;
-}
-.custom-select.is-invalid,
-.was-validated .custom-select:invalid {
-  border-color: #dc3545;
-  padding-right: calc(0.75em + 2.3125rem);
-  background-color: #dc3545;
-}
-</style>
