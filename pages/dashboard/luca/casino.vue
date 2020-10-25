@@ -4,10 +4,10 @@
       <div class="container">
         <div class="row mt-0">
           <div class="col-2" style="white-space: nowrap">
-            <a href="../luca" class="text-dark">
+            <nuxt-link to="../luca" class="text-info">
               <i class="fa fa-arrow-circle-left"></i> กลับ
-            </a>
-            <small class="m-2 text-white"> <nuxt-link :to="{name:'luca'}">หมวดเกม</nuxt-link> / <u>คาสิโน</u></small>
+            </nuxt-link>
+            <small class="m-2 text-white"> <nuxt-link to="../luca">หมวดเกม</nuxt-link> / <u>คาสิโน</u></small>
             <p id="io"></p>
           </div>
         </div>
@@ -56,7 +56,6 @@
               <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
-                <!-- <a class="fa fa-gamepad "></a> -->
               </div>
             </div>
           </div>
@@ -72,11 +71,10 @@
               <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
-                <!-- <a class="fa fa-gamepad "></a> -->
               </div>
             </div>
           </div>
-          <!-- <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
             <div
               class="btn25 aos-init aos-animate"
               data-aos="fade-up "
@@ -88,10 +86,39 @@
               <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
-                <a class="fa fa-gamepad "></a>
               </div>
             </div>
-          </div> -->
+          </div>
+          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+            <div
+              class="btn25 aos-init aos-animate"
+              data-aos="fade-up "
+              data-aos-delay="400 "
+              data-aos-duration="600 "
+              @click="getSignature('ebet')" style="cursor: pointer"
+            >
+              <img class="w-100" src="~/assets/img/casino/Ebet.png" alt="game casino " />
+              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="buttons">
+                <i class="fa fa-sign-in-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+            <div
+              class="btn25 aos-init aos-animate"
+              data-aos="fade-up "
+              data-aos-delay="400 "
+              data-aos-duration="600 "
+              @click="getSignature('allbet')" style="cursor: pointer"
+            >
+              <img class="w-100" src="~/assets/img/casino/Allbet.png" alt="game casino " />
+              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="buttons">
+                <i class="fa fa-sign-in-alt"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

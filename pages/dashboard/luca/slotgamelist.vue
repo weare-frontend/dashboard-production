@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-           <nuxt-link :to="{name:'luca/slot'}">
-       <i class="fa fa-arrow-circle-left"></i> กลับ</nuxt-link>
+           <nuxt-link to="../luca" class="text-info">
+              <i class="fa fa-arrow-circle-left"></i> กลับ</nuxt-link>
         <small class="m-2 text-white" id="navi">
         </small>
       </div>
@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import Promotions from "~/components/Promotions.vue";
+// import Promotions from "~/components/Promotions.vue";
 export default {
   head() {
     return {
@@ -61,12 +61,12 @@ export default {
     const listGame = await $axios.$get(
       "https://lucabet.secure-restapi.com/game/getProductList"
     );
-    console.log(listGame);
+    // console.log(listGame);
     return { listGameArray: listGame.data };
   },
-  components: {
-    "page-promotions": Promotions,
-  },
+  // components: {
+  //   "page-promotions": Promotions,
+  // },
   computed: {
     getSettingObject: function () {
       return this.$store.getters.getSettingObject;
@@ -76,7 +76,7 @@ export default {
     if (this.$route.query.code) {
       this.paramId = this.$route.query.code;
     }
-    console.log(this.listGameArray);
+    // console.log(this.listGameArray);
     document.getElementById("navi").innerHTML ="<a href='../luca' class='text-muted'>หมวดเกม</a> / <a href='../luca/slot' class='text-muted'>สล็อต</a> / <u>เกม " + this.listGameArray[this.paramId].productCode + "</u>";
     //  return true;
 
@@ -157,11 +157,11 @@ export default {
       const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'slot',gameId:gameId});
       // console.log(lunchLuca.data.url.code);
         if(lunchLuca.data.url.code==0){
-          if(gameName=="spade_gaming" || gameName=="pg_slot"  || gameName=="slotxo"){
-            window.location = lunchLuca.data.url.result;
-          }else{
+          // if(gameName=="spade_gaming" || gameName=="pg_slot"  || gameName=="slotxo"){
+          //   window.location = lunchLuca.data.url.result;
+          // }else{
             window.location = lunchLuca.data.url.url;
-          }
+          // }
         }else{
           this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
           setTimeout(function(){
