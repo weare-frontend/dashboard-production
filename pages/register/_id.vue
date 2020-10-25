@@ -186,34 +186,34 @@
                         <b-tooltip target="yes-promotion" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(12px, 211px, 0px);">
                             <!-- game slot -->
                             <span v-if="typeGame.slot_status">
-                                <b-alert show variant="dark" class="txt-size11">
-                                    <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                                <b-alert show variant="bg-danger dark" class="txt-size11">
+                                    <small class="d-block text-white">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
-                                    <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
-                                    <small class="text-left pl-2 d-block text-template">- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
-                                    <small class="text-left pl-2 d-block text-template">
+                                    <small class="text-left pl-2 d-block text-white">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                                    <small class="text-left pl-2 d-block text-white">- ได้สิทธิ์ร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+                                    <small class="text-left pl-2 d-block text-white">
                                         - หากมีการวางเดิมพัน
                                         <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
                                     </small>
                                 </b-alert>
-                                <b-alert show variant="dark" class="txt-size11">
-                                    <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                                <b-alert show variant="bg-dark dark" class="txt-size11">
+                                    <small class="d-block text-white">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
-                                    <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
-                                    <small class="text-left pl-2 d-block text-template">- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
+                                    <small class="text-left pl-2 d-block text-white">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                                    <small class="text-left pl-2 d-block text-white">- ไม่สามารถร่วมกิจกรรม เช่น สะสมแต้ม ขาประจำ</small>
                                 </b-alert>
                             </span>
                             <!-- game luca -->
                             <span v-if="typeGame.casino_status">
-                                <b-alert show variant="dark" class="txt-size11">
-                                    <small class="d-block text-template">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
+                                <b-alert show variant="bg-danger dark" class="txt-size11">
+                                    <small class="d-block text-white">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
-                                    <small class="text-left pl-2 d-block text-template">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
+                                    <small class="text-left pl-2 d-block text-white">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
                                 </b-alert>
-                                <b-alert show variant="dark" sclass="txt-size11">
-                                    <small class="d-block text-template">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
+                                <b-alert show variant="bg-danger dark" sclass="txt-size11">
+                                    <small class="d-block text-white">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
                                     <hr class="border-bottom" />
-                                    <small class="text-left pl-2 d-block text-template">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
+                                    <small class="text-left pl-2 d-block text-white">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
                                 </b-alert>
                             </span>
                         </b-tooltip>
@@ -517,12 +517,12 @@ select.form-controls {
 }
 
 .tooltip-inner {
-    max-width: 350px;
-    padding: 0.25rem 0.5rem;
-    color: #fff;
-    text-align: center;
-    background-color: #1aa19b;
-    border-radius: 0.25rem;
+  max-width: 350px;
+  padding: 0.25rem 0.5rem;
+  
+  text-align: center;
+  background-color: #000;
+  border-radius: 0.25rem;
 }
 
 .txt-size14 {

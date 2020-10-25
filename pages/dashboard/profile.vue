@@ -5,7 +5,7 @@
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-    <div class="mt-4 mb-3" style="overflow: hidden;">
+    <div class="mt-3 mb-3" style="overflow: hidden;">
       <!-- <div class="col-2 text-left">
         <nuxt-link :to="{name:'dashboard'}" class="mt-4">
           <i class="f7-icons text-pink">chevron_left_circle_fill</i>
@@ -17,17 +17,19 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12 col-xs-6">
           <div class="input-group mb-1 bg-white" v-if="$auth.user.password">
             <div class="input-group">
               <div class="input-prepend align-items-center">
                 <span class="text-white">ยูสเซอร์เข้าเกม</span>
               </div>
-              <input type="text" :value="$auth.user.account_api"
+              <input 
+              type="text" 
+              :value="$auth.user.account_api"
               ref="user_copy"
-              style="font-size:14px;color:#000000a3;"
+              
               @click="copyAffiliate('user_copy')"
-              readonly class="form-control" aria-label="Amount (to the nearest dollar)">
+              readonly class="h6 text-secondary form-control" aria-label="Amount (to the nearest dollar)">
               <div class="input-append" style="background-color: #d8ff00;">
                 <span class="input-group-text" @click="copyAffiliate('user_copy')">
                   <i class="f7-icons size-24">doc_on_doc</i>
@@ -36,13 +38,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12 col-xs-6">
           <div class="input-group my-2 bg-white" v-if="$auth.user.password">
             <div class="input-group">
               <div class="input-prepend align-items-center">
                 <span class="text-white">รหัสผ่านเข้าเกม</span>
               </div>
-              <input type="text" :value="$auth.user.password" @click="copyAffiliate('pass_copy')"   style="font-size:14px;color:#000000a3;" ref="pass_copy" readonly class="form-control" aria-label="Amount (to the nearest dollar)">
+              <input type="text" :value="$auth.user.password" @click="copyAffiliate('pass_copy')"  ref="pass_copy" readonly class="h6 text-secondary form-control" aria-label="Amount (to the nearest dollar)">
               <div class="input-append">
                 <span class="input-group-text" @click="copyAffiliate('pass_copy')">
                    <i class="f7-icons size-24">doc_on_doc</i>
@@ -56,8 +58,7 @@
 
     <div class="container">
       <div
-        class="row p-3 bg-white mx-1"
-        style="border-radius: 6px; "
+        class="rounded row p-3 bg-white mx-1"
         v-if="$auth.user.lname!='Not verified'"
       >
         <div class="col-md-6" style="margin-top: 5px;">
@@ -221,7 +222,7 @@
           <!-- game slot -->
           <span v-if="typeGame.slot_status">
           
-            <b-alert show variant="dark">
+            <b-alert show variant="bg-danger dark">
               <small class="d-block text-white">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
               <small class="text-left pl-2 d-block text-white">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
@@ -231,7 +232,7 @@
                 <u>เกมคาสิโนออนไลน์</u> ในตอนท่านถอนเงินจะถูกตัดเงินเฉพาะส่วนโปรโมชั่นที่ท่านได้ออกทั้งหมด
               </small>
             </b-alert>
-            <b-alert show variant="dark">
+            <b-alert show variant="bg-danger dark">
               <small class="d-block text-white mt-2">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
               <small class="text-left pl-2 d-block text-white">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -240,12 +241,12 @@
           </span>
           <!-- game luca -->
           <span v-if="typeGame.casino_status">
-            <b-alert show variant="dark">
+            <b-alert show variant="bg-danger dark">
               <small class="d-block text-white">เงื่อนไขหากเลือก "รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
               <small class="text-left pl-2 d-block text-white">- ต้องทำยอดเทิร์นตามกติกา จึงจะถอนเงินได้</small>
             </b-alert>
-            <b-alert show variant="dark">
+            <b-alert show variant="bg-danger dark">
               <small class="d-block text-white mt-2">เงื่อนไขหากเลือก "ไม่รับโปรโมชั่น"</small>
               <hr class="border-bottom" />
               <small class="text-left pl-2 d-block text-white">- ไม่ต้องทำเทิร์น ถอนเงินได้ทุกยอด</small>
@@ -558,9 +559,9 @@ input.form-controles {
 .tooltip-inner {
   max-width: 350px;
   padding: 0.25rem 0.5rem;
-  color: #550202 ;
+  
   text-align: center;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 0.25rem;
 }
 

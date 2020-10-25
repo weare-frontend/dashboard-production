@@ -10,114 +10,10 @@
         <h6 class="subtitle text-white" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
         <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt style="border-radius:20px;">
       </div>
+    </div>
 
-      <!-- <div class="row px-4 ">
-        <social-sharing
-          network="ocean99th"
-          :url="$auth.user.linkfriendship"
-          title="ลงทะเบียนแล้วกดแอดไลน์เพื่อขอรับเครดิตฟรี 100บาท จากแอดมินได้เลยค่ะ.."
-          description="LUCABET24HR คาสิโนออนไลน์ รวบรวมไว้ทุกค่าย บอล หวย สล็อต
-        -ทุกยอดเดิมพัน รับคอม 0.3%
-        -ระบบแนะนำเพื่อน รับคอม 0.6%
-        -สมัครสมาชิก ฝากครั้งแรก โบนัส 50% 
-
-        SA Gaming/Sexy Gaming/Pretty Gaming/ DG Gaming"
-          quote="โปรโมชั่นชวนเพื่อน"
-          hashtags="ocean99th ,ชวนเพื่อน , รับฟรี100"
-          inline-template
-        >
-          <div class="row px-3 justify-content-center ">
-            <div class="btn px-1">
-              <network network="line">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #4ecd00;"
-                >
-                  <img
-                    src="https://www.dbc.in.th/wp-content/uploads/2020/02/line-1.png"
-                    alt
-                    class="w-100"
-                  />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="btn px-1">
-              <network network="facebook">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #1877f2;"
-                >
-                  <img src="~/assets/img/facebook.png" alt class="w-100" />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="btn px-1">
-              <network network="twitter">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #55acee;"
-                >
-                  <img src="~/assets/img/twitter.png" alt class="w-100" />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="btn px-1">
-              <network network="pinterest">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #bd081c;"
-                >
-                  <img
-                    src="~/assets/img/pinterest.png"
-                    alt
-                    class="w-100"
-                  />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="btn px-1">
-              <network network="googleplus">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #dd4d3f;"
-                >
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Google_Plus_logo_2015.svg/1200px-Google_Plus_logo_2015.svg.png"
-                    alt
-                    class="w-100"
-                  />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="btn px-1">
-              <network network="skype">
-                <a
-                  class="btn mt-2 p-2 shadow btn-block text-white"
-                  style="font-weight:100;background-color: #00aff0;"
-                >
-                  <img src="https://cdn.worldvectorlogo.com/logos/skype-3.svg" alt class="w-100" />
-                  <br />แชร์
-                </a>
-              </network>
-            </div>
-            <div class="col-12">
-              <p class="text-center">
-                <small
-                  class="text-danger"
-                  style="font-weight:100;"
-                >ถ้าเพื่อนสมัครต่อ ท่านจะได้โบนัสตามเงื่อนไขโปรโมชั่น</small>
-              </p>
-            </div>
-          </div>
-        </social-sharing>
-      </div>-->
-
-      <div class="col-md-12 col-xs-12 justify-content-center my-2">
+    <div class="row justify-content-center ">
+      <div class="col-md-6 col-xs-12 my-2">
         <div class="form-group float-label active">
           <div class="input-group mb-3">
             <input
@@ -138,6 +34,7 @@
           <label class="form-control-label text-template">ลิงค์ชวนเพื่อน</label>
         </div>
       </div>
+    </div>
       <div class="col-md-12 col-xs-12 text-center">
         <a
           class="btn btn-secondary text-white"
@@ -147,50 +44,11 @@
           <i class="fas fa-share-alt text-white"></i> คอมมิสชั่น
         </a>
       </div>
-
-      <!-- <div class="col-md-6 col-xs-12">
-        <div class="form-group float-label active">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control text-template"
-              ref="codeAffiliate"
-              @click="copyAffiliate('codeAffiliate')"
-              readonly
-              :value="$auth.user.account_api"
-            />
-
-            <div class="input-group-append">
-              <button
-                class="btn btn-dark text-white"
-                type="button"
-                @click="copyAffiliate('codeAffiliate')"
-              >คัดลอก</button>
-            </div>
-          </div>
-          <label class="form-control-label">แนะนำเพื่อน</label>
-        </div>
-      </div>-->
-
-      <!-- <div class="col-md-6 col-xs-12">
-        <div
-          class="line-it-button"
-          data-lang="en"
-          data-type="share-b"
-          data-ver="3"
-          :data-url="baseUrl"
-          data-color="default"
-          data-size="small"
-          data-count="false"
-          style="display: none;"
-        ></div>
-      </div>-->
-    </div>
-
+    
     <!-- page content here -->
     <div class="row justify-content-center mb-5">
       <div class="col-md-6 col-xs-12">
-        <h6 class="subtitle text-template">เพื่อนทั้งหมด {{ dataTotal }} คน</h6>
+        <h6 class="text-template">เพื่อนทั้งหมด {{ dataTotal }} คน</h6>
         <ul class="list-group list-group-flush border-top border-bottom" v-if="affiliateArray">
           <li class="list-group-item" v-for="(item, index) in affiliateArray" :key="index">
             <div class="row align-items-center">
