@@ -287,7 +287,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <!-- <i class="f7-icons size-22">money_dollar_circle</i> -->
                     <!-- <i class="f7-icons" style="position:absolute;">device_tablet_portrait</i> -->
                     <img
@@ -311,7 +311,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Withdraw-revert.png"
                       class="icon-template"
@@ -333,7 +333,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Promotion-revert.png"
                       class="icon-template"
@@ -358,7 +358,7 @@
           <div class="caadow border-0 mb-0" @click="affiliate()">
             <div class="text-center">
               <div class="border-0">
-                <div class="overlay bg-template mb-0" style="margin: auto">
+                <div class="overlay bg-template mb-0 mx-auto">
                   <img
                     src="~/assets/icon/Affilate-revert.png"
                     class="icon-template"
@@ -378,7 +378,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Affilate-revert.png"
                       class="icon-template"
@@ -400,7 +400,7 @@
             <div class="text-center">
               <div class="border-0">
                 <div
-                  class="overlay bg-template mb-0"
+                  class="overlay bg-template mb-0 mx-auto"
                   style="filter: brightness(0.4)"
                 >
                   <img
@@ -432,7 +432,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Reward-revert.png"
                       class="icon-template"
@@ -455,7 +455,7 @@
             <div class="text-center">
               <div class="border-0">
                 <div
-                  class="overlay bg-template mb-0"
+                  class="overlay bg-template mb-0 mx-auto"
                   style="filter: brightness(0.4)"
                 >
                   <img
@@ -483,7 +483,7 @@
             <div class="border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Daily-revert.png"
                       class="icon-template"
@@ -506,7 +506,7 @@
             <div class="text-center">
               <div class="border-0">
                 <div
-                  class="overlay bg-template mb-0"
+                  class="overlay bg-template mb-0 mx-auto"
                   style="filter: brightness(0.4)"
                 >
                   <img
@@ -534,7 +534,7 @@
             <div class="caadow border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Wheel-revert.png"
                       class="icon-template"
@@ -556,7 +556,7 @@
             <div class="text-center">
               <div class="border-0">
                 <div
-                  class="overlay bg-template mb-0"
+                  class="overlay bg-template mb-0 mx-auto"
                   style="filter: brightness(0.4)"
                 >
                   <img
@@ -589,7 +589,7 @@
             <div class="caadow border-0 mb-0">
               <div class="text-center">
                 <div class="border-0">
-                  <div class="overlay bg-template mb-0" style="margin: auto">
+                  <div class="overlay bg-template mb-0 mx-auto">
                     <img
                       src="~/assets/icon/Event-revert.png"
                       class="icon-template"
@@ -611,7 +611,7 @@
             <div class="text-center">
               <div class="border-0">
                 <div
-                  class="overlay bg-template mb-0"
+                  class="overlay bg-template mb-0 mx-auto"
                   style="filter: brightness(0.4)"
                 >
                   <img
@@ -657,7 +657,6 @@
 </template>
 
 <style>
-
 .carousel-3d-slide {
   border-radius: 20px;
 }
