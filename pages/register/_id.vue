@@ -433,1059 +433,1047 @@
 </template>
 
 <style scoped>
-
-
 .form-group h6 {
-    margin-top: -10px;
+  margin-top: -10px;
 }
 
 .form-control {
-    font-size: 15px;
-    height: 38px;
-    color: #d7d4d4;
-    border-radius: 25px;
-    padding: 25px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 15px;
+  height: 38px;
+  color: #d7d4d4;
+  border-radius: 25px;
+  padding: 25px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .vue-pincode-input-wrapper {
-    display: flex !important;
-    justify-content: center;
+  display: flex !important;
+  justify-content: center;
 }
 
 li.active {
-    color: #fff;
+  color: #fff;
 }
 
 .btn-ocean {
-    width: 100%;
-    background-image: linear-gradient(rgb(191, 191, 191),
-            rgb(255, 255, 255),
-            rgb(220, 220, 220));
+  width: 100%;
+  background-image: linear-gradient(
+    rgb(191, 191, 191),
+    rgb(255, 255, 255),
+    rgb(220, 220, 220)
+  );
 }
 
 .border-bottom {
-    margin: 5px;
-    margin-left: 0;
-    right: 0;
-    width: 100%;
-    height: 0px;
-    background-color: #ff1100;
+  margin: 5px;
+  margin-left: 0;
+  right: 0;
+  width: 100%;
+  height: 0px;
+  background-color: #ff1100;
 }
 
 input.vue-pincode-input {
-    color: #ffffff;
-    background: #222222;
-    max-width: 77px;
-    height: 45px;
+  color: #ffffff;
+  background: #222222;
+  max-width: 77px;
+  height: 45px;
 }
 
 button.form-controls,
 input.form-controls,
 select.form-controls {
-    color: #000;
-    border: 1px solid #555;
-    background-color: #000;
-    width: 100%;
-    border-radius: 5px;
+  color: #000;
+  border: 1px solid #555;
+  background-color: #000;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .custom-control-label::after {
-    position: absolute;
-    top: 4px;
-    left: -1.8rem;
-    display: block;
-    width: 25px;
-    height: 25px;
-    content: "";
-    background: no-repeat 50%/50% 50%;
+  position: absolute;
+  top: 4px;
+  left: -1.8rem;
+  display: block;
+  width: 25px;
+  height: 25px;
+  content: "";
+  background: no-repeat 50%/50% 50%;
 }
 
 .custom-control-label::before {
-    position: absolute;
-    left: -1.8rem;
-    display: block;
-    width: 25px;
-    height: 25px;
-    pointer-events: none;
-    content: "";
-    background-color: #fff;
-    border: #adb5bd solid 1px;
+  position: absolute;
+  left: -1.8rem;
+  display: block;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  content: "";
+  background-color: #fff;
+  border: #adb5bd solid 1px;
 }
 
 .tooltip-inner {
   max-width: 350px;
   padding: 0.25rem 0.5rem;
-  
+
   text-align: center;
   background-color: #000;
   border-radius: 0.25rem;
 }
 
 .txt-size14 {
-    color: #FFF;
-    font-size: 14px
+  color: #fff;
+  font-size: 14px;
 }
 
 .txt-size12 {
-    font-weight: 100;
-    font-size: 12px
+  font-weight: 100;
+  font-size: 12px;
 }
 .txt-size11 {
-    font-weight: 100;
-    font-size: 11px
+  font-weight: 100;
+  font-size: 11px;
 }
 
 .txt-label {
-    font-weight: 100;
-    margin: -20px 0px;
-    position: absolute;
+  font-weight: 100;
+  margin: -20px 0px;
+  position: absolute;
 }
 
 .btn-hide {
-    font-size: 26px;
-    border-radius: 30px;
-    font-weight: 100;
-    display: none;
+  font-size: 26px;
+  border-radius: 30px;
+  font-weight: 100;
+  display: none;
 }
 
-
-
 .bg-theme {
-    width: 100%;
-    position: absolute;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-top: -95px;
-    border-top-left-radius: 70px;
-    border-top-right-radius: 70px;
-    height: 110vh;
-    overflow: overlay;
+  width: 100%;
+  position: absolute;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: -95px;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  height: 110vh;
+  overflow: overlay;
 }
 
 .overflow {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .btn-unset {
-    bottom: unset;
+  bottom: unset;
 }
 
 .img-logo {
-    width: auto;
-    height: 80px;
-    filter: drop-shadow(0px 1px 1px black);
+  width: auto;
+  height: 80px;
+  filter: drop-shadow(0px 1px 1px black);
 }
 
 body,
 html {
-    background-color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .progressbar {
-    padding: 0px;
-    counter-reset: step;
-    height: 60px;
+  padding: 0px;
+  counter-reset: step;
+  height: 60px;
 }
 
 .progressbar li {
-    list-style-type: none;
-    width: 25%;
-    float: left;
-    font-size: 12px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
+  list-style-type: none;
+  width: 25%;
+  float: left;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .progressbar li:before {
-    width: 30px;
-    height: 30px;
-    content: counter(step);
-    counter-increment: step;
-    line-height: 25px;
-    font-size: 18px;
-    border: 2px solid #fff;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color: #2d3050 !important;
+  width: 30px;
+  height: 30px;
+  content: counter(step);
+  counter-increment: step;
+  line-height: 25px;
+  font-size: 18px;
+  border: 2px solid #fff;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #2d3050 !important;
 }
 
 .progressbar li:after {
-    width: 100%;
-    height: 1px;
-    content: "";
-    position: absolute;
-    background-color: #7d7d7d;
-    top: 13px;
-    left: -50%;
-    z-index: -1;
+  width: 100%;
+  height: 1px;
+  content: "";
+  position: absolute;
+  background-color: #7d7d7d;
+  top: 13px;
+  left: -50%;
+  z-index: -1;
 }
 
 .progressbar li:first-child:after {
-    content: none;
+  content: none;
 }
 
 .progressbar li.active {
-    color: #fff;
+  color: #fff;
 }
 
 .progressbar li.active:before {
-    color: #000;
-    border: 3px solid #000;
-    border-radius: 50%;
-    background-color: #fff !important;
-    -webkit-animation-duration: 1.4s;
-    /* Safari 4.0 - 8.0 */
-    -webkit-animation: fade-img 1.4s infinite;
-    animation: fade-img 1.4s infinite;
-    animation-duration: 1.4s;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 50%;
+  background-color: #fff !important;
+  -webkit-animation-duration: 1.4s;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation: fade-img 1.4s infinite;
+  animation: fade-img 1.4s infinite;
+  animation-duration: 1.4s;
 }
 
-.progressbar li.active+li:before {
-    background-color: #fff;
+.progressbar li.active + li:before {
+  background-color: #fff;
 }
 
 @keyframes fade-img {
-    0% {
-        box-shadow: 0 0 1pt 0pt #fff;
-    }
+  0% {
+    box-shadow: 0 0 1pt 0pt #fff;
+  }
 
-    100% {
-        box-shadow: 0 0 4pt 1pt #ddd;
-    }
+  100% {
+    box-shadow: 0 0 4pt 1pt #ddd;
+  }
 }
 
 .text-validation {
-    width: 100%;
-    margin-top: 0.25rem;
-    font-size: 80%;
-    color: #dc3545;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 }
 
 .onoffswitch {
-    position: relative;
-    width: 90px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  position: relative;
+  width: 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .onoffswitch-checkbox {
-    display: none;
+  display: none;
 }
 
 .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid #d1d1d1;
-    border-radius: 20px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
 }
 
 .onoffswitch-inner {
-    display: block;
-    width: 200%;
-    margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
 }
 
 .onoffswitch-inner:before,
 .onoffswitch-inner:after {
-    display: block;
-    float: left;
-    width: 50%;
-    height: 30px;
-    padding: 0;
-    line-height: 30px;
-    font-size: 14px;
-    color: white;
-    font-family: Trebuchet, Arial, sans-serif;
-    font-weight: bold;
-    box-sizing: border-box;
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  box-sizing: border-box;
 }
 
 .onoffswitch-switch {
-    display: block;
-    width: 15px;
-    margin: 7.5px;
-    background: #ffffff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 56px;
-    border: 2px solid #d1d1d1;
-    border-radius: 20px;
-    transition: all 0.3s ease-in 0s;
+  display: block;
+  width: 15px;
+  margin: 7.5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 56px;
+  border: 2px solid #d1d1d1;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
 }
 
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
 }
 
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
-    right: 0px;
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
 }
 
 .custom-select.is-invalid,
 .was-validated .custom-select:invalid {
-    border-color: #dc3545;
-    padding-right: calc(0.75em + 2.3125rem);
-    background-color: #dc3545;
+  border-color: #dc3545;
+  padding-right: calc(0.75em + 2.3125rem);
+  background-color: #dc3545;
 }
 </style>
 
 <script>
-import configTheme from "~/config/theme";
-import {
-    mapGetters
-} from "vuex";
+// import configTheme from "~/config/theme";
+import { mapGetters } from "vuex";
 export default {
-    layout: "login",
-    auth: "guest",
-    head() {
+  layout: "login",
+  auth: "guest",
+  head() {
+    return {
+      title: "Register",
+      htmlAttrs: {
+        // class: configTheme.color + " " + configTheme.background + " bg-black",
+      },
+    };
+  },
+  data: () => ({
+    showText: false,
+    telerror: "",
+    accerror: "",
+    fnerror: "",
+    step: 1,
+    inputPincode: "",
+    formError: [],
+    inputFirstName: "",
+    inputLastName: "",
+    inputBirthday: null,
+    inputBankAccountNumber: null,
+    inputBankAccountNumbers: null,
+    inputPhoneNumber: "",
+    inputPinNumber: "",
+    statusOtp: false,
+    textContent: "",
+    coutDownOtp: 0,
+    typeGame: {},
+    show: false,
+    Qrcode: "",
+    Fname: "",
+  }),
+
+  asyncData: async function ({ $axios }) {
+    const { data } = await $axios.$get("/api/type-bank", {
+      progress: true,
+    });
+    const dataGame = await $axios
+      .request({
+        method: "GET",
+        url: "/api/get-promotion-game",
+      })
+      .then((response) => response.data)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
         return {
-            title: "Register",
-            htmlAttrs: {
-                class: configTheme.color + " " + configTheme.background + " bg-black",
-            },
+          bonus_status: true,
+          slot_status: null,
+          casino_status: null,
         };
+      });
+    return {
+      bankArray: data,
+      typeGame: dataGame || {},
+    };
+  },
+  computed: {
+    inputDateClass: function () {
+      return this.formValidation("inputBirthday") ? "is-invalid" : "";
     },
-    data: () => ({
-        showText: false,
-        telerror: "",
-        accerror: "",
-        fnerror: "",
-        step: 1,
-        inputPincode: "",
-        formError: [],
-        inputFirstName: "",
-        inputLastName: "",
-        inputBirthday: null,
-        inputBankAccountNumber: null,
-        inputBankAccountNumbers: null,
-        inputPhoneNumber: "",
-        inputPinNumber: "",
-        statusOtp: false,
-        textContent: "",
-        coutDownOtp: 0,
-        typeGame: {},
-        show: false,
-        Qrcode: '',
-        Fname: ''
-    }),
-
-    asyncData: async function ({
-        $axios
-    }) {
-        const {
-            data
-        } = await $axios.$get("/api/type-bank", {
-            progress: true,
+    ...mapGetters(["getThemeObject", "getSettingObject"]),
+  },
+  mounted() {
+    $(".datepicker").datepicker({
+      defaultViewDate: {
+        year: "2540",
+        month: "01",
+        day: "01",
+      },
+      format: "dd/mm/yyyy",
+      startView: 2,
+      language: "th-th",
+      autoclose: true,
+    });
+    $("#inputReferCode").val(this.$route.params.id);
+    this.Qrcode = this.$route.query.code || "";
+  },
+  methods: {
+    skipto: async function () {
+      const loader = this.$loading.show({
+        "is-full-page": true,
+      });
+      const respones = await this.$axios.$post(
+        "/api/line/login-verlfeid-affter",
+        {
+          tel: this.inputPhoneNumber,
+        }
+      );
+      if (respones.success) {
+        window.location = respones.redirect;
+      } else {
+        loader.hide();
+        this.$toast.global.error({
+          message: respones.msg,
         });
-        const dataGame = await $axios
-            .request({
-                method: "GET",
-                url: "/api/get-promotion-game",
-            })
-            .then((response) => response.data)
-            .then((response) => {
-                return response;
-            })
-            .catch((error) => {
-                return {
-                    bonus_status: true,
-                    slot_status: null,
-                    casino_status: null,
-                };
-            });
+      }
+    },
+    getOtp_Again: async function () {
+      this.startTimer();
+      const { data, success } = await this.$axios.$post("/api/send-otp", {
+        tel: this.inputPhoneNumber,
+      });
+      if (data[0].status == "duplicate") {
+        this.telerror = data[0].error;
+        this.$toast.global.error({
+          message: data[0].error,
+        });
+        return false;
+      } else if (success) {
+        this.$toast.global.success({
+          message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+        });
+      } else {
+        this.$toast.global.error({
+          message: data,
+        });
+      }
+      this.statusOtp = true;
+    },
+    getOtp: async function () {
+      const { data, success } = await this.$axios.$post("/api/send-otp", {
+        tel: this.inputPhoneNumber,
+      });
+      if (success) {
+        this.startTimer();
+        this.$toast.global.success({
+          message: "ส่ง OTP ไปแล้ว กรุณารอซักครู่",
+        });
+        this.statusOtp = true;
+        this.$root.$emit("bv::toggle::collapse", "collapse-otp");
+        document.getElementById("tel1").disabled = "disabled";
+        document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
+      } else {
+        if (data[0].status == "duplicate") {
+          var indexFormError = this.formError.findIndex(
+            (item) => item.ref == "inputPhoneNumber"
+          );
+          indexFormError =
+            indexFormError < 0
+              ? (await this.formError.push({
+                  step: 3,
+                  ref: "inputPhoneNumber",
+                  message: [],
+                })) - 1
+              : indexFormError;
+          return this.formError[indexFormError].message.push(data[0].error);
+        }
+        this.$toast.global.error({
+          message: data[0].error,
+        });
+        this.statusOtp = false;
+        return false;
+      }
+      this.statusOtp = true;
+    },
+    copyAffiliate: function (target) {
+      this.$refs[target].select();
+      document.execCommand("copy");
+      this.$toast.global.success({
+        message: "คัดลอกลงคลิปบอร์ดแล้ว",
+      });
+    },
+    checkFromRegister: async function () {
+      if (!this.inputBankAccountNumber.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputBankAccountNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputBankAccountNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น"
+        );
+      } else {
+        const { success, data } = await this.$axios.$post(
+          "/api/check-from-regis",
+          {
+            fname: this.$refs.inputFname.value,
+            lname: this.$refs.inputLname.value,
+            refer_code: this.$refs.inputReferCode.value,
+            type_bank_id: this.$refs.selecBankAccounts.value,
+            bank_account: this.inputBankAccountNumber,
+            tel: this.inputPhoneNumber,
+            code: this.Qrcode || null,
+          }
+        );
         return {
-            bankArray: data,
-            typeGame: dataGame || {},
+          success,
+          data,
         };
+      }
     },
-    computed: {
-        inputDateClass: function () {
-            return this.formValidation("inputBirthday") ? "is-invalid" : "";
-        },
-        ...mapGetters(["getThemeObject", "getSettingObject"]),
+    acceptPromotion: function () {
+      this.showText = true;
+      this.$root.$emit("bv::toggle::collapse", "collapse-noPromotion");
+      this.$root.$emit("bv::toggle::collapse", "collapse-yesPromotion");
     },
-    mounted() {
-        $(".datepicker").datepicker({
-            defaultViewDate: {
-                year: "2540",
-                month: "01",
-                day: "01",
-            },
-            format: "dd/mm/yyyy",
-            startView: 2,
-            language: "th-th",
-            autoclose: true,
+    sendLineRegister: async function () {
+      if (
+        !this.$refs.selectSexMan.checked &&
+        !this.$refs.selectSexWoman.checked
+      ) {
+        this.formError.push({
+          step: 6,
+          ref: "selectSex",
+          message: "กรุณาเลือกเพศ",
         });
-        $("#inputReferCode").val(this.$route.params.id);
-        this.Qrcode = this.$route.query.code || ''
+      } else if (!this.$refs.selectAge.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selectAge",
+          message: "กรุณาเลือกช่วงอายุ",
+        });
+
+        return false;
+      } else if (!this.$refs.selectWay.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selectWay",
+          message: "กรุณาเลือกช่องทางที่รู้จัก",
+        });
+
+        return false;
+      } else if (!this.inputFirstName) {
+        this.formError.push({
+          step: 6,
+          ref: "inputFirstName",
+          message: "กรุณากรอกชื่อด้วยค่ะ",
+        });
+        return false;
+      } else if (!this.inputLastName) {
+        this.formError.push({
+          step: 6,
+          ref: "inputLastName",
+          message: "กรุณากรอกนามสกุลด้วยค่ะ",
+        });
+
+        return false;
+      } else if (!this.$refs.selecBankAccount.value) {
+        this.formError.push({
+          step: 6,
+          ref: "selecBankAccount",
+          message: "กรุณาเลือกธนาคาร",
+        });
+
+        return false;
+      } else if (!this.inputBankAccountNumbers) {
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "กรุณากรอกเลขบัญชี",
+        });
+
+        return false;
+      } else if (this.inputBankAccountNumbers.length < 10) {
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "กรุณากรอกเลขบัญชีให้ครบถ้วน",
+        });
+
+        return false;
+      } else if (!this.inputBankAccountNumbers.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputBankAccountNumbers"
+        );
+        this.formError.push({
+          step: 6,
+          ref: "inputBankAccountNumbers",
+          message: "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น",
+        });
+        return false;
+      } else {
+        const chkregister = await this.$axios.$post("/api/line/line-register", {
+          fname: this.$refs.inputFirstName.value,
+          lname: this.$refs.inputLastName.value,
+          age: this.$refs.selectAge.value,
+          gender: this.$refs.selectSexMan.checked ? "1" : "2",
+          acquaint: this.$refs.selectWay.value,
+          refer_code: this.$refs.inputReferCode.value,
+          type_bank_id: this.$refs.selecBankAccount.value,
+          bank_account: this.inputBankAccountNumbers,
+          tel: this.inputPhoneNumber,
+          pincode: this.inputPinNumber,
+          player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
+        });
+        if (chkregister.success) {
+          window.location =
+            "/dashboard/login?username=" +
+            this.inputPhoneNumber +
+            "&password=" +
+            this.inputPinNumber;
+        } else {
+          this.$toast.global.success({
+            message: success + " " + data.filed + " " + data.error,
+          });
+        }
+      }
     },
-    methods: {
-        skipto: async function () {
-            const loader = this.$loading.show({
-                "is-full-page": true
-            });
-            const respones = await this.$axios.$post(
-                "/api/line/login-verlfeid-affter", {
-                    tel: this.inputPhoneNumber
-                }
-            );
-            if (respones.success) {
-                window.location = respones.redirect;
-            } else {
-                loader.hide();
-                this.$toast.global.error({
-                    message: respones.msg
-                });
-            }
-        },
-        getOtp_Again: async function () {
-            this.startTimer();
-            const {
-                data,
-                success
-            } = await this.$axios.$post("/api/send-otp", {
-                tel: this.inputPhoneNumber,
-            });
-            if (data[0].status == "duplicate") {
-                this.telerror = data[0].error;
-                this.$toast.global.error({
-                    message: data[0].error,
-                });
-                return false;
-            } else if (success) {
-                this.$toast.global.success({
-                    message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-                });
-            } else {
-                this.$toast.global.error({
-                    message: data,
-                });
-            }
-            this.statusOtp = true;
-        },
-        getOtp: async function () {
-            const {
-                data,
-                success
-            } = await this.$axios.$post("/api/send-otp", {
-                tel: this.inputPhoneNumber,
-            });
-            if (success) {
-                this.startTimer()
-                this.$toast.global.success({
-                    message: 'ส่ง OTP ไปแล้ว กรุณารอซักครู่'
-                });
-                this.statusOtp = true;
-                this.$root.$emit('bv::toggle::collapse', 'collapse-otp');
-                document.getElementById("tel1").disabled = "disabled";
-                document.getElementById("step-1").innerHTML = "ยืนยัน OTP";
-            } else {
-                if (data[0].status == 'duplicate') {
-                    var indexFormError = this.formError.findIndex(item => item.ref == 'inputPhoneNumber');
-                    indexFormError = indexFormError < 0 ? (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: []
-                    })) - 1 : indexFormError;
-                    return this.formError[indexFormError].message.push(data[0].error);
-                }
-                this.$toast.global.error({
-                    message: data[0].error
-                });
-                this.statusOtp = false;
-                return false;
-            };
-            this.statusOtp = true;
-        },
-        copyAffiliate: function (target) {
-            this.$refs[target].select();
-            document.execCommand("copy");
-            this.$toast.global.success({
-                message: "คัดลอกลงคลิปบอร์ดแล้ว",
-            });
-        },
-        checkFromRegister: async function () {
-            if (!this.inputBankAccountNumber.match(/^[0-9]+$/)) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputBankAccountNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputBankAccountNumber",
-                        message: [],
-                    })) - 1 :
-                    indexFormError;
-                this.formError[indexFormError].message.push(
-                    "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น"
-                );
-            } else {
-                const {
-                    success,
-                    data
-                } = await this.$axios.$post(
-                    "/api/check-from-regis", {
-                        fname: this.$refs.inputFname.value,
-                        lname: this.$refs.inputLname.value,
-                        refer_code: this.$refs.inputReferCode.value,
-                        type_bank_id: this.$refs.selecBankAccounts.value,
-                        bank_account: this.inputBankAccountNumber,
-                        tel: this.inputPhoneNumber,
-                        code: this.Qrcode || null
-                    }
-                );
-                return {
-                    success,
-                    data,
-                };
-            }
-        },
-        acceptPromotion: function () {
-            this.showText = true;
-            this.$root.$emit("bv::toggle::collapse", "collapse-noPromotion");
-            this.$root.$emit("bv::toggle::collapse", "collapse-yesPromotion");
-        },
-        sendLineRegister: async function () {
-            if (
-                !this.$refs.selectSexMan.checked &&
-                !this.$refs.selectSexWoman.checked
-            ) {
-                this.formError.push({
-                    step: 6,
-                    ref: "selectSex",
-                    message: "กรุณาเลือกเพศ",
-                });
-            } else if (!this.$refs.selectAge.value) {
-                this.formError.push({
-                    step: 6,
-                    ref: "selectAge",
-                    message: "กรุณาเลือกช่วงอายุ",
-                });
+    sendRegister: async function () {
+      const { success, data } = await this.$axios.$post("/api/register", {
+        fname: this.$refs.inputFname.value,
+        lname: this.$refs.inputLname.value,
+        refer_code: this.$refs.inputReferCode.value,
+        type_bank_id: this.$refs.selecBankAccounts.value,
+        bank_account: this.inputBankAccountNumber,
+        tel: this.inputPhoneNumber,
+        pincode: this.inputPincode,
+        player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
+        code: this.Qrcode || null,
+      });
 
-                return false;
-            } else if (!this.$refs.selectWay.value) {
-                this.formError.push({
-                    step: 6,
-                    ref: "selectWay",
-                    message: "กรุณาเลือกช่องทางที่รู้จัก",
-                });
-
-                return false;
-            } else if (!this.inputFirstName) {
-                this.formError.push({
-                    step: 6,
-                    ref: "inputFirstName",
-                    message: "กรุณากรอกชื่อด้วยค่ะ",
-                });
-                return false;
-            } else if (!this.inputLastName) {
-                this.formError.push({
-                    step: 6,
-                    ref: "inputLastName",
-                    message: "กรุณากรอกนามสกุลด้วยค่ะ",
-                });
-
-                return false;
-            } else if (!this.$refs.selecBankAccount.value) {
-                this.formError.push({
-                    step: 6,
-                    ref: "selecBankAccount",
-                    message: "กรุณาเลือกธนาคาร",
-                });
-
-                return false;
-            } else if (!this.inputBankAccountNumbers) {
-                this.formError.push({
-                    step: 6,
-                    ref: "inputBankAccountNumbers",
-                    message: "กรุณากรอกเลขบัญชี",
-                });
-
-                return false;
-            } else if (this.inputBankAccountNumbers.length < 10) {
-                this.formError.push({
-                    step: 6,
-                    ref: "inputBankAccountNumbers",
-                    message: "กรุณากรอกเลขบัญชีให้ครบถ้วน",
-                });
-
-                return false;
-            } else if (!this.inputBankAccountNumbers.match(/^[0-9]+$/)) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputBankAccountNumbers"
-                );
-                this.formError.push({
-                    step: 6,
-                    ref: "inputBankAccountNumbers",
-                    message: "เลขที่บัญชี ต้องเป็นตัวเลขเท่านั้น",
-                });
-                return false;
-            } else {
-                const chkregister = await this.$axios.$post("/api/line/line-register", {
-                    fname: this.$refs.inputFirstName.value,
-                    lname: this.$refs.inputLastName.value,
-                    age: this.$refs.selectAge.value,
-                    gender: this.$refs.selectSexMan.checked ? "1" : "2",
-                    acquaint: this.$refs.selectWay.value,
-                    refer_code: this.$refs.inputReferCode.value,
-                    type_bank_id: this.$refs.selecBankAccount.value,
-                    bank_account: this.inputBankAccountNumbers,
-                    tel: this.inputPhoneNumber,
-                    pincode: this.inputPinNumber,
-                    player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
-                });
-                if (chkregister.success) {
-                    window.location =
-                        "/dashboard/login?username=" +
-                        this.inputPhoneNumber +
-                        "&password=" +
-                        this.inputPinNumber;
-                } else {
-                    this.$toast.global.success({
-                        message: success + " " + data.filed + " " + data.error,
-                    });
-                }
-            }
-        },
-        sendRegister: async function () {
-            const {
-                success,
-                data
-            } = await this.$axios.$post("/api/register", {
-                fname: this.$refs.inputFname.value,
-                lname: this.$refs.inputLname.value,
-                refer_code: this.$refs.inputReferCode.value,
-                type_bank_id: this.$refs.selecBankAccounts.value,
-                bank_account: this.inputBankAccountNumber,
-                tel: this.inputPhoneNumber,
-                pincode: this.inputPincode,
-                player_bonus: this.$refs.checkBoxPromotion.checked ? "1" : "0",
-                code: this.Qrcode || null
-            });
-
-            return {
-                success,
-                data,
-            };
-        },
-        startTimer() {
-            this.coutDownOtp = 120;
-            var minutes, seconds;
-            var downloadTimer = setInterval(() => {
-                minutes = parseInt(this.coutDownOtp / 60, 10);
-                seconds = parseInt(this.coutDownOtp % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                this.textContent = minutes + ":" + seconds;
-
-                if (--this.coutDownOtp < 0) {
-                    clearInterval(downloadTimer);
-                }
-            }, 1000);
-        },
-        calculateAge: function (birthday) {
-            var str = this.$refs.inputBirthday.value.split("/");
-            var date = new Date(str[2] + "-" + str[1] + "-" + str[0]);
-            return str[2] - 543 + "-" + str[1] + "-" + str[0];
-        },
-        formValidation: function (ref) {
-            let error = this.formError.find((item) => item.ref == ref);
-            return error ? error.message : "";
-        },
-        isFormValidation: function (ref) {
-            let error = this.formError.find((item) => item.ref == ref);
-            return error ? true : null;
-        },
-        removeValidation: function (ref) {
-            this.formError = this.formError.filter((item) => item.ref != ref);
-        },
-        nextStepCondition: async function () {
-            if (!this.$refs.checkBoxCondition.checked)
-                this.formError.push({
-                    step: 1,
-                    ref: "checkBoxCondition",
-                    message: "ท่านต้องยอมรับเงื่อนไข",
-                });
-            const formErrorStep = await this.formError.find((item) => item.step == 1);
-            if (!formErrorStep) this.step++;
-        },
-        nextStepInfo: async function (res) {
-            var letters = /^[ก-๙]+$/gi;
-            if (
-                (!this.$refs.inputFname.value || !this.$refs.inputFname.value) &&
-                !this.isFormValidation("inputFname")
-            )
-                this.formError.push({
-                    step: 2,
-                    ref: "inputFname",
-                    message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
-                });
-            if (
-                (!this.$refs.inputLname.value || !this.$refs.inputLname.value) &&
-                !this.isFormValidation("inputLname")
-            )
-                this.formError.push({
-                    step: 2,
-                    ref: "inputLname",
-                    message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
-                });
-            if (
-                !this.$refs.selecBankAccounts.value &&
-                !this.isFormValidation("selecBankAccounts")
-            )
-                this.formError.push({
-                    step: 2,
-                    ref: "selecBankAccounts",
-                    message: "กรุณาเลือกบัญชีธนาคารของท่าน",
-                });
-            if (!this.isFormValidation("inputBankAccountNumber")) {
-                if (!this.inputBankAccountNumber) {
-                    var indexFormError = this.formError.findIndex(
-                        (item) => item.ref == "inputBankAccountNumber"
-                    );
-                    indexFormError =
-                        indexFormError < 0 ?
-                        (await this.formError.push({
-                            step: 2,
-                            ref: "inputBankAccountNumber",
-                            message: [],
-                        })) - 1 :
-                        indexFormError;
-                    this.formError[indexFormError].message.push("ห้ามว่าง");
-                }
-                if (
-                    !this.inputBankAccountNumber ||
-                    !this.inputBankAccountNumber.match(/^[0-9]+$/)
-                ) {
-                    var indexFormError = this.formError.findIndex(
-                        (item) => item.ref == "inputBankAccountNumber"
-                    );
-                    indexFormError =
-                        indexFormError < 0 ?
-                        (await this.formError.push({
-                            step: 2,
-                            ref: "inputBankAccountNumber",
-                            message: [],
-                        })) - 1 :
-                        indexFormError;
-                    this.formError[indexFormError].message.push(
-                        "เลขบัญชีธนาคารต้องเป็นตัวเลขเท่านั้น"
-                    );
-                }
-            }
-
-            const loader = this.$loading.show({
-                "is-full-page": true,
-            });
-            const checkName = await this.$axios.$post("/api/check-from-regis/name", {
-                fname: this.$refs.inputFname.value,
-                lname: this.$refs.inputLname.value,
-            });
-            const checkAccount = await this.$axios.$post(
-                "/api/check-from-regis/account", {
-                    bank_account: this.inputBankAccountNumber,
-                }
-            );
-            loader.hide();
-            this.fnerror = "";
-            this.accerror = "";
-            if (!checkName.success) {
-                this.fnerror = checkName.message;
-                this.$toast.global.error({
-                    message: checkName.message,
-                });
-                return false;
-            }
-            if (!checkAccount.success) {
-                this.accerror = checkAccount.message;
-                this.$toast.global.error({
-                    message: checkAccount.message,
-                });
-                return false;
-            } else {
-                this.step = 4;
-                // const formErrorStep = await this.formError.find(item => item.step == 2);
-                // if (!formErrorStep) this.step = 4;
-            }
-        },
-
-        nextStepPhoneNumber: async function () {
-            //if (!this.isFormValidation("inputPhoneNumber")) {
-            if (!this.inputPhoneNumber) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: "ห้ามว่าง",
-                    })) - 1 :
-                    indexFormError;
-                return false;
-            } else if (this.inputPhoneNumber.length != 10) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: [],
-                    })) - 1 :
-                    indexFormError;
-                this.formError[indexFormError].message.push(
-                    "เบอร์โทรเท่ากับ 10 ตัวอักษร"
-                );
-            } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
-                var indexFormError = this.formError.findIndex(
-                    (item) => item.ref == "inputPhoneNumber"
-                );
-                indexFormError =
-                    indexFormError < 0 ?
-                    (await this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: [],
-                    })) - 1 :
-                    indexFormError;
-                this.formError[indexFormError].message.push(
-                    "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
-                );
-                //}
-            } else {
-                this.show = true;
-                const respone = await this.$axios.$post("/api/line/chk-phone", {
-                    tel: this.inputPhoneNumber,
-                });
-                if (respone.success) {
-                    this.otp();
-                } else {
-                    this.getPin();
-                    document.getElementById("step-1").innerHTML = "ยืนยัน Pin";
-                    this.formError.push({
-                        step: 1,
-                        ref: "inputPhoneNumber",
-                        message: "",
-                    });
-                }
-                this.show = false;
-            }
-        },
-        otp: async function () {
-            const formErrorStep = await this.formError.find(
-                (item) => item.step == 3 && item.ref != "inputOtpNumber"
-            );
-
-            if (!formErrorStep) {
-                this.$refs.inputOtpNumber.focus();
-                if (this.statusOtp) {
-                    if (
-                        !this.$refs.inputOtpNumber.value &&
-                        !this.isFormValidation("inputOtpNumber")
-                    )
-                        return this.formError.push({
-                            step: 3,
-                            ref: "inputOtpNumber",
-                            message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-                        });
-                    const checkOtp = await this.$axios.$post("/api/check-otp", {
-                        tel: this.$refs.inputPhoneNumber.value,
-                        otp: this.$refs.inputOtpNumber.value,
-                    });
-                    if (checkOtp.success) {
-                        this.step++;
-                    } else {
-                        this.$toast.global.error({
-                            message: "กรุณากรอก OTP ให้ถูกต้อง",
-                        });
-                    }
-                } else {
-                    this.getOtp();
-                    if (
-                        !this.$refs.inputOtpNumber.value &&
-                        !this.isFormValidation("inputOtpNumber")
-                    )
-                        return this.formError.push({
-                            step: 3,
-                            ref: "inputOtpNumber",
-                            message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
-                        });
-                }
-            }
-        },
-        getPin: function () {
-            this.$root.$emit("bv::toggle::collapse", "collapse-pin");
-            document.getElementById("send-otp").style.display = "none";
-            document.getElementById("accepted-pin").style.display = "block";
-        },
-        acceptPin: async function () {
-            document.getElementById("accepted-pin").style.display = "none";
-            document.getElementById("chk-pin").style.display = "block";
-            const chkpin = await this.$axios.$post("/api/line/chk-merge-line", {
-                tel: this.inputPhoneNumber,
-                pin: this.inputPinNumber,
-            });
-            if (!chkpin.success) {
-                document.getElementById("accepted-pin").style.display = "block";
-                document.getElementById("chk-pin").style.display = "none";
-                return this.formError.push({
-                    step: 3,
-                    ref: "inputPinNumber",
-                    message: chkpin.message,
-                });
-            } else {
-                document.getElementById("accepted-pin").style.display = "block";
-                document.getElementById("chk-pin").style.display = "none";
-                document.getElementById("accepted-pin").innerHTML =
-                    "<span><i class='fa fa-close' style='font-size:1rem;margin:0px auto;color:#000;'></i> " +
-                    chkpin.message +
-                    "</span>";
-                document.getElementById("verify").innerHTML =
-                    "<span class='text-success'><i class='fa fa-close' style='font-size:1rem;margin:0px auto;'></i> " +
-                    chkpin.message +
-                    "</span>";
-
-                if (chkpin.code == 22) {
-                    this.step = 5;
-                } else {
-                    const loader = this.$loading.show({
-                        "is-full-page": true
-                    });
-                    window.location = chkpin.redirect;
-                }
-            }
-        },
-        nextStepPincode: async function () {
-            // if (!(!!this.inputPincode.match(/[a-z]/g) && !!this.inputPincode.match(/[A-Z]/g) && !!this.inputPincode.match(/[0-9]/g) && (this.inputPincode.length >= 6  && this.inputPincode.length <= 12)))  return this.formError.push({step : 4,ref : "inputPincode" , message : "รหัสผ่านต้องมีตั้งแต่ 6-12 ตัว มีภาษาอังกฤษพิมพ์เล็กกับใหญ่และตัวเลข เช่น Abc123"});
-            if (this.inputPincode.length != 4)
-                return this.formError.push({
-                    step: 4,
-                    ref: "inputPincode",
-                    message: "กรุณากรอก PINCODE",
-                });
-            const loaderOne = this.$loading.show({
-                container: this.$refs.formRegisterUser,
-            });
-            const dataCheckFromRegister = await this.checkFromRegister();
-            loaderOne.hide();
-            if (dataCheckFromRegister.success) {
-                const loaderTwo = this.$loading.show({
-                    container: this.$refs.formRegisterUser,
-                });
-                //  sennd-regis
-                const dataSendRegister = await this.sendRegister();
-                loaderTwo.hide();
-                if (dataSendRegister.success) {
-                    this.$refs.inputUsername.value = dataSendRegister.data.username;
-                    this.$refs.inputPassword.value = dataSendRegister.data.password;
-                    this.$toast.global.success({
-                        message: "สมัครสมาชิกสำเร็จแล้ว",
-                    });
-                    this.step = 6;
-                } else {
-                    this.$toast.global.error({
-                        message: dataSendRegister.data,
-                    });
-                }
-            } else {
-                let errorFirstname = await dataCheckFromRegister.data.find(
-                    (error) => error.filed == "fname"
-                );
-                let errorLastname = await dataCheckFromRegister.data.find(
-                    (error) => error.filed == "lname"
-                );
-                let errorBankAccount = await dataCheckFromRegister.data.find(
-                    (error) => error.filed == "bank_account"
-                );
-                let errorTel = await dataCheckFromRegister.data.find(
-                    (error) => error.filed == "tel"
-                );
-                let errorCode = await dataCheckFromRegister.data.find(
-                    (error) => error.filed == "code"
-                );
-
-                if (errorFirstname)
-                    this.formError.push({
-                        step: 2,
-                        ref: "inputFname",
-                        message: errorFirstname.error,
-                    });
-                if (errorLastname)
-                    this.formError.push({
-                        step: 2,
-                        ref: "inputLname",
-                        message: errorLastname.error,
-                    });
-                if (errorBankAccount)
-                    this.formError.push({
-                        step: 2,
-                        ref: "inputBankAccountNumber",
-                        message: [errorBankAccount.error],
-                    });
-                if (errorTel)
-                    this.formError.push({
-                        step: 3,
-                        ref: "inputPhoneNumber",
-                        message: [errorTel.error],
-                    });
-
-                this.$toast.global.error({
-                    message: "กรุณาข้อมูลให้ถูกต้อง",
-                });
-                if (errorCode) {
-                    this.step = 3
-                    this.formError.push({
-                        step: 3,
-                        ref: "inputQrcode",
-                        message: [errorCode.error]
-                    });
-                }
-
-                if (errorFirstname || errorLastname) return (this.step = 2);
-                if (errorBankAccount) return (this.step = 2);
-                if (errorTel) return (this.step = 3);
-            }
-        },
-        nextStepLogin: async function (event) {
-            const loader = this.$loading.show({
-                "is-full-page": true,
-            });
-            await this.$auth
-                .loginWith("local", {
-                    data: {
-                        username: this.inputPhoneNumber,
-                        password: this.inputPincode,
-                    },
-                })
-                .then(() => {
-                    this.$toast.global.success({
-                        message: "เข้าสู่ระบบเรียบร้อยแล้ว",
-                    });
-                    loader.hide();
-                })
-                .catch(() => {
-                    this.password = "";
-                    this.$toast.global.error({
-                        message: "เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบข้อมูล",
-                    });
-                    loader.hide();
-                });
-        },
+      return {
+        success,
+        data,
+      };
     },
+    startTimer() {
+      this.coutDownOtp = 120;
+      var minutes, seconds;
+      var downloadTimer = setInterval(() => {
+        minutes = parseInt(this.coutDownOtp / 60, 10);
+        seconds = parseInt(this.coutDownOtp % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        this.textContent = minutes + ":" + seconds;
+
+        if (--this.coutDownOtp < 0) {
+          clearInterval(downloadTimer);
+        }
+      }, 1000);
+    },
+    calculateAge: function (birthday) {
+      var str = this.$refs.inputBirthday.value.split("/");
+      var date = new Date(str[2] + "-" + str[1] + "-" + str[0]);
+      return str[2] - 543 + "-" + str[1] + "-" + str[0];
+    },
+    formValidation: function (ref) {
+      let error = this.formError.find((item) => item.ref == ref);
+      return error ? error.message : "";
+    },
+    isFormValidation: function (ref) {
+      let error = this.formError.find((item) => item.ref == ref);
+      return error ? true : null;
+    },
+    removeValidation: function (ref) {
+      this.formError = this.formError.filter((item) => item.ref != ref);
+    },
+    nextStepCondition: async function () {
+      if (!this.$refs.checkBoxCondition.checked)
+        this.formError.push({
+          step: 1,
+          ref: "checkBoxCondition",
+          message: "ท่านต้องยอมรับเงื่อนไข",
+        });
+      const formErrorStep = await this.formError.find((item) => item.step == 1);
+      if (!formErrorStep) this.step++;
+    },
+    nextStepInfo: async function (res) {
+      var letters = /^[ก-๙]+$/gi;
+      if (
+        (!this.$refs.inputFname.value || !this.$refs.inputFname.value) &&
+        !this.isFormValidation("inputFname")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "inputFname",
+          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+        });
+      if (
+        (!this.$refs.inputLname.value || !this.$refs.inputLname.value) &&
+        !this.isFormValidation("inputLname")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "inputLname",
+          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+        });
+      if (
+        !this.$refs.selecBankAccounts.value &&
+        !this.isFormValidation("selecBankAccounts")
+      )
+        this.formError.push({
+          step: 2,
+          ref: "selecBankAccounts",
+          message: "กรุณาเลือกบัญชีธนาคารของท่าน",
+        });
+      if (!this.isFormValidation("inputBankAccountNumber")) {
+        if (!this.inputBankAccountNumber) {
+          var indexFormError = this.formError.findIndex(
+            (item) => item.ref == "inputBankAccountNumber"
+          );
+          indexFormError =
+            indexFormError < 0
+              ? (await this.formError.push({
+                  step: 2,
+                  ref: "inputBankAccountNumber",
+                  message: [],
+                })) - 1
+              : indexFormError;
+          this.formError[indexFormError].message.push("ห้ามว่าง");
+        }
+        if (
+          !this.inputBankAccountNumber ||
+          !this.inputBankAccountNumber.match(/^[0-9]+$/)
+        ) {
+          var indexFormError = this.formError.findIndex(
+            (item) => item.ref == "inputBankAccountNumber"
+          );
+          indexFormError =
+            indexFormError < 0
+              ? (await this.formError.push({
+                  step: 2,
+                  ref: "inputBankAccountNumber",
+                  message: [],
+                })) - 1
+              : indexFormError;
+          this.formError[indexFormError].message.push(
+            "เลขบัญชีธนาคารต้องเป็นตัวเลขเท่านั้น"
+          );
+        }
+      }
+
+      const loader = this.$loading.show({
+        "is-full-page": true,
+      });
+      const checkName = await this.$axios.$post("/api/check-from-regis/name", {
+        fname: this.$refs.inputFname.value,
+        lname: this.$refs.inputLname.value,
+      });
+      const checkAccount = await this.$axios.$post(
+        "/api/check-from-regis/account",
+        {
+          bank_account: this.inputBankAccountNumber,
+        }
+      );
+      loader.hide();
+      this.fnerror = "";
+      this.accerror = "";
+      if (!checkName.success) {
+        this.fnerror = checkName.message;
+        this.$toast.global.error({
+          message: checkName.message,
+        });
+        return false;
+      }
+      if (!checkAccount.success) {
+        this.accerror = checkAccount.message;
+        this.$toast.global.error({
+          message: checkAccount.message,
+        });
+        return false;
+      } else {
+        this.step = 4;
+        // const formErrorStep = await this.formError.find(item => item.step == 2);
+        // if (!formErrorStep) this.step = 4;
+      }
+    },
+
+    nextStepPhoneNumber: async function () {
+      //if (!this.isFormValidation("inputPhoneNumber")) {
+      if (!this.inputPhoneNumber) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: "ห้ามว่าง",
+              })) - 1
+            : indexFormError;
+        return false;
+      } else if (this.inputPhoneNumber.length != 10) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรเท่ากับ 10 ตัวอักษร"
+        );
+      } else if (!this.inputPhoneNumber.match(/^[0-9]+$/)) {
+        var indexFormError = this.formError.findIndex(
+          (item) => item.ref == "inputPhoneNumber"
+        );
+        indexFormError =
+          indexFormError < 0
+            ? (await this.formError.push({
+                step: 3,
+                ref: "inputPhoneNumber",
+                message: [],
+              })) - 1
+            : indexFormError;
+        this.formError[indexFormError].message.push(
+          "เบอร์โทรต้องเป็นตัวเลขเท่านั้น"
+        );
+        //}
+      } else {
+        this.show = true;
+        const respone = await this.$axios.$post("/api/line/chk-phone", {
+          tel: this.inputPhoneNumber,
+        });
+        if (respone.success) {
+          this.otp();
+        } else {
+          this.getPin();
+          document.getElementById("step-1").innerHTML = "ยืนยัน Pin";
+          this.formError.push({
+            step: 1,
+            ref: "inputPhoneNumber",
+            message: "",
+          });
+        }
+        this.show = false;
+      }
+    },
+    otp: async function () {
+      const formErrorStep = await this.formError.find(
+        (item) => item.step == 3 && item.ref != "inputOtpNumber"
+      );
+
+      if (!formErrorStep) {
+        this.$refs.inputOtpNumber.focus();
+        if (this.statusOtp) {
+          if (
+            !this.$refs.inputOtpNumber.value &&
+            !this.isFormValidation("inputOtpNumber")
+          )
+            return this.formError.push({
+              step: 3,
+              ref: "inputOtpNumber",
+              message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+            });
+          const checkOtp = await this.$axios.$post("/api/check-otp", {
+            tel: this.$refs.inputPhoneNumber.value,
+            otp: this.$refs.inputOtpNumber.value,
+          });
+          if (checkOtp.success) {
+            this.step++;
+          } else {
+            this.$toast.global.error({
+              message: "กรุณากรอก OTP ให้ถูกต้อง",
+            });
+          }
+        } else {
+          this.getOtp();
+          if (
+            !this.$refs.inputOtpNumber.value &&
+            !this.isFormValidation("inputOtpNumber")
+          )
+            return this.formError.push({
+              step: 3,
+              ref: "inputOtpNumber",
+              message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
+            });
+        }
+      }
+    },
+    getPin: function () {
+      this.$root.$emit("bv::toggle::collapse", "collapse-pin");
+      document.getElementById("send-otp").style.display = "none";
+      document.getElementById("accepted-pin").style.display = "block";
+    },
+    acceptPin: async function () {
+      document.getElementById("accepted-pin").style.display = "none";
+      document.getElementById("chk-pin").style.display = "block";
+      const chkpin = await this.$axios.$post("/api/line/chk-merge-line", {
+        tel: this.inputPhoneNumber,
+        pin: this.inputPinNumber,
+      });
+      if (!chkpin.success) {
+        document.getElementById("accepted-pin").style.display = "block";
+        document.getElementById("chk-pin").style.display = "none";
+        return this.formError.push({
+          step: 3,
+          ref: "inputPinNumber",
+          message: chkpin.message,
+        });
+      } else {
+        document.getElementById("accepted-pin").style.display = "block";
+        document.getElementById("chk-pin").style.display = "none";
+        document.getElementById("accepted-pin").innerHTML =
+          "<span><i class='fa fa-close' style='font-size:1rem;margin:0px auto;color:#000;'></i> " +
+          chkpin.message +
+          "</span>";
+        document.getElementById("verify").innerHTML =
+          "<span class='text-success'><i class='fa fa-close' style='font-size:1rem;margin:0px auto;'></i> " +
+          chkpin.message +
+          "</span>";
+
+        if (chkpin.code == 22) {
+          this.step = 5;
+        } else {
+          const loader = this.$loading.show({
+            "is-full-page": true,
+          });
+          window.location = chkpin.redirect;
+        }
+      }
+    },
+    nextStepPincode: async function () {
+      // if (!(!!this.inputPincode.match(/[a-z]/g) && !!this.inputPincode.match(/[A-Z]/g) && !!this.inputPincode.match(/[0-9]/g) && (this.inputPincode.length >= 6  && this.inputPincode.length <= 12)))  return this.formError.push({step : 4,ref : "inputPincode" , message : "รหัสผ่านต้องมีตั้งแต่ 6-12 ตัว มีภาษาอังกฤษพิมพ์เล็กกับใหญ่และตัวเลข เช่น Abc123"});
+      if (this.inputPincode.length != 4)
+        return this.formError.push({
+          step: 4,
+          ref: "inputPincode",
+          message: "กรุณากรอก PINCODE",
+        });
+      const loaderOne = this.$loading.show({
+        container: this.$refs.formRegisterUser,
+      });
+      const dataCheckFromRegister = await this.checkFromRegister();
+      loaderOne.hide();
+      if (dataCheckFromRegister.success) {
+        const loaderTwo = this.$loading.show({
+          container: this.$refs.formRegisterUser,
+        });
+        //  sennd-regis
+        const dataSendRegister = await this.sendRegister();
+        loaderTwo.hide();
+        if (dataSendRegister.success) {
+          this.$refs.inputUsername.value = dataSendRegister.data.username;
+          this.$refs.inputPassword.value = dataSendRegister.data.password;
+          this.$toast.global.success({
+            message: "สมัครสมาชิกสำเร็จแล้ว",
+          });
+          this.step = 6;
+        } else {
+          this.$toast.global.error({
+            message: dataSendRegister.data,
+          });
+        }
+      } else {
+        let errorFirstname = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "fname"
+        );
+        let errorLastname = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "lname"
+        );
+        let errorBankAccount = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "bank_account"
+        );
+        let errorTel = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "tel"
+        );
+        let errorCode = await dataCheckFromRegister.data.find(
+          (error) => error.filed == "code"
+        );
+
+        if (errorFirstname)
+          this.formError.push({
+            step: 2,
+            ref: "inputFname",
+            message: errorFirstname.error,
+          });
+        if (errorLastname)
+          this.formError.push({
+            step: 2,
+            ref: "inputLname",
+            message: errorLastname.error,
+          });
+        if (errorBankAccount)
+          this.formError.push({
+            step: 2,
+            ref: "inputBankAccountNumber",
+            message: [errorBankAccount.error],
+          });
+        if (errorTel)
+          this.formError.push({
+            step: 3,
+            ref: "inputPhoneNumber",
+            message: [errorTel.error],
+          });
+
+        this.$toast.global.error({
+          message: "กรุณาข้อมูลให้ถูกต้อง",
+        });
+        if (errorCode) {
+          this.step = 3;
+          this.formError.push({
+            step: 3,
+            ref: "inputQrcode",
+            message: [errorCode.error],
+          });
+        }
+
+        if (errorFirstname || errorLastname) return (this.step = 2);
+        if (errorBankAccount) return (this.step = 2);
+        if (errorTel) return (this.step = 3);
+      }
+    },
+    nextStepLogin: async function (event) {
+      const loader = this.$loading.show({
+        "is-full-page": true,
+      });
+      await this.$auth
+        .loginWith("local", {
+          data: {
+            username: this.inputPhoneNumber,
+            password: this.inputPincode,
+          },
+        })
+        .then(() => {
+          this.$toast.global.success({
+            message: "เข้าสู่ระบบเรียบร้อยแล้ว",
+          });
+          loader.hide();
+        })
+        .catch(() => {
+          this.password = "";
+          this.$toast.global.error({
+            message: "เข้าสู่ระบบไม่สำเร็จ กรุณาตรวจสอบข้อมูล",
+          });
+          loader.hide();
+        });
+    },
+  },
 };
 </script>

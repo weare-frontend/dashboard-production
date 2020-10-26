@@ -219,7 +219,7 @@ export default {
         },
       ],
       htmlAttrs: {
-        class: this.getThemeObjectColor + " " + this.getThemeObjectBackground,
+        // class: this.getThemeObjectColor + " " + this.getThemeObjectBackground,
       },
     };
   },
