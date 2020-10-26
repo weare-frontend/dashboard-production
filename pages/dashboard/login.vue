@@ -86,7 +86,7 @@
                 >สมัครสมาชิก</nuxt-link>
                 <a
                   @click="submit"
-                  class="btn-login btn bg-template border-1"
+                  class="btn-login btn border-1"
                
                   id="btn-login"
                 >เข้าสู่ระบบ</a>

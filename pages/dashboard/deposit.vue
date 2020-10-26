@@ -181,7 +181,7 @@
                                                         </h6>
                                                     </div>
                                                     <div class="col-lg-12 text-center">
-                                                        <button class="btn btn-md text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:16px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                        <button class="btn btn-md text-white mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:16px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
                                                     </div>
                                                 </div>
                                             </div>

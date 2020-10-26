@@ -71,7 +71,7 @@
           
           @click="$bvModal.hide('modal-withdraw')"
         >multiply_circle</i>
-        <h6 class="text-center m-0 w-100" style="color:#550202 ;">ยืนยันการถอนเงิน</h6>
+        <h6 class="text-center m-0 w-100 text-dark">ยืนยันการถอนเงิน</h6>
       </template>
       <div class="row">
         <div class="col-12 text-center">
