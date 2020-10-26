@@ -101,48 +101,7 @@
 </div>
 </template>
 
-<style >
-.item-box:hover {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
 
-}.display-none{
-  display: none;
-}
-
-
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-
-}
-.item-text {
-      font-size: 16px;
-  }
-  
-.box:hover {
-  -webkit-transform: scale(1.10, 1.10q);
-  transform: scale(1.10, 1.10);
-}
-
-.box:hover::after {
-    opacity: 1;
-}
-
-.select-open-box{
-  -webkit-transform: scale(1.10, 1.10q);
-  transform: scale(1.10, 1.10);
-}
-</style>
 
 <script>
 import imgItemBoxClose from '~/assets/img/boxs/ChestRibbon_01.png'
@@ -283,3 +242,45 @@ export default {
     }
 }
 </script>
+<style >
+.item-box:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+
+}.display-none{
+  display: none;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+
+}
+.item-text {
+      font-size: 16px;
+  }
+  
+.box:hover {
+  -webkit-transform: scale(1.10, 1.10q);
+  transform: scale(1.10, 1.10);
+}
+
+.box:hover::after {
+    opacity: 1;
+}
+
+.select-open-box{
+  -webkit-transform: scale(1.10, 1.10q);
+  transform: scale(1.10, 1.10);
+}
+</style>

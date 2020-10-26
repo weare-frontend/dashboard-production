@@ -13,7 +13,7 @@
         body-class="bg-body-modal"
       >
         <template v-slot:modal-header="{ close }">
-          <h5 class="text-center w-100" style="color: #550202">
+          <h5 class="text-center text-template w-100">
             แลกเครดิตฟรีเข้าเกม
           </h5>
           <i
@@ -104,8 +104,8 @@
               >multiply_circle</i
             >
             <p
-              class="text-center w-100"
-              style="font-weight: 100; font-size: 18px; color: #550202"
+              class="text-template text-center w-100"
+              style="font-weight: 100; font-size: 18px;"
             >
               ยืนยันแลกเครดิตฟรี
             </p>
@@ -267,7 +267,7 @@
                       >
                         {{ $auth.user.credit_bonus | toCurrencyString }}
                         <button
-                          class="border btn small font-weight-100 text-template size-13 radius-20 py-0 px-1"
+                          class="btn small font-weight-100 text-template size-13 radius-20 py-0 px-1"
                           style="margin-left: 5%"
                           @click="modalExchange"
                         >
@@ -286,13 +286,11 @@
 
     <div class="container-sm" style="max-width: 500px">
       <div
-        class="bg-white row text-center pt-2 mt-3 justify-content-center"
-        style="border-bottom-right-radius: 20px;border-top-right-radius: 20px;margin-right: 10px;padding-left: 20px;filter: drop-shadow(0px 1px 1px #550202 );"
+        class="bg-shadow-menu-right bg-white row text-center pt-2 mt-3 justify-content-center"
       >
         <div
-          class="col-3"
+          class="col-3 bg-shadow"
           id="btn-topup"
-          style="background: linear-gradient(180deg, #ff975600 36%, #f89466  100%);"
         >
           <nuxt-link :to="{ name: 'dashboard-deposit' }">
             <div class="border-0 mb-0">
@@ -432,8 +430,7 @@
 
       </div>
       <div
-        class="bg-white row text-center justify-content-center mt-3 pt-2"
-        style="border-bottom-left-radius: 20px;border-top-left-radius: 20px;margin-left: 5px;padding-right: 25px;filter: drop-shadow(0px 1px 1px #550202);"
+        class="bg-shadow-menu-left bg-white row text-center justify-content-center mt-3 pt-2"
       >
         <div
           class="col-3"
@@ -538,9 +535,8 @@
         </div>
 
         <div
-          class="col-3"
+          class="bg-shadow col-3"
           id="btn-luckywheel"
-          style="background: linear-gradient(180deg, #ff975600 36%, #f89466 100%);"
           v-if="getPromotionObjects[111].status"
         >
           <nuxt-link :to="{ name: 'dashboard-activity-wheel' }">
@@ -696,33 +692,9 @@
 </template>
 
 <style>
-.multiply-circle2 {
-  position: absolute;
-  right: 10px;
-  background-color: #550202;
-  border-radius: 20px;
-}
+
 .carousel-3d-slide {
   border-radius: 20px;
-}
-.multiply-circle {
-  float: right;
-  background-color: #550202;
-  border-radius: 20px;
-}
-
-.bg-button-cc {
-  background: linear-gradient(to top, #A91B1B 0%, #fa9696 100%);
-  
-}
-
-.bg-button-cf {
- background: linear-gradient(to top, #400404  0%, #A91B1B 100%);
-  color: #fff;
-}
-
-.bg-body-modal {
-  background: #400404;
 }
 
 .w-50 {

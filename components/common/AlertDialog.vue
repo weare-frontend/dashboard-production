@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "alert-popup",
+  name: "alert-dialog",
   props: {
     title: {
       trpe: String,

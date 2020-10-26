@@ -21,7 +21,7 @@
             >
               <a @click="getSignature('sexy')" style="cursor: pointer">
                 <img class="w-100" src="~/assets/img/casino/SexyGaming.png" alt="sexy game " />
-                <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+                <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
                 <div class="buttons">
                   <i class="fa fa-sign-in-alt"></i>
                 </div>
@@ -37,7 +37,7 @@
               @click="getSignature('sa')" style="cursor: pointer"
             >
               <img class="w-100" src="~/assets/img/casino/SAgaming.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
                 <!-- <a class="fa fa-gamepad "></a> -->
@@ -53,7 +53,7 @@
               @click="getSignature('pt')" style="cursor: pointer"
             >
               <img class="w-100" src="~/assets/img/casino/PrettyGaming.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
                 <!-- <a class="fa fa-gamepad "></a> -->
@@ -69,7 +69,7 @@
               @click="getSignature('ag')" style="cursor: pointer"
             >
               <img class="w-100" src="~/assets/img/casino/AG.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
                 <!-- <a class="fa fa-gamepad "></a> -->
@@ -85,7 +85,7 @@
               @click="getSignature('dg')" style="cursor: pointer"
             >
               <img class="w-100" src="~/assets/img/casino/DreamGaming.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
               <div class="buttons">
                 <i class="fa fa-sign-in-alt"></i>
                 <a class="fa fa-gamepad "></a>

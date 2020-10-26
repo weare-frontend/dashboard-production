@@ -269,7 +269,7 @@
                         <div class="form-group float-label active">
                             <div class="input-group mb-3" style="border-radius: 25px; ">
                                 <input type="text" class="form-controls text-dark px-3 bg-white" style="border-radius: 25px; height:50px;" ref="inputUsername" @click="copyAffiliate('inputUsername')" readonly />
-                                <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                                <div class="input-group-append btn-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                                     <button class="btn text-white" type="button" @click="copyAffiliate('inputUsername')" style="color:#fff;">คัดลอก</button>
                                 </div>
                             </div>
@@ -280,7 +280,7 @@
                         <div class="form-group float-label active">
                             <div class="input-group mb-3" style="border-radius: 25px; ">
                                 <input type="text" class="form-controls text-dark px-3 bg-white" style="border-radius: 25px; height:50px;" ref="inputPassword" @click="copyAffiliate('inputPassword')" readonly />
-                                <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                                <div class="input-group-append btn-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                                     <button class="btn text-white" type="button" @click="copyAffiliate('inputPassword')" style="color:#fff;">คัดลอก</button>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@
                         <div class="form-group float-label active">
                             <div class="input-group mb-3" style="border-radius: 25px; ">
                                 <input type="text" class="form-controls text-dark px-3 bg-white" style="border-radius: 25px; height:50px;" ref="inputPincode" v-model="inputPincode" @click="copyAffiliate('inputPincode')" readonly />
-                                <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                                <div class="input-group-append btn-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                                     <button class="btn text-white" type="button" @click="copyAffiliate('inputPincode')" style="color:#fff;">คัดลอก</button>
                                 </div>
                             </div>
@@ -433,10 +433,7 @@
 </template>
 
 <style scoped>
-.bg-copy {
-    background: linear-gradient(to top, #F44336 0%, #a31d03 100%);
-    filter: drop-shadow(2px 2px 4px black);
-}
+
 
 .form-group h6 {
     margin-top: -10px;

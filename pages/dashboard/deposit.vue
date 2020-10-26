@@ -33,27 +33,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row text-center justify-content-center" v-if="bankArray.length">
-                        <h6 class="subtitle" style="margin-top: 15px; margin-bottom: 5px;">
-                            <u style="color: #000;">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
+                    <div class="text-center justify-content-center" v-if="bankArray.length">
+                        <h6 class="subtitle mt-4">
+                            <u class="text-dark">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
                             <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมส์อัตโนมัติ ภายในเวลา 1-2 นาที</small>
                         </h6>
                         <div class="list-group list-group-flush" v-if="bankArray.length" style="border-radius: 10px;border: solid 1px #fff;background: rgba(0,0,0,0.2);">
                             <a class="list-group-item border-top text-dark click-active" style="border-radius: 10px;background: rgba(0,0,0,0);" @click="copyBank(item.bank_account)" v-for="(item, index) in bankArray" :key="index">
                                 <div class="row align-items-center">
                                     <div class="col-2 align-self-center">
-                                        <img style="width: 50px; border-radius:10px;" :src="require('~/assets/img/thaibanks/'+ item.shortname +'.png')" alt />
+                                        <img class="avatar-50 rounded" :src="require('~/assets/img/thaibanks/'+ item.shortname +'.png')" alt />
                                     </div>
                                     <div class="col-7 text-left" style="line-height: .8em; font-weight:100;">
-                                        <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">เลขบัญชี :</div>
-                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{item.bank_account}}</div>
-                                        <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;margin:10px 0px;">ชื่อบัญชี :</div>
-                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{ item.bank_fullname }}</div>
-                                        <div class="m-0 small text-dark text-right" style="width:30%;float:left;font-size:10px;">ธนาคาร :</div>
-                                        <div class="text-left text-template" style="width:70%;float:right;font-size:11px;padding-left:2px;">{{ item.name }}</div>
+                                        <div class="m-0 small text-dark text-right font-bank">เลขบัญชี :</div>
+                                        <div class="text-left text-template font-bank2">{{item.bank_account}}</div>
+                                        <div class="m-0 small text-dark text-right font-bank">ชื่อบัญชี :</div>
+                                        <div class="text-left text-template font-bank2">{{ item.bank_fullname }}</div>
+                                        <div class="m-0 small text-dark text-right font-bank">ธนาคาร :</div>
+                                        <div class="text-left text-template font-bank2">{{ item.name }}</div>
                                     </div>
                                     <div class="col-3 px-0 pr-2">
-                                        <p style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;color:#020202;background-color:#F44336;">
+                                        <p class="bg-copy-bank" style="line-height: .8em; white-space: nowrap;padding:6px;border:solid 1px #fff;border-radius:6px;">
                                             คัดลอก
                                             <br />
                                             <small>เลขบัญชี</small>
@@ -173,13 +173,13 @@
                                                     </h6>
                                                 </div>
                                                 <div v-if="item.qrcode_log.length!=0">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12">
                                                         <h6 class="text-template text-center" style="font-weight: 100;white-space: nowrap;">
                                                             พร้อมเพย์: <span class="text-center text-template">{{item.prompt_pay}}</span>
                                                         </h6>
                                                     </div>
-                                                    <div class="col-lg-6 text-center">
-                                                        <button class="btn btn-sm text-template mt-1 btn-clipboard" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
+                                                    <div class="col-lg-12 text-center">
+                                                        <button class="btn-clipboard btn btn-sm text-white mt-1 btn-clipboar" style="border:solid 1px #ccc; margin:6px 5px; font-size:12px; border-radius: 15px;" type="button" @click="copyPrompt(item.prompt_pay)">คัดลอก พร้อมเพย์</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,7 +217,7 @@
                                     <div class="row justify-content-center">
                                         <div id="app" v-if="item.qrcode_log.length!=0" class="col-8 text-center">
                                             <b-card no-body class="text-center">
-                                                <div class="bg-light">
+                                                <div class="bg-white">
 
                                                     <b-img :src="require('@/assets/img/thaibanks/pp.png')" style="max-width: 230px;width: 100%; margin-bottom: -10px;"></b-img>
                                                     <promptpay-qr :id="item.prompt_pay" :amount=" parseFloat(item.qrcode_log.money)"></promptpay-qr>
@@ -294,195 +294,28 @@
             </div>
         </div>
     </b-modal>
+    <!-- Dialog -->
+    <confirm-dialog 
+        title="แจ้งเตือน" 
+        acceptText="ยืนยัน"
+        cancelText="ยกเลิก"
+        :active="cancelTopupActive" 
+        @hide="hideCancelTopupDialog" 
+        @submit="onSubmitCancelTopup"
+    > 
+    <div class="text-center py-4">
+         <p class="text-white">คุณต้องการยกเลิกการเติมเงิน ?</p>
+    </div>
+   
+    </confirm-dialog>
 </div>
 </template>
 
-<style scoped>
-.border .border-green{
-   border-color: #259690
-}
-.btn-topup {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 0px;
-    border-top-left-radius: 0px;
-    color: #ccc;
-    background-color: #550202 ;
-    width: 100%;
-}
 
-.text-yellow {
-    color: #ffc107;
-}
-
-.click-active:active {
-    background-color: #dadada;
-}
-
-.bg-rgba {
-    background: rgba(0, 0, 0.4);
-}
-
-*,
-*:after,
-*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.btn-ocean {
-     background: linear-gradient(0deg,#410c0c 0,#991515);
-    filter: drop-shadow(3px 3px 1px black);
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-body {
-    /* font-family: sans-serif; */
-    background: #f6f9fa;
-}
-
-h1 {
-    color: #ccc;
-    text-align: center;
-}
-
-a {
-    color: #ccc;
-    text-decoration: none;
-    outline: none;
-}
-
-/*Fun begins*/
-.tab_container {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: ๅ0px;
-    position: relative;
-}
-
-input,
-section {
-    clear: both;
-    padding-top: 10px;
-    display: none;
-}
-
-label {
-    font-weight: 100;
-    font-size: 18px;
-    display: block;
-    float: left;
-    width: 20%;
-    padding: 0.5em 4px;
-    color: #050505;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    background: #fff;
-    /* background-image: linear-gradient(rgb(0 0 0), rgb(56 56 56), rgb(0, 0, 0)); */
-    list-style-type: circle;
-
-    font-weight: 400;
-    border-radius: 10px;
-    filter: drop-shadow(0px 2px 2px black);
-}
-
-#tab1:checked~#content1,
-#tab2:checked~#content2,
-#tab3:checked~#content3,
-#tab4:checked~#content4,
-#tab5:checked~#content5 {
-    display: block;
-    padding: 0 20px;
-    background: rgba(0, 0, 0, 0%);
-    color: #999;
-}
-
-.tab_container .tab-content p,
-.tab_container .tab-content h3 {
-    -webkit-animation: fadeInScale 0.7s ease-in-out;
-    -moz-animation: fadeInScale 0.7s ease-in-out;
-    animation: fadeInScale 0.7s ease-in-out;
-}
-
-.tab_container .tab-content h3 {
-    text-align: center;
-}
-
-.tab_container [id^="tab"]:checked+label {
-background: linear-gradient(to top, #400404 0%, #A91B1B 100%);
-    background-color: #259690;
-    color: white;
-    font-weight: 400;
-    border-radius: 10px;
-    filter: drop-shadow(0px 2px 2px black);
-}
-
-.tab_container [id^="tab"]:checked+label .fa {
-    color: #e00;
-}
-
-label .fa {
-    font-size: 1.3em;
-    margin: 0 0.4em 0 0;
-}
-
-.btn-clipboard {
-    background:linear-gradient(to top,#F44336 0%, #a31d03 100%);
-    color: white;
-}
-
-/*Media query*/
-@media only screen and (max-width: 930px) {
-    label span {
-        font-size: 14px;
-    }
-
-    label .fa {
-        font-size: 14px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    label span {
-        display: none;
-    }
-
-    label .fa {
-        font-size: 16px;
-    }
-
-    .tab_container {
-        width: 98%;
-    }
-}
-
-/*Content Animation*/
-@keyframes fadeInScale {
-    0% {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-</style>
 
 <script>
 import Info from "~/components/Info.vue";
+import ConfirmDialog from "~/components/common/ConfirmDialog.vue";
 export default {
     head() {
         return {
@@ -516,9 +349,12 @@ export default {
             ],
             items: [],
         },
+        cancelTopupActive: false,
+        promptPayId: null
     }),
     components: {
         "page-info": Info,
+        "confirm-dialog": ConfirmDialog,
     },
     asyncData: async function ({
         $axios
@@ -535,6 +371,13 @@ export default {
         this.getHistory();
     },
     methods: {
+    hideCancelTopupDialog(val) {
+        this.cancelTopupActive = val
+    },
+    onSubmitCancelTopup() {
+        this.destroyLog(this.promptPayId);
+        this.cancelTopupActive = false
+    },
         copyAffiliate: function (target) {
             this.$refs[target].select();
             document.execCommand("copy");
@@ -583,28 +426,9 @@ export default {
             this.loading = false
         },
         async showMsgBox(id) {
-            this.$bvModal
-                .msgBoxConfirm("คุณต้องการยกเลิกการเติมเงิน ?", {
-                    title: "แจ้งเตือน",
-                    headerTextVariant: "template",
-                    bodyTextVariant: "template",
-                    size: "md",
-                    buttonSize: "md",
-                    okVariant: "danger",
-                    okTitle: "ใช่",
-                    cancelTitle: "ไม่",
-                    footerClass: "p-2",
-                    hideHeaderClose: false,
-                    centered: true,
-                })
-                .then((value) => {
-                    if (value) {
-                        this.destroyLog(id);
-                    }
-                })
-                .catch((err) => {
-                    // An error occurred
-                });
+            this.cancelTopupActive = true
+            this.promptPayId = id
+            
         },
         copyPrompt: async function (text) {
             var textInput = document.createElement("input");
@@ -811,6 +635,184 @@ export default {
     },
 };
 </script>
+<style scoped>
+
+.font-bank2{
+    width:70%;
+    float:right;
+    font-size:11px;
+    padding-left:2px;
+}
+.font-bank{
+    width:30%;
+    float:left;
+    font-size:10px;
+}
+.border .border-green{
+   border-color: #259690
+}
+
+
+.text-yellow {
+    color: #ffc107;
+}
+
+.click-active:active {
+    background-color: #dadada;
+}
+
+.bg-rgba {
+    background: rgba(0, 0, 0.4);
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn-ocean {
+     background: linear-gradient(0deg,#410c0c 0,#991515);
+    filter: drop-shadow(3px 3px 1px black);
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+body {
+    /* font-family: sans-serif; */
+    background: #f6f9fa;
+}
+
+h1 {
+    color: #ccc;
+    text-align: center;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+    outline: none;
+}
+
+/*Fun begins*/
+.tab_container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: ๅ0px;
+    position: relative;
+}
+
+input,
+section {
+    clear: both;
+    padding-top: 10px;
+    display: none;
+}
+
+label {
+    font-weight: 100;
+    font-size: 18px;
+    display: block;
+    float: left;
+    width: 20%;
+    padding: 0.5em 4px;
+    color: #050505;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    background: #fff;
+    /* background-image: linear-gradient(rgb(0 0 0), rgb(56 56 56), rgb(0, 0, 0)); */
+    list-style-type: circle;
+
+    font-weight: 400;
+    border-radius: 10px;
+    filter: drop-shadow(0px 2px 2px black);
+}
+
+#tab1:checked~#content1,
+#tab2:checked~#content2,
+#tab3:checked~#content3,
+#tab4:checked~#content4,
+#tab5:checked~#content5 {
+    display: block;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0%);
+    color: #999;
+}
+
+.tab_container .tab-content p,
+.tab_container .tab-content h3 {
+    -webkit-animation: fadeInScale 0.7s ease-in-out;
+    -moz-animation: fadeInScale 0.7s ease-in-out;
+    animation: fadeInScale 0.7s ease-in-out;
+}
+
+.tab_container .tab-content h3 {
+    text-align: center;
+}
+
+
+
+.tab_container [id^="tab"]:checked+label .fa {
+    color: #e00;
+}
+
+label .fa {
+    font-size: 1.3em;
+    margin: 0 0.4em 0 0;
+}
+
+
+
+/*Media query*/
+@media only screen and (max-width: 930px) {
+    label span {
+        font-size: 14px;
+    }
+
+    label .fa {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    label span {
+        display: none;
+    }
+
+    label .fa {
+        font-size: 16px;
+    }
+
+    .tab_container {
+        width: 98%;
+    }
+}
+
+/*Content Animation*/
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+</style>
+
 <style>
 .note-info {
   color: #fff;
@@ -841,15 +843,7 @@ input.form-controls {
   width: 100%;
   border-radius: 5px;
 }
-.btn-money{
-    width:30%; 
-    /* filter:drop-shadow(0px 1px 2px #555);  */
-    margin:2px 4px;
-    border-radius: 5px;
-    background: linear-gradient(to bottom, #ffffff80 0%, #00000061 100%);
-    background-color: #550202 ;
-    padding: 2px;
-}
+
 /* .btn-money button { background: #fff; } */
 
 </style>

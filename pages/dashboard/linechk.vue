@@ -88,7 +88,7 @@
                                 <div class="form-group float-label active">
                                     <div class="input-group mb-3" style="border-radius: 25px; ">
                                         <input type="text" class="form-controls text-dark px-3 bg-white" style="border-radius: 25px; height:50px;" ref="inputPhoneNumber" @click="copyClipboard('inputPhoneNumber')" :value="inputPhoneNumber" readonly />
-                                        <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                                        <div class="input-group-append btn-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                                             <button id="cbctel1" class="btn text-white" type="button" @click="copyClipboard('inputPhoneNumber')" style="color:#fff;">คัดลอก</button>
                                             <button id="cbctel2" class="btn text-success display-none" type="button" style="color:#fff;">คัดลอกแล้ว</button>
                                         </div>
@@ -127,7 +127,7 @@
                                 <div class="form-group float-label active">
                                     <div class="input-group mb-3" style="border-radius: 25px; ">
                                         <input type="text" class="form-controls text-dark px-3 bg-white" style="border-radius: 25px; height:50px;" ref="inputPincodeA" :value="inputPincode" @click="copyPin('inputPincodeA')" readonly />
-                                        <div class="input-group-append bg-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
+                                        <div class="input-group-append btn-copy px-2" style="border-radius: 25px; position: absolute; right:10px;margin-top:5px;">
                                             <button class="btn text-white" type="button" @click="copyPin('inputPincodeA')" style="color:#fff;" id="cbc1">คัดลอก</button>
                                             <button class="btn text-success display-none" type="button" id="cbc2" style="color:#fff;">คัดลอกแล้ว</button>
                                         </div>
@@ -608,10 +608,7 @@ export default {
 </script>
 
 <style>
-.bg-copy {
-  background:linear-gradient(to top,#F44336 0%, #a31d03 100%);
-    filter: drop-shadow(2px 2px 4px black);
-}
+
 #cbctel2 {
     display: none;
 }

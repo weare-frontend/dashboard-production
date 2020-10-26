@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: "comfirm-popup",
+  name: "confirm-dialog",
   props: {
     title: {
       trpe: String,

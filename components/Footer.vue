@@ -275,10 +275,7 @@ export default {
   animation-duration: 1.4s; */
 }
 
-.footer a.menu-btn-center {
-    background: #fff;
-    filter: drop-shadow(0px 3px 1px #550202);
-}
+
 
 .module {
     /* background: rgba(0, 0, 0, 0.5); */

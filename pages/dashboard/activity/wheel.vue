@@ -2,7 +2,7 @@
   <div>
     <div class="container" style="margin-top:-170px;">
  <div class="col-4 text-left">
-       <nuxt-link :to="{name:'dashboard-activity'}">
+       <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
@@ -61,15 +61,13 @@
           <button
             :disabled="this.isSpin"
             @click="spinLuckyWheel"
-            style="border-radius: 5px;"
-            class="btn bg-template btn-sm mb-2 shadow btn-block"
+            class="btn bg-template rounded btn-sm mb-2 shadow btn-block"
             id="isSpin"
             v-else
           >{{isSpinText}}</button>
           <button
             :disabled="this.isSpin"
-            style="border-radius: 5px;"
-            class="btn bg-template btn-lg mb-2 shadow btn-block"
+            class="btn bg-template rounded btn-sm mb-2 shadow btn-block"
             id="isSpindisable"
           >กรุณารอผล..</button>
         </div>
@@ -118,68 +116,32 @@
       </div>
       <div class="row py-5"></div>
       <!-- page content ends -->
+
+      <!-- Dialog -->
+    <alert-dialog 
+        title="รางวัลวงล้อ" 
+        acceptText="ยืนยัน"
+        cancelText="ยกเลิก"
+        :active="wheelActive" 
+        @hide="hideWheelDialog" 
+        @submit="onSubmitWheelDialog"
+    > 
+    <div class="text-center py-4">
+        <vnodes :vnodes="messageVNode"/>
     </div>
-  </div>
+   
+    </alert-dialog>
+    </div>
+    
+  
 </template>
 
-<style scoped>
-.btn-ocean {
-  width: 100%;
-  border-radius: 5px;
-  background-image: linear-gradient(
-    rgb(191, 191, 191),
-    rgb(255, 255, 255),
-    rgb(220, 220, 220)
-  );
-}
-.winwheel-main {
-  background-size: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  max-width: 500px;
-  width: 100%;
-  padding: 30px;
-  -webkit-animation-duration: 1.4s; /* Safari 4.0 - 8.0 */
-  -webkit-animation: fade-img 1.4s infinite;
-  animation: fade-img 1.4s infinite;
-  animation-duration: 1.4s;
-}
-.winwheel-item {
-  max-width: 500px;
-  width: 100%;
-}
 
-@keyframes fade-img {
-  0% {
-    background-image: url("~assets/img/winwheel/background-1.png");
-  }
-  50% {
-    background-image: url("~assets/img/winwheel/background-2.png");
-  }
-  100% {
-    background-image: url("~assets/img/winwheel/background-1.png");
-  }
-}
-@keyframes lucky-light-bg {
-  0% {
-    background-image: url("https://i.imgur.com/sn7j1ye.png");
-  }
-  50% {
-    background-image: url("https://i.imgur.com/qCfDNDX.png");
-  }
-  100% {
-    background-image: url("https://i.imgur.com/sn7j1ye.png");
-  }
-}
-#isSpindisable {
-  display: none;
-  margin-top: -2px;
-}
-</style>
 
 <script>
+import AlertDialog from "~/components/common/AlertDialog.vue";
 import importAudio from "~/assets/audio/tick.mp3";
+// import AlertDialogVue from '../../../components/common/AlertDialog.vue';
 export default {
   head() {
     return {
@@ -189,7 +151,16 @@ export default {
   data: () => ({
     theWheel: null,
     isSpin: false,
+    wheelActive:false,
+    messageVNode: null
   }),
+  components:{
+      "alert-dialog":AlertDialog,
+        Vnodes: {
+          functional: true,
+          render: (h, ctx) => ctx.props.vnodes
+        }
+  },
   computed: {
     isSpinText: function () {
       return this.isSpin ? "กำลังเริ่มหมุน...." : "เริ่มหมุน";
@@ -246,31 +217,42 @@ export default {
     });
   },
   methods: {
+    hideWheelDialog(val) {
+        this.wheelActive = val
+    },
+    onSubmitWheelDialog() {
+        this.getHistory(this.getHistory);
+        this.wheelActive = false
+    },
     alertPrize: function (indicatedSegment) {
       const h = this.$createElement;
       const messageVNode = h("div", { class: ["text-center"] }, [
         h("img", {
           attrs: { class: ["img-fluid mb-3"], src: [indicatedSegment.image] },
         }),
-        h("h5", { class: ["text-center"] }, [
+        h("h5", { class: ["text-center text-white"] }, [
           `คุณที่ได้รับรางวัล : ${indicatedSegment.text}`,
         ]),
       ]);
-      this.$bvModal
-        .msgBoxConfirm(messageVNode, {
-          title: "แจ้งเตือน",
-          size: "md",
-          buttonSize: "md",
-          okVariant: "success",
-          okTitle: "ยืนยัน",
-          cancelTitle: "ปิด",
-          footerClass: "p-2",
-          hideHeaderClose: false,
-          centered: true,
-        })
-        .then(() => {});
-      this.isSpin = false;
-      this.getHistory();
+        this.wheelActive = true
+        this.isSpin = false
+        this.getHistory()
+        this.messageVNode = messageVNode
+      // this.$bvModal
+      //   .msgBoxConfirm(messageVNode, {
+      //     title: "แจ้งเตือน",
+      //     size: "md",
+      //     buttonSize: "md",
+      //     okVariant: "success",
+      //     okTitle: "ยืนยัน",
+      //     cancelTitle: "ปิด",
+      //     footerClass: "p-2",
+      //     hideHeaderClose: false,
+      //     centered: true,
+      //   })
+      //   .then(() => {});
+      // this.isSpin = false;
+      // this.getHistory();
     },
     playSound: function () {
       let audio = new Audio(importAudio);
@@ -316,3 +298,58 @@ export default {
   },
 };
 </script>
+<style scoped>
+.btn-ocean {
+  width: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    rgb(191, 191, 191),
+    rgb(255, 255, 255),
+    rgb(220, 220, 220)
+  );
+}
+.winwheel-main {
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  padding: 30px;
+  -webkit-animation-duration: 1.4s; /* Safari 4.0 - 8.0 */
+  -webkit-animation: fade-img 1.4s infinite;
+  animation: fade-img 1.4s infinite;
+  animation-duration: 1.4s;
+}
+.winwheel-item {
+  max-width: 500px;
+  width: 100%;
+}
+
+@keyframes fade-img {
+  0% {
+    background-image: url("~assets/img/winwheel/background-1.png");
+  }
+  50% {
+    background-image: url("~assets/img/winwheel/background-2.png");
+  }
+  100% {
+    background-image: url("~assets/img/winwheel/background-1.png");
+  }
+}
+@keyframes lucky-light-bg {
+  0% {
+    background-image: url("https://i.imgur.com/sn7j1ye.png");
+  }
+  50% {
+    background-image: url("https://i.imgur.com/qCfDNDX.png");
+  }
+  100% {
+    background-image: url("https://i.imgur.com/sn7j1ye.png");
+  }
+}
+#isSpindisable {
+  display: none;
+  margin-top: -2px;
+}
+</style>

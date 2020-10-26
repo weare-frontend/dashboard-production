@@ -122,29 +122,27 @@
             <div id="menu1" class="tab-pane fade"></div>
         </div>
     </div>
+     <!-- Dialog -->
+    <confirm-dialog 
+        title="ยืนยันการแลกรางวัล" 
+        acceptText="ยืนยัน"
+        cancelText="ยกเลิก"
+        :active="pointActive" 
+        @hide="hidePointDialog" 
+        @submit="onSubmitPoint"
+    > 
+    <div class="text-center py-4">
+          <vnodes :vnodes="messageVNode"/>
+    </div>
+   
+    </confirm-dialog>
 </div>
 </template>
 
-<style scoped>
-.bg-input{
-  background-color: white;
-  padding: 0px 15px;
-  color: #550202;
-}
-.nav-tabs .nav-link {
-    margin-bottom: -1px;
-    width: 50%;
-    /* padding: 17px 19px 29px 57px; */
-    border: 0;
-    /* border-radius: 15px 15px 0 0; */
-}
 
-.pointer {
-    cursor: pointer;
-}
-</style>
 
 <script>
+import ConfirmDialog from "~/components/common/ConfirmDialog.vue"
 export default {
     head() {
         return {
@@ -154,7 +152,16 @@ export default {
     data: () => ({
         currentPage: 1,
         perPage: 10,
+        pointActive:false,
+        messageVNode: null
     }),
+    components: {
+        "confirm-dialog": ConfirmDialog,
+          Vnodes: {
+          functional: true,
+          render: (h, ctx) => ctx.props.vnodes
+        }
+    },
     computed: {
         showAPI: function () {
             return this.getSettingObject.share_reward ?
@@ -259,11 +266,18 @@ export default {
         };
     },
     methods: {
+        hidePointDialog(val) {
+        this.pointActive = val
+    },
+    onSubmitPoint() {
+        this.acceptReward(this.id);
+        this.pointActive = false
+    },
         boxConfirm: function (id) {
             var item = this.itemArray.find((item) => item.id == id);
             const h = this.$createElement;
             const messageVNode = h("div", {
-                class: ["text-center"]
+                class: ["text-center text-white"]
             }, [
                 h("img", {
                     attrs: {
@@ -275,26 +289,29 @@ export default {
                     class: ["text-center"]
                 }, [`ชื่อของรางวัล ${item.detail}`]),
                 h("p", {
-                    class: ["text-center text-template"]
+                    class: ["text-center text-white"]
                 }, [
                     `ใช้ทั้งหมด ${item.reward_point} คะแนน`,
                 ]),
             ]);
-            this.$bvModal
-                .msgBoxConfirm(messageVNode, {
-                    title: "โปรดยืนยันว่าคุณต้องการแลกของรางวัล",
-                    size: "md",
-                    buttonSize: "md",
-                    okVariant: "success",
-                    okTitle: "ยืนยัน",
-                    cancelTitle: "ยกเลิก",
-                    footerClass: "p-2",
-                    hideHeaderClose: false,
-                    centered: true,
-                })
-                .then((value) => {
-                    if (value) this.acceptReward(id);
-                });
+            this.pointActive = true
+            this.id = id
+            this.messageVNode = messageVNode
+            // this.$bvModal
+            //     .msgBoxConfirm(messageVNode, {
+            //         title: "โปรดยืนยันว่าคุณต้องการแลกของรางวัล",
+            //         size: "md",
+            //         buttonSize: "md",
+            //         okVariant: "success",
+            //         okTitle: "ยืนยัน",
+            //         cancelTitle: "ยกเลิก",
+            //         footerClass: "p-2",
+            //         hideHeaderClose: false,
+            //         centered: true,
+            //     })
+            //     .then((value) => {
+            //         if (value) this.acceptReward(id);
+            //     });
         },
         searchDetaiItemArray: async function () {
             const loader = this.$loading.show({
@@ -377,3 +394,21 @@ export default {
     },
 };
 </script>
+<style scoped>
+.bg-input{
+  background-color: white;
+  padding: 0px 15px;
+  color: #550202;
+}
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    width: 50%;
+    /* padding: 17px 19px 29px 57px; */
+    border: 0;
+    /* border-radius: 15px 15px 0 0; */
+}
+
+.pointer {
+    cursor: pointer;
+}
+</style>
