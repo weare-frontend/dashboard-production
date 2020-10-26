@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-        <nuxt-link :to="{name:'dashboard'}">
+        <nuxt-link :to="{name:'dashboard'}" class="text-info">
           <i class="fa fa-arrow-circle-left"></i> กลับ
         </nuxt-link>
         <small class="m-2 text-white">

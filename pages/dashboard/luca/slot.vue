@@ -1,11 +1,11 @@
 <template>
-  <div class="container" style="z-index: 999;position: absolute;">
+  <div class="container" style="z-index: 99;position: relative;">
     <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-         <nuxt-link :to="{name:'luca'}">
+         <nuxt-link to="../luca" class="text-info">
         <i class="fa fa-arrow-circle-left"></i> กลับ</nuxt-link>
         <small class="m-2 text-white">
-           <nuxt-link :to="{name:'luca'}">
+           <nuxt-link to="../luca">
           หมวดเกม</nuxt-link> / <u>สล๊อต</u>
         </small>
       </div>
