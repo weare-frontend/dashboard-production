@@ -20,9 +20,9 @@
         <div class="col-12 col-md-6 px-3 pt-2">
             <!-- ----------------START @STEP 1 ----------------  -->
             <form class="form-signin mt-1 animated fadeIn" v-show="step == 1">
-                <h4 class="text-center text-white font-weight-100">
+                <h5 class="text-center text-white font-weight-100">
                     เงื่อนไขและข้อตกลงในการสมัคร
-                </h4>
+                </h5>
                 <div class="row card bg-white px-2 py-4">
                     <div class="col-12 text-template">
                         <p class="font-weight-100 size-16">
@@ -78,7 +78,7 @@
                         </b-collapse>
                     </div>
                     <div class="col-12 mt-3" id="send-otp">
-                        <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
+                        <b-overlay class="pt-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
                             <a id="step-1" class="btn btn-md shadow btn-block btn-theme" @click="nextStepPhoneNumber">รับ OTP</a>
                         </b-overlay>
                     </div>
@@ -549,14 +549,7 @@ select.form-controls {
     display: none;
 }
 
-.btn-theme {
-    color: #FFF;
-    font-size: 26px;
-    border-radius: 30px;
-    font-weight: 100;
-    background: linear-gradient(to top, #410c0c 0%, #991515 100%);
-    filter: drop-shadow(1px 1px 1px white)
-}
+
 
 .bg-theme {
     width: 100%;
@@ -580,7 +573,7 @@ select.form-controls {
 
 .img-logo {
     width: auto;
-    height: 100px;
+    height: 80px;
     filter: drop-shadow(0px 1px 1px black);
 }
 
@@ -713,21 +706,6 @@ html {
     font-family: Trebuchet, Arial, sans-serif;
     font-weight: bold;
     box-sizing: border-box;
-}
-
-.onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
-    background: linear-gradient(90deg, hsl(0deg 49% 61% / 50%) 0, rgb(0 0 0 / 38%));
-    background-color: #4b0404;
-}
-
-.onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
-    background-color: #eeeeee;
-    color: #999999;
-    text-align: right;
 }
 
 .onoffswitch-switch {

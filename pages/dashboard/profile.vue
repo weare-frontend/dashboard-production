@@ -90,7 +90,7 @@
           <small class="text-right text-template font-weight-100">{{$auth.user.fullname}}</small>
         </div>
         <div class="col-4">
-          <nuxt-link :to="{name:'dashboard-verified'}" class="btn-ocean btn w-100 text-white px-0" style="border-radius: 20px;">
+          <nuxt-link :to="{name:'dashboard-verified'}" class="btn-theme btn w-100 text-white px-0" style="border-radius: 20px;">
             <small>ยืนยันข้อมูล</small>
           </nuxt-link>
         </div>
@@ -525,12 +525,7 @@ export default {
   position: absolute;
 }
 
-.btn-ocean {
-  width: 100%;
 
- background: linear-gradient(0deg,#410c0c 0,#991515);
-    filter: drop-shadow(3px 3px 1px black);
-}
 
 button.form-controles,
 input.form-controles {
@@ -606,16 +601,6 @@ input.form-controles {
   /* font-family: Trebuchet, Arial, sans-serif; */
   font-weight: bold;
   box-sizing: border-box;
-}
-.input-prepend{
-  background: linear-gradient(90deg,hsl(0deg 49% 61% / 50%) 0,rgb(0 0 0 / 38%));
-  background-color: #4b0404;
-    color: #ffffff;
-  margin:2px;
-  font-size: 12px;
-  border-radius: 4px;
-  padding:8px 10px;
-  font-weight: 100;;
 }
 .onoffswitch-inner:before {
   content: "NO";

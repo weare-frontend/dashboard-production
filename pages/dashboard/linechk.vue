@@ -10,7 +10,8 @@
     <div
       class="row no-gutters login-row justify-content-center bg-template pb-5"
       ref="formRegisterUser"
-      style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;height:110vh;overflow: overlay;">
+      style="width: 100%;position:absolute; margin-right: 0px; margin-left: 0px; margin-top: -95px;border-top-left-radius:70px;border-top-right-radius: 70px;height:110vh;overflow: overlay;"
+      >
         <div class="container pt-5">
             <div class="row" id="successTel">
                <h4 class="text-center text-white font-weight-100">
@@ -45,8 +46,8 @@
                 <div class="col-12" id="acceptOtpBtn">
                     <b-overlay :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
                         <div class="form-group mt-2">
-                            <b-button class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;" size="md" id="send-otp" @click="acceptResearch">ยืนยันข้อมูล</b-button>
-                            <b-button class="btn btn-md bg-gradaint shadow btn-block text-white font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;" size="md" id="accepted-otp" @click="acceptOtp">ยืนยัน OTP</b-button>
+                            <b-button class="btn btn-md btn-theme shadow btn-block text-white font-weight-100"  size="md" id="send-otp" @click="acceptResearch">ยืนยันข้อมูล</b-button>
+                            <b-button class="btn btn-md btn-theme shadow btn-block text-white font-weight-100"  size="md" id="accepted-otp" @click="acceptOtp">ยืนยัน OTP</b-button>
                         </div>
                     </b-overlay>
                 </div>
@@ -68,7 +69,7 @@
                 </div>
                 <div class="col-12" id="settingpinBtn">
                     <div class="form-group mt-4">
-                        <b-button class="btn btn-md display-none bg-gradaint shadow btn-block text-white font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;" size="md" id="setting-pin" @click="acceptSettingPin">ยืนยัน PIN</b-button>
+                        <b-button class="btn btn-md display-none btn-theme shadow btn-block text-white font-weight-100" size="md" id="setting-pin" @click="acceptSettingPin">ยืนยัน PIN</b-button>
                     </div>
                 </div>
                 <!-- แสดงผล pin ที่ลูกค้าตั้ง -->
@@ -93,33 +94,6 @@
                                             <button id="cbctel2" class="btn text-success display-none" type="button" style="color:#fff;">คัดลอกแล้ว</button>
                                         </div>
                                     </div>
-                                    <!-- <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-controls form-control-lg bg-white px-4 text-dark"
-                        style="border-radius: 25px;"
-                        ref="inputPhoneNumber"
-                        :value="inputPhoneNumber"
-                        readonly
-                      />
-                      <div class="input-group-append">
-                        <button
-                          id="cbctel1"
-                          class="btn btn-white"
-                          type="button"
-                          @click="copyClipboard('inputPhoneNumber')"
-                          style="color:#fff;"
-                        >คัดลอก</button>
-                        <button
-                          id="cbctel2"
-                          class="btn btn-white"
-                          type="button"
-                          style="color:#093; font-weight:100;"
-                        >
-                          <i class="fa fa-check">คัดลอก</i>
-                        </button>
-                      </div>
-                    </div> -->
                                     <label class="form-control-label text-white" style="margin-top: -24px;margin-left: -15px; background: rgb(42 42 42 / 0%);">เบอร์โทร</label>
                                 </div>
                             </div>
@@ -132,33 +106,6 @@
                                             <button class="btn text-success display-none" type="button" id="cbc2" style="color:#fff;">คัดลอกแล้ว</button>
                                         </div>
                                     </div>
-                                    <!-- <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-controls form-control-lg bg-white px-4 text-dark"
-                        style="border-radius: 25px;"
-                        ref="inputPincodeA"
-                        :value="inputPincode"
-                        readonly
-                      />
-                      <div class="input-group-append">
-                        <button
-                          id="cbc1"
-                          class="btn btn-white"
-                          type="button"
-                          @click="copyPin('inputPincodeA')"
-                          style="color:#ffff;"
-                        >คัดลอก</button>
-                        <button
-                          id="cbc2"
-                          class="btn btn-white"
-                          type="button"
-                          style="color:#093; font-weight:100;"
-                        >
-                          <i class="fa fa-check">คัดลอก</i>
-                        </button>
-                      </div>
-                    </div> -->
                                     <label class="form-control-label text-white" style="margin-top: -24px;margin-left: -15px; background: rgb(42 42 42 / 0%);">Pin</label>
                                 </div>
                             </div>
@@ -167,8 +114,7 @@
                 </div>
                 <div class="col-11" id="successPinBtn">
                     <div class="form-group mt-2">
-                        <b-button class="btn btn-md bg-gradaint shadow mb-2 btn-block display-none text-white font-weight-100" style="font-size:22px; border-radius: 30px;font-weight:100;" size="md" id="success-pin" variant="ocean" @click="letItGo">เข้าสู่ระบบ</b-button>
-
+                        <b-button class="btn btn-md btn-theme shadow mb-2 btn-block display-none text-white font-weight-100" size="md" id="success-pin"  @click="letItGo">เข้าสู่ระบบ</b-button>
                     </div>
                 </div>
 
@@ -184,7 +130,7 @@
                     </b-collapse>
                 </div>
                 <div class="col-12">
-                    <b-button class="btn btn-md mt-2 display-none bg-gradaint shadow btn-block text-white font-weight-100" style="font-size:26px; border-radius: 30px;font-weight:100;" size="md" id="accepted-pin" variant="ocean" @click="acceptPin">ยืนยัน PIN</b-button>
+                    <b-button class="btn btn-md mt-2 display-none btn-theme shadow btn-block text-white font-weight-100"  size="md" id="accepted-pin" variant="ocean" @click="acceptPin">ยืนยัน PIN</b-button>
                 </div>
             </div>
         </div>

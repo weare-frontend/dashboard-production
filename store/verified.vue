@@ -206,8 +206,7 @@
 
                 <div class="col-12 mt-3">
                   <a
-                    class="btn btn-ocean btn-lg shadow text-pink"
-                    style="font-weight:100; color: #000;"
+                    class="btn btn-theme btn-lg shadow"
                     @click="sendRegister"
                   >ยืนยันข้อมูล</a>
                 </div>

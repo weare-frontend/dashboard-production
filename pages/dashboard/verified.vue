@@ -115,13 +115,13 @@
                             </div>
 
                             <div class="col-12 mt-3">
-                                <a class="btn btn-ocean btn-lg bg-gradaint" style="color: rgb(255, 255, 255); border-radius: 30px; font-weight: 100;" @click="sendRegister">ยืนยันข้อมูล</a>
+                                <a class="btn btn-lg btn-theme btn-block" @click="sendRegister">ยืนยันข้อมูล</a>
                             </div>
                         </div>
                         <div class="row mb-5"></div>
                     </div>
                 </form>
-                <div >
+                <div>
                     <!-- ----------------START @STEP 2 ---------------- -->
                     <form class="form-signin mt-5 animated fadeIn" v-show="step == 2">
                         <div class="row">
@@ -130,21 +130,15 @@
                                 <h6 class="text-center text-dark mt-3">ยืนยันข้อมูลสำเร็จ</h6>
                                 <hr style=" border:solid 1px #C4C4C4; " />
                                 <small class="d-block">* กรุณาใช้บัญชีธนาคารที่ท่านลงทะเบียนไว้ในระบบเราเท่านั้น ในการโอนเงิน เครดิตจะเข้าเกมโดยอัตโนมัติ</small>
-                              
+
                                 <small class="d-block my-3">* ยอดที่แจ้งถอน จะโอนเข้าบัญชีที่ท่านลงทะเบียนภายใน 5-10 นาที</small>
-                              
+
                                 <br />
                             </div>
                         </div>
                         <div class="row ">
-                            <!-- <div class="col-12">
-                                <div class="form-group float-label active">
-                                    <div class="input-group mb-3"></div>
-                                    <label class="form-control-label">Username</label>
-                                </div>
-                            </div> -->
                             <div class="col-12 mt-2">
-                                <button class="w-100 btn btn-ocean btn-lg btn-block text-white" @click="nextStepLogin" style="border-radius: 30px;">ตกลง</button>
+                                <button class="w-100 btn btn-theme btn-lg btn-block text-white" @click="nextStepLogin">ตกลง</button>
                             </div>
                         </div>
                     </form>
@@ -161,7 +155,7 @@ button.form-controls,
 input.form-controls,
 select.form-controls {
     color: #000;
-    border: 1px solid #550202 ;
+    border: 1px solid #550202;
     background-color: #fff;
     width: 100%;
     border-radius: 20px;
@@ -169,7 +163,7 @@ select.form-controls {
 
 .btn-ocean {
     width: 100%;
-    background: linear-gradient(0deg,#410c0c 0,#991515);
+    background: linear-gradient(0deg, #410c0c 0, #991515);
     filter: drop-shadow(3px 3px 1px black);
 }
 

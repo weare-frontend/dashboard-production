@@ -13,7 +13,7 @@
         body-class="bg-body-modal"
       >
         <template v-slot:modal-header="{ close }">
-          <h5 class="text-center text-template w-100">
+          <h5 class="text-center text-dark w-100">
             แลกเครดิตฟรีเข้าเกม
           </h5>
           <i
@@ -104,7 +104,7 @@
               >multiply_circle</i
             >
             <p
-              class="text-template text-center w-100"
+              class="text-dark text-center w-100"
               style="font-weight: 100; font-size: 18px;"
             >
               ยืนยันแลกเครดิตฟรี
@@ -208,15 +208,6 @@
           class="mt-0 mt-md-4 fetch-main"
           v-if="$route.name != 'dashboard-withdraw'"
         >
-          <!-- <div class="fetch justify-content-center">
-            <button class="btn btn-default btn-rounded-54 shadow bg-template" @click="fetchUser">
-              <i
-                class="material-icons overlay bg-template text-template"
-                :class="{'spin' : isSpin}"
-                style="transform: rotate(45deg);"
-              >autorenew</i>
-            </button>
-          </div> -->
           <div class="mb-2 d-flex align-items-center">
             <div class="card card-body mx-2 pb-2 shadow" ref="formInfoUser">
               <div class="row justify-content-center">
@@ -289,7 +280,7 @@
         class="bg-shadow-menu-right bg-white row text-center pt-2 mt-3 justify-content-center"
       >
         <div
-          class="col-3 bg-shadow"
+          class="col-3 bg-shadow p-0"
           id="btn-topup"
         >
           <nuxt-link :to="{ name: 'dashboard-deposit' }">
@@ -305,17 +296,17 @@
                     />
                   </div>
                 </div>
-                <small
-                  style="white-space: nowrap"
-                  class="text-template mb-0 font-weight-100 size-14"
-                  >เติมเงิน</small
-                >
-                <!-- <p class="text-secondary text-mute small">ตัวเลือกการเติมเงินเข้ากระเป๋า</p> -->
+                <div>
+                  <small
+                    style="white-space: nowrap"
+                    class="text-template mb-0 font-weight-100 size-14"
+                    >เติมเงิน</small>
+                </div>
               </div>
             </div>
           </nuxt-link>
         </div>
-        <div class="col-3" id="btn-withdraw">
+        <div class="col-3 p-0" id="btn-withdraw">
           <nuxt-link :to="{ name: 'dashboard-withdraw' }">
             <div class="border-0 mb-0">
               <div class="text-center">
@@ -337,7 +328,7 @@
             </div>
           </nuxt-link>
         </div>
-        <div class="col-3" id="btn-promotion">
+        <div class="col-3 p-0" id="btn-promotion">
           <nuxt-link :to="{ name: 'dashboard-promotions' }">
             <div class="border-0 mb-0">
               <div class="text-center">
@@ -360,7 +351,7 @@
           </nuxt-link>
         </div>
         <div
-          class="col-3"
+          class="col-3 p-0"
           id="btn-referral"
           v-if="getPromotionObjects[121] && getPromotionObjects[121].status"
         >
@@ -382,7 +373,7 @@
             </div>
           </div>
         </div>
-        <div class="col-3" v-else-if="getPromotionObjects[101].status">
+        <div class="col-3 p-0" v-else-if="getPromotionObjects[101].status">
           <nuxt-link :to="{ name: 'dashboard-affiliate' }">
             <div class="border-0 mb-0">
               <div class="text-center">
@@ -404,7 +395,7 @@
             </div>
           </nuxt-link>
         </div>
-    <div class="col-3" id="btn-referral" v-else>
+        <div class="col-3 p-0" id="btn-referral" v-else>
           <div class="caadow border-0 mb-0">
             <div class="text-center">
               <div class="border-0">
@@ -433,7 +424,7 @@
         class="bg-shadow-menu-left bg-white row text-center justify-content-center mt-3 pt-2"
       >
         <div
-          class="col-3"
+          class="col-3 p-0"
           id="btn-reward"
           v-if="getPromotionObjects[102].status"
         >
@@ -459,7 +450,7 @@
           </nuxt-link>
         </div>
 
-        <div class="col-3" id="btn-reward" v-else>
+        <div class="col-3 p-0" id="btn-reward" v-else>
           <div class="caadow border-0 mb-0">
             <div class="text-center">
               <div class="border-0">
@@ -484,7 +475,7 @@
         </div>
 
         <div
-          class="col-3"
+          class="col-3 p-0"
           id="btn-topup-daily"
           v-if="getPromotionObjects[106].status"
         >
@@ -510,7 +501,7 @@
           </nuxt-link>
         </div>
 
-        <div class="col-3" v-else>
+        <div class="col-3 p-0" v-else>
           <div class="border-0 mb-0">
             <div class="text-center">
               <div class="border-0">
@@ -535,7 +526,7 @@
         </div>
 
         <div
-          class="bg-shadow col-3"
+          class="bg-shadow col-3 p-0"
           id="btn-luckywheel"
           v-if="getPromotionObjects[111].status"
         >
@@ -560,7 +551,7 @@
             </div>
           </nuxt-link>
         </div>
-        <div class="col-3" v-else>
+        <div class="col-3 p-0" v-else>
           <div class="caadow border-0 mb-0">
             <div class="text-center">
               <div class="border-0">
@@ -585,7 +576,7 @@
         </div>
 
         <div
-          class="col-3"
+          class="col-3 p-0"
           id="btn-activity"
           v-if="
             this.getPromotionObjects[111].status ||
@@ -615,7 +606,7 @@
             </div>
           </nuxt-link>
         </div>
-        <div class="col-3" id="btn-activity" v-else>
+        <div class="col-3 p-0" id="btn-activity" v-else>
           <div class="caadow border-0 mb-0">
             <div class="text-center">
               <div class="border-0">
@@ -638,32 +629,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="col-3">
-          <div
-            class="caadow border-0 mb-0"
-            v-if="getPromotionObjects[100] && getPromotionObjects[100].status"
-            @click="freecredit"
-          >
-            <div class="text-center">
-              <div class="border-0">
-                <div class="overlay bg-template" style="margin:auto;">
-                  <img src="~/assets/icon/Coin-revert.png" class="icon-template" />
-                </div>
-              </div>
-              <small
-                style="white-space: nowrap;"
-                class="text-template mt-3 mb-0 font-weight-100 size-14"
-              >รับเครดิตฟรี</small>
-              <p class="text-secondary text-mute small">กดแชร์ facebook รับครดิตทันที</p>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="col-12">
-           <p class="text-center small text-template mt-3 mb-0 font-weight-100">
-              Supported by EXPGaming.com Version 0.{{ version }}
-          </p>
-        </div>-->
       </div>
       <!-- Carousel -->
       <div class="row py-3 mb-5">

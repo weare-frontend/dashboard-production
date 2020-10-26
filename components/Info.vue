@@ -146,12 +146,7 @@
 </template>
 
 <style scoped>
-.bg-button-withdraw {
-    border-radius: 25px;
-    height: 50px;
-  background: linear-gradient(to top, #930d12 0%, #d94848 100%);
-    filter: drop-shadow(3px 3px 1px black);
-}
+
 
 .black-theme img.bg-template {
     border-radius: 50%;

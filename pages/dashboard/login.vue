@@ -80,9 +80,8 @@
               </div>-->
               <div class="col-12 mt-2 justify-content-center">
                 <nuxt-link
-                  class="text-white btn btn-md mb-2 shadow btn-block"
+                  class="btn-register text-white btn btn-md mb-2 shadow btn-block"
                   :to="{name : 'register-id' }"
-                  style="background:#ee735c;width:48%; float:left;padding:10px 8px;border-radius: 8px;"
                   id="btn-register"
                 >สมัครสมาชิก</nuxt-link>
                 <a
@@ -266,15 +265,7 @@ export default {
 </script>
 
 <style scoped>
-.btn-login{
-  background: linear-gradient(to top, #400404  0%, #A91B1B 100%);
-   border: 1px solid #ccc; 
-   width:48%; 
-   float: right;
-    padding:10px 8px;
-    border-radius: 8px; 
-    color:#fff
-}
+
 .wrapper {
     background: #1e7773;
     background: -webkit-gradient(left top, left bottom, color-stop(0%, #1e7773), color-stop(100%, #1e7773));

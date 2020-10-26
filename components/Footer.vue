@@ -54,7 +54,7 @@
     <b-modal id="modal-download" ref="modal-download" centered content-class="rounded" header-class="shadow" body-class hide-footer>
         <template v-slot:modal-header="{ close }">
             <i class="f7-icons multiply-circle2 text-white" @click="$bvModal.hide('modal-download')">multiply_circle</i>
-            <p class="text-center w-100" style="font-weight:100; font-size:18px; color:#550202">ทางเข้าสู่เกม</p>
+            <p class="text-center w-100 text-dark" style="font-weight:100; font-size:18px;">ทางเข้าสู่เกม</p>
         </template>
 
         <div class="row justify-content-center">
