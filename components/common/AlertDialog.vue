@@ -27,7 +27,7 @@
             <button
               type="button"
               @click="onSubmit"
-              class="btn btn-block btn-outline-secondary bg-button-cf px-4"
+              class="btn btn-block btn-outline-secondary bg-button-cf px-4 py-2"
             >
               {{acceptText}}
             </button>

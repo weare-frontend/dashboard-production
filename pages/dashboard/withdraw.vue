@@ -86,7 +86,7 @@
           <div class="col-4">
             <button
               type="button"
-              class="btn text-white py-0 px-4 bg-button-cc"             
+              class="btn text-white py-2 px-4 bg-button-cc"             
               @click="$bvModal.hide('modal-withdraw')"
             >ยกเลิก</button>
           </div>
@@ -102,7 +102,7 @@
               <button
                 type="button"
                 @click="acceptWithdraw"
-                class="btn py-0 px-4 btn-outline-secondary bg-button-cf"
+                class="btn py-2 px-4 btn-outline-secondary bg-button-cf"
               >ยืนยัน</button>
             </b-overlay>
           </div>

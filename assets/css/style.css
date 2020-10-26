@@ -746,7 +746,7 @@ select.form-control optgroup {
 
 /* button */
 .btn {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: uppercase;
     font-weight: normal;
     border-width: 0;
@@ -1908,6 +1908,9 @@ pre {
 
 /* greenlight theme */
 /* custom  */
+.greenlight-theme .bg-prompay{
+    background-color: #11b0994a;
+   }
 .greenlight-theme .bg-red {
     background-color: #f30000;
 }
@@ -1921,7 +1924,7 @@ pre {
 }
 
 .greenlight-theme .bg-modal {
-    background-color: #4A0077;
+    background-color: #005B57;
 }
 
 .greenlight-theme .onoffswitch-inner:before {
@@ -1944,12 +1947,12 @@ pre {
     font-size: 1.2rem;
     border-radius: 30px;
     font-weight: 100;
-    background: linear-gradient(to top, #4A0077 0%, #6CC7C2 100%);
+    background: linear-gradient(to top, #005B57 0%, #6CC7C2 100%);
     filter: drop-shadow(1px 1px 1px white)
 }
 
 .greenlight-theme .btn-login {
-    background: linear-gradient(to top, #13B39B 80%, #008e88 100%);
+    background: linear-gradient(to top, #13B39B 0%, #008e88 100%);
     border: 1px solid #ccc;
     width: 48%;
     float: right;
@@ -2016,7 +2019,7 @@ pre {
     margin: 2px 4px;
     border-radius: 5px;
     background: linear-gradient(to bottom, #ffffff80 0%, #00000061 100%);
-    background-color: #4A0077;
+    background-color: #005B57;
     padding: 2px;
 }
 
@@ -2026,7 +2029,7 @@ pre {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     color: #ccc;
-    background-color: #4A0077;
+    background-color: #005B57;
     width: 100%;
 }
 
@@ -2039,7 +2042,7 @@ pre {
     border-top-right-radius: 20px;
     margin-right: 10px;
     padding-left: 20px;
-    filter: drop-shadow(0px 1px 1px #4A0077);
+    filter: drop-shadow(0px 1px 1px #005B57);
 }
 
 .greenlight-theme .bg-shadow-menu-left {
@@ -2047,29 +2050,29 @@ pre {
     border-top-left-radius: 20px;
     margin-left: 5px;
     padding-right: 25px;
-    filter: drop-shadow(0px 1px 1px #4A0077);
+    filter: drop-shadow(0px 1px 1px #005B57);
 }
 
 .greenlight-theme .footer a.menu-btn-center {
     background: #fff;
-    filter: drop-shadow(0px 3px 1px #4A0077);
+    filter: drop-shadow(0px 3px 1px #005B57);
 }
 
 .greenlight-theme .multiply-circle2 {
     position: absolute;
     right: 10px;
-    background-color: #4A0077;
+    background-color: #005B57;
     border-radius: 20px;
 }
 
 .greenlight-theme .multiply-circle {
     float: right;
-    background-color: #4A0077;
+    background-color: #005B57;
     border-radius: 20px;
 }
 
 .greenlight-theme .bg-body-modal {
-    background: #4A0077;
+    background: #005B57;
 }
 
 .greenlight-theme .bg-button-cc {
@@ -2172,7 +2175,7 @@ pre {
 }
 
 .greenlight-theme i.f7-icons {
-    color: #005B57;
+    color: #02928a;
 }
 
 .greenlight-theme.theme-dark i.f7-icons {
@@ -2345,6 +2348,9 @@ pre {
 
 /* darkred theme */
 /* custom  */
+.darkred-theme .bg-prompay{
+    background-color: #ff08008c;
+   }
 .darkred-theme .bg-red {
     background-color: #f30000;
 }
@@ -2611,12 +2617,12 @@ pre {
 }
 
 .darkred-theme.theme-dark i.f7-icons {
-    color: #1d7773;
+    color: #550202;
 }
 
 .darkred-theme .radius-10 {
     border-radius: 10px;
-    border: solid 1px #259690;
+    border: solid 1px #550202;
 }
 
 .darkred-theme .radius-20 {
@@ -2728,7 +2734,8 @@ pre {
 .darkred-theme .btn-light:focus,
 .darkred-theme .btn-light:not(:disabled):not(.disabled).active,
 .darkred-theme .bg-template-light {
-    background-color: #f89466
+    background: linear-gradient(to top, #3e0b0b 0%, #722929 100%);
+    color: #fff!important;
 }
 
 .darkred-theme .text-template,
@@ -2778,12 +2785,15 @@ pre {
 
 /* darkblue-theme */
 /* custom  */
+.darkblue-theme .bg-prompay{
+ background-color: #acd1ffb0;
+}
 .darkblue-theme .bg-red {
     background-color: #f30000;
 }
 
 .darkblue-theme .btn-register {
-    background: #302B63;
+    background: #675fbf;
     width: 48%;
     float: left;
     padding: 10px 8px;
@@ -2972,7 +2982,7 @@ pre {
 }
 
 .darkblue-theme .wrapper {
-    background: #0F0C29;
+    background: #2f248d;
 }
 
 .darkblue-theme .btn.btn-line {
@@ -3042,7 +3052,7 @@ pre {
 }
 
 .darkblue-theme i.f7-icons {
-    color: #005B57;
+    color: #0F0C29;
 }
 
 .darkblue-theme.theme-dark i.f7-icons {
@@ -3163,7 +3173,7 @@ pre {
 .darkblue-theme .btn-light:focus,
 .darkblue-theme .btn-light:not(:disabled):not(.disabled).active,
 .darkblue-theme .bg-template-light {
-    background: linear-gradient(to top, #19c8b8 0%, #079b94 100%);
+    background: linear-gradient(to top, #151234 0%, #5e50e3 100%);
     color: #fff!important;
 }
 
@@ -3214,6 +3224,9 @@ pre {
 
 /* purple */
 /* custom  */
+.purple-theme .bg-prompay {
+    background-color: #f4b6ffb5;
+}
 .purple-theme .bg-red {
     background-color: #f30000;
 }
@@ -3299,7 +3312,7 @@ pre {
 }
 
 .purple-theme .bg-copy-bank {
-    background: #AAFFEE;
+    background: #F4B6FF;
 }
 
 .purple-theme .btn-clipboard {
@@ -3425,7 +3438,7 @@ pre {
 .purple-theme .float-label .form-control,
 .float-label .chosen-container .chosen-choices,
 .float-label .chosen-container .chosen-single {
-    background-color: #9C27B0;
+    background-color: #6A3786;
     color: #fff;
     border-radius: 10px;
     z-index: 1;
@@ -3598,7 +3611,7 @@ pre {
 .purple-theme .btn-light:focus,
 .purple-theme .btn-light:not(:disabled):not(.disabled).active,
 .purple-theme .bg-template-light {
-    background: linear-gradient(to top, #19c8b8 0%, #079b94 100%);
+    background: linear-gradient(to top, #d205f4 0%, #a422ba 100%);
     color: #fff!important;
 }
 

@@ -12,7 +12,7 @@
     <br>
     <br>
     <client-only placeholder="Loading...">
-        <carousel-3d :display="3" :perspective="0" :space="300" :autoplay='true' :autoplay-timeout='2400' :width="300" :height="300" class="width">
+        <carousel-3d :display="3" :perspective="0" :space="300" :autoplay='true' :autoplay-timeout='2400' :width="300" :height="300" class="rounded w-100">
             <slide v-for="(pro, i) in slides" :index="i" :key="i">
                 <figure>
                     <img :src="pro.img" />

@@ -26,7 +26,7 @@
           <div class="col-6">
             <button
               type="button"
-              class="btn text-white py-0 px-4 bg-button-cc"
+              class="btn text-white py-2 px-4 bg-button-cc"
               @click="onClose"
             >
               {{cancelText}}
@@ -36,7 +36,7 @@
             <button
               type="button"
               @click="onSubmit"
-              class="btn btn-block py-0 px-4 btn-outline-secondary bg-button-cf"
+              class="btn btn-block py-2 px-4 btn-outline-secondary bg-button-cf"
             >
               {{acceptText}}
             </button>

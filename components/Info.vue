@@ -11,13 +11,13 @@
                 <div class="col-4 text-center mb-1">
                     <h6 class="m-0 w-100 text-template small mb-2">ยอดเงินในเกม</h6>
                     <img class="bg-template mb-2" src="~/assets/icon-svg/Coin.svg" style="width:83px; padding:1px; border-radius: 60%; " />
-                    <h6 class="text-template mb-1">{{ $auth.user.money | toCurrencyString }} THB</h6>
+                    <h6 class="text-template mb-1">{{ $auth.user.money | toCurrencyString }}</h6>
                 </div>
                 <div class="col-4 text-center mb-1">
                     <h6 class="m-0 w-100 text-template small mb-2" style=" white-space: nowrap;">กระเป๋าเครดิตฟรี</h6>
                     <img class="bg-template mb-2" src="~/assets/icon-svg/Wallet2.svg" style="width:83px; padding:1px; border-radius: 60%; " />
 
-                    <h5 class="text-template">{{ $auth.user.credit_bonus | toCurrencyString }} THB</h5>
+                    <h5 class="text-template">{{ $auth.user.credit_bonus | toCurrencyString }}</h5>
                 </div>
                 <div class="position-absolute icon-exchange">
                     <span class="text-muted"></span>

@@ -27,7 +27,7 @@
             <div class="col-6">
               <button
                 type="button"
-                class="btn text-white py-0 px-4 bg-button-cc"
+                class="btn text-white py-2 px-4 bg-button-cc"
                 @click="$bvModal.hide('modal-exchange')"
               >
                 ยกเลิก
@@ -37,7 +37,7 @@
               <button
                 type="button"
                 @click="$refs['modal-download'].show()"
-                class="btn btn-block py-0 px-4 btn-outline-secondary bg-button-cf"
+                class="btn btn-block py-2 px-4 btn-outline-secondary bg-button-cf"
               >
                 ยืนยัน
               </button>
@@ -58,7 +58,7 @@
               style="height: 80px; padding: 1px"
             />
             <h6 class="text-white">
-              {{ $auth.user.credit_bonus | toCurrencyString }} THB
+              {{ $auth.user.credit_bonus | toCurrencyString }}
             </h6>
           </div>
           <div class="f7-demo-icon">
@@ -78,7 +78,7 @@
               style="height: 80px; padding: 1px"
             />
             <h6 class="text-white mb-1">
-              {{ $auth.user.money | toCurrencyString }} THB
+              {{ $auth.user.money | toCurrencyString }} 
             </h6>
           </div>
 
@@ -115,7 +115,7 @@
               <div class="col-6">
                 <button
                   type="button"
-                  class="btn text-white py-0 px-4 bg-button-cc"
+                  class="btn text-white py-2 px-4 bg-button-cc"
                   @click="$bvModal.hide('modal-download')"
                 >
                   ยกเลิก
@@ -125,7 +125,7 @@
                 <button
                   type="button"
                   @click="exchangeCredit"
-                  class="btn btn-block btn-outline-secondary py-0 px-4 bg-button-cf"
+                  class="btn btn-block btn-outline-secondary py-2 px-4 bg-button-cf"
                 >
                   ยืนยัน
                 </button>

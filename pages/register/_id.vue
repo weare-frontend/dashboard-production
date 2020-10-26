@@ -20,10 +20,10 @@
         <div class="col-12 col-md-6 px-3 pt-2">
             <!-- ----------------START @STEP 1 ----------------  -->
             <form class="form-signin mt-1 animated fadeIn" v-show="step == 1">
-                <h5 class="text-center text-white font-weight-100">
+                <h5 class="text-center text-white font-weight-100" style="padding-top: 1rem;">
                     เงื่อนไขและข้อตกลงในการสมัคร
                 </h5>
-                <div class="row card bg-white px-2 py-4">
+                <div class="row card bg-white px-2 py-4" style="margin-top: 1.5rem;">
                     <div class="col-12 text-template">
                         <p class="font-weight-100 size-16">
                             1). หมายเลขโทรศัพท์ที่ใช้ ต้องสามารถรับ ข้อความได้ เพราะระบบจำเป็นต้องส่งรหัส

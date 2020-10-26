@@ -37,7 +37,7 @@
                         <div class="col-12 col-md-12">
                         <h6 class="subtitle" style="margin-top: 15px; margin-bottom: 5px;">
                             <u style="color: #000;">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
-                            <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมส์อัตโนมัติ ภายในเวลา 1-2 นาที</small>
+                            <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมอัตโนมัติ ภายในเวลา 1-2 นาที</small>
                         </h6>
                         </div>
                         <div class="list-group list-group-flush" v-if="bankArray.length" style="border-radius: 10px;border: solid 1px #fff;background: rgba(0,0,0,0.2);">
@@ -210,8 +210,8 @@
                                                 เติมเงิน
                                             </b-button>
                                         </div>
-                                        <div class="col-lg-3 col-11" style="background: #ff230024;" v-else>
-                                            <h4 class="text-template text-center my-2 font-weight-100">ยอดโอน {{item.qrcode_log.money}}</h4>
+                                        <div class="col-lg-3 col-11 bg-prompay" v-else>
+                                            <h4 class="text-dark text-center my-2 font-weight-100">ยอดโอน {{item.qrcode_log.money}}</h4>
                                         </div>
                                     </div>
                                     <!-- step แสดง qr code -->
