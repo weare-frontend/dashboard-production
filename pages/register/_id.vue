@@ -220,7 +220,7 @@
                     </div>
                 </div>
                 <div class="row mt-4 mx-2 bottom-button-container justify-content-center btn-unset">
-                    <div class="col-lg-5">
+                    <div class="col-12 col-sm-6 col-md-7 col-lg-7">
                         <b-overlay class="py-2" :show="show" rounded="sm" :opacity="0.4" :blur="'2px'" :variant="'dark'">
                             <a id="step-2" class="btn btn-md shadow btn-block btn-theme" @click="nextStepInfo">ถัดไป</a>
                         </b-overlay>
@@ -1113,48 +1113,30 @@ export default {
       if (!formErrorStep) this.step++;
     },
     nextStepInfo: async function (res) {
-      var letters = /^[ก-๙]+$/gi;
-      if (
-        (!this.$refs.inputFname.value || !this.$refs.inputFname.value) &&
-        !this.isFormValidation("inputFname")
-      )
+      // alert(' uyuyuyuyu')
+      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputFname")) || this.$refs.inputFname.value.match(/^[A-Za-z0-9]*$/)) this.formError.push({step: 3, ref: "inputFname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
+      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputLname")) || this.$refs.inputLname.value.match(/^[A-Za-z0-9]*$/)) this.formError.push({step: 3, ref: "inputLname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
+
+      if ( !this.$refs.selecBankAccounts.value && !this.isFormValidation("selecBankAccounts") )
         this.formError.push({
-          step: 2,
-          ref: "inputFname",
-          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
-        });
-      if (
-        (!this.$refs.inputLname.value || !this.$refs.inputLname.value) &&
-        !this.isFormValidation("inputLname")
-      )
-        this.formError.push({
-          step: 2,
-          ref: "inputLname",
-          message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
-        });
-      if (
-        !this.$refs.selecBankAccounts.value &&
-        !this.isFormValidation("selecBankAccounts")
-      )
-        this.formError.push({
-          step: 2,
+          step: 3,
           ref: "selecBankAccounts",
           message: "กรุณาเลือกบัญชีธนาคารของท่าน",
         });
       if (!this.isFormValidation("inputBankAccountNumber")) {
-        if (!this.inputBankAccountNumber) {
+        if (!this.inputBankAccountNumber || this.inputBankAccountNumber.length <10) {
           var indexFormError = this.formError.findIndex(
             (item) => item.ref == "inputBankAccountNumber"
           );
           indexFormError =
             indexFormError < 0
               ? (await this.formError.push({
-                  step: 2,
+                  step: 3,
                   ref: "inputBankAccountNumber",
                   message: [],
                 })) - 1
               : indexFormError;
-          this.formError[indexFormError].message.push("ห้ามว่าง");
+          this.formError[indexFormError].message.push("ห้ามว่าง และกรอกให้ถูกต้อง");
         }
         if (
           !this.inputBankAccountNumber ||
@@ -1166,7 +1148,7 @@ export default {
           indexFormError =
             indexFormError < 0
               ? (await this.formError.push({
-                  step: 2,
+                  step: 3,
                   ref: "inputBankAccountNumber",
                   message: [],
                 })) - 1
@@ -1195,22 +1177,29 @@ export default {
       this.accerror = "";
       if (!checkName.success) {
         this.fnerror = checkName.message;
-        this.$toast.global.error({
-          message: checkName.message,
-        });
-        return false;
+        this.formError.push({step: 3, ref: "inputFname", message: checkName.message});
+       
       }
+
       if (!checkAccount.success) {
-        this.accerror = checkAccount.message;
-        this.$toast.global.error({
-          message: checkAccount.message,
-        });
-        return false;
-      } else {
-        this.step = 4;
-        // const formErrorStep = await this.formError.find(item => item.step == 2);
-        // if (!formErrorStep) this.step = 4;
+          var indexFormError = this.formError.findIndex((item) => item.ref == "inputBankAccountNumber"  );
+          indexFormError = indexFormError < 0 ? (await this.formError.push({ step: 3, ref: "inputBankAccountNumber", message: [], })) - 1 : indexFormError;
+          // this.formError[indexFormError].message.push(
+          //   checkAccount.message
+          // );
       }
+
+
+
+        const formErrorStep = await this.formError.find(item => item.step == 3);
+        if (!formErrorStep){
+          this.step = 4;
+        }else{
+          this.$toast.global.error({
+          message: "กรุณากรอกข้อมูลให้ถูกต้อง",
+          });
+        }
+     
     },
 
     nextStepPhoneNumber: async function () {
@@ -1413,19 +1402,19 @@ export default {
 
         if (errorFirstname)
           this.formError.push({
-            step: 2,
+            step: 3,
             ref: "inputFname",
             message: errorFirstname.error,
           });
         if (errorLastname)
           this.formError.push({
-            step: 2,
+            step: 3,
             ref: "inputLname",
             message: errorLastname.error,
           });
         if (errorBankAccount)
           this.formError.push({
-            step: 2,
+            step: 3,
             ref: "inputBankAccountNumber",
             message: [errorBankAccount.error],
           });
