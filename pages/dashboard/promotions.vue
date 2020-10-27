@@ -1,7 +1,12 @@
 <template>
-  <div class="container" style=" margin-top: -10px; position: absolute; left:0; right:0;">
+  <div class="container" >
+    <div class="text-left col-4" style="top:25px; position:absolute;">
+         <nuxt-link :to="{name:'dashboard'}">
+            <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
+        </nuxt-link>
+    </div>
     <div class="row justify-content-center">
-      <div class="col-8">
+      <div class="col-12">
         <page-promotions :slides="promotionArray" />
       </div>
     </div>

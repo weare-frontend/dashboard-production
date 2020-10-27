@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top:-170px;" class="mx-3">
+  <div style="margin-top:-132px;" class="mx-3">
     <page-info :showModalWithdraw="showModalWithdraw" />
     <div class="container mb-5" ref="formWithdraw" style="overflow: hidden; ">
       <h6 class="text-left my-2 mt-3 text-template">ประวัติรายการถอน</h6>

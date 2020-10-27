@@ -1,11 +1,11 @@
 <template>
-  <div class="container mb-4" style="margin-top:-170px;">
-     <div class="col-4 text-left">
+  <div class="container mb-4">
+     <div class="col-4 text-left"  style="top:25px; position:absolute;">
        <nuxt-link :to="{name:'dashboard'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-    <div class="row justify-content-center" style="margin-top: 65px;">
+    <div class="row justify-content-center">
       <div class="col-md-6 col-xs-12" v-if="getPromotionObjects[101].status">
         <h6 class="subtitle text-white" style="text-align: center;">ข้อมูลการชวนเพื่อน</h6>
         <img class="w-100 mb-2" :src="getPromotionObjects[101].img_banner" alt style="border-radius:20px;">

@@ -205,7 +205,7 @@
       </div>
       <div class="container-sm" style="max-width: 500px">
         <div
-          class="mt-0 mt-md-4 fetch-main"
+          class="mt-4 mt-md-4 fetch-main"
           v-if="$route.name != 'dashboard-withdraw'"
         >
           <div class="mb-2 d-flex align-items-center">

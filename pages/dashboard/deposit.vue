@@ -1,16 +1,16 @@
 <template>
 <div>
-    <div class="container pt-3" style="margin-top:-180px;">
-        <div class="col-4 text-left">
+    <div class="container pt-3">
+        <div class="col-4 text-left" style="top:25px; position:absolute;">
             <nuxt-link :to="{name:'dashboard'}">
                 <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
             </nuxt-link>
         </div>
-        <div class="row mb-5" style="margin-top: 65px;">
+        <div class="row mb-5">
             <div class="col-12">
-                <h5 class="text-center text-white font-weight-100 mt-3">ช่องทางการเติมเงิน</h5>
+                <h5 class="text-center text-white font-weight-100 mt-2">ช่องทางการเติมเงิน</h5>
             </div>
-            <div class="tab_container px-3 mb-5">
+            <div class="tab_container px-3 mb-5 mt-3">
                 <input class="checkbox-tap" id="tab1" type="radio" name="tabs" checked />
                 <label for="tab1" style="width:45%;margin:0 0 0 5%;" class="checkbox-tap text-center" v-if="promptPayArray.length>0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>
                 <label for="tab1" style="width:100%;" class="checkbox-tap text-center" v-if="promptPayArray.length==0 &&$auth.user.lname != 'Not verified'">โอนผ่านบัญชี</label>

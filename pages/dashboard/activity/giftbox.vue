@@ -1,14 +1,17 @@
 <template>
 <div>
   
-  <div class="container" style="margin-top: -110px;position: absolute;">
-    <div class="col-4 text-left">
+  <div class="container">
+    <div class="col-4 text-left" style="top:25px; position:absolute;">
        <nuxt-link :to="{name:'dashboard-activity'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-    <h5 class=" text-center text-white font-weight-100" style="margin-top: 75px;">เปิดกล่อง</h5>
-   <h4 class="text-center text-danger">{{this.boxSetting.message}}</h4>
+     <div class="col-12">
+        <h5 class="text-center font-weight-100 text-white mb-0 mt-4">เปิดกล่อง</h5>
+          <h4 class="text-center text-danger mt-3">{{this.boxSetting.message}}</h4>
+      </div>
+ 
       <div
         class="row position-relative"
         ref="formOpenBox"

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="container" style="margin-top: -110px;position: absolute;">
-    <div class="col-4 text-left">
+    <div class="container">
+    <div class="col-4 text-left" style="top:25px; position:absolute;">
         <nuxt-link :to="{name:'dashboard-activity'}">
             <i  class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-      <div class="card px-3" style="margin-top: 100px;">
+      <div class="card px-3">
       <div class="row justify-content-center">
         <div class="col-md-6 col-xs-12 mt-3">
           <nav class="nav nav-pills nav-justified w-100 m-auto">

@@ -21,7 +21,7 @@
                     <nuxt-link :to="{ name : 'dashboard-luca'}" class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center" style="width: 97px;height: 97px;margin: -30px auto 0 auto;">
                         <div class="module bg-white mt-1">
                             <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
-                            <p class="text-template font-weight-100">เข้าสู่เกม</p>
+                            <p class="mt-2 text-template font-weight-100">เข้าสู่เกม</p>
                         </div>
                     </nuxt-link>
                 </div>
@@ -29,11 +29,11 @@
                     <a @click="$refs['modal-download'].show()" class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center" style="width: 97px;height: 97px;margin: -30px auto 0 auto;">
                         <div class="module bg-white">
                             <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
-                            <p class="text-template font-weight-100">เข้าสู่เกม</p>
+                            <p class="mt-2 text-template font-weight-100">เข้าสู่เกม</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-2">
+                <div class="col-2 px-1">
                     <a class="btn btn-link-default text-template" target="_blank" :href="getSettingObject.link_front">
                         <i class="fas fa-globe text-template" style="margin:6px auto;margin:10px;"></i>
                         <br />

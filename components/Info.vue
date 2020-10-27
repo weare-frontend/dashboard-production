@@ -85,10 +85,12 @@
             </div>
         </div>
         <div class="container">
-            <div class="col-4 text-left">
+            <div class="row">
+            <div class="col-4 text-left" style="top:25px; position:absolute;">
                 <nuxt-link :to="{name:'dashboard'}">
                     <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
                 </nuxt-link>
+            </div>
             </div>
             <div class="mt-0 mt-md-4 fetch-main" v-if="$route.name != 'dashboard-withdraw'">
                 <!-- <div class="fetch justify-content-center">
@@ -122,14 +124,14 @@
                 </div>
             </div>
 
-            <div class="text-center justify-content-center" style="margin-top: 80px;" v-else-if="$route.name == 'dashboard-withdraw'">
+            <div class="text-center justify-content-center" style="margin-top: 100px;" v-else-if="$route.name == 'dashboard-withdraw'">
 
                 <div class="row">
-                    <div class="col-12 mb-2">
-                        <h4 class="text-center text-white mb-2 font-weight-100">ถอนเครดิต</h4>
+                    <div class="col-12">
+                        <h5 class="text-center text-white mb-2 font-weight-100">ถอนเครดิต</h5>
                     </div>
                 </div>
-                <div class="row mt-4">
+                <div class="row mt-3">
                     <h5 class="mt-2 col-6 text-dark">ยอดเงินในเกม</h5>
                     <span class="shadow-lg text-right bg-white rounded-lg p-3 col-6 text-dark size-20">{{ $auth.user.money | toCurrencyString }}</span>
                 </div>

@@ -1,18 +1,18 @@
 <template>
 <div>
-    <div class="header bg-white">
+    <div class="register header bg-white">
         <div class="row no-gutters">
-            <div class="col-4 text-left my-3">
+            <div class="col-3 text-left my-4 px-3">
                 <nuxt-link :to="{name:'dashboard'}">
                     <i class="f7-icons text-template nuxt-link-active">chevron_left_circle_fill</i>
                 </nuxt-link>
             </div>
-            <div class="col-4 text-center my-4">
+            <div class="col-6 text-center my-4">
                 <nuxt-link :to="{name : 'dashboard'}" class="text-center">
-                    <b-img class="img-logo logo-small" :src="getThemeObject[2].img|| ''" fluid alt="Responsive image"></b-img>
+                    <b-img class="img-logo logo-small" :src="getThemeObject[2].img|| ''" alt="Responsive image"></b-img>
                 </nuxt-link>
             </div>
-            <div class="col-4"></div>
+            <div class="col-3"></div>
         </div>
     </div>
     <!-- header ends -->
@@ -23,7 +23,7 @@
                 <h5 class="text-center text-white font-weight-100" style="padding-top: 1rem;">
                     เงื่อนไขและข้อตกลงในการสมัคร
                 </h5>
-                <div class="row card bg-white px-2 py-4" style="margin-top: 1.5rem;">
+                <div class="row card bg-white px-2 py-4 mx-1" style="margin-top: 1.5rem;">
                     <div class="col-12 text-template">
                         <p class="font-weight-100 size-16">
                             1). หมายเลขโทรศัพท์ที่ใช้ ต้องสามารถรับ ข้อความได้ เพราะระบบจำเป็นต้องส่งรหัส
@@ -535,7 +535,11 @@ select.form-controls {
   font-weight: 100;
   font-size: 11px;
 }
-
+.register.header{
+  height: 200px;
+      border-bottom-left-radius: 0px;
+     border-bottom-right-radius: 0px;
+}
 .txt-label {
   font-weight: 100;
   margin: -20px 0px;
@@ -554,7 +558,7 @@ select.form-controls {
   position: absolute;
   margin-right: 0px;
   margin-left: 0px;
-  margin-top: -95px;
+  margin-top: -80px;
   border-top-left-radius: 70px;
   border-top-right-radius: 70px;
   height: 110vh;
@@ -571,7 +575,7 @@ select.form-controls {
 
 .img-logo {
   width: auto;
-  height: 80px;
+  height: 60px;
   filter: drop-shadow(0px 1px 1px black);
 }
 

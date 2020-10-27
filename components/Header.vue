@@ -2,19 +2,19 @@
   <!-- header -->
   <div class="header bg-template" v-show="$auth.loggedIn">
     <div class="row no-gutters justify-content-center">
-      <div class="col-4 text-center">
+      <div class="col-3 text-center">
         <!-- <i class="pr-4 f7-icons font-weight-100 text-white mt-5">person_crop_circle</i>
         <small class=" size-9 col-user">
           <span class="font-weight-100">{{ $auth.user.account_api}}</span>
           <i class="p-2 f7-icons font-weight-400 text-white size-14" @click="$refs['modal-logout'].show()">power</i>
         </small> -->
       </div>
-      <div class="col-4 text-center my-3">
+      <div class="col-6 text-center my-3">
         <nuxt-link :to="{name : 'dashboard'}">
           <img :src="getThemeObject[2].img" alt class="header-logo" style="height:100px;" />
         </nuxt-link>
       </div>
-      <div class="col-4 text-right py-2">      
+      <div class="col-3 text-right py-2">      
         <button class="btn btn-link text-white bg-white menu-btn mt-3 mr-4">
           <span class="material-icons">more_horiz</span>
         </button>

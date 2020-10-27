@@ -32,7 +32,7 @@
                     maxlength="20"
                     placeholder="กรอกเบอร์โทร/Username"
                     required="required"
-                    class="form-control"
+                    class="form-control text-white"
                   />
                   <div data-v-f9119b72 class="invalid-feedback"></div>
                 </div>
@@ -55,7 +55,7 @@
                     placeholder="กรอก PIN/รหัสผ่าน"
                     required="required"
                     pattern="\d*"
-                    class="form-control"
+                    class="form-control text-white"
                   />
 
                   <div data-v-f9119b72 class="invalid-feedback"></div>

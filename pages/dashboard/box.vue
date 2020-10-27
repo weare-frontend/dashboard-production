@@ -140,7 +140,7 @@ export default {
           container: this.$refs.formOpenBox
         });
 
-        const openBox = await this.$axios.$post("http://localhost/scr_management/backend/api/get-chests/open", {
+        const openBox = await this.$axios.$post("api/backend/api/get-chests/open", {
           index: index
         });
         loader.hide();

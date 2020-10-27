@@ -1,13 +1,13 @@
 <template>
-<div class="container mb-5" style="margin-top:-170px;">
-    <div class="col-4 text-left">
+<div class="container mb-5">
+    <div class="col-4 text-left" style="top:25px; position:absolute;">
         <nuxt-link :to="{name:'dashboard'}">
             <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
-    <div class="row justify-content-center" v-if="getPromotionObjects[106].status">
+    <div class="row justify-content-center mt-4" v-if="getPromotionObjects[106].status">
         <div class="col-12 col-md-8 px-5">
-            <h5 class="text-center font-weight-100 text-white mb-3" style="margin-top: 85px;">ฝากประจำ</h5>
+            <h5 class="text-center font-weight-100 text-white mb-3">ฝากประจำ</h5>
             <img class="img-fluid" :src="getPromotionObjects[106].img_banner" alt style="border-radius: 10px">
 
             <div class="row mt-3" v-for="(row, index) in rows" :key="index">
