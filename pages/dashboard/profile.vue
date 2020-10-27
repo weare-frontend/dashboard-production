@@ -348,11 +348,17 @@ export default {
       this.$auth
         .fetchUser()
         .then((res) => {
-          this.$toast.global.success({
-            message: "อัพเดทข้อมูลเรียบร้อย",
-          });
-          this.isSpin = false;
-          loader.hide();
+          if(this.$route.name != 'dashboard-profile'){
+            this.$toast.global.success({
+              message: "อัพเดทข้อมูลเรียบร้อย",
+            });
+          }
+          
+          
+          setTimeout(function(){this.isSpin = false;
+            loader.hide();
+          },800);
+          
         })
         .catch((e) => {
           this.isSpin = false;
@@ -388,9 +394,14 @@ export default {
       });
       const { success } = await this.$axios.$get("/api/change-bonus-status");
       if (success) {
+        let alertMassegr ="คุณเลือกไม่โปรโมชั่น";
+        if(this.$auth.user.player_bonus==0){
+          alertMassegr ="รับโปรโมชั่นสำเร็จแล้ว";
+        }
         this.$toast.global.success({
-          message: "อัพเดทโปรโมชั่นสำเร็จแล้ว",
+          message: alertMassegr,
         });
+        this.fetchUser();
       } else {
         this.$toast.global.error({
           message: "อัพเดทโปรโมชั่นไม่สำเร็จ",

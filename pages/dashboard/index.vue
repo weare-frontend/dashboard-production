@@ -1326,7 +1326,10 @@ export default {
           message: message,
         });
         loader.hide();
-      } else {
+        this.$refs['modal-download'].hide()
+        this.$refs['modal-exchange'].hide()
+        } else {
+        this.$refs['modal-download'].hide()
         this.$refs.exchange.focus();
         this.$toast.global.error({
           message: message,

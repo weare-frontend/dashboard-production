@@ -42,7 +42,7 @@
                             <select @change="searchDetaiItemArray" class="mt-2 custom-select form-control text-template form-control-lg text-template" ref="searchTypeItemArray" style="background-color: white;padding: 0px 15px;">
                                 <option disabled="disabled" value>-- เลือกประเภท --</option>
                                 <option value>ประเภท (ทั้งหมด)</option>
-                                <option value="0">Liftstyle</option>
+                                <option value="0">Lifestyle</option>
                                 <option value="1">Credit</option>
                                 <option value="2">Gadget</option>
                             </select>
@@ -196,6 +196,11 @@ export default {
         $axios,
         $auth
     }) {
+        // if (this.$refs.searchArray.value.match(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi)){
+        //     this.$toast.global.error({
+        //         message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+        //     });
+        // }
         const {
             data
         } = await $axios.$get("/api/reward");
@@ -312,10 +317,28 @@ export default {
             //     });
         },
         searchDetaiItemArray: async function () {
+            // if ((this.searchArray.value.match(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}/]+$/))){
+            //     this.$toast.global.error({
+            //         message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+            //     });
+              
+            // }
             const loader = this.$loading.show({
                 container: this.$refs.formSearchItem,
             });
-            let search = new RegExp(this.$refs.searchArray.value, "i");
+             let search = "";
+            if ((this.$refs.searchArray.value.match(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}/]+$/))){
+                this.$toast.global.error({
+                    message: "กรุณากรอกข้อมูลให้ถูกต้อง",
+                });
+                setTimeout(function(){
+                    loader.hide();
+                },400);
+                return false;
+            }else{
+               search = new RegExp(this.$refs.searchArray.value, "i"); 
+            }
+            
             this.searchArray = await this.itemArray.filter((item) =>
                 search.test(item.detail)
             );
