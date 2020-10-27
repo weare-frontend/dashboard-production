@@ -193,19 +193,19 @@
                                         <div class="col-md-12">
                                             <small class="text-template">เลือกจำนวนเงิน</small>
                                             <p class="w-100 d-flex">
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,300)" class="btn w-100 text-template bg-white">300</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,500)" class="btn w-100 text-template bg-white">500</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,300)" class="btn w-100 text-template bg-white">300</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,500)" class="btn w-100 text-template bg-white">500</button></span>
                                             </p>
                                             <p class="w-100 d-flex" style="margin-top:-10px;">
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
-                                                <span class="btn-money"><button @click="saveLog(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
+                                                <span class="btn-money"><button @click="showBox(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
                                             </p>
                                             <small class="text-template">ระบุจำนวน</small>
                                             <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template mb-2" style="display:block;background-color: #fff;"></b-form-input>
                                         </div>
-                                            <b-button class="btn-topup" @click="saveLog('amount'+item.id,item.id)" variant="secondary">
+                                            <b-button class="btn-topup"  @click="showBox('amount'+item.id,item.id)" variant="secondary">
                                                 <i class="material-icons vm md-36" style="color:#F44336;">check_circle</i>
                                                 เติมเงิน
                                             </b-button>
@@ -295,6 +295,22 @@
             </div>
         </div>
     </b-modal>
+
+    <!-- alert-dialog -->
+    <alert-dialog 
+        title="แจ้งเตือน" 
+        acceptText="ยืนยัน"
+        :active="topupPrompayActive" 
+        @hide="hideTopupPrompayDialog" 
+        
+       
+    > 
+    <div class="text-center py-4">
+          <p class="text-white">กรุณาโอนเงินพร้อมกับทศนิยมเท่านั้น ยอดเงินจะเข้าอัตโนมัติ</p>
+    </div>
+   
+    </alert-dialog>
+
     <!-- Dialog -->
     <confirm-dialog 
         title="แจ้งเตือน" 
@@ -316,11 +332,15 @@
 
 <script>
 import Info from "~/components/Info.vue";
+import AlertDialog from "~/components/common/AlertDialog.vue";
 import ConfirmDialog from "~/components/common/ConfirmDialog.vue";
 export default {
     head() {
         return {
             title: "Deposit",
+            itemId:"",
+            money:"",
+            amount:""
         };
     },
     data: () => ({
@@ -351,11 +371,14 @@ export default {
             items: [],
         },
         cancelTopupActive: false,
-        promptPayId: null
+        topupPrompayActive: false,
+        promptPayId: null,
+       
     }),
     components: {
         "page-info": Info,
         "confirm-dialog": ConfirmDialog,
+        "alert-dialog":AlertDialog,
     },
     asyncData: async function ({
         $axios
@@ -375,11 +398,15 @@ export default {
     hideCancelTopupDialog(val) {
         this.cancelTopupActive = val
     },
+    hideTopupPrompayDialog(val) {
+        this.saveLog(this.amount,this.itemId,this.money);
+        this.topupPrompayActive = val
+    },
     onSubmitCancelTopup() {
         this.destroyLog(this.promptPayId);
         this.cancelTopupActive = false
     },
-        copyAffiliate: function (target) {
+           copyAffiliate: function (target) {
             this.$refs[target].select();
             document.execCommand("copy");
             this.$toast.global.success({
@@ -431,6 +458,12 @@ export default {
             this.promptPayId = id
             
         },
+        async showBox(id,itemId,money) {
+            this.topupPrompayActive = true
+            this.itemId = itemId
+            this.money = money
+            this.amount = id
+           },
         copyPrompt: async function (text) {
             var textInput = document.createElement("input");
             textInput.type = "text";
