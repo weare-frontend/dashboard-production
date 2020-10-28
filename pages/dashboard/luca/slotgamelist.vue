@@ -45,6 +45,7 @@ export default {
     return {
       title: "Slot game",
       paramId :this.$route.query.code,
+      isMobile:"",
       // listGameArray:[],
       mainProps: {
           center: true,
@@ -76,6 +77,12 @@ export default {
     if (this.$route.query.code) {
       this.paramId = this.$route.query.code;
     }
+    if (this.$device.isMobile) {
+      this.isMobile = true;
+    }else{
+      this.isMobile = false;
+    }
+
     // console.log(this.listGameArray);
     document.getElementById("navi").innerHTML ="<a href='../luca' class='text-muted'>หมวดเกม</a> / <a href='../luca/slot' class='text-muted'>สล็อต</a> / <u>เกม " + this.listGameArray[this.paramId].productCode + "</u>";
     //  return true;
@@ -154,13 +161,15 @@ export default {
   methods: {
     goGame: async function (gameName,gameId) {
       const loader = this.$loading.show({ "is-full-page": true });
-      const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'slot',gameId:gameId});
+      const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'slot',gameId:gameId,isMobile:this.isMobile});
       // console.log(lunchLuca.data.url.code);
         if(lunchLuca.data.url.code==0){
           // if(gameName=="spade_gaming" || gameName=="pg_slot"  || gameName=="slotxo"){
           //   window.location = lunchLuca.data.url.result;
           // }else{
             window.location = lunchLuca.data.url.url;
+            // window.location = "rungame?link="+lunchLuca.data.url.url;
+            loader.hide();
           // }
         }else{
           this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
