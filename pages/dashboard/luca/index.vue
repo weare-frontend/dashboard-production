@@ -135,6 +135,7 @@ export default {
   head() {
     return {
       title: "หมวดเกม",
+      isMobile:""
     };
   },
   asyncData: async function ({ $axios, env }) {
@@ -157,6 +158,11 @@ export default {
   },
   mounted: function () {
     // console.log(this.promotionArray);
+    if (this.$device.isMobile) {
+      this.isMobile = true;
+    }else{
+      this.isMobile = false;
+    }
     var result = this.promotionArray;
     var img = "";
     var text = "";
@@ -206,7 +212,7 @@ export default {
     },
     getSignatureCard: async function (gameName) {
     const loader = this.$loading.show({ "is-full-page": true });
-    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'casino'});
+    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'casino',isMobile:this.isMobile});
       if(lunchLuca.data.url.code==0){
         window.location = lunchLuca.data.url.url;
       }else{
@@ -217,7 +223,7 @@ export default {
     },
     getSport: async function (gameName) {
     const loader = this.$loading.show({ "is-full-page": true });
-    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'sport'});
+    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'sport',isMobile:this.isMobile});
     // this.$toast.global.error({ message: "Coming soon!" });
     setTimeout(function(){
        this.isSpin = false;
