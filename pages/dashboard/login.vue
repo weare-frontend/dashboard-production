@@ -97,7 +97,13 @@
                 >กำลังตรวจสอบ..</a>
               </div>
               <!-- <a href="#" class="mt-4 d-block">ลืมรหัสผ่าน</a>-->
-
+              <div class="container mt-2 px-3 ml-4"  v-if="getSettingObject.status_facebook=='1' || getSettingObject.status_line_login=='1'">
+                <div class="col-12 row">
+                  <div class="col-5"><hr class="or"></div>
+                  <div class="col-2 px-1 my-2 text-white"><p>หรือ</p></div>
+                  <div class="col-5"><hr class="or"></div>
+                </div>
+              </div> 
               <div
                 class="col-12 justify-content-center"
                 v-if="getSettingObject.status_line_login=='1'"
@@ -292,5 +298,8 @@ export default {
 }
 .broder-1 {
   border: solid 1px #ccc;
+}
+hr.or{
+  border: 0.5px solid #ccc;
 }
 </style>
