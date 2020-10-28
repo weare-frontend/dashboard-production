@@ -125,44 +125,45 @@
   </div>
 </template>
 <script>
-import checkDevice from "@/mixins/checkDevice";
 import { mapGetters } from "vuex";
 export default {
   head() {
     return {
       title: "Casino online",
+      isMobile:""
     };
   },
-  mixins: [checkDevice],
   asyncData: async function ({ $axios, env }) {},
   components: {},
   computed: {
-    ...mapGetters(["getSettingObject"]),
+      ...mapGetters(["getSettingObject"]),
     getSettingObject: function () {
       return this.$store.getters.getSettingObject;
     },
   },
   mounted: function () {
     console.log(this.$store.getters.getSettingObject);
+    if (this.$device.isMobile) {
+      this.isMobile = true;
+    }else{
+      this.isMobile = false;
+    }
   },
   methods: {
-    getSignature: async function (gameName) {
-      const loader = this.$loading.show({ "is-full-page": true });
-      const lunchLuca = await this.$axios.$post("/api/open-game", {
-        isMobile: this.isMobile(navigator.userAgent),
-        game: gameName,
-        gameType: "casino",
-      });
-      if (lunchLuca.data.url.code == 0) {
-        window.location = lunchLuca.data.url.url;
-      } else {
-        this.$toast.global.error({ message: "Coming soon!" });
-        this.isSpin = false;
-        loader.hide();
-      }
+  getSignature: async function (gameName) {
+    const loader = this.$loading.show({ "is-full-page": true });
+    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'casino',isMobile:this.isMobile});
+    if(lunchLuca.data.url.code==0){
+      window.location = lunchLuca.data.url.url;
+    }else{
+      this.$toast.global.error({ message: "Coming soon!" });
+      this.isSpin = false;
+      loader.hide();
+    }
+     
       console.log(lunchLuca);
-    },
-  },
+    }
+  }
 };
 </script>
 <style scope>
@@ -171,16 +172,7 @@ export default {
     border-radius: 9px;
 } */
 .btn25 {
-  background: linear-gradient(
-    0deg,
-    #000,
-    #9b712d 13%,
-    #383838 31%,
-    #1f1f1f 50%,
-    #686868 76%,
-    #f5c8b4 89%,
-    #7c5019
-  );
+  background: linear-gradient( 0deg, #000, #9b712d 13%, #383838 31%, #1f1f1f 50%, #686868 76%, #f5c8b4 89%, #7c5019 );
   margin: 0% auto;
   padding: 2px !important;
   border-radius: 5px;
@@ -1093,6 +1085,7 @@ span {
     * Author's Email: ssarazanaqvi@gmail.com
 
 */
+
 
 Body {
   /* font-family: "Open Sans", sans-serif; */

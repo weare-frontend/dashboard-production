@@ -39,6 +39,7 @@ export default {
   head() {
     return {
       title: "หมวดเกม",
+      isMobile:""
     };
   },
   asyncData: async function ({ $axios}) {
@@ -51,6 +52,11 @@ export default {
     },
   },
   mounted: function () {
+    if (this.$device.isMobile) {
+      this.isMobile = true;
+    }else{
+      this.isMobile = false;
+    }
     console.log(this.listgamecard);
     // var result = this.promotionArray;
     // var img = "";
@@ -97,7 +103,7 @@ export default {
   methods: {
     gameluca: async function (gameName,gameId) {
     const loader = this.$loading.show({ "is-full-page": true });
-    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'cardgame',gameId:gameId});
+    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'cardgame',gameId:gameId,isMobile:this.isMobile});
         if(lunchLuca.data.url.code==0){
           window.location = lunchLuca.data.url.url;
         }else{
