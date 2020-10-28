@@ -3,7 +3,7 @@
   <div>
     <div class="container pt-5">
       <div class="row mb-3">
-        <div class="col-2 text-left">
+        <div class="col-2 text-left" style="top:25px; position:absolute;">
           <nuxt-link :to="{name:'dashboard'}" class="mt-4">
             <i class="f7-icons text-pink">chevron_left_circle_fill</i>
           </nuxt-link>

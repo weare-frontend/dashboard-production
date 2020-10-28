@@ -887,7 +887,7 @@ export default {
           indexFormError =
             indexFormError < 0
               ? (await this.formError.push({
-                  step: 3,
+                  step: 2,
                   ref: "inputPhoneNumber",
                   message: [],
                 })) - 1
@@ -1114,48 +1114,65 @@ export default {
     },
     nextStepInfo: async function (res) {
       // alert(' uyuyuyuyu')
-      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputFname")) || this.$refs.inputFname.value.match(/^[A-Za-z0-9]*$/)) this.formError.push({step: 3, ref: "inputFname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
-      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputLname")) || this.$refs.inputLname.value.match(/^[A-Za-z0-9]*$/)) this.formError.push({step: 3, ref: "inputLname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
-
-      if ( !this.$refs.selecBankAccounts.value && !this.isFormValidation("selecBankAccounts") )
-        this.formError.push({
-          step: 3,
-          ref: "selecBankAccounts",
-          message: "กรุณาเลือกบัญชีธนาคารของท่าน",
-        });
+      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputFname")) || this.$refs.inputFname.value.match(/^[A-Za-z0-9]*$/)){
+        // this.formError.push({step: 3, ref: "inputFname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
+        this.$toast.global.error({
+            message: "ชื่อ ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+          });
+          return false
+      } 
+      if ((!this.$refs.inputFname.value && !this.isFormValidation("inputLname")) || this.$refs.inputLname.value.match(/^[A-Za-z0-9]*$/)){
+        //  this.formError.push({step: 3, ref: "inputLname", message: "ห้ามว่างและเป็นภาษาไทยทั้งหมด"});
+         this.$toast.global.error({
+            message: "นามสกุล ห้ามว่างและเป็นภาษาไทยทั้งหมด",
+          });
+          return false
+      }
+      if ( !this.$refs.selecBankAccounts.value && !this.isFormValidation("selecBankAccounts") ){
+        // this.formError.push({
+        //   step: 3,
+        //   ref: "selecBankAccounts",
+        //   message: "กรุณาเลือกบัญชีธนาคารของท่าน",
+        // });
+        this.$toast.global.error({
+            message: "กรุณาเลือกบัญชีธนาคารของท่าน",
+          });
+          return false
+      }
       if (!this.isFormValidation("inputBankAccountNumber")) {
-        if (!this.inputBankAccountNumber || this.inputBankAccountNumber.length <10) {
+        if (!this.inputBankAccountNumber || this.inputBankAccountNumber.length < 10) {
           var indexFormError = this.formError.findIndex(
             (item) => item.ref == "inputBankAccountNumber"
           );
-          indexFormError =
-            indexFormError < 0
-              ? (await this.formError.push({
-                  step: 3,
-                  ref: "inputBankAccountNumber",
-                  message: [],
-                })) - 1
-              : indexFormError;
-          this.formError[indexFormError].message.push("ห้ามว่าง และกรอกให้ถูกต้อง");
+          // indexFormError =
+          //   indexFormError < 0
+          //     ? (await this.formError.push({
+          //         step: 3,
+          //         ref: "inputBankAccountNumber",
+          //         message: [],
+          //       })) - 1
+          //     : indexFormError;
+          // this.formError[indexFormError].message.push("ห้ามว่าง และกรอกให้ถูกต้อง");
+          this.$toast.global.error({
+            message: "เลขบัญชี กรุณากรอกให้ถูกต้อง",
+          });
+          return false
         }
         if (
           !this.inputBankAccountNumber ||
           !this.inputBankAccountNumber.match(/^[0-9]+$/)
-        ) {
+        ){
           var indexFormError = this.formError.findIndex(
             (item) => item.ref == "inputBankAccountNumber"
           );
-          indexFormError =
-            indexFormError < 0
-              ? (await this.formError.push({
-                  step: 3,
-                  ref: "inputBankAccountNumber",
-                  message: [],
-                })) - 1
-              : indexFormError;
+         
           this.formError[indexFormError].message.push(
-            "เลขบัญชีธนาคารต้องเป็นตัวเลขเท่านั้น"
+            "เลขบัญชีธนาคาร ต้องเป็นตัวเลขเท่านั้น"
           );
+          this.$toast.global.error({
+            message: "เลขบัญชีธนาคาร ต้องเป็นตัวเลขเท่านั้น",
+          });
+          return false
         }
       }
 
@@ -1178,27 +1195,30 @@ export default {
       if (!checkName.success) {
         this.fnerror = checkName.message;
         this.formError.push({step: 3, ref: "inputFname", message: checkName.message});
-       
       }
-
       if (!checkAccount.success) {
           var indexFormError = this.formError.findIndex((item) => item.ref == "inputBankAccountNumber"  );
           indexFormError = indexFormError < 0 ? (await this.formError.push({ step: 3, ref: "inputBankAccountNumber", message: [], })) - 1 : indexFormError;
-          // this.formError[indexFormError].message.push(
-          //   checkAccount.message
-          // );
+          this.formError[indexFormError].message.push(
+            checkAccount.message
+          );
+          this.$toast.global.error({
+            message: "กรุณาตรวจสอบเลขบัญชี",
+          });
+          return false
       }
 
+      this.step = 4;
 
-
-        const formErrorStep = await this.formError.find(item => item.step == 3);
-        if (!formErrorStep){
-          this.step = 4;
-        }else{
-          this.$toast.global.error({
-          message: "กรุณากรอกข้อมูลให้ถูกต้อง",
-          });
-        }
+        // const formErrorStep = await this.formError.find(item => item.step == 3);
+        // if (!this.formError){
+        //   this.step = 4;
+        // }else{
+        //   this.$toast.global.error({
+        //     message: this.formError,
+        //   });
+        //   // this.step = 4;
+        // }
      
     },
 
@@ -1211,7 +1231,7 @@ export default {
         indexFormError =
           indexFormError < 0
             ? (await this.formError.push({
-                step: 3,
+                step: 2,
                 ref: "inputPhoneNumber",
                 message: "ห้ามว่าง",
               })) - 1
@@ -1224,7 +1244,7 @@ export default {
         indexFormError =
           indexFormError < 0
             ? (await this.formError.push({
-                step: 3,
+                step: 2,
                 ref: "inputPhoneNumber",
                 message: [],
               })) - 1
@@ -1239,7 +1259,7 @@ export default {
         indexFormError =
           indexFormError < 0
             ? (await this.formError.push({
-                step: 3,
+                step: 2,
                 ref: "inputPhoneNumber",
                 message: [],
               })) - 1
@@ -1280,7 +1300,7 @@ export default {
             !this.isFormValidation("inputOtpNumber")
           )
             return this.formError.push({
-              step: 3,
+              step: 2,
               ref: "inputOtpNumber",
               message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
             });
@@ -1302,7 +1322,7 @@ export default {
             !this.isFormValidation("inputOtpNumber")
           )
             return this.formError.push({
-              step: 3,
+              step: 2,
               ref: "inputOtpNumber",
               message: "กรุณากรอก OTP ที่ได้รับให้ถูกต้อง",
             });
@@ -1325,7 +1345,7 @@ export default {
         document.getElementById("accepted-pin").style.display = "block";
         document.getElementById("chk-pin").style.display = "none";
         return this.formError.push({
-          step: 3,
+          step: 2,
           ref: "inputPinNumber",
           message: chkpin.message,
         });
@@ -1420,7 +1440,7 @@ export default {
           });
         if (errorTel)
           this.formError.push({
-            step: 3,
+            step: 2,
             ref: "inputPhoneNumber",
             message: [errorTel.error],
           });
@@ -1437,9 +1457,9 @@ export default {
           });
         }
 
-        if (errorFirstname || errorLastname) return (this.step = 2);
-        if (errorBankAccount) return (this.step = 2);
-        if (errorTel) return (this.step = 3);
+        if (errorFirstname || errorLastname) return (this.step = 3);
+        if (errorBankAccount) return (this.step = 3);
+        if (errorTel) return (this.step = 2);
       }
     },
     nextStepLogin: async function (event) {

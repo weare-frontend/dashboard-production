@@ -121,7 +121,6 @@
     <alert-dialog 
         title="รางวัลวงล้อ" 
         acceptText="ยืนยัน"
-        cancelText="ยกเลิก"
         :active="wheelActive" 
         @hide="hideWheelDialog" 
         @submit="onSubmitWheelDialog"

@@ -1,12 +1,12 @@
 <template>
-<div style="margin-top: -170px;">
-    <div class="col-4 text-left">
+<div>
+    <div class="col-4 text-left" style="top:25px; position:absolute;">
         <nuxt-link :to="{name:'dashboard'}">
             <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
         </nuxt-link>
     </div>
     <div class="mt-4 col-12">
-        <h5 class="text-center text-white font-weight-100" style="border-radius: 15px; margin-top: 100px;"><i class="text fas fa-gift"></i> กิจกรรม</h5>
+        <h5 class="text-center text-white font-weight-100" style="border-radius: 15px;"><i class="text fas fa-gift"></i> กิจกรรม</h5>
     </div>
     <div class="panel-center">
         <div class="container">
