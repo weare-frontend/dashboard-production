@@ -639,14 +639,14 @@
             :autoplay-timeout="2400"
             :height="360"
             class="width c-bill"
-            style="background: rgba(0, 0, 0, 0); border-radius: 20px; border: 0"
+           
           >
             <slide v-for="(item, i) in promotionArray" :index="i" :key="i">
               <img
                 :src="item.img"
                 class="w-100"
                 alt="promotion"
-                style="border-radius: 20px; overflow: hidden"
+                style="overflow: hidden"
               />
             </slide>
           </carousel-3d>
@@ -657,9 +657,6 @@
 </template>
 
 <style>
-.carousel-3d-slide {
-  border-radius: 20px;
-}
 
 .w-50 {
   width: 50%;
