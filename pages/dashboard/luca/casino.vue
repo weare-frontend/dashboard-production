@@ -142,7 +142,7 @@ export default {
     },
   },
   mounted: function () {
-    console.log(this.$store.getters.getSettingObject);
+    // console.log(this.$store.getters.getSettingObject);
     if (this.$device.isMobile) {
       this.isMobile = true;
     }else{
@@ -161,7 +161,7 @@ export default {
       loader.hide();
     }
      
-      console.log(lunchLuca);
+      // console.log(lunchLuca);
     }
   }
 };

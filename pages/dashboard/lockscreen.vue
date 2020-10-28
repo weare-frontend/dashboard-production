@@ -90,7 +90,7 @@ export default {
            loggedIn.then(res => {
              loader.hide();
              if (res.success) {
-               console.log(this.checkOS());
+              //  console.log(this.checkOS());
                 
                this.$cookies.remove('lockscreen');
                this.$router.push({

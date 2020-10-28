@@ -57,7 +57,7 @@ export default {
     }else{
       this.isMobile = false;
     }
-    console.log(this.listgamecard);
+    // console.log(this.listgamecard);
     // var result = this.promotionArray;
     // var img = "";
     // var text = "";

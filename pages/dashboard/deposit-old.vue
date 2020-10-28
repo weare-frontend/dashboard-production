@@ -148,7 +148,7 @@ export default {
         return {bankArray : topupBank.success ? topupBank.data : [], drgxObject : topupDrgx.success ? topupDrgx.data : null}
     },
     mounted : function(){
-     console.log(this.drgxObject)
+    //  console.log(this.drgxObject)
     },
     methods : {
         copyBank : async function(text) {

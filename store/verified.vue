@@ -1223,7 +1223,7 @@ export default {
 
       if (checkDuplicate.success) {
         // this.$toast.global.success({message : checkDuplicate.msg});
-        console.log(checkDuplicate.username);
+        // console.log(checkDuplicate.username);
         const loader = this.$loading.show({
           container: this.$refs.formInfoUser,
         });

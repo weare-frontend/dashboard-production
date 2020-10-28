@@ -156,7 +156,7 @@ export default {
     },
   },
   mounted: function () {
-    console.log(this.promotionArray);
+    // console.log(this.promotionArray);
     var result = this.promotionArray;
     var img = "";
     var text = "";

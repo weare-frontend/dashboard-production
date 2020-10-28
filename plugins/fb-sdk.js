@@ -11,7 +11,7 @@ export default ({store}) => {
             js.id = id
             js.src = "//connect.facebook.net/en_US/sdk.js"
             fjs.parentNode.insertBefore(js, fjs)
-            console.log('setting fb sdk')
+            // console.log('setting fb sdk')
         }(document, 'script', 'facebook-jssdk'))
     
         window.fbAsyncInit = function onSDKInit() {

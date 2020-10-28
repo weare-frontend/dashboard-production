@@ -127,7 +127,7 @@ export default {
     },
     mounted :async function() {
       const boxSetting = await this.$axios.$get('/api/get-chests');
-      console.log(boxSetting)
+      // console.log(boxSetting)
     },
     methods : {
       openItemBox : async function(index){

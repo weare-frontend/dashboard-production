@@ -167,7 +167,7 @@ export default {
         this.$axios
           .$get("api/get-link-affiliate")
           .then((response) => {
-            console.log(response);
+            // console.log(response);
             if (response.success === true) {
               // let url = response.link_front;
               window.location.href = response.link_front;

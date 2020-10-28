@@ -108,7 +108,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log("error => getReturnBalance :", error);
+          // console.log("error => getReturnBalance :", error);
         });
     },
     getCreditFree() {
@@ -136,7 +136,7 @@ export default {
             }
           })
           .catch((error) => {
-            console.log("error => getCreditFree :", error);
+            // console.log("error => getCreditFree :", error);
             this.$toast.global.success({
               message: "กดรับไม่สำเสร็จ กรุณาลองให้ภายหลัง",
             });
@@ -153,7 +153,7 @@ export default {
           return response.data.data;
         })
         .catch((error) => {
-          console.log("error => getTableReturnBalance :", error);
+          // console.log("error => getTableReturnBalance :", error);
         });
     },
   },

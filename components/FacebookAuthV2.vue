@@ -81,7 +81,7 @@ export default {
           self.name = self.user.name
           self.email = self.user.email || '-'
           self.picture = self.user.picture
-          console.log(self.user);
+          // console.log(self.user);
           if(response.id){
             self.apiFacebook(response.id)
           }else{
