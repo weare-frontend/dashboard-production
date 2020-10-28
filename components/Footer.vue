@@ -17,15 +17,15 @@
                         <span class=" text-template">ข้อมูลส่วนตัว</span>
                     </nuxt-link>
                 </div>
-                <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" v-if="this.$auth.user.game.toLowerCase() == 'csroyale' ">
+                <!-- <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" v-if="this.$auth.user.game.toLowerCase() == 'csroyale' ">
                     <nuxt-link :to="{ name : 'dashboard-luca'}" class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center" style="width: 97px;height: 97px;margin: -30px auto 0 auto;">
                         <div class="module bg-white mt-1">
                             <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
                             <p class="mt-2 text-template font-weight-100">เข้าสู่เกม</p>
                         </div>
                     </nuxt-link>
-                </div>
-                <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" style="margin-top: -10px; filter: drop-shadow(0px 0px 2px white);" v-else>
+                </div> -->
+                <div class="col-3 px-0 px-sm-1 px-md-1 px-lg-1 ft" style="margin-top: -10px; filter: drop-shadow(0px 0px 2px white);">
                     <a @click="$refs['modal-download'].show()" class="menu-btn-center btn btn-link-default module-border-wrap justify-content-center" style="width: 97px;height: 97px;margin: -30px auto 0 auto;">
                         <div class="module bg-white">
                             <img src="~/assets/icon/Game-revert.png" alt="" class="my-2 bg-template" style="width: 64%;margin-left: 10px;">
@@ -201,6 +201,11 @@ export default {
     async mounted() {
         //*********** lunchGame All Start***********
         switch (this.$auth.user.game.toLowerCase()) {
+            case "csroyale":
+                const lunchCroyale = await this.$axios.$get("/api/open-game");
+                this.lunchGameUrlWeb = lunchCroyale.data.url;
+                this.lunchGameUrlMoblie = lunchCroyale.data.url;
+                break;
             case "ocean99":
                 // this.lunchGameUrlMoblie = !this.$device.isDesktop ? this.$auth.user.links.native : null;
                 // this.lunchGameUrlWeb = this.$auth.user.links.mobile
@@ -274,8 +279,6 @@ export default {
   animation: go-game 1.4s infinite;
   animation-duration: 1.4s; */
 }
-
-
 
 .module {
     /* background: rgba(0, 0, 0, 0.5); */
@@ -431,3 +434,4 @@ i.f7-icons {
     }
 }
 </style>
+
