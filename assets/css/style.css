@@ -3235,7 +3235,7 @@ pre {
 }
 
 .purple-theme .btn-register {
-    background: #9026db;
+    background: #c168ff;
     width: 48%;
     float: left;
     padding: 10px 8px;
@@ -3243,14 +3243,14 @@ pre {
 }
 
 .purple-theme .bg-modal {
-    background-color: #4A0077;
+    background-color: #621498;
 }
 
 .purple-theme .onoffswitch-inner:before {
     content: "ON";
     padding-left: 10px;
     background: linear-gradient(90deg, hsl(0deg 0% 100% / 50%) 0, rgb(0 0 0 / 38%));
-    background-color: #c90be8;
+    background-color: #a454e7;
 }
 
 .purple-theme .onoffswitch-inner:after {
@@ -3271,7 +3271,7 @@ pre {
 }
 
 .purple-theme .btn-login {
-    background: linear-gradient(0deg,#3b0a5d 0,#8901e9);
+    background: linear-gradient(0deg,#5f1294 0,#8901e9);
     border: 1px solid #ccc;
     width: 48%;
     float: right;
@@ -3283,8 +3283,8 @@ pre {
 .purple-theme .bg-button-withdraw {
     border-radius: 25px;
     height: 50px;
-    background: linear-gradient(to top, #9C27B0 0%, #db00ff 100%);
-    filter: drop-shadow(3px 3px 1px black);
+    background: linear-gradient(to top, #542284 0%, #b760ff 100%);
+    filter: drop-shadow(1px 2px 3px black);
 }
 
 .purple-theme .nav-tabs .nav-link.active {
@@ -3293,13 +3293,13 @@ pre {
     -webkit-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -moz-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
     -ms-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
-    background: linear-gradient(to top, #4a0077 0%, #ce44ff 100%);
+    background: linear-gradient(to top, #542284 0%, #b760ff 100%);
     background-color: #259690;
     color: white;
 }
 
 .purple-theme .input-prepend {
-    background:  linear-gradient(to top, #9C27B0 0%, #db00ff 100%);
+    background: linear-gradient(to top, #542284 0%, #b760ff 100%);
     color: #ffffff;
     margin: 2px;
     font-size: 12px;
@@ -3347,7 +3347,7 @@ pre {
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     color: #ccc;
-    background-color: #4A0077;
+    background-color: #7437a8;
     width: 100%;
 }
 
@@ -3390,15 +3390,15 @@ pre {
 }
 
 .purple-theme .bg-body-modal {
-    background: #4A0077;
+    background: #621498;
 }
 
 .purple-theme .bg-button-cc {
-    background:linear-gradient(to top, #6A00B4 0%, #c168ff 100%);
+    background: linear-gradient(to top, #903dca 0%, #c168ff 100%);
 }
 
 .purple-theme .bg-button-cf {
-    background: linear-gradient(to top, #31004f 0%, #8123ba 100%);
+    background: linear-gradient(to top, #5a1286 0%, #9f00ff 100%);
     color: #fff;
 }
 
@@ -3423,7 +3423,7 @@ pre {
 }
 
 .purple-theme .wrapper {
-    background: #540087;
+    background: #7033b0;
 }
 
 .purple-theme .btn.btn-line {
@@ -3442,7 +3442,7 @@ pre {
 .purple-theme .float-label .form-control,
 .float-label .chosen-container .chosen-choices,
 .float-label .chosen-container .chosen-single {
-    background-color: #6A3786;
+    background-color: #9745c3;
     color: #4d0179;
     border-radius: 10px;
     z-index: 1;
@@ -3463,7 +3463,7 @@ pre {
     background: -webkit-linear-gradient(top, #259690 0%, #259690 100%);
     background: -o-linear-gradient(top, #259690 0%, #259690 100%);
     background: -ms-linear-gradient(top, #259690 0%, #259690 100%);
-    background: linear-gradient(to top, #6F0192 80%, #4A0077 100%);
+    background: linear-gradient(to top, #b154ff 80%, #601ea1 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#259690', endColorstr='#259690', GradientType=0);
     background-attachment: fixed;
     background-position: center top;
@@ -3615,7 +3615,7 @@ pre {
 .purple-theme .btn-light:focus,
 .purple-theme .btn-light:not(:disabled):not(.disabled).active,
 .purple-theme .bg-template-light {
-    background: linear-gradient(to top, #d205f4 0%, #a422ba 100%);
+    background: linear-gradient(to top, #542284 0%, #b760ff 100%);
     color: #fff!important;
 }
 
@@ -3630,7 +3630,7 @@ pre {
 .purple-theme .btn.btn-link-default:focus,
 .purple-theme .btn.btn-link-default.active {
     /* color: #00c177; */
-    color: #4A0077;
+    color: #8241b8;
 }
 
 .purple-theme .bg-warning,

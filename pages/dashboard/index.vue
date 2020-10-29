@@ -205,7 +205,7 @@
       </div>
       <div class="container-sm" style="max-width: 500px">
         <div
-          class="mt-4 mt-md-4 fetch-main"
+          class="mt-5 mt-md-4 fetch-main"
           v-if="$route.name != 'dashboard-withdraw'"
         >
           <div class="mb-2 d-flex align-items-center">
@@ -401,7 +401,7 @@
               <div class="border-0">
                 <div
                   class="overlay bg-template mb-0 mx-auto"
-                  style="filter: brightness(0.4)"
+                  style="filter: contrast(0.7)"
                 >
                   <img
                       src="~/assets/icon/Affilate-revert.png"
@@ -410,7 +410,7 @@
                 </div>
               </div>
               <small
-                style="white-space: nowrap"
+                style="white-space: nowrap; filter: opacity(0.5)"
                 class="text-template mb-0 font-weight-100 size-14"
                 >ชวนเพื่อน</small
               >
@@ -456,7 +456,7 @@
               <div class="border-0">
                 <div
                   class="overlay bg-template mb-0 mx-auto"
-                  style="filter: brightness(0.4)"
+                  style="filter: contrast(0.7)"
                 >
                   <img
                     src="~/assets/icon/Reward-revert.png"
@@ -465,7 +465,7 @@
                 </div>
               </div>
               <small
-                style="white-space: nowrap"
+                style="white-space: nowrap; filter: opacity(0.5)"
                 class="text-template mb-0 font-weight-100 size-14"
                 >สะสมแต้ม</small
               >
@@ -507,7 +507,7 @@
               <div class="border-0">
                 <div
                   class="overlay bg-template mb-0 mx-auto"
-                  style="filter: brightness(0.4)"
+                  style="filter: contrast(0.7)"
                 >
                   <img
                     src="~/assets/icon/Daily-revert.png"
@@ -516,7 +516,7 @@
                 </div>
               </div>
               <small
-                style="white-space: nowrap"
+                style="white-space: nowrap; filter: opacity(0.5)"
                 class="text-template mb-0 font-weight-100 size-14"
                 >ฝากประจำ</small
               >
@@ -557,7 +557,7 @@
               <div class="border-0">
                 <div
                   class="overlay bg-template mb-0 mx-auto"
-                  style="filter: brightness(0.4)"
+                  style="filter: contrast(0.7)"
                 >
                   <img
                     src="~/assets/icon/Wheel-revert.png"
@@ -566,7 +566,7 @@
                 </div>
               </div>
               <small
-                style="white-space: nowrap"
+                style="white-space: nowrap; filter: opacity(0.5)"
                 class="text-template mb-0 font-weight-100 size-14"
                 >วงล้อลุ้นโชค</small
               >
@@ -612,7 +612,7 @@
               <div class="border-0">
                 <div
                   class="overlay bg-template mb-0 mx-auto"
-                  style="filter: brightness(0.4)"
+                  style="filter: contrast(0.7)"
                 >
                   <img
                     src="~/assets/icon/Event-revert.png"
@@ -621,7 +621,7 @@
                 </div>
               </div>
               <small
-                style="white-space: nowrap"
+                style="white-space: nowrap; filter: opacity(0.5)"
                 class="text-template mb-0 font-weight-100 size-14"
                 >กิจกรรม</small
               >

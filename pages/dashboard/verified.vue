@@ -8,8 +8,8 @@
                 <i class="f7-icons text-white nuxt-link-active">chevron_left_circle_fill</i>
             </nuxt-link>
         </div>
-        <div class="col-12">
-            <h5 class="text-center text-white font-weight-100" style="border-radius: 15px; margin-top: 85px;">ยืนยันข้อมูล</h5>
+        <div class="col-12 mt-3">
+            <h5 class="text-center text-white font-weight-100">ยืนยันข้อมูล</h5>
         </div>
     </div>
     <div class="container">
