@@ -152,7 +152,7 @@ export default {
   methods: {
   getSignature: async function (gameName) {
     // const loader = this.$loading.show({ "is-full-page": true });
-    this.$toast.global.success({ message: "กำลังเข้าสู่เกม" });
+    await this.$toast.global.success({ message: "กำลังเข้าสู่เกม" });
     const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'casino',isMobile:this.isMobile});
     if(lunchLuca.data.url.code==0){
       window.location = lunchLuca.data.url.url;
