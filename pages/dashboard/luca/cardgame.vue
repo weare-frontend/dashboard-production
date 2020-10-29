@@ -1,6 +1,6 @@
 <template>
-  <div class="container" style="margin-top:-80px;">
-    <div class="row">
+  <div class="container">
+    <div class="row" style="margin-top:10px;">
       <div class="col-2" style="white-space: nowrap">
         <nuxt-link to="../luca" class="text-info">
           <i class="fa fa-arrow-circle-left"></i> กลับ
@@ -57,6 +57,7 @@ export default {
     }else{
       this.isMobile = false;
     }
+    // alert(this.isMobile);
     // console.log(this.listgamecard);
     // var result = this.promotionArray;
     // var img = "";
@@ -101,18 +102,17 @@ export default {
     // document.getElementById("div1").innerHTML = text;
   },
   methods: {
+    
     gameluca: async function (gameName,gameId) {
     const loader = this.$loading.show({ "is-full-page": true });
     const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'cardgame',gameId:gameId,isMobile:this.isMobile});
         if(lunchLuca.data.url.code==0){
           window.location = lunchLuca.data.url.url;
         }else{
-          this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
-          setTimeout(function(){
-            this.isSpin = false;
-            loader.hide();
-          },1200);          
+          this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });  
         }
+        this.isSpin = false;
+        loader.hide();
     }
   }
 };

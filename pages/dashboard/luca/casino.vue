@@ -1,123 +1,119 @@
 <template>
   <div class="container">
-    <div class="container">
-      <div class="container">
-        <div class="row mt-0">
-          <div class="col-2" style="white-space: nowrap">
-            <nuxt-link to="../luca" class="text-info">
-              <i class="fa fa-arrow-circle-left"></i> กลับ
-            </nuxt-link>
-            <small class="m-2 text-white"> <nuxt-link to="../luca">หมวดเกม</nuxt-link> / <u>คาสิโน</u></small>
-            <p id="io"></p>
+    <div class="row mt-0">
+      <div class="col-2" style="white-space: nowrap">
+        <nuxt-link to="../luca" class="text-info">
+          <i class="fa fa-arrow-circle-left"></i> กลับ
+        </nuxt-link>
+        <small class="m-2 text-white"> <nuxt-link to="../luca">หมวดเกม</nuxt-link> / <u>คาสิโน</u></small>
+        <p id="io"></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="400"
+        >
+          <a @click="getSignature('sexy')" style="cursor: pointer">
+            <img class="w-100" src="~/assets/img/casino/SexyGaming.png" alt="sexy game " />
+            <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+            <div class="buttons">
+              <i class="fa fa-sign-in-alt"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="400 "
+          data-aos-duration="600"
+          @click="getSignature('sa')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/SAgaming.png" alt="game casino " />
+          <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
+            <!-- <a class="fa fa-gamepad "></a> -->
           </div>
         </div>
-        <div class="row">
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-duration="400"
-            >
-              <a @click="getSignature('sexy')" style="cursor: pointer">
-                <img class="w-100" src="~/assets/img/casino/SexyGaming.png" alt="sexy game " />
-                <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-                <div class="buttons">
-                  <i class="fa fa-sign-in-alt"></i>
-                </div>
-              </a>
-            </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="600 "
+          data-aos-duration="800 "
+          @click="getSignature('pt')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/PrettyGaming.png" alt="game casino " />
+          <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
           </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="400 "
-              data-aos-duration="600"
-              @click="getSignature('sa')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/SAgaming.png" alt="game casino " />
-              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-                <!-- <a class="fa fa-gamepad "></a> -->
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="200 "
+          data-aos-duration="400 "
+          @click="getSignature('ag')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/AG.png" alt="game casino " />
+          <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
           </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="600 "
-              data-aos-duration="800 "
-              @click="getSignature('pt')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/PrettyGaming.png" alt="game casino " />
-              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="400 "
+          data-aos-duration="600 "
+          @click="getSignature('dg')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/DreamGaming.png" alt="game casino " />
+          <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
           </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="200 "
-              data-aos-duration="400 "
-              @click="getSignature('ag')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/AG.png" alt="game casino " />
-              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="400 "
+          data-aos-duration="600 "
+          @click="getSignature('ebet')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/Ebet.png" alt="game casino " />
+          <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
           </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="400 "
-              data-aos-duration="600 "
-              @click="getSignature('dg')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/DreamGaming.png" alt="game casino " />
-              <div class="text-center text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-              </div>
-            </div>
-          </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="400 "
-              data-aos-duration="600 "
-              @click="getSignature('ebet')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/Ebet.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-              </div>
-            </div>
-          </div>
-          <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
-            <div
-              class="btn25 aos-init aos-animate"
-              data-aos="fade-up "
-              data-aos-delay="400 "
-              data-aos-duration="600 "
-              @click="getSignature('allbet')" style="cursor: pointer"
-            >
-              <img class="w-100" src="~/assets/img/casino/Allbet.png" alt="game casino " />
-              <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
-              <div class="buttons">
-                <i class="fa fa-sign-in-alt"></i>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+        <div
+          class="btn25 aos-init aos-animate"
+          data-aos="fade-up "
+          data-aos-delay="400 "
+          data-aos-duration="600 "
+          @click="getSignature('allbet')" style="cursor: pointer"
+        >
+          <img class="w-100" src="~/assets/img/casino/Allbet.png" alt="game casino " />
+          <div class="text-center mt-2 text-white ovrly  py-4">เข้าสู่เว็บเดิมพัน</div>
+          <div class="buttons">
+            <i class="fa fa-sign-in-alt"></i>
           </div>
         </div>
       </div>

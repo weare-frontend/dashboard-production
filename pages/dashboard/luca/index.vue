@@ -82,7 +82,7 @@
           data-aos="fade-up "
           data-aos-delay="200 "
           data-aos-duration="400"
-          @click="getSignatureCard('lotto')"
+          @click="getSignatureLotto('lotto')"
         >
           <img class="w-100" src="~/assets/img/type/typeLotto.png" alt="game casino " />
           <div class="buttons">
@@ -98,7 +98,7 @@
           data-aos="fade-up "
           data-aos-delay="400 "
           data-aos-duration="600"
-          @click="getSignatureCard('lotto')"
+          @click="getSignatureLotto('lotto')"
         >
           <img class="w-100" src="~/assets/img/type/typeLottThai.png" alt="game casino " />
           <div class="buttons">
@@ -163,6 +163,7 @@ export default {
     }else{
       this.isMobile = false;
     }
+    
     var result = this.promotionArray;
     var img = "";
     var text = "";
@@ -221,14 +222,22 @@ export default {
         loader.hide();
       }
     },
+    getSignatureLotto: async function (gameName) {
+      alert(this.isMobile);
+    const loader = this.$loading.show({ "is-full-page": true });
+    const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'lotto',isMobile:this.isMobile});
+      if(lunchLuca.data.url.code==0){
+        window.location = lunchLuca.data.url.url;
+      }else{
+        this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
+        this.isSpin = false;
+        loader.hide();
+      }
+    },
     getSport: async function (gameName) {
     const loader = this.$loading.show({ "is-full-page": true });
     const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'sport',isMobile:this.isMobile});
     // this.$toast.global.error({ message: "Coming soon!" });
-    setTimeout(function(){
-       this.isSpin = false;
-        loader.hide();
-    },1200)
       if(lunchLuca.data.success){
         if(this.$device.isDesktop){
           window.location = lunchLuca.data.urld;
@@ -237,9 +246,9 @@ export default {
         }
       }else{
         this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });
-        this.isSpin = false;
-        loader.hide();
-      }
+      } 
+      this.isSpin = false;
+      loader.hide();
     }
   }
 };
