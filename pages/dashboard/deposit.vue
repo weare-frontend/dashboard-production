@@ -35,10 +35,10 @@
                     </div>
                     <div class="row text-center justify-content-center" v-if="bankArray.length">
                         <div class="col-12 col-md-12">
-                        <h6 class="subtitle" style="margin-top: 15px; margin-bottom: 5px;">
-                            <u style="color: #000;">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
-                            <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมอัตโนมัติ ภายในเวลา 1-2 นาที</small>
-                        </h6>
+                            <h6 class="subtitle" style="margin-top: 15px; margin-bottom: 5px;">
+                                <u style="color: #000;">กรุณาใช้บัญชีที่ท่านสมัครโอนมาเท่านั้น</u>
+                                <small class="text-center d-block text-danger">* ระบบจะเติมเครดิตเกมอัตโนมัติ ภายในเวลา 1-2 นาที</small>
+                            </h6>
                         </div>
                         <div class="list-group list-group-flush" v-if="bankArray.length" style="border-radius: 10px;border: solid 1px #fff;background: rgba(0,0,0,0.2);">
                             <a class="list-group-item border-top text-dark click-active" style="border-radius: 10px;background: rgba(0,0,0,0);" @click="copyBank(item.bank_account)" v-for="(item, index) in bankArray" :key="index">
@@ -190,22 +190,22 @@
                                         <!-- step กรอกเงิน -->
                                         <!-- <div v-if="item.qrcode_log.length==0" class="col-md-1"></div> -->
                                         <div v-if="item.qrcode_log.length==0" class="col-12 col-md-4 col-sm-12" style="margin-top: 5px;margin-bottom: 0px;">
-                                        <div class="col-md-12">
-                                            <small class="text-template">เลือกจำนวนเงิน</small>
-                                            <p class="w-100 d-flex">
-                                                <span class="btn-money"><button @click="showBox(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
-                                                <span class="btn-money"><button @click="showBox(null,item.id,300)" class="btn w-100 text-template bg-white">300</button></span>
-                                                <span class="btn-money"><button @click="showBox(null,item.id,500)" class="btn w-100 text-template bg-white">500</button></span>
-                                            </p>
-                                            <p class="w-100 d-flex" style="margin-top:-10px;">
-                                                <span class="btn-money"><button @click="showBox(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
-                                                <span class="btn-money"><button @click="showBox(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
-                                                <span class="btn-money"><button @click="showBox(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
-                                            </p>
-                                            <small class="text-template">ระบุจำนวน</small>
-                                            <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template mb-2" style="display:block;background-color: #fff;"></b-form-input>
-                                        </div>
-                                            <b-button class="btn-topup"  @click="showBox('amount'+item.id,item.id)" variant="secondary">
+                                            <div class="col-md-12">
+                                                <small class="text-template">เลือกจำนวนเงิน</small>
+                                                <p class="w-100 d-flex">
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,100)" class="btn w-100 text-template bg-white">100</button></span>
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,300)" class="btn w-100 text-template bg-white">300</button></span>
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,500)" class="btn w-100 text-template bg-white">500</button></span>
+                                                </p>
+                                                <p class="w-100 d-flex" style="margin-top:-10px;">
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,1000)" class="btn w-100 text-template bg-white">1,000</button></span>
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,5000)" class="btn w-100 text-template bg-white">5,000</button></span>
+                                                    <span class="btn-money"><button @click="showBox(null,item.id,10000)" class="btn w-100 text-template bg-white">10,000</button></span>
+                                                </p>
+                                                <small class="text-template">ระบุจำนวน</small>
+                                                <b-form-input size="lg" :ref="'amount'+item.id" :id="'amount'+item.id" type="number" placeholder="0" class="form-controls text-right text-template mb-2" style="display:block;background-color: #fff;"></b-form-input>
+                                            </div>
+                                            <b-button class="btn-topup" @click="showBox('amount'+item.id,item.id)" variant="secondary">
                                                 <i class="material-icons vm md-36" style="color:#F44336;">check_circle</i>
                                                 เติมเงิน
                                             </b-button>
@@ -215,12 +215,16 @@
                                         </div>
                                     </div>
                                     <!-- step แสดง qr code -->
-                                    <div class="row justify-content-center">
+                                    <div class="justify-content-center">
                                         <div id="app" v-if="item.qrcode_log.length!=0" class="col-lg-4 col-md-6 text-center">
                                             <b-card no-body class="text-center">
-                                                <div class="bg-white">
+                                                <div class="container bg-white">
 
-                                                    <b-img :src="require('@/assets/img/thaibanks/pp.png')" style="max-width: 230px;width: 100%; margin-bottom: -10px;"></b-img>
+                                                    <small class="text-left d-block mt-1 text-dark">  &bull; กรุณาคัดลอกเลชบัญชีหรือแคปภาพหน้าจอ</small>
+                                                    <small class="text-left d-block mt-1 text-dark">  &bull; โอนเงินให้ตรงกับยอดโอนเท่านั้น <span class="text-danger"><u>ห้ามปัดเศษ</u></span> เพราะระบบอ้างอิงยอดจาก <span class="text-danger"><u>ทศนิยม</u></span></small>
+                                                    <small class="text-left d-block mt-1 text-dark">  &bull; เงินจะเข้าสู่ระบบอัตโนมัติภานใน 1-2 นาที</small>
+
+                                                    <!-- <b-img :src="require('@/assets/img/thaibanks/pp.png')" style="max-width: 230px;width: 100%; margin-bottom: -10px;"></b-img> -->
                                                     <promptpay-qr :id="item.prompt_pay" :amount=" parseFloat(item.qrcode_log.money)"></promptpay-qr>
                                                 </div>
                                             </b-card>
@@ -246,13 +250,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="container bg-white rounded-lg border">
-                                <div class="row p-3">
-                                <small class="d-block mt-1 text-dark">&bull; กรุณาคัดลอกเลชบัญชีหรือแคปภาพหน้าจอ</small>
-                                <small class="d-block mt-1 text-dark">&bull; โอนเงินให้ตรงกับยอดโอนเท่านั้น <span class="text-danger"><u>ห้ามปัดเศษ</u></span> เพราะระบบอ้างอิงยอดจาก <span class="text-danger"><u>ทศนิยม</u></span></small>
-                                <small class="d-block mt-1 text-dark">&bull; เงินจะเข้าสู่ระบบอัตโนมัติภานใน 1-2 นาที</small>
-                                </div>
-                            </div>
+
                             <div class="mt-2 mb-4">
                                 <div class="text-dark my-2">รายการฝากเงิน (โชว์รายการล่าสุด 5 รายการ)</div>
                                 <b-table class="border card px-2 text-sm rounded-lg text-white white-space" small :fields="tablePromtpay.fields" :items="tablePromtpay.items" responsive :th-class="text-dark"></b-table>
@@ -298,37 +296,31 @@
 
     <!-- alert-dialog -->
     <alert-dialog 
-        title="แจ้งเตือน" 
-        acceptText="ยืนยัน"
-        :active="topupPrompayActive" 
-        @hide="hideTopupPrompayDialog" 
-        
-       
-    > 
-    <div class="text-center py-4">
-          <p class="text-white">กรุณาโอนเงินพร้อมกับทศนิยมเท่านั้น ยอดเงินจะเข้าอัตโนมัติ</p>
-    </div>
-   
+    title="แจ้งเตือน"
+    acceptText="ยืนยัน" 
+    :active="topupPrompayActive" 
+    @hide="hideTopupPrompayDialog">
+        <div class="text-center py-4">
+            <p class="text-white">กรุณา <span class="text-danger"><u>โอนเงินพร้อมทศนิยม</u></span> ที่ระบบแสดงให้เท่านั้น มิเช่นนั้นเงินจะไม่เข้าอัตโนมัติ</p>
+        </div>
+
     </alert-dialog>
 
     <!-- Dialog -->
     <confirm-dialog 
-        title="แจ้งเตือน" 
-        acceptText="ยืนยัน"
-        cancelText="ยกเลิก"
-        :active="cancelTopupActive" 
-        @hide="hideCancelTopupDialog" 
-        @submit="onSubmitCancelTopup"
-    > 
-    <div class="text-center py-4">
-         <p class="text-white">คุณต้องการยกเลิกการเติมเงิน ?</p>
-    </div>
-   
+    title="แจ้งเตือน" 
+    acceptText="ยืนยัน" 
+    cancelText="ยกเลิก" 
+    :active="cancelTopupActive" 
+    @hide="hideCancelTopupDialog"
+    @submit="onSubmitCancelTopup">
+        <div class="text-center py-4">
+            <p class="text-white">คุณต้องการยกเลิกการเติมเงิน ?</p>
+        </div>
+
     </confirm-dialog>
 </div>
 </template>
-
-
 
 <script>
 import Info from "~/components/Info.vue";
@@ -338,9 +330,9 @@ export default {
     head() {
         return {
             title: "Deposit",
-            itemId:"",
-            money:"",
-            amount:""
+            itemId: "",
+            money: "",
+            amount: ""
         };
     },
     data: () => ({
@@ -373,12 +365,12 @@ export default {
         cancelTopupActive: false,
         topupPrompayActive: false,
         promptPayId: null,
-       
+
     }),
     components: {
         "page-info": Info,
         "confirm-dialog": ConfirmDialog,
-        "alert-dialog":AlertDialog,
+        "alert-dialog": AlertDialog,
     },
     asyncData: async function ({
         $axios
@@ -395,18 +387,18 @@ export default {
         this.getHistory();
     },
     methods: {
-    hideCancelTopupDialog(val) {
-        this.cancelTopupActive = val
-    },
-    hideTopupPrompayDialog(val) {
-        this.saveLog(this.amount,this.itemId,this.money);
-        this.topupPrompayActive = val
-    },
-    onSubmitCancelTopup() {
-        this.destroyLog(this.promptPayId);
-        this.cancelTopupActive = false
-    },
-           copyAffiliate: function (target) {
+        hideCancelTopupDialog(val) {
+            this.cancelTopupActive = val
+        },
+        hideTopupPrompayDialog(val) {
+            this.saveLog(this.amount, this.itemId, this.money);
+            this.topupPrompayActive = val
+        },
+        onSubmitCancelTopup() {
+            this.destroyLog(this.promptPayId);
+            this.cancelTopupActive = false
+        },
+        copyAffiliate: function (target) {
             this.$refs[target].select();
             document.execCommand("copy");
             this.$toast.global.success({
@@ -456,14 +448,14 @@ export default {
         async showMsgBox(id) {
             this.cancelTopupActive = true
             this.promptPayId = id
-            
+
         },
-        async showBox(id,itemId,money) {
+        async showBox(id, itemId, money) {
             this.topupPrompayActive = true
             this.itemId = itemId
             this.money = money
             this.amount = id
-           },
+        },
         copyPrompt: async function (text) {
             var textInput = document.createElement("input");
             textInput.type = "text";
@@ -669,23 +661,24 @@ export default {
     },
 };
 </script>
+
 <style scoped>
-
-.font-bank2{
-    width:70%;
-    float:right;
-    font-size:11px;
-    padding-left:2px;
-}
-.font-bank{
-    width:30%;
-    float:left;
-    font-size:10px;
-}
-.border .border-green{
-   border-color: #259690
+.font-bank2 {
+    width: 70%;
+    float: right;
+    font-size: 11px;
+    padding-left: 2px;
 }
 
+.font-bank {
+    width: 30%;
+    float: left;
+    font-size: 10px;
+}
+
+.border .border-green {
+    border-color: #259690
+}
 
 .text-yellow {
     color: #ffc107;
@@ -708,7 +701,7 @@ export default {
 }
 
 .btn-ocean {
-     background: linear-gradient(0deg,#410c0c 0,#991515);
+    background: linear-gradient(0deg, #410c0c 0, #991515);
     filter: drop-shadow(3px 3px 1px black);
 }
 
@@ -795,8 +788,6 @@ label {
     text-align: center;
 }
 
-
-
 .tab_container [id^="tab"]:checked+label .fa {
     color: #e00;
 }
@@ -805,8 +796,6 @@ label .fa {
     font-size: 1.3em;
     margin: 0 0.4em 0 0;
 }
-
-
 
 /*Media query*/
 @media only screen and (max-width: 930px) {
@@ -845,39 +834,39 @@ label .fa {
         opacity: 1;
     }
 }
-</style>
-
-<style>
+</style><style>
 .note-info {
-  color: #fff;
-  background-color: #000000;
-  border-color: #666;
+    color: #fff;
+    background-color: #000000;
+    border-color: #666;
 }
+
 .alert {
-  position: relative;
-  padding: 0.5rem 0.2rem;
-  /* margin-bottom: 1rem; */
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  border-radius: 0.25rem;
-  line-height: 1em;
-  background: #fff0;
-  margin-bottom: -10px;
-  margin-top: -5px;
+    position: relative;
+    padding: 0.5rem 0.2rem;
+    /* margin-bottom: 1rem; */
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    border-radius: 0.25rem;
+    line-height: 1em;
+    background: #fff0;
+    margin-bottom: -10px;
+    margin-top: -5px;
 }
+
 #app svg {
-  width: 90%;
-  height: 90%;
+    width: 90%;
+    height: 90%;
 }
+
 button.form-controls,
 input.form-controls {
-  color: #ccc;
-  border: 1px solid #555;
-  background-color: #a74e4e;
-  width: 100%;
-  border-radius: 5px;
+    color: #ccc;
+    border: 1px solid #555;
+    background-color: #a74e4e;
+    width: 100%;
+    border-radius: 5px;
 }
 
 /* .btn-money button { background: #fff; } */
-
 </style>
