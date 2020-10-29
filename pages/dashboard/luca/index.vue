@@ -223,10 +223,11 @@ export default {
       }
     },
     getSignatureLotto: async function (gameName) {
-      alert(this.isMobile);
+      // alert(this.isMobile);
     const loader = this.$loading.show({ "is-full-page": true });
     const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'lotto',isMobile:this.isMobile});
       if(lunchLuca.data.url.code==0){
+        loader.hide();
         window.location = lunchLuca.data.url.url;
       }else{
         this.$toast.global.error({ message: "เกิดข้อผิดพลาด" });

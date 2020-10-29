@@ -1308,32 +1308,46 @@ export default {
       this.$refs["modal-exchange"].show();
     },
     exchangeCredit: async function () {
-      const loader = this.$loading.show({
-        "is-full-page": true,
-      });
-      // const loader = this.$loading.show({ container: this.$refs.formInfoUser });
-      const { success, message } = await this.$axios.$post("/api/topup-bonus", {
-        val: this.$refs.exchange.value,
-      });
-      if (success) {
-        this.$root.$emit("bv::toggle::collapse", "collapse-exchange");
-        this.$refs.exchange.value = "";
-        this.$auth.fetchUser();
-        this.$toast.global.success({
-          message: message,
-        });
-        loader.hide();
-        this.$refs['modal-download'].hide()
-        this.$refs['modal-exchange'].hide()
-        } else {
-        this.$refs['modal-download'].hide()
-        this.$refs.exchange.focus();
-        this.$toast.global.error({
-          message: message,
-        });
-        loader.hide();
-      }
-    },
+            const loader = this.$loading.show({
+                "is-full-page": true
+            });
+
+            await this.$axios.request({
+                method: "POST",
+                url: "/api/topup-bonus",
+                data: {
+                    val: this.$refs.exchange.value,
+                }
+            })
+            .then((response) => response.data)
+            .then((response) => {
+                if (response.success) {
+                    this.$root.$emit("bv::toggle::collapse", "collapse-exchange");
+                    this.$refs["modal-exchange-wallet"].hide();
+                    this.$refs.exchange.value = "";
+                    this.$auth.fetchUser();
+                    this.fetchGamePlayer();
+                    this.$toast.global.success({
+                        message: response.message
+                    });
+                    loader.hide();
+                    this.$refs["modal-error-credit"].hide();
+                } else {
+                    this.$toast.global.error({
+                        message: response.message
+                    });
+                    loader.hide();
+                }
+            })
+            .catch((error) => {
+                if(error.response.status==429){
+                    this.$toast.global.error({
+                        message: 'กรุณารอสักครู่ และทำรายการใหม่อีกครั้งค่ะ'
+                    })
+                }
+                loader.hide()
+            })
+        },
   },
 };
 </script>
