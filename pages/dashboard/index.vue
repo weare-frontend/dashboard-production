@@ -1346,6 +1346,8 @@ export default {
                     })
                 }
                 loader.hide()
+                this.$refs['modal-download'].hide()
+                this.$refs['modal-exchange'].hide()
             })
         },
   },
