@@ -76,7 +76,7 @@
           <div class="text-center text-white ovrly py-4">เข้าสู่เกมส์</div>
         </div>
       </div>
-      <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
+      <!-- <div class="item col-6 col-sm-6 col-md-4 col-lg-4">
         <div
           class="btn25 aos-init aos-animate"
           data-aos="fade-up "
@@ -87,7 +87,6 @@
           <img class="w-100" src="~/assets/img/type/typeLotto.png" alt="game casino " />
           <div class="buttons">
               <a class="fa fa-sign-in-alt"></a>
-            <!-- <a class="fa fa-gamepad"></a> -->
           </div>
           <div class="text-center text-white ovrly py-4">เข้าสู่เว็บเดิมพัน</div>
         </div>
@@ -103,11 +102,10 @@
           <img class="w-100" src="~/assets/img/type/typeLottThai.png" alt="game casino " />
           <div class="buttons">
               <a class="fa fa-sign-in-alt"></a>
-            <!-- <a class="fa fa-gamepad"></a> -->
           </div>
           <div class="text-center text-white ovrly py-4">เข้าสู่เว็บเดิมพัน</div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- <div class="row justify-content-center">
       <div class="item col-12 col-sm-12 col-md-8 col-lg-4">
