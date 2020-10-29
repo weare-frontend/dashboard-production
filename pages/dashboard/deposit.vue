@@ -755,7 +755,7 @@ section {
 
 label {
     font-weight: 100;
-    font-size: 18px;
+    font-size: 15px;
     display: block;
     float: left;
     width: 20%;
