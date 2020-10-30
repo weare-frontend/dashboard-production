@@ -1,5 +1,5 @@
 var _ = require('underscore')
-
+const API_URL = process.env.API + 'backend' 
 export const state = () => ({
   appVersion: '1.0.0',
   theme: [],
@@ -63,7 +63,7 @@ export const actions = {
   async nuxtServerInit({ dispatch, commit, state }, { req }) {
     // Get session ID:
     commit('SET_APP_VERSION', process.env.APP_VERSION)
-    const { version } = await this.$axios.$get('/api/get-version')
+    const { version } = await this.$axios.$get(API_URL+'/api/get-version')
     await dispatch('GET_SPECIAL')
 
     if (this.$cookies.get('theme-color')) {
@@ -92,7 +92,7 @@ export const actions = {
     commit('SET_THEME_BACKGROUND', background)
   },
   async GET_THEMES({ commit }) {
-    const { theme, data, link_front } = await this.$axios.$get('/api/get-setting')
+    const { theme, data, link_front } = await this.$axios.$get(API_URL+'/api/get-setting')
     const themeArray = await _.map(theme, (item) => {
       item.img = process.env.API + 'backend/web/themes/' + item.img
       return item
@@ -101,7 +101,7 @@ export const actions = {
     commit('SET_SETTING', { ...data, link_front })
   },
   async GET_SPECIAL({ commit }) {
-    const { data } = await this.$axios.$get('/api/get-promotion/special')
+    const { data } = await this.$axios.$get(API_URL+'/api/get-promotion/special')
     const promotionArray = await _.map(data, (item) => {
       item.status = Number(item.status)
       item.img_banner = process.env.API + 'backend/web/special_promotions/' + item.img_banner
