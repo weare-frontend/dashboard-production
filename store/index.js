@@ -1,5 +1,6 @@
 var _ = require('underscore')
-const API_URL = process.env.API + 'backend' 
+const BASE_URL = process.env.API 
+const API_URL = BASE_URL + 'backend' 
 export const state = () => ({
   appVersion: '1.0.0',
   theme: [],
@@ -94,7 +95,7 @@ export const actions = {
   async GET_THEMES({ commit }) {
     const { theme, data, link_front } = await this.$axios.$get(API_URL+'/api/get-setting')
     const themeArray = await _.map(theme, (item) => {
-      item.img = process.env.API + 'backend/web/themes/' + item.img
+      item.img = BASE_URL + 'backend/web/themes/' + item.img
       return item
     })
     commit('SET_THEME', themeArray)
@@ -104,7 +105,7 @@ export const actions = {
     const { data } = await this.$axios.$get(API_URL+'/api/get-promotion/special')
     const promotionArray = await _.map(data, (item) => {
       item.status = Number(item.status)
-      item.img_banner = process.env.API + 'backend/web/special_promotions/' + item.img_banner
+      item.img_banner = BASE_URL + 'backend/web/special_promotions/' + item.img_banner
       return item
     })
     commit('SET_PROMOTIONS', promotionArray)
