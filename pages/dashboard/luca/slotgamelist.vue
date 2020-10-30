@@ -2,10 +2,24 @@
   <div class="container">
     <div class="row mt-0">
       <div class="col-2" style="white-space: nowrap">
-           <nuxt-link to="../luca" class="text-info">
+           <nuxt-link to="../luca/slot" class="text-info">
               <i class="fa fa-arrow-circle-left"></i> กลับ</nuxt-link>
         <small class="m-2 text-white" id="navi">
         </small>
+      </div>
+    </div>
+    <div class="row mt-2 justify-content-center">
+      <div class="col-8">
+        <div data-v-f9119b72 class="form-group m-2 ">
+          <input
+            @keyup="searchDetaiItemArray"
+            type="text"
+            ref="schGame"
+            maxlength="20"
+            placeholder="ค้นหาเกม"
+            class="form-control text-template boder-radius"
+          />
+        </div>
       </div>
     </div>
     <div id="exTab2" class="container mb-4 mb-5">
@@ -17,14 +31,24 @@
                 <li id="arcadetab"><a data-toggle="tab" href="#menu2">Arcade</a></li>
             </ul>
             <div class="tab-content">
-                <div id="home" class="tab-pane active">
-                    <div class="row pt-3" id="slot">
-                      <div class="text-center col-4 col-sm-4 col-md-3 col-lg-2" v-for="(list, i) in listGameArray[this.$route.query.code].lists" :index="i" :key="i">
+                <div id="home" class="tab-pane active pb-5">
+                    <div class="row" id="slot">
+                      <!-- <div class="text-center col-4 col-sm-4 col-md-3 col-lg-2" v-for="(list, i) in listGameArray[this.$route.query.code].lists" :index="i" :key="i"> -->
+                        <!-- {{filterItems(listGameArray[this.$route.query.code].lists,'Fa')}}÷ -->
+                      <div class="text-center col-4 col-sm-4 col-md-3 col-lg-2" v-for="(list, i) in listSearchGame" :index="i" :key="i">
                         <div class="btn25 media aos-init aos-animate" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800" @click="goGame(list.productCode,list.gameId)">       
-                          <img :src="'https://cdn.ambbet.com/'+list.imgUrl" :alt="list.productCode"  class="w-100">
+                          <!-- <img :src="'https://cdn.ambbet.com/'+list.imgUrl" :alt="list.productCode"  class="w-100"> -->
+                          <v-lazy-image
+                            :src="'https://cdn.ambbet.com/'+list.imgUrl"
+                            :src-placeholder="require('~/assets/img/progress-bar.png')"
+                            :alt="list.productCode"  class="w-100"
+                            />
                           <!-- <b-img-lazy v-bind="mainProps" :src="'https://cdn.ambbet.com/'+list.imgUrl" alt="Image 8" class="w-100"></b-img-lazy> -->
                           <div class="buttons"><i class="fa fa-sign-in-alt"></i></div>
-                        </div><small class="text-white"></small>
+                          
+                        </div>
+                        <small class="text-white"></small>
+                        <p class="text-template my-2">{{list.gameName}}</p>
                       </div>
                     </div>
                 </div>
@@ -39,9 +63,10 @@
   </div>
 </template>
 <script>
-// import Promotions from "~/components/Promotions.vue";
+import VLazyImage from "v-lazy-image";
 export default {
-  head() {
+  
+  data() {
     return {
       title: "Slot game",
       paramId :this.$route.query.code,
@@ -55,7 +80,8 @@ export default {
           width: 600,
           height: 400,
           class: 'my-5'
-        }
+        },
+        listSearchGame:[]
     };
   },
   asyncData: async function ({ $axios, env }) {
@@ -65,10 +91,14 @@ export default {
     // console.log(listGame);
     return { listGameArray: listGame.data };
   },
-  // components: {
-  //   "page-promotions": Promotions,
-  // },
+  components: {
+    VLazyImage
+  },
   computed: {
+    //  ...mapGetters(["getThemeObject", "getSettingObject"]),
+    getThemeObject: function () {
+      return this.$store.getters.getThemeObject;
+    },
     getSettingObject: function () {
       return this.$store.getters.getSettingObject;
     },
@@ -83,6 +113,7 @@ export default {
       this.isMobile = false;
     }
 
+    this.searchDetaiItemArray();
     // console.log(this.listGameArray);
     document.getElementById("navi").innerHTML ="<a href='../luca' class='text-muted'>หมวดเกม</a> / <a href='../luca/slot' class='text-muted'>สล็อต</a> / <u>เกม " + this.listGameArray[this.paramId].productCode + "</u>";
     //  return true;
@@ -159,6 +190,26 @@ export default {
        return true;
   },
   methods: {
+
+    filterItems: async function (arr, query) {
+      return arr.filter(function(el) {
+          return el.gameName.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      })
+    },
+    searchDetaiItemArray: async function () {
+      let search = this.$refs.schGame.value;
+      if (this.$refs.schGame.value=="" || this.$refs.schGame.value== null){
+        this.listSearchGame = await this.listGameArray[this.$route.query.code].lists
+      }else if ((this.$refs.schGame.value.match(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}/]+$/))){
+          this.$toast.global.error({
+              message: "กรุณากรอกข้อมูลให้ถูกต้อง",
+          });
+          return false;
+      }else{
+        this.listSearchGame = await this.filterItems(this.listGameArray[this.$route.query.code].lists,search)
+      }
+      
+    },
     goGame: async function (gameName,gameId) {
       const loader = this.$loading.show({ "is-full-page": true });
       const lunchLuca = await this.$axios.$post('/api/open-game',{game:gameName,gameType:'slot',gameId:gameId,isMobile:this.isMobile});

@@ -10,15 +10,43 @@
         </small>
       </div>
     </div>
-    <div class="row" id="div1"></div>
+    <div class="row" id="div1">
+      <div class="item col-6 col-sm-6 col-md-4 col-lg-4" v-for="(list , i) in listGameArray" :index="i" :key="i">
+
+        <a :href="'../luca/slotgamelist?code=' + i" id="one" class="w-100" @click="clickToLink" >
+          <div class="btn25 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600" style="cursor: pointer; background-image:url(https://ak.picdn.net/shutterstock/videos/23760100/thumb/12.jpg);background-size: 100%;background-position: bottom; overflow:hidden;" id="two">
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_amb.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-if="list.productCode == 'askmebet'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_gmt.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'gamatron'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_xo.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'slotxo'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_spg.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'spade_gaming'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_live.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'live_22'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_pg.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'pg_slot'"></v-lazy-image>
+            <v-lazy-image class="w-100 my-3" src="https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_ab.png" :src-placeholder="require('~/assets/img/progress-bar.png')" :alt="'game'+list.productCode" v-else-if="list.productCode == 'ameba'"></v-lazy-image>
+            <div class="text-center pt-4 text-white ovrly">
+              {{'ข้าสู่เกมส์ '+list.productName}}
+            </div>
+            <div class="buttons">
+              <i class="fa fa-sign-in-alt"></i> 
+            </div>
+          </div>
+       </a>
+        <p class="text-center text-template mt-2">{{list.productName}}</p>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import Promotions from "~/components/Promotions.vue";
+import VLazyImage from "v-lazy-image";
 export default {
   head() {
     return {
       title: "Slot game",
+    };
+  },
+  data() {
+    return {
+      imgProvider: "",
     };
   },
   asyncData: async function ({ $axios, env }) {
@@ -30,6 +58,7 @@ export default {
   },
   components: {
     "page-promotions": Promotions,
+    VLazyImage
   },
   computed: {
     getSettingObject: function () {
@@ -43,28 +72,31 @@ export default {
     var i;
     for (i = 0; i < result.length; i++) {
       if (result[i].productCode == "askmebet") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_amb.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_amb.png";
       } else if (result[i].productCode == "gamatron") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_gmt.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_gmt.png";
       } else if (result[i].productCode == "slotxo") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_xo.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_xo.png";
       } else if (result[i].productCode == "spade_gaming") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_spg.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_spg.png";
       } else if (result[i].productCode == "live_22") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_live.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_live.png";
       } else if (result[i].productCode == "pg_slot") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_pg.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_pg.png";
       } else if (result[i].productCode == "ameba") {
-        img = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_ab.png";
+        this.imgProvider = "https://test2.slotsiber.com/wp-content/uploads/2020/07/logo_ab.png";
       }
-      text +='  <div class="item col-6 col-sm-6 col-md-4 col-lg-4"><a href="../luca/slotgamelist?code=' + i +'" id="one" class="w-100"><div class="btn25 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600" style="cursor: pointer; background-image:url(https://ak.picdn.net/shutterstock/videos/23760100/thumb/12.jpg);background-size: 100%;background-position: bottom;" id="two"><img class="w-100 my-3" src="'+img+'" alt="game casino" /><div class="text-center pt-4 text-white ovrly">เข้าสู่เกมส์'+" "+" "+result[i].productName+'</div> <div class="buttons"><i class="fa fa-sign-in-alt"></i> </div></div></a></div>';
-      document.getElementById("div1").innerHTML = text;
+      // text +='  <div class="item col-6 col-sm-6 col-md-4 col-lg-4"><a href="../luca/slotgamelist?code=' + i +'" id="one" class="w-100" @click="clickToLink" ><div class="btn25 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600" style="cursor: pointer; background-image:url(https://ak.picdn.net/shutterstock/videos/23760100/thumb/12.jpg);background-size: 100%;background-position: bottom;" id="two"><v-lazy-image class="w-100 my-3" src="'+img+'" src-placeholder="https://s0.gifyu.com/images/loading81d3e.gif" alt="game slot" /><div class="text-center pt-4 text-white ovrly">เข้าสู่เกมส์'+" "+" "+result[i].productName+'</div> <div class="buttons"><i class="fa fa-sign-in-alt"></i> </div></div></a></div>';
+      // document.getElementById("div1").innerHTML = text;
     }
   },
    methods: {
     gamelist: async function () {
       const loader = this.$loading.show({ "is-full-page": true });
       window.location = "luca/slotgamelist/"+gameList;
+    },
+    clickToLink: async function () {
+      const loader = this.$loading.show({ "is-full-page": true });
     }
   }
 };
